@@ -29,7 +29,8 @@ We must also be wary of geographical considerations. Our data analysis couldn't 
 - The impact on wind patterns and air circulation
 - The potential effects of wildfires on air quality
 
-These geographical factors play a significant role in local air quality dynamics but were beyond the scope of our current data set. The impact of the geological features can be seen in the image below (figure 1414)
+These geographical factors play a significant role in local air quality dynamics but were beyond the scope of our current data set. The impact of the geological features can be seen in the image below (AirNow Map) illustrates how the surrounding mountains create a basin effect, trapping pollutants and contributing to higher air pollution levels. 
+The concentrated red and orange areas, particularly on right side of the Willamette Valley.Do the mountains in the image seem to create barriers to air flow, potentially trapping pollutants in certain areas?
 
 ![AirNow Map](https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/AirNow-Map.png?raw=true)
 

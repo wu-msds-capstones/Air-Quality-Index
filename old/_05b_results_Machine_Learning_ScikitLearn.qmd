@@ -2,11 +2,8 @@
 Ultimately, we want to see which variables have the greatest impact on AQI. To do this we must perform a machine learning analysis and create a prediction algorithm. 
 
 ```{python}
+#| label: import-packages
 #| echo: false
-#| label: import-library
-
-import numpy as np
-import pandas as pd
 import numpy as np
 import pandas as pd
 import seaborn as sns
@@ -27,22 +24,26 @@ from sklearn.feature_selection import SelectKBest
 from sklearn.pipeline import Pipeline
 from sklearn.model_selection import RandomizedSearchCV
 from scipy.stats import randint
-from sklearn.metrics import classification_report
 ```
 
 First, missing data must be addressed. This can be done in a variety of ways, but for this we replace NA values with the mean for the respective city and group by week. If there is no data to take a mean of, that row will be dropped. 
 
 ```{python}
-#| include: false 
-#| label: import-data
+#| echo: false 
+#| label: read-csv
 df = pd.read_csv('https://raw.githubusercontent.com/wu-msds-capstones/Air-Quality-Index/main/data/metro_1mil.csv')
 len(df)
 ```
 
 ```{python}
+#| label: check-isna
+#| echo: false
+df.isna().sum()
+```
+
+```{python}
 #| label: met-dataframe
 #| echo: false
-
 met = df[[
     'date',
     'state',
@@ -87,16 +88,14 @@ met = met.rename(columns={'mean_temperature_fahrenheit': 'temp',
 
 
 ```{python}
-#| include: false
+#| echo: false
 #| label: check-NaN
-
 met.isna().sum()
 ```
 
 ```{python}
-#| include: false
+#| echo: false
 #| label: set-index-ts
-
 met['date'] = pd.to_datetime(met['date'])
 met.set_index('date', inplace=True)
 #group by week, drop lead for too much missing data
@@ -127,7 +126,7 @@ met = met.groupby([pd.Grouper(freq='W'), 'state', 'county', 'city']).agg({
 Since AQI is the dependent variable being measured, all rows without AQI data are dropped. Certain cities have very little data and will be dropped out of necessity.
 
 ```{python}
-#| include: false
+#| echo: false
 #| label: drop-missNaN-col
 met = met[met['city'] != 'Virginia Beach']
 ```
@@ -139,7 +138,7 @@ met = met.dropna(subset=['aqi'])
 ```
 
 ```{python}
-#| include: false
+#| echo: false
 #| label: check-NaN-again
 met.isna().sum()
 ```
@@ -147,7 +146,7 @@ met.isna().sum()
 The data collected has separate information for the city of New York City. NYC is divided into five boroughs, each within its own county. These values are grouped and averaged out to make NYC have the same amount of datapoints as every other city. This will also address data present in some New York boroughs but not others. Likewise, Kansas City spans two states and two counties, so those values are grouped together.
 
 ```{python}
-#| include: false
+#| echo: false
 #| label: group-nyc-1-city
 nyc = met[met['city'] == 'New York']
 columns = ['date', 'aqi', 'temp', 'pressure','humidity',
@@ -230,7 +229,6 @@ ds = met.dropna()
 
 ds.groupby('city').size().reset_index(name='count')
 ```
-(Figure 24324)
 
 To perform a ML prediction algorithm, the predicted variable (AQI) must be discrete. To achieve this, we bin AQI data into discrete groups. Initially, we thought to bin them based on the existing AQI categories, but found that most of the data is grouped in the sub 100 range. Therefore, we expanded the bins, focusing the prediction on outcomes in the double digits. The bins chosen are: 
 
@@ -246,7 +244,7 @@ To perform a ML prediction algorithm, the predicted variable (AQI) must be discr
 - 151+
 
 ```{python}
-#| include: false
+#| echo: false
 #| label: AQI-bin-ML
 bins = [0, 30, 40, 50, 60, 70, 80, 90, 100, 150, 500]
 
@@ -257,7 +255,7 @@ ds.head()
 ```
 
 ```{python}
-#| include: false
+#| echo: false
 #| label: label-bin
 labels = ['0-30', '31-40', '41-50', '51-60', '61-70', '71-80', '81-90', '91-100', '101-150', '151+']
 ds.loc[:,'aqi_discrete'] = pd.cut(ds['aqi'], bins=bins, labels=labels, right=True)
@@ -267,7 +265,6 @@ ds.head()
 
 ```{python}
 #| echo: false
-#| warning: false
 #| label: convert-year-month-datetime
 ds.loc[:,'year'] = pd.to_datetime(ds['date']).dt.year
 ds.loc[:,'month'] = pd.to_datetime(ds['date']).dt.month
@@ -323,7 +320,7 @@ encoder = OneHotEncoder(sparse_output=False, min_frequency=5, handle_unknown='in
 ```
 
 ```{python}
-#| include: false
+#| echo: false
 #| label: def-transformer
 #define transformer with encoder and standardscaler
 
@@ -372,7 +369,7 @@ Feature selection is done on the data. From this we are given the following vari
 These features are used in the final model.
 
 ```{python}
-#| include: false
+#| echo: false
 #| label: feature-select
 #feature selection
 feature_selector = SelectKBest(k=10)
@@ -419,11 +416,10 @@ With these features, we test various models with default parameters to see which
 - Logistic Regression 
 - Naive Bayes 
 
-Running the models gives the output shown below in figure 12345. Random Forest model is the most accurate and will be used for the final model.
+Running the models gives the output in figure 234324. Random Forest model is the most accurate and will be used for the final model.
 
 ```{python}
 #| echo: false
-#| warning: false
 #| label: model-select
 model1 = KNeighborsClassifier(n_neighbors=5)
 model2 = tree.DecisionTreeClassifier()
@@ -446,13 +442,13 @@ for model, label in zip([model1, model2, model3, model4, model5], ['KNN', 'Tree'
         'Accuracy': accuracy
     })
 
-display(pd.DataFrame(results))
+#display(pd.DataFrame(results))
 ```
-(Figure 12345)
+
 
 
 ```{python}
-#| include: false
+#| echo: false
 #| label: def-best-model
 #Create model from most accurate, RandomForest
 model = RandomForestClassifier(n_estimators=10)
@@ -460,20 +456,15 @@ model.fit(X_train_trans, y_train)
 
 #predict on test data
 y_pred = model.predict(X_test_trans)
-```
 
-```{python}
-#| include: false
-#| label: CKS-Accuracy
 #Print results
-print("Cohen Kappa Score: ", cohen_kappa_score(y_test, y_pred))
-print("Accuracy: ", sum(y_test == y_pred)/len(y_test))
+print("cohen kappa score: ", cohen_kappa_score(y_test, y_pred))
+print("accuracy: ", sum(y_test == y_pred)/len(y_test))
 ```
-
 
 ```{python}
 #| label: confus-matrix1
-#| include: false
+#| echo: false
 #| output: false
 ConfusionMatrixDisplay(
     confusion_matrix = confusion_matrix(
@@ -484,8 +475,10 @@ ConfusionMatrixDisplay(
         ).plot(xticks_rotation='vertical')
 ```
 
+![AirQuality Confusion Matrix 1](https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/AirQuality-ConfusionMatrix_init1.png?raw=true)
+
 ```{python}
-#| include: false
+#| echo: false
 #| label: improve-transformer
 #redefined transformer
 transformer = ColumnTransformer(
@@ -523,7 +516,7 @@ Hyperparameter optimization will be done to further improve the model. A randomi
 - Bootstrap
 
 ```{python}
-#| include: false
+#| echo: false
 #| label: hyper-parameters-optim
 #hyperparameter optimization
 classification_pipeline.get_params()
@@ -532,7 +525,7 @@ classification_pipeline.get_params()
 
 
 ```{python}
-#| include: false
+#| echo: false
 #| label: def-parameters
 parameters = {
     'aqi_transformer__categories__max_categories': randint(3,30),
@@ -544,14 +537,14 @@ parameters = {
     'RF_model__n_estimators': randint(50, 200),
     'RF_model__bootstrap': [True, False]
 }
-n_iter_search = 1
+n_iter_search = 100
 random_search = RandomizedSearchCV(classification_pipeline, param_distributions=parameters,
                                    n_iter=n_iter_search, n_jobs=-1, cv=5)
 random_search.fit(X_train, y_train)
 print(random_search.best_score_)
 ```
 
-Figure 9999 below shows the selected hyperparameters.
+Figure 242442 below shows the selected hyperparameters.
 
 ```{python}
 #| echo: false
@@ -563,7 +556,6 @@ params_df = pd.DataFrame(list(random_search.best_params_.items()), columns=['Par
 # Print the DataFrame
 display(params_df)
 ```
-(Figure 9999)
 
 Using these hyperparameters, we reach an accuracy of about 63%.
 
@@ -590,58 +582,5 @@ ConfusionMatrixDisplay(
 ```
 
 ![AirQuality Confusion Matrix 2](https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/AirQuality-ConfusionMatrix_init2.png?raw=true)
-(Figure 4582)
 
 We can use this model for the prediction of AQI, exploring the features that predict it, and use that to generate conclusions for what particles to reduce or systems to increase.
-
-Below, figure 111111 shows a classification report of the model. We can see that AQI groups from around 31-60 are strongest. We can attribute this to the higher amounts of data for these groups. To make the model more accurate, more data from AQI values outside this range will need to be collected.
-
-```{python}
-#| echo: false
-#| warning: false
-#| label: classification-report
-report = classification_report(y_test, y_pred, target_names=model.classes_, output_dict=True)
-
-df_report = pd.DataFrame(report).transpose()
-
-display(df_report)
-```
-(Figure 111111)
-
-We can also take a look at which features end up being most influential in the model. Below figure 1414 shows PM2.5 being by far the most influential variable in the model. Thus, we can focus more of our efforts on impacting the amount of PM2.5 in the air.
-
-```{python}
-#| echo: false
-#| warning: false
-#| label: feature-importance
-
-features = pd.DataFrame(
-   dict(
-      variable = model.feature_names_in_,
-      importance = model.feature_importances_
-   )
-)
-
-
-features = features[features['importance'] >= .05]
-features = features.sort_values(by='importance', ascending=False)
-
-features.replace({
-    'pm25': 'PM2.5', 
-    'o3': 'Ozone', 
-    'pm100': 'PM10',
-    'temp': 'Temp',
-    'humidity': 'Humidity',
-    'co': 'CO',
-    'no2': 'NO2'
-    }, inplace=True)
-
-
-plt.bar(features.loc[:,"variable"], features.loc[:,"importance"], color='skyblue')
-
-plt.title('Most Important Features')
-plt.ylabel('Feature Importance')
-
-plt.show()
-```
-(Figure 1414)

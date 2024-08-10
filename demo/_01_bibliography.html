@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Stephane Berhault">
+<meta name="dcterms.date" content="2023-08-09">
 
-<title>b_results_machine_learning_scikitlearn</title>
+<title>Bibliography</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,19 +25,16 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="_05b_results_Machine_Learning_ScikitLearn_files/libs/clipboard/clipboard.min.js"></script>
-<script src="_05b_results_Machine_Learning_ScikitLearn_files/libs/quarto-html/quarto.js"></script>
-<script src="_05b_results_Machine_Learning_ScikitLearn_files/libs/quarto-html/popper.min.js"></script>
-<script src="_05b_results_Machine_Learning_ScikitLearn_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="_05b_results_Machine_Learning_ScikitLearn_files/libs/quarto-html/anchor.min.js"></script>
-<link href="_05b_results_Machine_Learning_ScikitLearn_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="_05b_results_Machine_Learning_ScikitLearn_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="_05b_results_Machine_Learning_ScikitLearn_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="_05b_results_Machine_Learning_ScikitLearn_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="_05b_results_Machine_Learning_ScikitLearn_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<script src="_01_bibliography_files/libs/clipboard/clipboard.min.js"></script>
+<script src="_01_bibliography_files/libs/quarto-html/quarto.js"></script>
+<script src="_01_bibliography_files/libs/quarto-html/popper.min.js"></script>
+<script src="_01_bibliography_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="_01_bibliography_files/libs/quarto-html/anchor.min.js"></script>
+<link href="_01_bibliography_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="_01_bibliography_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="_01_bibliography_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="_01_bibliography_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="_01_bibliography_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
@@ -48,14 +47,26 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Results Machine Learning Scikit-Learn</h1>
+<h1 class="title">Bibliography</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Stephane Berhault </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 9, 2023</p>
+    </div>
+  </div>
   
     
   </div>
@@ -65,425 +76,29 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Ultimately, we want to see which variables have the greatest impact on AQI. To do this we must perform a machine learning analysis and create a prediction algorithm.</p>
-<p>First, missing data must be addressed. This can be done in a variety of ways, but for this we replace NA values with the mean for the respective city and group by week. If there is no data to take a mean of, that row will be dropped.</p>
-<p>Since AQI is the dependent variable being measured, all rows without AQI data are dropped. Certain cities have very little data and will be dropped out of necessity.</p>
-<p>The data collected has separate information for the city of New York City. NYC is divided into five boroughs, each within its own county. These values are grouped and averaged out to make NYC have the same amount of datapoints as every other city. This will also address data present in some New York boroughs but not others. Likewise, Kansas City spans two states and two counties, so those values are grouped together.</p>
-<p>After this data cleaning, we are left with a total of eighteen cities across the country with a total metropolitan area population of greater than one million. The table below (figure 24324) shows all eighteen cities being used in the prediction algorithm and their respective row counts.</p>
-<div id="cell-count-cities" class="cell" data-execution_count="12">
-<div id="count-cities" class="cell-output cell-output-display" data-execution_count="12">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">city</th>
-<th data-quarto-table-cell-role="th">count</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Boston</td>
-<td>418</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Charlotte</td>
-<td>418</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>Cincinnati</td>
-<td>418</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>Cleveland</td>
-<td>418</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>Dallas</td>
-<td>418</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>Detroit</td>
-<td>418</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>Houston</td>
-<td>418</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">7</td>
-<td>Kansas City</td>
-<td>241</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8</td>
-<td>Los Angeles</td>
-<td>418</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">9</td>
-<td>Memphis</td>
-<td>418</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">10</td>
-<td>New York City</td>
-<td>418</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">11</td>
-<td>Phoenix</td>
-<td>418</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">12</td>
-<td>Pittsburgh</td>
-<td>418</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">13</td>
-<td>Portland</td>
-<td>418</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">14</td>
-<td>Raleigh</td>
-<td>418</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">15</td>
-<td>Seattle</td>
-<td>418</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">16</td>
-<td>St. Louis</td>
-<td>418</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">17</td>
-<td>Washington</td>
-<td>418</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p>(Figure 24324)</p>
-<p>To perform a ML prediction algorithm, the predicted variable (AQI) must be discrete. To achieve this, we bin AQI data into discrete groups. Initially, we thought to bin them based on the existing AQI categories, but found that most of the data is grouped in the sub 100 range. Therefore, we expanded the bins, focusing the prediction on outcomes in the double digits. The bins chosen are:</p>
-<ul>
-<li>0-30</li>
-<li>31-40</li>
-<li>41-50</li>
-<li>51-60</li>
-<li>61-70</li>
-<li>71-80</li>
-<li>81-90</li>
-<li>91-100</li>
-<li>101-150</li>
-<li>151+</li>
-</ul>
-<p>A feature selector is run on the set of all variables. This chooses the best predictors of the dependent variable AQI.</p>
-<p>The following tools are used:</p>
-<ul>
-<li>Train Test Split</li>
-<li>One Hot Encoder</li>
-<li>Transformer</li>
-<li>Pipeline</li>
-<li>Standard Scaler</li>
-</ul>
-<p>Feature selection is done on the data. From this we are given the following variables:</p>
-<ul>
-<li>City</li>
-<li>Temperature</li>
-<li>Humidity</li>
-<li>Carbon Monoxide</li>
-<li>Nitrogen Dioxide</li>
-<li>Ozone</li>
-<li>PM10</li>
-<li>PM2.5</li>
-</ul>
-<p>These features are used in the final model.</p>
-<p>With these features, we test various models with default parameters to see which is the most accurate at predicting AQI from this dataset. The five models tested are:</p>
-<ul>
-<li>K nearest neighbors</li>
-<li>Tree model</li>
-<li>Random Forest model</li>
-<li>Logistic Regression</li>
-<li>Naive Bayes</li>
-</ul>
-<p>Running the models gives the output shown below in figure 12345. Random Forest model is the most accurate and will be used for the final model.</p>
-<div id="cell-model-select" class="cell" data-execution_count="21">
-<div id="model-select" class="cell-output cell-output-display">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Model</th>
-<th data-quarto-table-cell-role="th">Cohen Kappa Score</th>
-<th data-quarto-table-cell-role="th">Accuracy</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>KNN</td>
-<td>0.279682</td>
-<td>0.451824</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Tree</td>
-<td>0.385843</td>
-<td>0.518781</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>Random Forest</td>
-<td>0.481175</td>
-<td>0.602069</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>Logistic</td>
-<td>0.312286</td>
-<td>0.485574</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>naive Bayes</td>
-<td>0.003825</td>
-<td>0.048993</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p>(Figure 12345)</p>
-<p>Hyperparameter optimization will be done to further improve the model. A randomized search is run with 100 iterations. The following hyperparameters are optimized:</p>
-<ul>
-<li>Max Categories</li>
-<li>Min Frequency</li>
-<li>Max Depth</li>
-<li>Max Features</li>
-<li>Min Samples Leaf</li>
-<li>Min Samples Split</li>
-<li>Num Estimators</li>
-<li>Bootstrap</li>
-</ul>
-<p>Figure 9999 below shows the selected hyperparameters.</p>
-<div id="cell-randsearch-get-params" class="cell" data-execution_count="28">
-<div id="randsearch-get-params" class="cell-output cell-output-display">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Parameter</th>
-<th data-quarto-table-cell-role="th">Value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>RF_model__bootstrap</td>
-<td>False</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>RF_model__max_depth</td>
-<td>13</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>RF_model__max_features</td>
-<td>log2</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>RF_model__min_samples_leaf</td>
-<td>7</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>RF_model__min_samples_split</td>
-<td>7</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>RF_model__n_estimators</td>
-<td>51</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>aqi_transformer__categories__max_categories</td>
-<td>28</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">7</td>
-<td>aqi_transformer__categories__min_frequency</td>
-<td>16</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p>(Figure 9999)</p>
-<p>Using these hyperparameters, we reach an accuracy of about 63%.</p>
-<div id="predict-x_test" class="cell" data-execution_count="29">
-<div class="cell-output cell-output-stdout">
-<pre><code>Cohen Kappa Score:  0.49858204285937757
-Accuracy:  0.6200326619488297</code></pre>
-</div>
-</div>
-<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/AirQuality-ConfusionMatrix_init2.png?raw=true" class="img-fluid" alt="AirQuality Confusion Matrix 2"> (Figure 4582)</p>
-<p>We can use this model for the prediction of AQI, exploring the features that predict it, and use that to generate conclusions for what particles to reduce or systems to increase.</p>
-<p>Below, figure 111111 shows a classification report of the model. We can see that AQI groups from around 31-60 are strongest. We can attribute this to the higher amounts of data for these groups. To make the model more accurate, more data from AQI values outside this range will need to be collected.</p>
-<div id="cell-classification-report" class="cell" data-execution_count="31">
-<div id="classification-report" class="cell-output cell-output-display">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">precision</th>
-<th data-quarto-table-cell-role="th">recall</th>
-<th data-quarto-table-cell-role="th">f1-score</th>
-<th data-quarto-table-cell-role="th">support</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0-30</td>
-<td>0.666667</td>
-<td>0.204082</td>
-<td>0.312500</td>
-<td>49.000000</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">101-150</td>
-<td>0.560000</td>
-<td>0.622222</td>
-<td>0.589474</td>
-<td>45.000000</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">151+</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>20.000000</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">31-40</td>
-<td>0.720379</td>
-<td>0.791667</td>
-<td>0.754342</td>
-<td>384.000000</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">41-50</td>
-<td>0.670199</td>
-<td>0.804452</td>
-<td>0.731214</td>
-<td>629.000000</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">51-60</td>
-<td>0.548223</td>
-<td>0.571429</td>
-<td>0.559585</td>
-<td>378.000000</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">61-70</td>
-<td>0.391304</td>
-<td>0.306818</td>
-<td>0.343949</td>
-<td>176.000000</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">71-80</td>
-<td>0.388889</td>
-<td>0.160920</td>
-<td>0.227642</td>
-<td>87.000000</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">81-90</td>
-<td>0.285714</td>
-<td>0.133333</td>
-<td>0.181818</td>
-<td>45.000000</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">91-100</td>
-<td>0.166667</td>
-<td>0.041667</td>
-<td>0.066667</td>
-<td>24.000000</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">accuracy</td>
-<td>0.620033</td>
-<td>0.620033</td>
-<td>0.620033</td>
-<td>0.620033</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">macro avg</td>
-<td>0.439804</td>
-<td>0.363659</td>
-<td>0.376719</td>
-<td>1837.000000</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">weighted avg</td>
-<td>0.589459</td>
-<td>0.620033</td>
-<td>0.595038</td>
-<td>1837.000000</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p>(Figure 111111)</p>
-<p>We can also take a look at which features end up being most influential in the model. Below figure 1414 shows PM2.5 being by far the most influential variable in the model. Thus, we can focus more of our efforts on impacting the amount of PM2.5 in the air.</p>
-<div id="cell-feature-importance" class="cell" data-execution_count="32">
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="_05b_results_Machine_Learning_ScikitLearn_files/figure-html/feature-importance-output-1.png" id="feature-importance" width="597" height="431" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>(Figure 1414)</p>
+<section id="bibliography" class="level1">
+<h1>Bibliography</h1>
+<p>Airly. (n.d.). <em>How does humidity affect air quality? All you need to know</em>. <a href="https://airly.org/en/how-does-humidity-affect-air-quality-all-you-need-to-know/">airly.org/en/how-does-humidity-affect-air-quality-all-you-need-to-know/</a></p>
+<p>AirNow. (n.d.). <em>Using air quality index</em>. <a href="https://www.airnow.gov/aqi/aqi-basics/using-air-quality-index">www.airnow.gov/aqi/aqi-basics/using-air-quality-index</a></p>
+<p>American Lung Association. (n.d.). <em>Key findings: State of the air</em>. <a href="https://www.lung.org/research/sota/key-findings">www.lung.org/research/sota/key-findings</a></p>
+<p>California Air Resources Board. (n.d.). <em>Carbon monoxide &amp; health</em>. <a href="https://ww2.arb.ca.gov/resources/carbon-monoxide-and-health">ww2.arb.ca.gov/resources/carbon-monoxide-and-health</a></p>
+<p>Centers for Disease Control and Prevention, Agency for Toxic Substances and Disease Registry. (2014, October 21). <em>Medical management guidelines for sulfur dioxide</em>. <a href="https://wwwn.cdc.gov/TSP/MMG/MMGDetails.aspx?mmgid=249&amp;toxid=46">wwwn.cdc.gov/TSP/MMG/MMGDetails.aspx?mmgid=249&amp;toxid=46</a></p>
+<p>Centers for Disease Control and Prevention, Agency for Toxic Substances and Disease Registry. (2023, April 12). <em>Toxic substances portal - Nitrogen oxides</em>. <a href="https://wwwn.cdc.gov/TSP/ToxFAQs/ToxFAQsDetails.aspx?faqid=396&amp;toxid=69">wwwn.cdc.gov/TSP/ToxFAQs/ToxFAQsDetails.aspx?faqid=396&amp;toxid=69</a></p>
+<p>Congressional Budget Office. (2023, May). <em>Reducing emissions from transportation</em>. <a href="https://www.cbo.gov/publication/60030">www.cbo.gov/publication/60030</a></p>
+<p>Environmental Protection Agency. (n.d.-a). <em>Evolution of the Clean Air Act</em>. <a href="https://www.epa.gov/clean-air-act-overview/evolution-clean-air-act">www.epa.gov/clean-air-act-overview/evolution-clean-air-act</a></p>
+<p>Environmental Protection Agency. (n.d.-b). <em>Health effects of ozone pollution</em>. <a href="https://www.epa.gov/ground-level-ozone-pollution/health-effects-ozone-pollution">www.epa.gov/ground-level-ozone-pollution/health-effects-ozone-pollution</a></p>
+<p>Environmental Protection Agency. (n.d.-c). <em>Particulate matter (PM) basics</em>. <a href="https://www.epa.gov/pm-pollution/particulate-matter-pm-basics">www.epa.gov/pm-pollution/particulate-matter-pm-basics</a></p>
+<p>Federal Transit Administration. (n.d.). <em>NTD data tables</em>. American Public Transportation Association. <a href="https://www.apta.com/research-technical-resources/transit-statistics/ntd-data-tables/">www.apta.com/research-technical-resources/transit-statistics/ntd-data-tables/</a></p>
+<p>Fuller, R., Landrigan, P. J., Balakrishnan, K., Bathan, G., Bose-O’Reilly, S., Brauer, M., Caravanos, J., Chiles, T., Cohen, A., Corra, L., Cropper, M., Ferraro, G., Hanna, J., Hanrahan, D., Hu, H., Hunter, D., Janata, G., Kupka, R., Lanphear, B., . . . Yadama, G. N. (2022). Pollution and health: A progress update. <em>The Lancet Planetary Health</em>, <em>6</em>(6), e535-e547. <a href="https://www.thelancet.com/journals/lanplh/article/PIIS2542-5196(22)00090-0/fulltext">www.thelancet.com/journals/lanplh/article/PIIS2542-5196(22)00090-0/fulltext</a></p>
+<p>Jacobs, E. T., Burgess, J. L., &amp; Abbott, M. B. (2018). The Donora smog revisited: 70 years after the event that inspired the clean air act. <em>American Journal of Public Health</em>, <em>108</em>(S2), S85-S88. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5922205/">www.ncbi.nlm.nih.gov/pmc/articles/PMC5922205/</a></p>
+<p>Manisalidis, I., Stavropoulou, E., Stavropoulos, A., &amp; Bezirtzoglou, E. (2020). Environmental and health impacts of air pollution: A review. <em>Frontiers in Public Health</em>, <em>8</em>, 14. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7044178/">www.ncbi.nlm.nih.gov/pmc/articles/PMC7044178/</a></p>
+<p>National Oceanic and Atmospheric Administration. (n.d.). <em>What are a nautical mile and a knot?</em> <a href="https://oceanservice.noaa.gov/facts/nautical-mile-knot.html">oceanservice.noaa.gov/facts/nautical-mile-knot.html</a></p>
+<p>National Weather Service. (n.d.). <em>Pressure and winds</em>. <a href="https://www.weather.gov/source/zhu/ZHU_Training_Page/winds/pressure_winds/Pressure.htm">www.weather.gov/source/zhu/ZHU_Training_Page/winds/pressure_winds/Pressure.htm</a></p>
+<p>Oregon Wildfire Response and Recovery. (n.d.). <em>Wildfire prevention</em>. <a href="https://wildfire.oregon.gov/prevention">wildfire.oregon.gov/prevention</a></p>
+<p>World Health Organization. (2014, March 25). <em>7 million premature deaths annually linked to air pollution</em>. <a href="https://www.who.int/news/item/25-03-2014-7-million-premature-deaths-annually-linked-to-air-pollution">www.who.int/news/item/25-03-2014-7-million-premature-deaths-annually-linked-to-air-pollution</a></p>
+<p>World Health Organization. (2022, October 31). <em>Lead poisoning and health</em>. <a href="https://www.who.int/news-room/fact-sheets/detail/lead-poisoning-and-health">www.who.int/news-room/fact-sheets/detail/lead-poisoning-and-health</a></p>
+<p>Zhang, Y., Cooper, O. R., Gaudel, A., Thompson, A. M., Nédélec, P., Ogino, S. Y., &amp; West, J. J. (2018). Tropospheric ozone change from 1980 to 2010 dominated by equatorward redistribution of emissions. <em>Nature Geoscience</em>, <em>11</em>, 637-644. <a href="https://acp.copernicus.org/articles/18/15003/2018/">acp.copernicus.org/articles/18/15003/2018/</a></p>
+</section>
 
 </main>
 <!-- /main column -->

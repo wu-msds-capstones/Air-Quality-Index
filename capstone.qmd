@@ -36,11 +36,12 @@ format:
     fig-height: 6
     code-fold: true
     code-tools:
-      source: repo
+      source: true
       toggle: true
       caption: none
     smooth-scroll: true
     toc: true
+    toc-location: left
     toc-title: Contents
     number-sections: false
     other-links:
@@ -50,6 +51,9 @@ format:
       - text: Sweetviz Analysis Report
         icon: file-code
         href: SWEETVIZ_REPORT.html
+      - text: ydata Analysis Report
+        icon: file-code
+        href: your_report2.html
     html-math-method: mathjax
     css: styles.css
 ---
@@ -61,3 +65,4 @@ format:
 {{< include _05c_results_Machine_Learning_SARIMAX.qmd >}}
 {{< include _06_conclusions.qmd >}}
 {{< include _07_bibliography.qmd >}}
+{{< include _08_reference.qmd >}}
