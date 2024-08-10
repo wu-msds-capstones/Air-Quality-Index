@@ -41,7 +41,7 @@ Together these three parameters account for seasonality, trend, and noise in dat
 We are trying to find the right p, d, q hyperparameters to correctly forecast and predict the AQI values.
 
 # Machine Learning AQI Time Series
-## How can we use Akaike Information Criteria (AIC)?
+## Akaike Information Criteria (AIC)?
 Used to measure of a statistical model, it quantifies:
 
 - The goodness of fit
@@ -50,9 +50,21 @@ Used to measure of a statistical model, it quantifies:
 
 The Akaike Information Criterion (AIC) is a measure used to compare different statistical models. It helps in model selection by balancing the goodness of fit and the complexity of the model. Here's how to interpret the AIC value:
 
-- *Lower AIC is Better*: A lower AIC value indicates a better-fitting model. It means the model has a good balance between accuracy and complexity.
+- *AIC Value*: A lower AIC value indicates a better-fitting model. It means the model has a good balance between accuracy and complexity.
 - *Comparative Measure*: AIC is most useful when comparing multiple models. The model with the lowest AIC among a set of candidate models is generally preferred.
 - *Penalty for Complexity*: AIC includes a penalty for the number of parameters in the model. This discourages overfitting by penalizing models that use more parameters without a corresponding improvement in fit.
 
+## Train and Test
+Rigorous validation is paramount to establishing the model's reliability and practical application. To ensure the model's generalizability, we will employ a train-test split. This approach safeguards against overfitting by exposing the model to unseen data, allowing for a more accurate assessment of its predictive capabilities.
 
+By partitioning the dataset, we can:
 
+- *Evaluate performance*: Measure the model's accuracy on unseen data.
+- *Detect overfitting*: Identify discrepancies between training and testing performance.
+- *Assess generalization*: Determine the model's ability to handle new data.
+- *Quantify reliability*: Calculate confidence intervals for prediction accuracy.
+- *Iteratively improve*: Use insights to refine the model.
+
+This rigorous process underpins the credibility and utility of our research findings.
+
+To split the data, we follow the recommended `70:30` ratio, 70% of the data is the training data, and 30% of the data is the testing data.

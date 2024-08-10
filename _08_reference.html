@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>methods</title>
+<title>reference</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,17 +23,46 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="_03_methods_files/libs/clipboard/clipboard.min.js"></script>
-<script src="_03_methods_files/libs/quarto-html/quarto.js"></script>
-<script src="_03_methods_files/libs/quarto-html/popper.min.js"></script>
-<script src="_03_methods_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="_03_methods_files/libs/quarto-html/anchor.min.js"></script>
-<link href="_03_methods_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="_03_methods_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="_03_methods_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="_03_methods_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="_03_methods_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="_08_reference_files/libs/clipboard/clipboard.min.js"></script>
+<script src="_08_reference_files/libs/quarto-html/quarto.js"></script>
+<script src="_08_reference_files/libs/quarto-html/popper.min.js"></script>
+<script src="_08_reference_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="_08_reference_files/libs/quarto-html/anchor.min.js"></script>
+<link href="_08_reference_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="_08_reference_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="_08_reference_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="_08_reference_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="_08_reference_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -46,74 +75,110 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="methods" class="level1">
-<h1>Methods</h1>
-<section id="tools-deployed" class="level2">
-<h2 class="anchored" data-anchor-id="tools-deployed">Tools Deployed</h2>
-<p>Python will be the primary programming language used to conduct this analysis. We will also use R language in statistical applications where necessary.</p>
-<p>To perform our analysis, we will employ NumPy and Pandas for data manipulation. Matplotlib and Seaborn for visualization, and Time Series forecasting algorithms such as Prophet and SARIMAX.</p>
-<p>We will address data inconsistencies, missing values and ensure that data is in a tidy format.</p>
-<p>We may need to normalize or standardize data if necessary and create new features through aggregation to enhance the model’s performance.</p>
-</section>
-<section id="what-is-prophet" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-prophet">What is Prophet?</h2>
-<p>Prophet is an open-source forecasting tool developed by Meta, designed for forecasting time series data. It is suited for datasets with strong seasonal, monthly, weekly, or daily patterns, and it handles missing data and outliers well. We utilized prophet to gain a quick understanding of our AQI patterns, seeking to understand basic trends before conducting a more thorough analysis.</p>
-<p>Key features of Prophet include seasonality detection and holiday incorporation, while providing easy use and understanding for users. We can use this software to get complex understanding from simple applications.</p>
-<p>To conduct this analysis, we prepare data into a two column table, date and AQI. Prophet uses the trends of past data to highlight similarities over days of the year, weeks, months, and seasons. From this, prophet is able to generate its predictions, cross validate, and give performance metrics such as mean absolute percentage error to quantify the accuracy of the results.</p>
-</section>
-<section id="what-is-sarimax-algorithm" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-sarimax-algorithm">What is SARIMAX algorithm?​​​​​​​​​​​​​​​</h2>
-<p>The most common method used in time series forecasting is known as the ARIMA model. We will use an extended version called SARIMAX (<em>Seasonal Auto Regressive Integrated Moving Averages with exogenous factor</em>)</p>
-<ul>
-<li>The SARIMAX model is used when the data sets have seasonal cycles.</li>
-<li>In the dataset concerning the air quality/AQI there is a seasonal pattern which we have explained in the above section.</li>
-<li>SARIMAX is a model that can be fitted to time series data in order to better understand or predict future points in the time series</li>
-<li>SARIMAX is particularly useful for forecasting time series data that exhibits both trends and seasonality.</li>
-</ul>
-<p>Here’s a breakdown of its components:</p>
-<p>There are three distinct integers (p,d,q) that are used to parametrize SARIMAX models. Because of that, ARIMA models are denoted with the notation SARIMAX(p,d,q).</p>
-<p>Together these three parameters account for seasonality, trend, and noise in datasets:</p>
-<ol type="1">
-<li><em>Seasonality (S)</em>: Accounts for recurring patterns or cycles in the data.</li>
-<li><em>AutoRegressive (AR)</em>: Uses past values to predict future values.</li>
-<li><em>Integrated (I)</em>: Applies differencing to make the time series stationary.</li>
-<li><em>Moving Average (MA)</em>: Uses past forecast errors in the prediction.</li>
-<li><em>eXogenous factors (X)</em>: Incorporates external variables that may influence the forecast.</li>
-</ol>
-<p>We are trying to find the right p, d, q hyperparameters to correctly forecast and predict the AQI values.</p>
-</section>
-</section>
-<section id="machine-learning-aqi-time-series" class="level1">
-<h1>Machine Learning AQI Time Series</h1>
-<section id="akaike-information-criteria-aic" class="level2">
-<h2 class="anchored" data-anchor-id="akaike-information-criteria-aic">Akaike Information Criteria (AIC)?</h2>
-<p>Used to measure of a statistical model, it quantifies:</p>
-<ul>
-<li>The goodness of fit</li>
-<li>The simplicity of the model into a single statistic</li>
-<li>When comparing two models, the one with the lower AIC is generally “better”</li>
-</ul>
-<p>The Akaike Information Criterion (AIC) is a measure used to compare different statistical models. It helps in model selection by balancing the goodness of fit and the complexity of the model. Here’s how to interpret the AIC value:</p>
-<ul>
-<li><em>AIC Value</em>: A lower AIC value indicates a better-fitting model. It means the model has a good balance between accuracy and complexity.</li>
-<li><em>Comparative Measure</em>: AIC is most useful when comparing multiple models. The model with the lowest AIC among a set of candidate models is generally preferred.</li>
-<li><em>Penalty for Complexity</em>: AIC includes a penalty for the number of parameters in the model. This discourages overfitting by penalizing models that use more parameters without a corresponding improvement in fit.</li>
-</ul>
-</section>
-<section id="train-and-test" class="level2">
-<h2 class="anchored" data-anchor-id="train-and-test">Train and Test</h2>
-<p>Rigorous validation is paramount to establishing the model’s reliability and practical application. To ensure the model’s generalizability, we will employ a train-test split. This approach safeguards against overfitting by exposing the model to unseen data, allowing for a more accurate assessment of its predictive capabilities.</p>
-<p>By partitioning the dataset, we can:</p>
-<ul>
-<li><em>Evaluate performance</em>: Measure the model’s accuracy on unseen data.</li>
-<li><em>Detect overfitting</em>: Identify discrepancies between training and testing performance.</li>
-<li><em>Assess generalization</em>: Determine the model’s ability to handle new data.</li>
-<li><em>Quantify reliability</em>: Calculate confidence intervals for prediction accuracy.</li>
-<li><em>Iteratively improve</em>: Use insights to refine the model.</li>
-</ul>
-<p>This rigorous process underpins the credibility and utility of our research findings.</p>
-<p>To split the data, we follow the recommended <code>70:30</code> ratio, 70% of the data is the training data, and 30% of the data is the testing data.</p>
-</section>
+<section id="metrics-to-evaluate-machine-model-performance" class="level1">
+<h1>Metrics to Evaluate Machine Model Performance</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 19%">
+<col style="width: 25%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Technique/Metric</th>
+<th>Description</th>
+<th>Purpose/Formula</th>
+<th>Scenario: Cancer prediction</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1. Train-Test Split</td>
+<td>Split the dataset into training and testing subsets</td>
+<td>Assess model performance on unseen data to detect overfitting and ensure generalizability</td>
+<td>Always used; crucial for unbiased evaluation of model performance</td>
+</tr>
+<tr class="even">
+<td>2. Cross-Validation</td>
+<td>Divide data into k subsets and train the model k times, using a different subset as test set each time</td>
+<td>Provides robust estimate of model performance by averaging results over multiple splits</td>
+<td>Useful for smaller datasets or when data collection is expensive (e.g., rare cancer types)</td>
+</tr>
+<tr class="odd">
+<td>3. Confusion Matrix</td>
+<td>Table comparing predicted and actual values in classification</td>
+<td>Metrics: True Positives (TP), True Negatives (TN), False Positives (FP), False Negatives (FN)</td>
+<td>Fundamental for understanding model performance in classification tasks, like cancer detection</td>
+</tr>
+<tr class="even">
+<td>4. Accuracy</td>
+<td>Ratio of correctly predicted instances to total instances</td>
+<td><span class="math inline">\(\frac{TP + TN}{TP + TN + FP + FN}\)</span></td>
+<td>Used when classes are balanced; less suitable for rare cancer detection due to class imbalance</td>
+</tr>
+<tr class="odd">
+<td>5a. Precision</td>
+<td>Ratio of correctly predicted positive observations to total predicted positives</td>
+<td><span class="math inline">\(\frac{TP}{TP + FP}\)</span></td>
+<td>Important when false positives are costly (e.g., unnecessary biopsies or treatments)</td>
+</tr>
+<tr class="even">
+<td>5b. Recall (Sensitivity)</td>
+<td>Ratio of correctly predicted positive observations to all actual positive observations</td>
+<td><span class="math inline">\(\frac{TP}{TP + FN}\)</span></td>
+<td>Critical in cancer detection to minimize false negatives (missed cancer cases)</td>
+</tr>
+<tr class="odd">
+<td>5c. F1-Score</td>
+<td>Harmonic mean of Precision and Recall</td>
+<td><span class="math inline">\(2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}\)</span></td>
+<td>Balances precision and recall; useful when seeking a compromise between false positives and false negatives</td>
+</tr>
+<tr class="even">
+<td>6. ROC Curve and AUC</td>
+<td>ROC: Graph of true positive rate vs false positive rate at various thresholds. AUC: Area under ROC curve</td>
+<td>Higher AUC indicates better model performance</td>
+<td>Useful for comparing models and choosing optimal threshold, especially in diagnostic tests</td>
+</tr>
+<tr class="odd">
+<td>7. Mean Absolute Error (MAE)</td>
+<td>Average of absolute differences between predicted and actual values</td>
+<td><span class="math inline">\(\frac{1}{n} \sum_{i=1}^{n} \|y_i - \hat{y}_i\|\)</span></td>
+<td>Used in regression tasks, e.g., predicting survival time; less sensitive to outliers than MSE</td>
+</tr>
+<tr class="even">
+<td>8a. Mean Squared Error (MSE)</td>
+<td>Average of squared differences between predicted and actual values</td>
+<td><span class="math inline">\(\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2\)</span></td>
+<td>Used in regression; penalizes large errors more, suitable when large errors are particularly undesirable</td>
+</tr>
+<tr class="odd">
+<td>8b. Root Mean Squared Error (RMSE)</td>
+<td>Square root of MSE</td>
+<td><span class="math inline">\(\sqrt{\text{MSE}}\)</span></td>
+<td>Same as MSE, but in the original unit of the target variable, making it more interpretable</td>
+</tr>
+<tr class="even">
+<td>9. R-squared</td>
+<td>Proportion of variance in dependent variable predictable from independent variables</td>
+<td><span class="math inline">\(1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}\)</span></td>
+<td>Used in regression to assess overall fit; indicates how well the model explains the variance in the data</td>
+</tr>
+<tr class="odd">
+<td>10a. Akaike Information Criterion (AIC)</td>
+<td>Measures relative quality of statistical model for given data</td>
+<td><span class="math inline">\(2k - 2\ln(L)\)</span> where <span class="math inline">\(k\)</span> is number of parameters and <span class="math inline">\(L\)</span> is likelihood</td>
+<td>Used for model selection; helps prevent overfitting by penalizing complex models</td>
+</tr>
+<tr class="even">
+<td>10b. Bayesian Information Criterion (BIC)</td>
+<td>Similar to AIC but with stronger penalty term for number of parameters</td>
+<td><span class="math inline">\(k\ln(n) - 2\ln(L)\)</span> where <span class="math inline">\(n\)</span> is number of observations</td>
+<td>Also used for model selection; tends to favor simpler models compared to AIC</td>
+</tr>
+</tbody>
+</table>
 </section>
 
 </main>
