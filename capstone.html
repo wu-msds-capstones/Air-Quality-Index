@@ -24,24 +24,94 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="capstone_files/libs/clipboard/clipboard.min.js"></script>
-<script src="capstone_files/libs/quarto-html/quarto.js"></script>
-<script src="capstone_files/libs/quarto-html/popper.min.js"></script>
-<script src="capstone_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="capstone_files/libs/quarto-html/anchor.min.js"></script>
-<link href="capstone_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="capstone_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="capstone_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="capstone_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="capstone_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
 <style>html{ scroll-behavior: smooth; }</style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
+
+
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
 <script src="https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
+
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -76,12 +146,14 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body class="floating">
 
+<div id="quarto-search-results"></div>
+<!-- content -->
 <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <div class="quarto-title-block"><div><h1 class="title">Unveiling the Drivers of Clean Air</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source" data-quarto-source-url="repo"><i class="bi"></i></button></div></div>
+      <div class="quarto-title-block"><div><h1 class="title">Unveiling the Drivers of Clean Air</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i></button></div></div>
             <p class="subtitle lead">Analysis of Portland Air Quality (AQI)</p>
                       </div>
   </div>
@@ -133,9 +205,10 @@ window.Quarto = {
     </div>
   </div>
   
-  </header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
-<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
-  <nav id="TOC" role="doc-toc" class="toc-active">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Contents</h2>
    
   <ul>
@@ -147,10 +220,10 @@ window.Quarto = {
   <li><a href="#what-is-prophet" id="toc-what-is-prophet" class="nav-link" data-scroll-target="#what-is-prophet">What is Prophet?</a></li>
   <li><a href="#what-is-sarimax-algorithm" id="toc-what-is-sarimax-algorithm" class="nav-link" data-scroll-target="#what-is-sarimax-algorithm">What is SARIMAX algorithm?​​​​​​​​​​​​​​​</a></li>
   </ul></li>
-  <li><a href="#metrics-to-evaluate-machine-model-performance" id="toc-metrics-to-evaluate-machine-model-performance" class="nav-link" data-scroll-target="#metrics-to-evaluate-machine-model-performance">Metrics to Evaluate Machine Model Performance</a></li>
   <li><a href="#machine-learning-aqi-time-series" id="toc-machine-learning-aqi-time-series" class="nav-link" data-scroll-target="#machine-learning-aqi-time-series">Machine Learning AQI Time Series</a>
   <ul class="collapse">
-  <li><a href="#how-can-we-use-akaike-information-criteria-aic" id="toc-how-can-we-use-akaike-information-criteria-aic" class="nav-link" data-scroll-target="#how-can-we-use-akaike-information-criteria-aic">How can we use Akaike Information Criteria (AIC)?</a></li>
+  <li><a href="#akaike-information-criteria-aic" id="toc-akaike-information-criteria-aic" class="nav-link" data-scroll-target="#akaike-information-criteria-aic">Akaike Information Criteria (AIC)?</a></li>
+  <li><a href="#train-and-test" id="toc-train-and-test" class="nav-link" data-scroll-target="#train-and-test">Train and Test</a></li>
   <li><a href="#data-explaination" id="toc-data-explaination" class="nav-link" data-scroll-target="#data-explaination">Data Explaination</a></li>
   <li><a href="#air-quality-data" id="toc-air-quality-data" class="nav-link" data-scroll-target="#air-quality-data">Air Quality Data:</a></li>
   <li><a href="#meteorological-data" id="toc-meteorological-data" class="nav-link" data-scroll-target="#meteorological-data">Meteorological Data:</a></li>
@@ -184,9 +257,6 @@ window.Quarto = {
   <li><a href="#how-fit-the-sarimax-model" id="toc-how-fit-the-sarimax-model" class="nav-link" data-scroll-target="#how-fit-the-sarimax-model">How Fit the SARIMAX model</a>
   <ul class="collapse">
   <li><a href="#plot-diagnostics" id="toc-plot-diagnostics" class="nav-link" data-scroll-target="#plot-diagnostics">Plot Diagnostics</a></li>
-  </ul></li>
-  <li><a href="#train-and-test" id="toc-train-and-test" class="nav-link" data-scroll-target="#train-and-test">Train and Test</a>
-  <ul class="collapse">
   <li><a href="#forecasting-future-values" id="toc-forecasting-future-values" class="nav-link" data-scroll-target="#forecasting-future-values">Forecasting Future Values</a>
   <ul class="collapse">
   <li><a href="#forecasted-values-with-dates" id="toc-forecasted-values-with-dates" class="nav-link" data-scroll-target="#forecasted-values-with-dates">Forecasted Values with Dates</a></li>
@@ -198,11 +268,15 @@ window.Quarto = {
   </ul></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography">Bibliography</a></li>
+  <li><a href="#metrics-to-evaluate-machine-model-performance" id="toc-metrics-to-evaluate-machine-model-performance" class="nav-link" data-scroll-target="#metrics-to-evaluate-machine-model-performance">Metrics to Evaluate Machine Model Performance</a></li>
   </ul>
 <div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://www.airnow.gov"><i class="bi bi-link-45deg"></i>Airnow Open Data</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="SWEETVIZ_REPORT.html"><i class="bi bi-file-code"></i>Sweetviz Analysis Report</a></li><li><a href="your_report2.html"><i class="bi bi-file-code"></i>ydata Analysis Report</a></li></ul></div></nav>
-</div>
-<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-</div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
@@ -212,8 +286,7 @@ window.Quarto = {
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
 <p>On October 30, 1948, the Donora High School Football team played through a dense smog to complete the game with hundreds of fans in the audience, despite very poor visibility. The team, fueled by resilience, took pride in playing through poor conditions, a testament to the high spirit of the small town. Soon after, calls to the town’s medical offices began flooding in, complaining of difficulty breathing and respiratory issues. Donora, Pennsylvania, was a town of metalworks, built by the American Steel and Wire company and the Donora Zinc Works company, which made up major parts of the town’s economy. The heavy smog and pollution clouds that covered the sky had been viewed as a sign of prosperity, owing to the industrial might that powered their economy. Within just twelve hours, seventeen people would be dead, 1440 seriously affected, and 4470 with mild to moderate conditions—almost half the town’s working population (Jacobs, Burgess, Abbott).</p>
-<p>This event, known as the Donora Smog of 1948, prompted the country into taking a closer look at the negative impacts of air pollution. Widespread debate surrounding the event led to the first legislation aimed at regulating the air quality within the United States, ushering in a new era of tracking, combatting, and reversing the ill effects of poor air quality.</p>
-<p>The quality of air we breathe has direct impacts on our health. We must understand the factors that contribute to poor air quality and how we individually and collectively contribute to these changes. Until we can visualize the impact we have on our atmosphere, we will continue behavior that negatively impacts the air around us.</p>
+<p>This event, known as the Donora Smog of 1948, prompted the country into taking a closer look at the negative impacts of air pollution. Widespread debate surrounding the event led to the first legislation aimed at regulating the air quality within the United States, ushering in a new era of tracking, combatting, and reversing the ill effects of poor air quality. The quality of air we breathe has direct impacts on our health. We must understand the factors that contribute to poor air quality and how we individually and collectively contribute to these changes. Until we can visualize the impact we have on our atmosphere, we will continue behavior that negatively impacts the air around us.</p>
 <p>In this project, we will focus on the key factors influencing air quality in Portland, Oregon. We aim to understand the complex interplay between various environmental and human-made factors that contribute to high air pollution levels. Initially, we were surprised to discover that Portland, the city we reside in, has some of the best air quality for a city of its size in the United States. This led us to narrow our focus to understanding the factors that contribute to these favorable outcomes in this city.</p>
 <p>Our project aims to develop and validate machine learning models to analyze the various factors influencing air quality. By focusing on Portland in comparison to other large US cities, we hope to find things Portland does that lead to the greater AQI outcomes. Our approach will consider a range of variables, including meteorological conditions, pollution sources, and transit systems. Through this analysis, we aim to provide actionable insights and recommendations for sustaining and improving air quality. By examining both the contributors to clean air and the sources of pollution, we can understand the factors affecting air quality and develop comprehensive strategies for enhancement.</p>
 </section>
@@ -261,115 +334,10 @@ window.Quarto = {
 <p>We are trying to find the right p, d, q hyperparameters to correctly forecast and predict the AQI values.</p>
 </section>
 </section>
-<section id="metrics-to-evaluate-machine-model-performance" class="level1">
-<h1>Metrics to Evaluate Machine Model Performance</h1>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 26%">
-<col style="width: 19%">
-<col style="width: 25%">
-<col style="width: 28%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Technique/Metric</th>
-<th>Description</th>
-<th>Purpose/Formula</th>
-<th>Scenario: Cancer prediction</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1. Train-Test Split</td>
-<td>Split the dataset into training and testing subsets</td>
-<td>Assess model performance on unseen data to detect overfitting and ensure generalizability</td>
-<td>Always used; crucial for unbiased evaluation of model performance</td>
-</tr>
-<tr class="even">
-<td>2. Cross-Validation</td>
-<td>Divide data into k subsets and train the model k times, using a different subset as test set each time</td>
-<td>Provides robust estimate of model performance by averaging results over multiple splits</td>
-<td>Useful for smaller datasets or when data collection is expensive (e.g., rare cancer types)</td>
-</tr>
-<tr class="odd">
-<td>3. Confusion Matrix</td>
-<td>Table comparing predicted and actual values in classification</td>
-<td>Metrics: True Positives (TP), True Negatives (TN), False Positives (FP), False Negatives (FN)</td>
-<td>Fundamental for understanding model performance in classification tasks, like cancer detection</td>
-</tr>
-<tr class="even">
-<td>4. Accuracy</td>
-<td>Ratio of correctly predicted instances to total instances</td>
-<td><span class="math inline">\(\frac{TP + TN}{TP + TN + FP + FN}\)</span></td>
-<td>Used when classes are balanced; less suitable for rare cancer detection due to class imbalance</td>
-</tr>
-<tr class="odd">
-<td>5a. Precision</td>
-<td>Ratio of correctly predicted positive observations to total predicted positives</td>
-<td><span class="math inline">\(\frac{TP}{TP + FP}\)</span></td>
-<td>Important when false positives are costly (e.g., unnecessary biopsies or treatments)</td>
-</tr>
-<tr class="even">
-<td>5b. Recall (Sensitivity)</td>
-<td>Ratio of correctly predicted positive observations to all actual positive observations</td>
-<td><span class="math inline">\(\frac{TP}{TP + FN}\)</span></td>
-<td>Critical in cancer detection to minimize false negatives (missed cancer cases)</td>
-</tr>
-<tr class="odd">
-<td>5c. F1-Score</td>
-<td>Harmonic mean of Precision and Recall</td>
-<td><span class="math inline">\(2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}\)</span></td>
-<td>Balances precision and recall; useful when seeking a compromise between false positives and false negatives</td>
-</tr>
-<tr class="even">
-<td>6. ROC Curve and AUC</td>
-<td>ROC: Graph of true positive rate vs false positive rate at various thresholds. AUC: Area under ROC curve</td>
-<td>Higher AUC indicates better model performance</td>
-<td>Useful for comparing models and choosing optimal threshold, especially in diagnostic tests</td>
-</tr>
-<tr class="odd">
-<td>7. Mean Absolute Error (MAE)</td>
-<td>Average of absolute differences between predicted and actual values</td>
-<td><span class="math inline">\(\frac{1}{n} \sum_{i=1}^{n} \|y_i - \hat{y}_i\|\)</span></td>
-<td>Used in regression tasks, e.g., predicting survival time; less sensitive to outliers than MSE</td>
-</tr>
-<tr class="even">
-<td>8a. Mean Squared Error (MSE)</td>
-<td>Average of squared differences between predicted and actual values</td>
-<td><span class="math inline">\(\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2\)</span></td>
-<td>Used in regression; penalizes large errors more, suitable when large errors are particularly undesirable</td>
-</tr>
-<tr class="odd">
-<td>8b. Root Mean Squared Error (RMSE)</td>
-<td>Square root of MSE</td>
-<td><span class="math inline">\(\sqrt{\text{MSE}}\)</span></td>
-<td>Same as MSE, but in the original unit of the target variable, making it more interpretable</td>
-</tr>
-<tr class="even">
-<td>9. R-squared</td>
-<td>Proportion of variance in dependent variable predictable from independent variables</td>
-<td><span class="math inline">\(1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}\)</span></td>
-<td>Used in regression to assess overall fit; indicates how well the model explains the variance in the data</td>
-</tr>
-<tr class="odd">
-<td>10a. Akaike Information Criterion (AIC)</td>
-<td>Measures relative quality of statistical model for given data</td>
-<td><span class="math inline">\(2k - 2\ln(L)\)</span> where <span class="math inline">\(k\)</span> is number of parameters and <span class="math inline">\(L\)</span> is likelihood</td>
-<td>Used for model selection; helps prevent overfitting by penalizing complex models</td>
-</tr>
-<tr class="even">
-<td>10b. Bayesian Information Criterion (BIC)</td>
-<td>Similar to AIC but with stronger penalty term for number of parameters</td>
-<td><span class="math inline">\(k\ln(n) - 2\ln(L)\)</span> where <span class="math inline">\(n\)</span> is number of observations</td>
-<td>Also used for model selection; tends to favor simpler models compared to AIC</td>
-</tr>
-</tbody>
-</table>
-</section>
 <section id="machine-learning-aqi-time-series" class="level1">
 <h1>Machine Learning AQI Time Series</h1>
-<section id="how-can-we-use-akaike-information-criteria-aic" class="level2">
-<h2 class="anchored" data-anchor-id="how-can-we-use-akaike-information-criteria-aic">How can we use Akaike Information Criteria (AIC)?</h2>
+<section id="akaike-information-criteria-aic" class="level2">
+<h2 class="anchored" data-anchor-id="akaike-information-criteria-aic">Akaike Information Criteria (AIC)?</h2>
 <p>Used to measure of a statistical model, it quantifies:</p>
 <ul>
 <li>The goodness of fit</li>
@@ -378,10 +346,24 @@ window.Quarto = {
 </ul>
 <p>The Akaike Information Criterion (AIC) is a measure used to compare different statistical models. It helps in model selection by balancing the goodness of fit and the complexity of the model. Here’s how to interpret the AIC value:</p>
 <ul>
-<li><em>Lower AIC is Better</em>: A lower AIC value indicates a better-fitting model. It means the model has a good balance between accuracy and complexity.</li>
+<li><em>AIC Value</em>: A lower AIC value indicates a better-fitting model. It means the model has a good balance between accuracy and complexity.</li>
 <li><em>Comparative Measure</em>: AIC is most useful when comparing multiple models. The model with the lowest AIC among a set of candidate models is generally preferred.</li>
 <li><em>Penalty for Complexity</em>: AIC includes a penalty for the number of parameters in the model. This discourages overfitting by penalizing models that use more parameters without a corresponding improvement in fit.</li>
 </ul>
+</section>
+<section id="train-and-test" class="level2">
+<h2 class="anchored" data-anchor-id="train-and-test">Train and Test</h2>
+<p>Rigorous validation is paramount to establishing the model’s reliability and practical application. To ensure the model’s generalizability, we will employ a train-test split. This approach safeguards against overfitting by exposing the model to unseen data, allowing for a more accurate assessment of its predictive capabilities.</p>
+<p>By partitioning the dataset, we can:</p>
+<ul>
+<li><em>Evaluate performance</em>: Measure the model’s accuracy on unseen data.</li>
+<li><em>Detect overfitting</em>: Identify discrepancies between training and testing performance.</li>
+<li><em>Assess generalization</em>: Determine the model’s ability to handle new data.</li>
+<li><em>Quantify reliability</em>: Calculate confidence intervals for prediction accuracy.</li>
+<li><em>Iteratively improve</em>: Use insights to refine the model.</li>
+</ul>
+<p>This rigorous process underpins the credibility and utility of our research findings.</p>
+<p>To split the data, we follow the recommended <code>70:30</code> ratio, 70% of the data is the training data, and 30% of the data is the testing data.</p>
 </section>
 <section id="data-explaination" class="level2">
 <h2 class="anchored" data-anchor-id="data-explaination">Data Explaination</h2>
@@ -493,7 +475,7 @@ window.Quarto = {
 <div id="cell-sweetvis-report" class="cell" data-execution_count="9">
 <div id="sweetvis-report" class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"72e785496d934391bf20e64f272b7beb","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+{"model_id":"57a8420395b442cda2ac467d808f207e","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
 </script>
 </div>
 <div class="cell-output cell-output-stdout">
@@ -763,8 +745,8 @@ For recognized time series features: - Histograms are replaced with line plots -
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
 <td>Tree</td>
-<td>0.375612</td>
-<td>0.509526</td>
+<td>0.379842</td>
+<td>0.513337</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
@@ -820,12 +802,12 @@ For recognized time series features: - Histograms are replaced with line plots -
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
 <td>RF_model__bootstrap</td>
-<td>False</td>
+<td>True</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
 <td>RF_model__max_depth</td>
-<td>24</td>
+<td>27</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
@@ -835,27 +817,27 @@ For recognized time series features: - Histograms are replaced with line plots -
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
 <td>RF_model__min_samples_leaf</td>
-<td>7</td>
+<td>2</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
 <td>RF_model__min_samples_split</td>
-<td>7</td>
+<td>2</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">5</td>
 <td>RF_model__n_estimators</td>
-<td>120</td>
+<td>75</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">6</td>
 <td>aqi_transformer__categories__max_categories</td>
-<td>3</td>
+<td>24</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">7</td>
 <td>aqi_transformer__categories__min_frequency</td>
-<td>13</td>
+<td>15</td>
 </tr>
 </tbody>
 </table>
@@ -867,8 +849,8 @@ For recognized time series features: - Histograms are replaced with line plots -
 <p>Using these hyperparameters, we reach an accuracy of about 63%.</p>
 <div id="predict-x_test" class="cell" data-execution_count="44">
 <div class="cell-output cell-output-stdout">
-<pre><code>Cohen Kappa Score:  0.45124488933190443
-Accuracy:  0.583015786608601</code></pre>
+<pre><code>Cohen Kappa Score:  0.5176020226092839
+Accuracy:  0.6314643440391944</code></pre>
 </div>
 </div>
 <p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/AirQuality-ConfusionMatrix_init2.png?raw=true" class="img-fluid" alt="AirQuality Confusion Matrix 2"> (Figure 4582)</p>
@@ -892,93 +874,93 @@ Accuracy:  0.583015786608601</code></pre>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0-30</td>
-<td>0.772727</td>
-<td>0.346939</td>
-<td>0.478873</td>
+<td>0.789474</td>
+<td>0.306122</td>
+<td>0.441176</td>
 <td>49.000000</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">101-150</td>
-<td>0.480000</td>
-<td>0.266667</td>
-<td>0.342857</td>
+<td>0.528302</td>
+<td>0.622222</td>
+<td>0.571429</td>
 <td>45.000000</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">151+</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
+<td>1.000000</td>
+<td>0.150000</td>
+<td>0.260870</td>
 <td>20.000000</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">31-40</td>
-<td>0.688679</td>
-<td>0.760417</td>
-<td>0.722772</td>
+<td>0.722353</td>
+<td>0.799479</td>
+<td>0.758962</td>
 <td>384.000000</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">41-50</td>
-<td>0.634747</td>
-<td>0.737679</td>
-<td>0.682353</td>
+<td>0.695955</td>
+<td>0.793323</td>
+<td>0.741456</td>
 <td>629.000000</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">51-60</td>
-<td>0.514851</td>
-<td>0.550265</td>
-<td>0.531969</td>
+<td>0.576623</td>
+<td>0.587302</td>
+<td>0.581913</td>
 <td>378.000000</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">61-70</td>
-<td>0.389610</td>
-<td>0.340909</td>
-<td>0.363636</td>
+<td>0.382716</td>
+<td>0.352273</td>
+<td>0.366864</td>
 <td>176.000000</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">71-80</td>
-<td>0.254545</td>
-<td>0.160920</td>
-<td>0.197183</td>
+<td>0.372093</td>
+<td>0.183908</td>
+<td>0.246154</td>
 <td>87.000000</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">81-90</td>
-<td>0.166667</td>
-<td>0.066667</td>
-<td>0.095238</td>
+<td>0.285714</td>
+<td>0.133333</td>
+<td>0.181818</td>
 <td>45.000000</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">91-100</td>
-<td>0.250000</td>
-<td>0.041667</td>
-<td>0.071429</td>
+<td>0.222222</td>
+<td>0.083333</td>
+<td>0.121212</td>
 <td>24.000000</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">accuracy</td>
-<td>0.583016</td>
-<td>0.583016</td>
-<td>0.583016</td>
-<td>0.583016</td>
+<td>0.631464</td>
+<td>0.631464</td>
+<td>0.631464</td>
+<td>0.631464</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">macro avg</td>
-<td>0.415183</td>
-<td>0.327213</td>
-<td>0.348631</td>
+<td>0.557545</td>
+<td>0.401130</td>
+<td>0.427185</td>
 <td>1837.000000</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">weighted avg</td>
-<td>0.556344</td>
-<td>0.583016</td>
-<td>0.562807</td>
+<td>0.617029</td>
+<td>0.631464</td>
+<td>0.613720</td>
 <td>1837.000000</td>
 </tr>
 </tbody>
@@ -1002,10 +984,11 @@ Accuracy:  0.583015786608601</code></pre>
 </section>
 <section id="results-machine-learning-sarimax" class="level1">
 <h1>Results Machine Learning SARIMAX</h1>
-<p>Any time series is decomposed of two things:</p>
+<p>Any time series is composed of three things:</p>
 <ul>
 <li>Seasonality</li>
 <li>Trends</li>
+<li>Residuals</li>
 </ul>
 <p>By the help of <code>statsmodel</code> package we can break the time series into its seasonal pattern and trends. This will helps us to understand the data clearly and will help us to make more sense of the data.</p>
 </section>
@@ -1038,75 +1021,7 @@ Accuracy:  0.583015786608601</code></pre>
 <li><em>d</em> is the integrated part of the model. This includes terms in the model that incorporate the amount of diferencing (the number of past time points to subtract from the current value) to apply the time series.</li>
 <li><em>q</em> is the moving average part of the model. This allows us to set the error of our model as a linear combination of the error values observed at previous time points in the past.</li>
 </ul>
-<p>We use a tuning technique called <code>grid search method</code> that attempts to compute the optimum values of hyperparameters. We are trying to find the right p,d,q values that would be given as an input to the SARIMAX time series model.</p>
-<div id="grid-search" class="cell" data-execution_count="52">
-<div class="cell-output cell-output-stdout">
-<pre><code>ARIMA(0, 0, 0)x(0, 0, 0, 12) - AIC:969.5419650946665
-ARIMA(0, 0, 0)x(0, 0, 1, 12) - AIC:799.0140026908043
-ARIMA(0, 0, 0)x(0, 1, 0, 12) - AIC:701.7072455506197
-ARIMA(0, 0, 0)x(0, 1, 1, 12) - AIC:568.3211239351035
-ARIMA(0, 0, 0)x(1, 0, 0, 12) - AIC:708.2727189545345
-ARIMA(0, 0, 0)x(1, 0, 1, 12) - AIC:660.9171130206936
-ARIMA(0, 0, 0)x(1, 1, 0, 12) - AIC:596.1563221105039
-ARIMA(0, 0, 0)x(1, 1, 1, 12) - AIC:571.8620221843147
-ARIMA(0, 0, 1)x(0, 0, 0, 12) - AIC:888.4893265461405
-ARIMA(0, 0, 1)x(0, 0, 1, 12) - AIC:754.7451219152275
-ARIMA(0, 0, 1)x(0, 1, 0, 12) - AIC:695.0468020327725
-ARIMA(0, 0, 1)x(0, 1, 1, 12) - AIC:563.3526496700842
-ARIMA(0, 0, 1)x(1, 0, 0, 12) - AIC:708.3487691701486
-ARIMA(0, 0, 1)x(1, 0, 1, 12) - AIC:655.8968840891383
-ARIMA(0, 0, 1)x(1, 1, 0, 12) - AIC:598.1490374699148
-ARIMA(0, 0, 1)x(1, 1, 1, 12) - AIC:566.3367865157978
-ARIMA(0, 1, 0)x(0, 0, 0, 12) - AIC:769.1876196189784
-ARIMA(0, 1, 0)x(0, 0, 1, 12) - AIC:681.4253047727481
-ARIMA(0, 1, 0)x(0, 1, 0, 12) - AIC:740.3973501203114
-ARIMA(0, 1, 0)x(0, 1, 1, 12) - AIC:606.0067883430007
-ARIMA(0, 1, 0)x(1, 0, 0, 12) - AIC:688.9276375883021
-ARIMA(0, 1, 0)x(1, 0, 1, 12) - AIC:683.2372837276466
-ARIMA(0, 1, 0)x(1, 1, 0, 12) - AIC:637.9760649104885
-ARIMA(0, 1, 0)x(1, 1, 1, 12) - AIC:607.9989487123431
-ARIMA(0, 1, 1)x(0, 0, 0, 12) - AIC:717.0512101206406
-ARIMA(0, 1, 1)x(0, 0, 1, 12) - AIC:636.373429528529
-ARIMA(0, 1, 1)x(0, 1, 0, 12) - AIC:692.512410906277
-ARIMA(0, 1, 1)x(0, 1, 1, 12) - AIC:559.6920424480529
-ARIMA(0, 1, 1)x(1, 0, 0, 12) - AIC:650.5293595230056
-ARIMA(0, 1, 1)x(1, 0, 1, 12) - AIC:638.1908637932411
-ARIMA(0, 1, 1)x(1, 1, 0, 12) - AIC:594.940391452659
-ARIMA(0, 1, 1)x(1, 1, 1, 12) - AIC:562.5484300875305
-ARIMA(1, 0, 0)x(0, 0, 0, 12) - AIC:775.150570595756
-ARIMA(1, 0, 0)x(0, 0, 1, 12) - AIC:688.1982167211085
-ARIMA(1, 0, 0)x(0, 1, 0, 12) - AIC:702.425519762607
-ARIMA(1, 0, 0)x(0, 1, 1, 12) - AIC:570.1689904036024
-ARIMA(1, 0, 0)x(1, 0, 0, 12) - AIC:688.2931195730088
-ARIMA(1, 0, 0)x(1, 0, 1, 12) - AIC:662.6749372683774
-ARIMA(1, 0, 0)x(1, 1, 0, 12) - AIC:590.7883988000217
-ARIMA(1, 0, 0)x(1, 1, 1, 12) - AIC:573.825547011459
-ARIMA(1, 0, 1)x(0, 0, 0, 12) - AIC:725.2611476282008
-ARIMA(1, 0, 1)x(0, 0, 1, 12) - AIC:644.4595774810737
-ARIMA(1, 0, 1)x(0, 1, 0, 12) - AIC:696.6355146715679
-ARIMA(1, 0, 1)x(0, 1, 1, 12) - AIC:565.337721591011
-ARIMA(1, 0, 1)x(1, 0, 0, 12) - AIC:651.3742765976529
-ARIMA(1, 0, 1)x(1, 0, 1, 12) - AIC:657.7255114881699
-ARIMA(1, 0, 1)x(1, 1, 0, 12) - AIC:592.7702867201957
-ARIMA(1, 0, 1)x(1, 1, 1, 12) - AIC:567.3861300859227
-ARIMA(1, 1, 0)x(0, 0, 0, 12) - AIC:750.4532664961456
-ARIMA(1, 1, 0)x(0, 0, 1, 12) - AIC:665.693748389872
-ARIMA(1, 1, 0)x(0, 1, 0, 12) - AIC:720.7807876037391
-ARIMA(1, 1, 0)x(0, 1, 1, 12) - AIC:588.6301637485213
-ARIMA(1, 1, 0)x(1, 0, 0, 12) - AIC:665.7141239363682
-ARIMA(1, 1, 0)x(1, 0, 1, 12) - AIC:667.6890275833365
-ARIMA(1, 1, 0)x(1, 1, 0, 12) - AIC:611.4437482645567
-ARIMA(1, 1, 0)x(1, 1, 1, 12) - AIC:590.6185673644065
-ARIMA(1, 1, 1)x(0, 0, 0, 12) - AIC:717.3211552781574
-ARIMA(1, 1, 1)x(0, 0, 1, 12) - AIC:636.7110296932944
-ARIMA(1, 1, 1)x(0, 1, 0, 12) - AIC:693.1696490581699
-ARIMA(1, 1, 1)x(0, 1, 1, 12) - AIC:561.5301944999834
-ARIMA(1, 1, 1)x(1, 0, 0, 12) - AIC:643.9735168529521
-ARIMA(1, 1, 1)x(1, 0, 1, 12) - AIC:638.640931561371
-ARIMA(1, 1, 1)x(1, 1, 0, 12) - AIC:588.5992832053371
-ARIMA(1, 1, 1)x(1, 1, 1, 12) - AIC:564.5468753697722</code></pre>
-</div>
-</div>
+<p>We use a tuning technique called grid search method that attempts to compute the optimum values of hyperparameters. We are trying to find the right p,d,q values that would be given as an input to the SARIMAX time series model.</p>
 <p>We have to find the lowest AIC values which would have the best corresponding p,d,q values to have the best forecast of AQI values.</p>
 </section>
 </section>
@@ -1143,34 +1058,9 @@ sigma2       134.1503   3.35e+05      0.000      1.000   -6.57e+05    6.57e+05
 <figcaption>Plot Diag</figcaption>
 </figure>
 </div>
-</section>
-</section>
-<section id="train-and-test" class="level1">
-<h1>Train and Test</h1>
-<p>Rigorous validation is paramount to establishing the model’s reliability and practical application. To ensure the model’s generalizability, we will employ a train-test split. This approach safeguards against overfitting by exposing the model to unseen data, allowing for a more accurate assessment of its predictive capabilities.</p>
-<p>By partitioning the dataset, we can:</p>
-<ul>
-<li>Evaluate performance: Measure the model’s accuracy on unseen data.</li>
-<li>Detect overfitting: Identify discrepancies between training and testing performance.</li>
-<li>Assess generalization: Determine the model’s ability to handle new data.</li>
-<li>Quantify reliability: Calculate confidence intervals for prediction accuracy.</li>
-<li>Iteratively improve: Use insights to refine the model.</li>
-</ul>
-<p>This rigorous process underpins the credibility and utility of our research findings.</p>
-<p>To split the data, we follow the recommended <code>70:30</code> ratio, 70% of the data is the training data, and 30% of the data is the testing data.</p>
-<div id="check-min-date" class="cell" data-execution_count="56">
-<div class="cell-output cell-output-stdout">
-<pre><code>Start date of the data: 2015-01-31 00:00:00</code></pre>
-</div>
-</div>
-<div id="check-max-date" class="cell" data-execution_count="57">
-<div class="cell-output cell-output-stdout">
-<pre><code>End date of the data: 2022-12-31 00:00:00</code></pre>
-</div>
-</div>
 <p>Once the model is created, predicted values are generated using the .get_prediction() method, with datetime as input</p>
 <p>The graph indicates overlapping patterns in the testing and training data, suggesting strong potential for the forecasting model’s performance.</p>
-<div id="cell-plot-prediction" class="cell" data-execution_count="59">
+<div id="cell-plot-prediction" class="cell" data-execution_count="57">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1181,14 +1071,15 @@ sigma2       134.1503   3.35e+05      0.000      1.000   -6.57e+05    6.57e+05
 </div>
 <p>To facilitate comparison of true and predicted test values, we will create a separate DataFrame. Mean Error Estimation will be used for analysis.</p>
 <p>To evaluate model performance, we calculate the MSE</p>
-<div id="calculate-mse" class="cell" data-execution_count="61">
+<div id="calculate-mse" class="cell" data-execution_count="59">
 <div class="cell-output cell-output-stdout">
 <pre><code>The Mean Squared Error of our forecasts is 1.41</code></pre>
 </div>
 </div>
+</section>
 <section id="forecasting-future-values" class="level2">
 <h2 class="anchored" data-anchor-id="forecasting-future-values">Forecasting Future Values</h2>
-<p>As we conclude our modeling process, we generate predictions for the next 7 data points:</p>
+<p>As we conclude our modeling process, we generate predictions for the next 30 data points:</p>
 <ol type="1">
 <li><p><strong>Model Information</strong>: The <code>result</code> variable contains our fitted model’s details.</p></li>
 <li><p><strong>Forecasting Method</strong>: We use the <code>.get_forecast()</code> method on our model results.</p></li>
@@ -1198,137 +1089,6 @@ sigma2       134.1503   3.35e+05      0.000      1.000   -6.57e+05    6.57e+05
 <p>This step transforms our analytical work into actionable insights for air quality management.</p>
 <section id="forecasted-values-with-dates" class="level3">
 <h3 class="anchored" data-anchor-id="forecasted-values-with-dates">Forecasted Values with Dates</h3>
-<table class="table-striped table-hover caption-top table">
-<caption>Forecasted Values</caption>
-<thead>
-<tr class="header">
-<th>Date</th>
-<th>Forecasted Value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>2023-01-31 00:00:00</td>
-<td>35.2645</td>
-</tr>
-<tr class="even">
-<td>2023-02-28 00:00:00</td>
-<td>37.048</td>
-</tr>
-<tr class="odd">
-<td>2023-03-31 00:00:00</td>
-<td>39.0529</td>
-</tr>
-<tr class="even">
-<td>2023-04-30 00:00:00</td>
-<td>38.849</td>
-</tr>
-<tr class="odd">
-<td>2023-05-31 00:00:00</td>
-<td>37.3658</td>
-</tr>
-<tr class="even">
-<td>2023-06-30 00:00:00</td>
-<td>35.3366</td>
-</tr>
-<tr class="odd">
-<td>2023-07-31 00:00:00</td>
-<td>36.5473</td>
-</tr>
-<tr class="even">
-<td>2023-08-31 00:00:00</td>
-<td>45.1318</td>
-</tr>
-<tr class="odd">
-<td>2023-09-30 00:00:00</td>
-<td>48.3407</td>
-</tr>
-<tr class="even">
-<td>2023-10-31 00:00:00</td>
-<td>43.7852</td>
-</tr>
-<tr class="odd">
-<td>2023-11-30 00:00:00</td>
-<td>43.4657</td>
-</tr>
-<tr class="even">
-<td>2023-12-31 00:00:00</td>
-<td>40.0066</td>
-</tr>
-<tr class="odd">
-<td>2024-01-31 00:00:00</td>
-<td>35.8992</td>
-</tr>
-<tr class="even">
-<td>2024-02-29 00:00:00</td>
-<td>37.5526</td>
-</tr>
-<tr class="odd">
-<td>2024-03-31 00:00:00</td>
-<td>39.5511</td>
-</tr>
-<tr class="even">
-<td>2024-04-30 00:00:00</td>
-<td>39.3469</td>
-</tr>
-<tr class="odd">
-<td>2024-05-31 00:00:00</td>
-<td>37.8637</td>
-</tr>
-<tr class="even">
-<td>2024-06-30 00:00:00</td>
-<td>35.8346</td>
-</tr>
-<tr class="odd">
-<td>2024-07-31 00:00:00</td>
-<td>37.0452</td>
-</tr>
-<tr class="even">
-<td>2024-08-31 00:00:00</td>
-<td>45.6298</td>
-</tr>
-<tr class="odd">
-<td>2024-09-30 00:00:00</td>
-<td>48.8386</td>
-</tr>
-<tr class="even">
-<td>2024-10-31 00:00:00</td>
-<td>44.2831</td>
-</tr>
-<tr class="odd">
-<td>2024-11-30 00:00:00</td>
-<td>43.9637</td>
-</tr>
-<tr class="even">
-<td>2024-12-31 00:00:00</td>
-<td>40.5046</td>
-</tr>
-<tr class="odd">
-<td>2025-01-31 00:00:00</td>
-<td>36.3972</td>
-</tr>
-<tr class="even">
-<td>2025-02-28 00:00:00</td>
-<td>38.0505</td>
-</tr>
-<tr class="odd">
-<td>2025-03-31 00:00:00</td>
-<td>40.0491</td>
-</tr>
-<tr class="even">
-<td>2025-04-30 00:00:00</td>
-<td>39.8449</td>
-</tr>
-<tr class="odd">
-<td>2025-05-31 00:00:00</td>
-<td>38.3616</td>
-</tr>
-<tr class="even">
-<td>2025-06-30 00:00:00</td>
-<td>36.3325</td>
-</tr>
-</tbody>
-</table>
 </section>
 </section>
 <section id="visualizing-our-results-the-culmination-of-our-analysis" class="level2">
@@ -1356,7 +1116,7 @@ sigma2       134.1503   3.35e+05      0.000      1.000   -6.57e+05    6.57e+05
 </ul></li>
 </ol>
 <p>This visual representation not only summarizes our extensive data analysis but also provides a powerful tool for understanding potential future air quality trends. It bridges the gap between complex statistical models and actionable insights, making our findings accessible and meaningful to a broader audience.</p>
-<div id="cell-plot-forecast" class="cell" data-execution_count="64">
+<div id="cell-plot-forecast" class="cell" data-execution_count="62">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1392,7 +1152,7 @@ sigma2       134.1503   3.35e+05      0.000      1.000   -6.57e+05    6.57e+05
 <li>The impact on wind patterns and air circulation</li>
 <li>The potential effects of wildfires on air quality</li>
 </ul>
-<p>These geographical factors play a significant role in local air quality dynamics but were beyond the scope of our current data set. The impact of the geological features can be seen in the image below (figure 1414)</p>
+<p>These geographical factors play a significant role in local air quality dynamics but were beyond the scope of our current data set. The impact of the geological features can be seen in the image below (AirNow Map) illustrates how the surrounding mountains create a basin effect, trapping pollutants and contributing to higher air pollution levels. The concentrated red and orange areas, particularly on right side of the Willamette Valley.Do the mountains in the image seem to create barriers to air flow, potentially trapping pollutants in certain areas?</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/AirNow-Map.png?raw=true" class="img-fluid figure-img"></p>
@@ -1404,33 +1164,144 @@ sigma2       134.1503   3.35e+05      0.000      1.000   -6.57e+05    6.57e+05
 </section>
 <section id="bibliography" class="level1">
 <h1>Bibliography</h1>
-<p>American Lung Association, https://www.lung.org/research/sota/key-findings</p>
-<p>Airly, https://airly.org/en/how-does-humidity-affect-air-quality-all-you-need-to-know/</p>
-<p>Airnow.gov, https://www.airnow.gov/aqi/aqi-basics/using-air-quality-index</p>
-<p>California Air Resources Board, https://ww2.arb.ca.gov/resources/carbon-monoxide-and-health</p>
-<p>Centers for Disease Control and Prevention, Agency for Toxic Substances and Disease Registry, https://wwwn.cdc.gov/TSP/ToxFAQs/ToxFAQsDetails.aspx?faqid=396&amp;toxid=69</p>
-<p>Centers for Disease Control and Prevention, Agency for Toxic Substances and Disease Registry, https://wwwn.cdc.gov/TSP/MMG/MMGDetails.aspx?mmgid=249&amp;toxid=46</p>
-<p>Congressional Budget Office, https://www.cbo.gov/publication/60030</p>
-<p>Environmental Protection Agency, https://www.epa.gov/pm-pollution/particulate-matter-pm-basics</p>
-<p>Environmental Protection Agency, https://www.epa.gov/ground-level-ozone-pollution/health-effects-ozone-pollution</p>
-<p>Environmental Protection Agency, https://www.epa.gov/clean-air-act-overview/evolution-clean-air-act</p>
-<p>Federal Transit Administration, https://www.apta.com/research-technical-resources/transit-statistics/ntd-data-tables/</p>
-<p>Fuller, Landrigan, Balakrishnan, et al., https://www.thelancet.com/journals/lanplh/article/PIIS2542-5196(22)00090-0/fulltext</p>
-<p>Jacobs, Burgess, Abbott, https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5922205/</p>
-<p>Manisalidis, Stavropoulou, Stavropoulos, Bezirtzoglou, https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7044178/</p>
-<p>National Oceanic and Atmospheric Administration, https://oceanservice.noaa.gov/facts/nautical-mile-knot.html</p>
-<p>National Weather Service, https://www.weather.gov/source/zhu/ZHU_Training_Page/winds/pressure_winds/Pressure.htm</p>
-<p>Oregon Wildfire Response and Recovery, https://wildfire.oregon.gov/prevention</p>
-<p>World Health Organization, https://www.who.int/news-room/fact-sheets/detail/lead-poisoning-and-health</p>
-<p>Zhang Et. Al. https://acp.copernicus.org/articles/18/15003/2018/</p>
-<p>World Health Organization, https://www.who.int/news/item/25-03-2014-7-million-premature-deaths-annually-linked-to-air-pollution</p>
+<p>Airly. (n.d.). <em>How does humidity affect air quality? All you need to know</em>. <a href="https://airly.org/en/how-does-humidity-affect-air-quality-all-you-need-to-know/">airly.org/en/how-does-humidity-affect-air-quality-all-you-need-to-know/</a></p>
+<p>AirNow. (n.d.). <em>Using air quality index</em>. <a href="https://www.airnow.gov/aqi/aqi-basics/using-air-quality-index">www.airnow.gov/aqi/aqi-basics/using-air-quality-index</a></p>
+<p>American Lung Association. (n.d.). <em>Key findings: State of the air</em>. <a href="https://www.lung.org/research/sota/key-findings">www.lung.org/research/sota/key-findings</a></p>
+<p>California Air Resources Board. (n.d.). <em>Carbon monoxide &amp; health</em>. <a href="https://ww2.arb.ca.gov/resources/carbon-monoxide-and-health">ww2.arb.ca.gov/resources/carbon-monoxide-and-health</a></p>
+<p>Centers for Disease Control and Prevention, Agency for Toxic Substances and Disease Registry. (2014, October 21). <em>Medical management guidelines for sulfur dioxide</em>. <a href="https://wwwn.cdc.gov/TSP/MMG/MMGDetails.aspx?mmgid=249&amp;toxid=46">wwwn.cdc.gov/TSP/MMG/MMGDetails.aspx?mmgid=249&amp;toxid=46</a></p>
+<p>Centers for Disease Control and Prevention, Agency for Toxic Substances and Disease Registry. (2023, April 12). <em>Toxic substances portal - Nitrogen oxides</em>. <a href="https://wwwn.cdc.gov/TSP/ToxFAQs/ToxFAQsDetails.aspx?faqid=396&amp;toxid=69">wwwn.cdc.gov/TSP/ToxFAQs/ToxFAQsDetails.aspx?faqid=396&amp;toxid=69</a></p>
+<p>Congressional Budget Office. (2023, May). <em>Reducing emissions from transportation</em>. <a href="https://www.cbo.gov/publication/60030">www.cbo.gov/publication/60030</a></p>
+<p>Environmental Protection Agency. (n.d.-a). <em>Evolution of the Clean Air Act</em>. <a href="https://www.epa.gov/clean-air-act-overview/evolution-clean-air-act">www.epa.gov/clean-air-act-overview/evolution-clean-air-act</a></p>
+<p>Environmental Protection Agency. (n.d.-b). <em>Health effects of ozone pollution</em>. <a href="https://www.epa.gov/ground-level-ozone-pollution/health-effects-ozone-pollution">www.epa.gov/ground-level-ozone-pollution/health-effects-ozone-pollution</a></p>
+<p>Environmental Protection Agency. (n.d.-c). <em>Particulate matter (PM) basics</em>. <a href="https://www.epa.gov/pm-pollution/particulate-matter-pm-basics">www.epa.gov/pm-pollution/particulate-matter-pm-basics</a></p>
+<p>Federal Transit Administration. (n.d.). <em>NTD data tables</em>. American Public Transportation Association. <a href="https://www.apta.com/research-technical-resources/transit-statistics/ntd-data-tables/">www.apta.com/research-technical-resources/transit-statistics/ntd-data-tables/</a></p>
+<p>Fuller, R., Landrigan, P. J., Balakrishnan, K., Bathan, G., Bose-O’Reilly, S., Brauer, M., Caravanos, J., Chiles, T., Cohen, A., Corra, L., Cropper, M., Ferraro, G., Hanna, J., Hanrahan, D., Hu, H., Hunter, D., Janata, G., Kupka, R., Lanphear, B., . . . Yadama, G. N. (2022). Pollution and health: A progress update. <em>The Lancet Planetary Health</em>, <em>6</em>(6), e535-e547. <a href="https://www.thelancet.com/journals/lanplh/article/PIIS2542-5196(22)00090-0/fulltext">www.thelancet.com/journals/lanplh/article/PIIS2542-5196(22)00090-0/fulltext</a></p>
+<p>Jacobs, E. T., Burgess, J. L., &amp; Abbott, M. B. (2018). The Donora smog revisited: 70 years after the event that inspired the clean air act. <em>American Journal of Public Health</em>, <em>108</em>(S2), S85-S88. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5922205/">www.ncbi.nlm.nih.gov/pmc/articles/PMC5922205/</a></p>
+<p>Manisalidis, I., Stavropoulou, E., Stavropoulos, A., &amp; Bezirtzoglou, E. (2020). Environmental and health impacts of air pollution: A review. <em>Frontiers in Public Health</em>, <em>8</em>, 14. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7044178/">www.ncbi.nlm.nih.gov/pmc/articles/PMC7044178/</a></p>
+<p>National Oceanic and Atmospheric Administration. (n.d.). <em>What are a nautical mile and a knot?</em> <a href="https://oceanservice.noaa.gov/facts/nautical-mile-knot.html">oceanservice.noaa.gov/facts/nautical-mile-knot.html</a></p>
+<p>National Weather Service. (n.d.). <em>Pressure and winds</em>. <a href="https://www.weather.gov/source/zhu/ZHU_Training_Page/winds/pressure_winds/Pressure.htm">www.weather.gov/source/zhu/ZHU_Training_Page/winds/pressure_winds/Pressure.htm</a></p>
+<p>Oregon Wildfire Response and Recovery. (n.d.). <em>Wildfire prevention</em>. <a href="https://wildfire.oregon.gov/prevention">wildfire.oregon.gov/prevention</a></p>
+<p>World Health Organization. (2014, March 25). <em>7 million premature deaths annually linked to air pollution</em>. <a href="https://www.who.int/news/item/25-03-2014-7-million-premature-deaths-annually-linked-to-air-pollution">www.who.int/news/item/25-03-2014-7-million-premature-deaths-annually-linked-to-air-pollution</a></p>
+<p>World Health Organization. (2022, October 31). <em>Lead poisoning and health</em>. <a href="https://www.who.int/news-room/fact-sheets/detail/lead-poisoning-and-health">www.who.int/news-room/fact-sheets/detail/lead-poisoning-and-health</a></p>
+<p>Zhang, Y., Cooper, O. R., Gaudel, A., Thompson, A. M., Nédélec, P., Ogino, S. Y., &amp; West, J. J. (2018). Tropospheric ozone change from 1980 to 2010 dominated by equatorward redistribution of emissions. <em>Nature Geoscience</em>, <em>11</em>, 637-644. <a href="https://acp.copernicus.org/articles/18/15003/2018/">acp.copernicus.org/articles/18/15003/2018/</a></p>
+</section>
+<section id="metrics-to-evaluate-machine-model-performance" class="level1">
+<h1>Metrics to Evaluate Machine Model Performance</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 19%">
+<col style="width: 25%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Technique/Metric</th>
+<th>Description</th>
+<th>Purpose/Formula</th>
+<th>Scenario: Cancer prediction</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1. Train-Test Split</td>
+<td>Split the dataset into training and testing subsets</td>
+<td>Assess model performance on unseen data to detect overfitting and ensure generalizability</td>
+<td>Always used; crucial for unbiased evaluation of model performance</td>
+</tr>
+<tr class="even">
+<td>2. Cross-Validation</td>
+<td>Divide data into k subsets and train the model k times, using a different subset as test set each time</td>
+<td>Provides robust estimate of model performance by averaging results over multiple splits</td>
+<td>Useful for smaller datasets or when data collection is expensive (e.g., rare cancer types)</td>
+</tr>
+<tr class="odd">
+<td>3. Confusion Matrix</td>
+<td>Table comparing predicted and actual values in classification</td>
+<td>Metrics: True Positives (TP), True Negatives (TN), False Positives (FP), False Negatives (FN)</td>
+<td>Fundamental for understanding model performance in classification tasks, like cancer detection</td>
+</tr>
+<tr class="even">
+<td>4. Accuracy</td>
+<td>Ratio of correctly predicted instances to total instances</td>
+<td><span class="math inline">\(\frac{TP + TN}{TP + TN + FP + FN}\)</span></td>
+<td>Used when classes are balanced; less suitable for rare cancer detection due to class imbalance</td>
+</tr>
+<tr class="odd">
+<td>5a. Precision</td>
+<td>Ratio of correctly predicted positive observations to total predicted positives</td>
+<td><span class="math inline">\(\frac{TP}{TP + FP}\)</span></td>
+<td>Important when false positives are costly (e.g., unnecessary biopsies or treatments)</td>
+</tr>
+<tr class="even">
+<td>5b. Recall (Sensitivity)</td>
+<td>Ratio of correctly predicted positive observations to all actual positive observations</td>
+<td><span class="math inline">\(\frac{TP}{TP + FN}\)</span></td>
+<td>Critical in cancer detection to minimize false negatives (missed cancer cases)</td>
+</tr>
+<tr class="odd">
+<td>5c. F1-Score</td>
+<td>Harmonic mean of Precision and Recall</td>
+<td><span class="math inline">\(2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}\)</span></td>
+<td>Balances precision and recall; useful when seeking a compromise between false positives and false negatives</td>
+</tr>
+<tr class="even">
+<td>6. ROC Curve and AUC</td>
+<td>ROC: Graph of true positive rate vs false positive rate at various thresholds. AUC: Area under ROC curve</td>
+<td>Higher AUC indicates better model performance</td>
+<td>Useful for comparing models and choosing optimal threshold, especially in diagnostic tests</td>
+</tr>
+<tr class="odd">
+<td>7. Mean Absolute Error (MAE)</td>
+<td>Average of absolute differences between predicted and actual values</td>
+<td><span class="math inline">\(\frac{1}{n} \sum_{i=1}^{n} \|y_i - \hat{y}_i\|\)</span></td>
+<td>Used in regression tasks, e.g., predicting survival time; less sensitive to outliers than MSE</td>
+</tr>
+<tr class="even">
+<td>8a. Mean Squared Error (MSE)</td>
+<td>Average of squared differences between predicted and actual values</td>
+<td><span class="math inline">\(\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2\)</span></td>
+<td>Used in regression; penalizes large errors more, suitable when large errors are particularly undesirable</td>
+</tr>
+<tr class="odd">
+<td>8b. Root Mean Squared Error (RMSE)</td>
+<td>Square root of MSE</td>
+<td><span class="math inline">\(\sqrt{\text{MSE}}\)</span></td>
+<td>Same as MSE, but in the original unit of the target variable, making it more interpretable</td>
+</tr>
+<tr class="even">
+<td>9. R-squared</td>
+<td>Proportion of variance in dependent variable predictable from independent variables</td>
+<td><span class="math inline">\(1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}\)</span></td>
+<td>Used in regression to assess overall fit; indicates how well the model explains the variance in the data</td>
+</tr>
+<tr class="odd">
+<td>10a. Akaike Information Criterion (AIC)</td>
+<td>Measures relative quality of statistical model for given data</td>
+<td><span class="math inline">\(2k - 2\ln(L)\)</span> where <span class="math inline">\(k\)</span> is number of parameters and <span class="math inline">\(L\)</span> is likelihood</td>
+<td>Used for model selection; helps prevent overfitting by penalizing complex models</td>
+</tr>
+<tr class="even">
+<td>10b. Bayesian Information Criterion (BIC)</td>
+<td>Similar to AIC but with stronger penalty term for number of parameters</td>
+<td><span class="math inline">\(k\ln(n) - 2\ln(L)\)</span> where <span class="math inline">\(n\)</span> is number of observations</td>
+<td>Also used for model selection; tends to favor simpler models compared to AIC</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- -->
+
 </section>
 
-</main>
-<!-- /main column -->
+</main> <!-- /main -->
 <script type="application/vnd.jupyter.widget-state+json">
-{"state":{"17802f0862c94ec8b51d25332340653c":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"success","description":"","description_allow_html":false,"layout":"IPY_MODEL_71f7c644e51b456ea9103f0325f7b3f4","max":1,"min":0,"orientation":"horizontal","style":"IPY_MODEL_d82900ac7f5e42f784d6723f50de5534","tabbable":null,"tooltip":null,"value":1}},"2d05dd5109e8412880cef070fce9289e":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"466422ee2e9240f7917e8f031daa6066":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_9238b3a908b1429b8020f4be7a37fc39","placeholder":"​","style":"IPY_MODEL_2d05dd5109e8412880cef070fce9289e","tabbable":null,"tooltip":null,"value":" [100%]   00:01 -&gt; (00:00 left)"}},"674b960441a24eb6a615bee9a20e1b0c":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":"inline-flex","flex":null,"flex_flow":"row wrap","grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}},"71f7c644e51b456ea9103f0325f7b3f4":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":"2","flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"72e785496d934391bf20e64f272b7beb":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_7db3660c48fe4b4ba79d10b29421e706","IPY_MODEL_17802f0862c94ec8b51d25332340653c","IPY_MODEL_466422ee2e9240f7917e8f031daa6066"],"layout":"IPY_MODEL_674b960441a24eb6a615bee9a20e1b0c","tabbable":null,"tooltip":null}},"7db3660c48fe4b4ba79d10b29421e706":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_b4acf7b5c89d4724a711306881f7918f","placeholder":"​","style":"IPY_MODEL_fdf0e1d6abe849a2a1887fcb6c0c06ca","tabbable":null,"tooltip":null,"value":"Done! Use &#x27;show&#x27; commands to display/save.   "}},"9238b3a908b1429b8020f4be7a37fc39":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"b4acf7b5c89d4724a711306881f7918f":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"d82900ac7f5e42f784d6723f50de5534":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"fdf0e1d6abe849a2a1887fcb6c0c06ca":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}}},"version_major":2,"version_minor":0}
+
+{"state":{"30d406413296432eada704f02197310e":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"3dd74f3ae8144c828b4dc20c40de7147":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_a01534291410446aa523c402235e245d","placeholder":"​","style":"IPY_MODEL_ad4720b273464b2cb26dc66f791c3e27","tabbable":null,"tooltip":null,"value":"Done! Use &#x27;show&#x27; commands to display/save.   "}},"3df8f0e47cb4497bbeedcee47414f9f8":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"success","description":"","description_allow_html":false,"layout":"IPY_MODEL_d9a143a7678f4aa8af3c40268367ce18","max":1,"min":0,"orientation":"horizontal","style":"IPY_MODEL_9a0a52849b7f4c75b27d37b36a4c628b","tabbable":null,"tooltip":null,"value":1}},"40e1604551ea462888294cc5160a9ee4":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":"inline-flex","flex":null,"flex_flow":"row wrap","grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}},"57a8420395b442cda2ac467d808f207e":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_3dd74f3ae8144c828b4dc20c40de7147","IPY_MODEL_3df8f0e47cb4497bbeedcee47414f9f8","IPY_MODEL_b7fccdfe13b740ea94192321c51fff02"],"layout":"IPY_MODEL_40e1604551ea462888294cc5160a9ee4","tabbable":null,"tooltip":null}},"9a0a52849b7f4c75b27d37b36a4c628b":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"a01534291410446aa523c402235e245d":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"ad4720b273464b2cb26dc66f791c3e27":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"b7fccdfe13b740ea94192321c51fff02":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_30d406413296432eada704f02197310e","placeholder":"​","style":"IPY_MODEL_b81e4fb5ebbf4997897f157439051b14","tabbable":null,"tooltip":null,"value":" [100%]   00:01 -&gt; (00:00 left)"}},"b81e4fb5ebbf4997897f157439051b14":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"d9a143a7678f4aa8af3c40268367ce18":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":"2","flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}}},"version_major":2,"version_minor":0}
+
 </script>
+
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1574,7 +1445,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/wu-msds-capstones\.github\.io\/Air-Quality-Index\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1901,11 +1772,80 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="an">title-block-banner:</span><span class="co"> true</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Unveiling the Drivers of Clean Air"</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Analysis of Portland Air Quality (AQI)"</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2024-08-01"</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">  - name: Stéphane Berhault</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">    orcid: 0009-0003-5357-629X</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">    email: sgberhault@willamette.edu</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">    affiliation: </span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co">      - name: Willamette University</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co">        city: Portland</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co">        state: OR</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co">        url: https://willamette.edu</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co">  - name: Jake Warmflash</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co">    email: jwarmflash@willamette.edu</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co">    affiliation: </span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co">      - name: Willamette University</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co">        city: Portland</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="co">        state: OR</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co">        url: https://willamette.edu</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="an">keywords:</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co">  - AQI</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="co">  - Time Series</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co">  - Prophet</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="co">  - SARIMAX</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="co">  - Scikit-Learn</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: false</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="an">jupyter:</span><span class="co"> python3</span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: cerulean</span></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="co">    fig-width: 8</span></span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="co">    fig-height: 6</span></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools:</span></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a><span class="co">      source: true</span></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a><span class="co">      toggle: true</span></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a><span class="co">      caption: none</span></span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a><span class="co">    smooth-scroll: true</span></span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-location: left</span></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-title: Contents</span></span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: false</span></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a><span class="co">    other-links:</span></span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a><span class="co">      - text: Airnow Open Data</span></span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a><span class="co">        href: https://www.airnow.gov</span></span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a><span class="co">    code-links:</span></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a><span class="co">      - text: Sweetviz Analysis Report</span></span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a><span class="co">        icon: file-code</span></span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a><span class="co">        href: SWEETVIZ_REPORT.html</span></span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a><span class="co">      - text: ydata Analysis Report</span></span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a><span class="co">        icon: file-code</span></span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a><span class="co">        href: your_report2.html</span></span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a><span class="co">    html-math-method: mathjax</span></span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a><span class="co">    css: styles.css</span></span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>{{&lt; include _01_intro.qmd &gt;}}</span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>{{&lt; include _02_background.qmd &gt;}}</span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>{{&lt; include _03_methods.qmd &gt;}}</span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>{{&lt; include _04_data.qmd &gt;}}</span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>{{&lt; include _05b_results_Machine_Learning_ScikitLearn.qmd &gt;}}</span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>{{&lt; include _05c_results_Machine_Learning_SARIMAX.qmd &gt;}}</span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a>{{&lt; include _06_conclusions.qmd &gt;}}</span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a>{{&lt; include _07_bibliography.qmd &gt;}}</span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a>{{&lt; include _08_reference.qmd &gt;}}</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 
 
 
-<script src="capstone_files/libs/quarto-html/zenscroll-min.js"></script>
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

@@ -1,0 +1,177 @@
+[
+  {
+    "objectID": "demo/slide.html#getting-up",
+    "href": "demo/slide.html#getting-up",
+    "title": "Habits",
+    "section": "Getting up",
+    "text": "Getting up\n\nTurn off alarm\nGet out of bed"
+  },
+  {
+    "objectID": "demo/slide.html#breakfast",
+    "href": "demo/slide.html#breakfast",
+    "title": "Habits",
+    "section": "Breakfast",
+    "text": "Breakfast\n\nEat eggs\nDrink coffee"
+  },
+  {
+    "objectID": "demo/slide.html#dinner",
+    "href": "demo/slide.html#dinner",
+    "title": "Habits",
+    "section": "Dinner",
+    "text": "Dinner\n\nEat spaghetti\nDrink wine"
+  },
+  {
+    "objectID": "demo/slide.html#going-to-sleep",
+    "href": "demo/slide.html#going-to-sleep",
+    "title": "Habits",
+    "section": "Going to sleep",
+    "text": "Going to sleep\n\nGet in bed\nCount sheep"
+  },
+  {
+    "objectID": "capstone.html",
+    "href": "capstone.html",
+    "title": "Unveiling the Drivers of Clean Air",
+    "section": "",
+    "text": "On October 30, 1948, the Donora High School Football team played through a dense smog to complete the game with hundreds of fans in the audience, despite very poor visibility. The team, fueled by resilience, took pride in playing through poor conditions, a testament to the high spirit of the small town. Soon after, calls to the town’s medical offices began flooding in, complaining of difficulty breathing and respiratory issues. Donora, Pennsylvania, was a town of metalworks, built by the American Steel and Wire company and the Donora Zinc Works company, which made up major parts of the town’s economy. The heavy smog and pollution clouds that covered the sky had been viewed as a sign of prosperity, owing to the industrial might that powered their economy. Within just twelve hours, seventeen people would be dead, 1440 seriously affected, and 4470 with mild to moderate conditions—almost half the town’s working population (Jacobs, Burgess, Abbott).\nThis event, known as the Donora Smog of 1948, prompted the country into taking a closer look at the negative impacts of air pollution. Widespread debate surrounding the event led to the first legislation aimed at regulating the air quality within the United States, ushering in a new era of tracking, combatting, and reversing the ill effects of poor air quality. The quality of air we breathe has direct impacts on our health. We must understand the factors that contribute to poor air quality and how we individually and collectively contribute to these changes. Until we can visualize the impact we have on our atmosphere, we will continue behavior that negatively impacts the air around us.\nIn this project, we will focus on the key factors influencing air quality in Portland, Oregon. We aim to understand the complex interplay between various environmental and human-made factors that contribute to high air pollution levels. Initially, we were surprised to discover that Portland, the city we reside in, has some of the best air quality for a city of its size in the United States. This led us to narrow our focus to understanding the factors that contribute to these favorable outcomes in this city.\nOur project aims to develop and validate machine learning models to analyze the various factors influencing air quality. By focusing on Portland in comparison to other large US cities, we hope to find things Portland does that lead to the greater AQI outcomes. Our approach will consider a range of variables, including meteorological conditions, pollution sources, and transit systems. Through this analysis, we aim to provide actionable insights and recommendations for sustaining and improving air quality. By examining both the contributors to clean air and the sources of pollution, we can understand the factors affecting air quality and develop comprehensive strategies for enhancement."
+  },
+  {
+    "objectID": "capstone.html#tools-deployed",
+    "href": "capstone.html#tools-deployed",
+    "title": "Unveiling the Drivers of Clean Air",
+    "section": "Tools Deployed",
+    "text": "Tools Deployed\nPython will be the primary programming language used to conduct this analysis. We will also use R language in statistical applications where necessary.\nTo perform our analysis, we will employ NumPy and Pandas for data manipulation. Matplotlib and Seaborn for visualization, and Time Series forecasting algorithms such as Prophet and SARIMAX.\nWe will address data inconsistencies, missing values and ensure that data is in a tidy format.\nWe may need to normalize or standardize data if necessary and create new features through aggregation to enhance the model’s performance."
+  },
+  {
+    "objectID": "capstone.html#what-is-prophet",
+    "href": "capstone.html#what-is-prophet",
+    "title": "Unveiling the Drivers of Clean Air",
+    "section": "What is Prophet?",
+    "text": "What is Prophet?\nProphet is an open-source forecasting tool developed by Meta, designed for forecasting time series data. It is suited for datasets with strong seasonal, monthly, weekly, or daily patterns, and it handles missing data and outliers well. We utilized prophet to gain a quick understanding of our AQI patterns, seeking to understand basic trends before conducting a more thorough analysis.\nKey features of Prophet include seasonality detection and holiday incorporation, while providing easy use and understanding for users. We can use this software to get complex understanding from simple applications.\nTo conduct this analysis, we prepare data into a two column table, date and AQI. Prophet uses the trends of past data to highlight similarities over days of the year, weeks, months, and seasons. From this, prophet is able to generate its predictions, cross validate, and give performance metrics such as mean absolute percentage error to quantify the accuracy of the results."
+  },
+  {
+    "objectID": "capstone.html#what-is-sarimax-algorithm",
+    "href": "capstone.html#what-is-sarimax-algorithm",
+    "title": "Unveiling the Drivers of Clean Air",
+    "section": "What is SARIMAX algorithm?​​​​​​​​​​​​​​​",
+    "text": "What is SARIMAX algorithm?​​​​​​​​​​​​​​​\nThe most common method used in time series forecasting is known as the ARIMA model. We will use an extended version called SARIMAX (Seasonal Auto Regressive Integrated Moving Averages with exogenous factor)\n\nThe SARIMAX model is used when the data sets have seasonal cycles.\nIn the dataset concerning the air quality/AQI there is a seasonal pattern which we have explained in the above section.\nSARIMAX is a model that can be fitted to time series data in order to better understand or predict future points in the time series\nSARIMAX is particularly useful for forecasting time series data that exhibits both trends and seasonality.\n\nHere’s a breakdown of its components:\nThere are three distinct integers (p,d,q) that are used to parametrize SARIMAX models. Because of that, ARIMA models are denoted with the notation SARIMAX(p,d,q).\nTogether these three parameters account for seasonality, trend, and noise in datasets:\n\nSeasonality (S): Accounts for recurring patterns or cycles in the data.\nAutoRegressive (AR): Uses past values to predict future values.\nIntegrated (I): Applies differencing to make the time series stationary.\nMoving Average (MA): Uses past forecast errors in the prediction.\neXogenous factors (X): Incorporates external variables that may influence the forecast.\n\nWe are trying to find the right p, d, q hyperparameters to correctly forecast and predict the AQI values."
+  },
+  {
+    "objectID": "capstone.html#akaike-information-criteria-aic",
+    "href": "capstone.html#akaike-information-criteria-aic",
+    "title": "Unveiling the Drivers of Clean Air",
+    "section": "Akaike Information Criteria (AIC)?",
+    "text": "Akaike Information Criteria (AIC)?\nUsed to measure of a statistical model, it quantifies:\n\nThe goodness of fit\nThe simplicity of the model into a single statistic\nWhen comparing two models, the one with the lower AIC is generally “better”\n\nThe Akaike Information Criterion (AIC) is a measure used to compare different statistical models. It helps in model selection by balancing the goodness of fit and the complexity of the model. Here’s how to interpret the AIC value:\n\nAIC Value: A lower AIC value indicates a better-fitting model. It means the model has a good balance between accuracy and complexity.\nComparative Measure: AIC is most useful when comparing multiple models. The model with the lowest AIC among a set of candidate models is generally preferred.\nPenalty for Complexity: AIC includes a penalty for the number of parameters in the model. This discourages overfitting by penalizing models that use more parameters without a corresponding improvement in fit."
+  },
+  {
+    "objectID": "capstone.html#train-and-test",
+    "href": "capstone.html#train-and-test",
+    "title": "Unveiling the Drivers of Clean Air",
+    "section": "Train and Test",
+    "text": "Train and Test\nRigorous validation is paramount to establishing the model’s reliability and practical application. To ensure the model’s generalizability, we will employ a train-test split. This approach safeguards against overfitting by exposing the model to unseen data, allowing for a more accurate assessment of its predictive capabilities.\nBy partitioning the dataset, we can:\n\nEvaluate performance: Measure the model’s accuracy on unseen data.\nDetect overfitting: Identify discrepancies between training and testing performance.\nAssess generalization: Determine the model’s ability to handle new data.\nQuantify reliability: Calculate confidence intervals for prediction accuracy.\nIteratively improve: Use insights to refine the model.\n\nThis rigorous process underpins the credibility and utility of our research findings.\nTo split the data, we follow the recommended 70:30 ratio, 70% of the data is the training data, and 30% of the data is the testing data."
+  },
+  {
+    "objectID": "capstone.html#data-explaination",
+    "href": "capstone.html#data-explaination",
+    "title": "Unveiling the Drivers of Clean Air",
+    "section": "Data Explaination",
+    "text": "Data Explaination\nThe data for this project was initially scattered across multiple sources and required significant organization and compilation. The focus of this project is on the air quality in Portland, Oregon, so various data sources were aggregated and processed to compare a variety of air quality indicators."
+  },
+  {
+    "objectID": "capstone.html#air-quality-data",
+    "href": "capstone.html#air-quality-data",
+    "title": "Unveiling the Drivers of Clean Air",
+    "section": "Air Quality Data:",
+    "text": "Air Quality Data:\nAir quality data, specifically AQI values, were obtained from the United States Environmental Protection Agency (EPA) pre-generated data files. The AQI values are calculated daily, based on a variety of factors including criteria gasses and measured pollutant concentrations, and measures how harmful breathing the air is. AQI is classified into one of six categories from ‘good’ to ‘hazardous’, each having long term health effects associated with it. The files were given daily on a county wide basis, separated into different files by year."
+  },
+  {
+    "objectID": "capstone.html#meteorological-data",
+    "href": "capstone.html#meteorological-data",
+    "title": "Unveiling the Drivers of Clean Air",
+    "section": "Meteorological Data:",
+    "text": "Meteorological Data:\nHistorical weather data was also sourced from the EPA database, measured by thousands of weather stations across the country. Measurements tracked include temperature, wind speed, air pressure, and humidity. Temperature is measured in degrees fahrenheit. Wind speed is measured in knots, which are defined as one nautical mile per hour (equivalent to approximately 1.15mph). Wind speed is important in air quality as winds can blow different pollutants around and move and spread wildfires. Pressure is measured in millibars, where 1013.25 millibars is the standard atmospheric pressure (Earth’s pressure at mean sea level). Finally, humidity is measured in percent relative humidity. This is the amount of water vapor in the air as a percentage of the maximum amount of water vapor possible at a given temperature. Humidity can make it more difficult to breathe and sweat, make the air feel hotter than it is, and prevent air pollutants from dispersing as easily. Indoors, high humidity can trap air, leading to the growth of mold and harmful bacteria. This data was given daily by city, separated into different files by year. Measurements were taken hourly, but pre-calculated in the source database, giving an average value over the twenty four hours and a maximum value."
+  },
+  {
+    "objectID": "capstone.html#pollution-source-data",
+    "href": "capstone.html#pollution-source-data",
+    "title": "Unveiling the Drivers of Clean Air",
+    "section": "Pollution Source Data:",
+    "text": "Pollution Source Data:\nPollution data was again sourced from the EPA database, separated by criteria gasses (CO, NO2, O3, SO2), Toxins (lead), and particulate matter (PM2.5 and PM10). Criteria gas Carbon Monoxide is measured in parts per million, and is especially dangerous as it is both colorless and odorless. CO binds to hemoglobin in the blood, making the transportation of oxygen around the body more difficult. Nitrogen Dioxide is dangerous to breathe in at high levels. It can cause swelling in the throat, burning, reduced oxygenation of body tissues, and fluid build up in the lungs. It is released in many common combustion reactions including in cars, coal plants, and cigarettes. It is measured in parts per billion. Ozone can harm our ability to breathe, especially in older people, children, and people with asthma. It is measured in parts per million. Sulfur Dioxide, measured in parts per billion, can irritate the eyes, mucous membranes, skin, and respiratory tract. Lead is a toxin which can increase the risk of high blood pressure, cardiovascular problems, and complications during pregnancy. While exposure has gone down significantly in the recent decades after use in gasoline, it still remains a dangerous toxin to breathe in. It is measured in micrograms per cubic meter. PM2.5 and PM10 are particulate matter, small inhalable particles with diameters of 2.5 microns or smaller, and 10 microns or smaller respectively. PM2.5 includes all sorts of common particles, metals, and organic compounds. PM10 includes dust, pollen, molds, and other larger (but still very small) particles. Due to the variability of particles included in the PM classification, there are a wide range of negative health impacts that come from breathing in these particles. PM2.5 and PM10 are measured in micrograms per cubic meter.\nThis data was given daily by city, separated into different files by year. They are sourced from thousands of individual sources, which measure various selections of these pollution sources. Because of the variety of different pollutants being measured, there was a significant amount of missing data, especially from small towns. Measurements were taken hourly, pre-compiled into a daily average and maximum."
+  },
+  {
+    "objectID": "capstone.html#transit-data",
+    "href": "capstone.html#transit-data",
+    "title": "Unveiling the Drivers of Clean Air",
+    "section": "Transit Data:",
+    "text": "Transit Data:\nInformation on motor buses taken from the National Transit Database, produced by the Federal Transit Administration. Includes information of bus systems and ridership by city, separated by year. Data is recorded yearly, encompassing annual totals for information such as number of buses, total revenue, passengers, and miles driven for the respective city transit systems. Information was given in yearly CSVs, separated by the city transit system. For cities with multiple systems, data was combined. Only motorbus data was used, which may not be reflective of cities with other large methods of public transportation, such as the New York subway system."
+  },
+  {
+    "objectID": "capstone.html#population-data",
+    "href": "capstone.html#population-data",
+    "title": "Unveiling the Drivers of Clean Air",
+    "section": "Population Data:",
+    "text": "Population Data:\nData on population and population density sourced from the Simplemaps United States Cities database, which is built from multiple sources including the U.S. Geological Survey and the U.S. Census Bureau. Data is updated as of May 6, 2024, reflecting very up to date information."
+  },
+  {
+    "objectID": "capstone.html#data-organization",
+    "href": "capstone.html#data-organization",
+    "title": "Unveiling the Drivers of Clean Air",
+    "section": "Data Organization",
+    "text": "Data Organization\nGiven the raw data available, the table structure was simplified compared to the original data sources. Data was organized in a star schema centered on the air_quality fact table. This table tracks AQI, pollutant, weather and toxin data daily for each location. The first dimension table is the dates table, a serialized list of dates from January 1st, 2015 to December 31st, 2022. Next, we have a locations dimension table, a serialized list of over 1400 cities and towns from around the country. These are labeled by the state, county, and city name, as well as the population and population density, allowing connection to information based on what is given. The aqi_category dimension table is a short list of AQI value categories (Good, Unhealthy, Hazardous, etc.) with their respective AQI value range as minimum and maximum values.\nFinally, the yearly_transit dimension table gives the information for the transit system of the respective city during the specified year attached in the fact table. This table seems counterproductive to not include the location or year of the specified line or even a reference id, but in keeping with star schema, it was decided that this was the best way to reference this information. Understanding the context of a specified line requires joining the table back to the fact table, and joining the location and date tables to that as well.\nEach table has a unique serialized primary key, and all dimension tables are connected via foreign key. Several additional indexes are included on columns that will be queried often. Finally, constraints have been added to limit unusual or impossible data.\nTracking these identifiers independently allows for accurate analysis of changes over time and across different areas, and allows adding new information should we need to update the database. (Figure 1) illustrates the resulting ERD structure using drawSQL.\nFigure 1.\n\n\n\nERD Diagram"
+  },
+  {
+    "objectID": "capstone.html#initial-exploratory-data-analysis-eda",
+    "href": "capstone.html#initial-exploratory-data-analysis-eda",
+    "title": "Unveiling the Drivers of Clean Air",
+    "section": "Initial Exploratory Data Analysis (EDA)",
+    "text": "Initial Exploratory Data Analysis (EDA)\nWe have a new dataset named metro_1mil.csv. This file was created using a SQL statement that joins all relevant tables, filtering for metropolitan areas with populations less than or equal to 1 million. This approach limits our EDA to mid-sized metropolitan cities, such as Portland, Oregon."
+  },
+  {
+    "objectID": "capstone.html#visualization-aqi-distribution",
+    "href": "capstone.html#visualization-aqi-distribution",
+    "title": "Unveiling the Drivers of Clean Air",
+    "section": "Visualization AQI Distribution",
+    "text": "Visualization AQI Distribution\nLet’s plot the AQI data distribution"
+  },
+  {
+    "objectID": "capstone.html#dataframe-shape",
+    "href": "capstone.html#dataframe-shape",
+    "title": "Unveiling the Drivers of Clean Air",
+    "section": "Dataframe Shape",
+    "text": "Dataframe Shape\nThe DataFrame contains 147039 rows and 44 columns."
+  },
+  {
+    "objectID": "capstone.html#time-series-prediction",
+    "href": "capstone.html#time-series-prediction",
+    "title": "Unveiling the Drivers of Clean Air",
+    "section": "Time Series Prediction",
+    "text": "Time Series Prediction\nFor this project, we have used an extended version of ARIMA model knows as SARIMAX model as we have explained in the methods section. The SARIMAX model is used when the data sets have seasonal cycles. In our dataset concerning air quality/AQI there is a seasonal pattern which we can see in the above visualization.\nWe need to find the right p,d and q parameters to correctly forecast and predict the AQI value.\n\np is the auto-regressive part of the model. It allows us to incorporate the effect of past values into our model.\nd is the integrated part of the model. This includes terms in the model that incorporate the amount of diferencing (the number of past time points to subtract from the current value) to apply the time series.\nq is the moving average part of the model. This allows us to set the error of our model as a linear combination of the error values observed at previous time points in the past.\n\nWe use a tuning technique called grid search method that attempts to compute the optimum values of hyperparameters. We are trying to find the right p,d,q values that would be given as an input to the SARIMAX time series model.\nWe have to find the lowest AIC values which would have the best corresponding p,d,q values to have the best forecast of AQI values."
+  },
+  {
+    "objectID": "capstone.html#print-the-summary-which-includes-aic",
+    "href": "capstone.html#print-the-summary-which-includes-aic",
+    "title": "Unveiling the Drivers of Clean Air",
+    "section": "Print the summary which includes AIC",
+    "text": "Print the summary which includes AIC\n\n\n==============================================================================\n                 coef    std err          z      P&gt;|z|      [0.025      0.975]\n------------------------------------------------------------------------------\nar.L1          0.0483      0.306      0.158      0.875      -0.551       0.648\nma.L1         -1.0000    924.523     -0.001      0.999   -1813.031    1811.031\nma.S.L12      -1.0000   2355.498     -0.000      1.000   -4617.692    4615.692\nsigma2       134.1503   3.35e+05      0.000      1.000   -6.57e+05    6.57e+05\n=============================================================================="
+  },
+  {
+    "objectID": "capstone.html#plot-diagnostics",
+    "href": "capstone.html#plot-diagnostics",
+    "title": "Unveiling the Drivers of Clean Air",
+    "section": "Plot Diagnostics",
+    "text": "Plot Diagnostics\n\n\nThe AIC value is: 561.5301944999834\n\n\n\n\n\nPlot Diag\n\n\nOnce the model is created, predicted values are generated using the .get_prediction() method, with datetime as input\nThe graph indicates overlapping patterns in the testing and training data, suggesting strong potential for the forecasting model’s performance.\n\n\n\n\n\n\n\n\n\nTo facilitate comparison of true and predicted test values, we will create a separate DataFrame. Mean Error Estimation will be used for analysis.\nTo evaluate model performance, we calculate the MSE\n\n\nThe Mean Squared Error of our forecasts is 1.41"
+  },
+  {
+    "objectID": "capstone.html#forecasting-future-values",
+    "href": "capstone.html#forecasting-future-values",
+    "title": "Unveiling the Drivers of Clean Air",
+    "section": "Forecasting Future Values",
+    "text": "Forecasting Future Values\nAs we conclude our modeling process, we generate predictions for the next 30 data points:\n\nModel Information: The result variable contains our fitted model’s details.\nForecasting Method: We use the .get_forecast() method on our model results.\nPrediction Generation: This method analyzes observed patterns in our data to project future values.\nOutput: We obtain forecasts for the next 30 time points, representing predicted air quality levels.\n\nThis step transforms our analytical work into actionable insights for air quality management.\n\nForecasted Values with Dates"
+  },
+  {
+    "objectID": "capstone.html#visualizing-our-results-the-culmination-of-our-analysis",
+    "href": "capstone.html#visualizing-our-results-the-culmination-of-our-analysis",
+    "title": "Unveiling the Drivers of Clean Air",
+    "section": "Visualizing Our Results: The Culmination of Our Analysis",
+    "text": "Visualizing Our Results: The Culmination of Our Analysis\nThe final and crucial step of our project is the creation of a comprehensive plot that encapsulates our complex analysis. This visualization serves as the key to understanding and interpreting our findings.\n\nInterpreting the Forecast Plot\nOur plot consists of several key elements:\n\nObserved Values (Blue Line)\n\nRepresents the actual, historical air quality measurements\nProvides a baseline for comparing our predictions\n\nForecasted Values (Orange Line)\n\nDepicts the future air quality levels predicted by our SARIMAX Time Series Model\nAllows us to visualize potential trends and patterns in air quality\n\nConfidence Interval (Shaded Region)\n\nThe shaded area around the forecast line represents the 95% Confidence Interval (CI)\nIndicates the range within which we can be 95% confident that the true future values will fall\nWider intervals suggest greater uncertainty in the prediction\n\n\nThis visual representation not only summarizes our extensive data analysis but also provides a powerful tool for understanding potential future air quality trends. It bridges the gap between complex statistical models and actionable insights, making our findings accessible and meaningful to a broader audience."
+  }
+]
