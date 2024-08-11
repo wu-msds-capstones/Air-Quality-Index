@@ -6,7 +6,6 @@ Python will be the primary programming language used to conduct this analysis. W
 To perform our analysis, we will employ NumPy and Pandas for data manipulation. Matplotlib and Seaborn for visualization, and Time Series forecasting algorithms such as Prophet and SARIMAX.
 
 We will address data inconsistencies, missing values and ensure that data is in a tidy format.
-
 We may need to normalize or standardize data if necessary and create new features through aggregation to enhance the model’s performance.
 
 ## What is Prophet?
@@ -18,18 +17,10 @@ We can use this software to get complex understanding from simple applications.
 
 To conduct this analysis, we prepare data into a two column table, date and AQI. Prophet uses the trends of past data to highlight similarities over days of the year, weeks, months, and seasons. From this, prophet is able to generate its predictions, cross validate, and give performance metrics such as mean absolute percentage error to quantify the accuracy of the results.
 
-## What is SARIMAX algorithm?​​​​​​​​​​​​​​​
+## What is SARIMAX?​​​​​​​​​​​​​​​
 The most common method used in time series forecasting is known as the ARIMA model. We will use an extended version called SARIMAX (*Seasonal Auto Regressive Integrated Moving Averages with exogenous factor*)
 
-- The SARIMAX model is used when the data sets have seasonal cycles. 
-- In the dataset concerning the air quality/AQI there is a seasonal pattern which we have explained in the above section.
-- SARIMAX is a model that can be fitted to time series data in order to better understand or predict future points in the time series
-- SARIMAX is particularly useful for forecasting time series data that exhibits both trends and seasonality.
-
-Here's a breakdown of its components:
-
-There are three distinct integers (p,d,q) that are used to parametrize SARIMAX models. Because of that, ARIMA models are denoted with the notation SARIMAX(p,d,q).
-
+Here's a breakdown of its components: There are three distinct integers (p,d,q) that are used to parametrize SARIMAX models. Because of that, ARIMA models are denoted with the notation SARIMAX(p,d,q).
 Together these three parameters account for seasonality, trend, and noise in datasets:
 
 1. *Seasonality (S)*: Accounts for recurring patterns or cycles in the data.
@@ -40,15 +31,13 @@ Together these three parameters account for seasonality, trend, and noise in dat
 
 We are trying to find the right p, d, q hyperparameters to correctly forecast and predict the AQI values.
 
-# Machine Learning AQI Time Series
+The SARIMAX model is used when the data sets have seasonal cycles. In the dataset concerning the air quality/AQI there is a seasonal pattern which we have explained in the above section. SARIMAX is a model that can be fitted to time series data in order to better understand or predict future points. SARIMAX is particularly useful for forecasting time series data that exhibits both trends and seasonality.
+
 ## Akaike Information Criteria (AIC)?
-Used to measure of a statistical model, it quantifies:
 
-- The goodness of fit
-- The simplicity of the model into a single statistic
-- When comparing two models, the one with the lower AIC is generally "better"
+The Akaike Information Criterion (AIC) is a measure used to compare different statistical models. It helps in model selection by balancing the goodness of fit and the complexity of the model. Used to measure of a statistical model, the AiC quantifies the goodness of fit and its simplicity.When comparing two models, the one with the lower AIC is generally "better".
 
-The Akaike Information Criterion (AIC) is a measure used to compare different statistical models. It helps in model selection by balancing the goodness of fit and the complexity of the model. Here's how to interpret the AIC value:
+Here’s how to interpret the AIC value:
 
 - *AIC Value*: A lower AIC value indicates a better-fitting model. It means the model has a good balance between accuracy and complexity.
 - *Comparative Measure*: AIC is most useful when comparing multiple models. The model with the lowest AIC among a set of candidate models is generally preferred.
@@ -66,5 +55,4 @@ By partitioning the dataset, we can:
 - *Iteratively improve*: Use insights to refine the model.
 
 This rigorous process underpins the credibility and utility of our research findings.
-
 To split the data, we follow the recommended `70:30` ratio, 70% of the data is the training data, and 30% of the data is the testing data.
