@@ -30,7 +30,7 @@ Each table has a unique serialized primary key, and all dimension tables are con
 
 Tracking these identifiers independently allows for accurate analysis of changes over time and across different areas, and allows adding new information should we need to update the database. Figure 1 illustrates the resulting ERD structure using drawSQL.
 
-![Figure 1: ERD diagram, structure of database](https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/erd_diagram_final.png?raw=true)
+![ERD diagram, structure of database](https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/erd_diagram_final.png?raw=true)
 
 
 ```{python}
