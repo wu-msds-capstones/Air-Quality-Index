@@ -1,4 +1,5 @@
 execute: 
   freeze: auto
 project:
-  output-dir: _output
+ type: website
+ output-dir: _output

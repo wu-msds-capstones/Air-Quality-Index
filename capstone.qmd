@@ -36,8 +36,8 @@ format:
     fig-height: 6
     code-fold: true
     code-tools:
-      source: true
-      toggle: true
+      source: false
+      toggle: false
       caption: none
     smooth-scroll: true
     toc: true

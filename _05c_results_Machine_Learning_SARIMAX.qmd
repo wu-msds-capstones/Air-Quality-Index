@@ -113,7 +113,6 @@ print(results.summary().tables[1])
 ```
 
 # How Fit the SARIMAX model
-## Plot Diagnostics
 ```{python}
 #| label: Extract-AIC-value-plot
 aic_value = results.aic
@@ -124,7 +123,7 @@ print(f"The AIC value is: {aic_value}")
 #results.plot_diagnostics(figsize=(10, 8))
 ```
 
-![Plot Diag](https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/plot-diag.png?raw=true)
+![Plot Diagnostics](https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/plot-diag.png?raw=true)
 
 
 
@@ -157,7 +156,7 @@ y_forecasted = pred.predicted_mean
 y_truth = df_aqi['2022-12-31 00:00:00':]
 ```
 
-To evaluate model performance, we calculate the MSE
+To evaluate model performance, we calculate the MSE.
 ```{python}
 #| label: calculate-mse
 import numpy as np
@@ -185,7 +184,6 @@ pred_uc = results.get_forecast(steps=30)
 pred_ci = pred_uc.conf_int()
 ```
 
-### Forecasted Values with Dates
 ```{python}
 #| label: show tab-pred
 #| output: false
