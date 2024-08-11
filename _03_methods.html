@@ -59,8 +59,9 @@ ul.task-list li input[type="checkbox"] {
 <p>Key features of Prophet include seasonality detection and holiday incorporation, while providing easy use and understanding for users. We can use this software to get complex understanding from simple applications.</p>
 <p>To conduct this analysis, we prepare data into a two column table, date and AQI. Prophet uses the trends of past data to highlight similarities over days of the year, weeks, months, and seasons. From this, prophet is able to generate its predictions, cross validate, and give performance metrics such as mean absolute percentage error to quantify the accuracy of the results.</p>
 </section>
-<section id="what-is-sarimax" class="level3">
-<h3 class="anchored" data-anchor-id="what-is-sarimax">What is SARIMAX?​​​​​​​​​​​​​​​</h3>
+</section>
+<section id="what-is-sarimax" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-sarimax">What is SARIMAX?​​​​​​​​​​​​​​​</h2>
 <p>The most common method used in time series forecasting is known as the ARIMA model. We will use an extended version called SARIMAX (<em>Seasonal Auto Regressive Integrated Moving Averages with exogenous factor</em>)</p>
 <p>Here’s a breakdown of its components: There are three distinct integers (p,d,q) that are used to parametrize SARIMAX models. Because of that, ARIMA models are denoted with the notation SARIMAX(p,d,q). Together these three parameters account for seasonality, trend, and noise in datasets:</p>
 <ol type="1">
@@ -73,8 +74,8 @@ ul.task-list li input[type="checkbox"] {
 <p>We are trying to find the right p, d, q hyperparameters to correctly forecast and predict the AQI values.</p>
 <p>The SARIMAX model is used when the data sets have seasonal cycles. In the dataset concerning the air quality/AQI there is a seasonal pattern which we have explained in the above section. SARIMAX is a model that can be fitted to time series data in order to better understand or predict future points. SARIMAX is particularly useful for forecasting time series data that exhibits both trends and seasonality.</p>
 </section>
-<section id="akaike-information-criteria-aic" class="level3">
-<h3 class="anchored" data-anchor-id="akaike-information-criteria-aic">Akaike Information Criteria (AIC)?</h3>
+<section id="akaike-information-criteria-aic" class="level2">
+<h2 class="anchored" data-anchor-id="akaike-information-criteria-aic">Akaike Information Criteria (AIC)?</h2>
 <p>The Akaike Information Criterion (AIC) is a measure used to compare different statistical models. It helps in model selection by balancing the goodness of fit and the complexity of the model. Used to measure of a statistical model, the AiC quantifies the goodness of fit and its simplicity.When comparing two models, the one with the lower AIC is generally “better”.</p>
 <p>Here’s how to interpret the AIC value:</p>
 <ul>
@@ -82,7 +83,6 @@ ul.task-list li input[type="checkbox"] {
 <li><em>Comparative Measure</em>: AIC is most useful when comparing multiple models. The model with the lowest AIC among a set of candidate models is generally preferred.</li>
 <li><em>Penalty for Complexity</em>: AIC includes a penalty for the number of parameters in the model. This discourages overfitting by penalizing models that use more parameters without a corresponding improvement in fit.</li>
 </ul>
-</section>
 <section id="train-and-test" class="level3">
 <h3 class="anchored" data-anchor-id="train-and-test">Train and Test</h3>
 <p>Rigorous validation is paramount to establishing the model’s reliability and practical application. To ensure the model’s generalizability, we will employ a train-test split. This approach safeguards against overfitting by exposing the model to unseen data, allowing for a more accurate assessment of its predictive capabilities.</p>
