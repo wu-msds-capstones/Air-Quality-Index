@@ -72,12 +72,8 @@ ul.task-list li input[type="checkbox"] {
 <style>html{ scroll-behavior: smooth; }</style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
-
-
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
 <script src="https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
-
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -185,10 +181,8 @@ window.Quarto = {
   <li><a href="#tools-deployed" id="toc-tools-deployed" class="nav-link" data-scroll-target="#tools-deployed">Tools Deployed</a>
   <ul class="collapse">
   <li><a href="#what-is-prophet" id="toc-what-is-prophet" class="nav-link" data-scroll-target="#what-is-prophet">What is Prophet?</a></li>
-  </ul></li>
   <li><a href="#what-is-sarimax" id="toc-what-is-sarimax" class="nav-link" data-scroll-target="#what-is-sarimax">What is SARIMAX?​​​​​​​​​​​​​​​</a></li>
-  <li><a href="#akaike-information-criteria-aic" id="toc-akaike-information-criteria-aic" class="nav-link" data-scroll-target="#akaike-information-criteria-aic">Akaike Information Criteria (AIC)?</a>
-  <ul class="collapse">
+  <li><a href="#akaike-information-criteria-aic" id="toc-akaike-information-criteria-aic" class="nav-link" data-scroll-target="#akaike-information-criteria-aic">Akaike Information Criteria (AIC)</a></li>
   <li><a href="#train-and-test" id="toc-train-and-test" class="nav-link" data-scroll-target="#train-and-test">Train and Test</a></li>
   </ul></li>
   </ul></li>
@@ -200,16 +194,16 @@ window.Quarto = {
   <li><a href="#public-transit-data" id="toc-public-transit-data" class="nav-link" data-scroll-target="#public-transit-data">Public Transit Data:</a></li>
   <li><a href="#population-data" id="toc-population-data" class="nav-link" data-scroll-target="#population-data">Population Data:</a></li>
   <li><a href="#data-organization" id="toc-data-organization" class="nav-link" data-scroll-target="#data-organization">Data Organization</a></li>
-  <li><a href="#initial-exploratory-data-analysis-eda" id="toc-initial-exploratory-data-analysis-eda" class="nav-link" data-scroll-target="#initial-exploratory-data-analysis-eda">Initial Exploratory Data Analysis (EDA)</a></li>
-  <li><a href="#visualization-aqi-distribution" id="toc-visualization-aqi-distribution" class="nav-link" data-scroll-target="#visualization-aqi-distribution">Visualization AQI Distribution</a></li>
-  <li><a href="#dataframe-shape" id="toc-dataframe-shape" class="nav-link" data-scroll-target="#dataframe-shape">Dataframe Shape</a></li>
-  </ul></li>
-  <li><a href="#exploring-oregon-state" id="toc-exploring-oregon-state" class="nav-link" data-scroll-target="#exploring-oregon-state">Exploring Oregon State</a></li>
+  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis">Exploratory Data Analysis</a></li>
   <li><a href="#features-engineering" id="toc-features-engineering" class="nav-link" data-scroll-target="#features-engineering">Features Engineering</a></li>
   <li><a href="#sweetviz-data-report" id="toc-sweetviz-data-report" class="nav-link" data-scroll-target="#sweetviz-data-report">Sweetviz Data Report</a></li>
-  <li><a href="#advanced-exploratory-data-analysis" id="toc-advanced-exploratory-data-analysis" class="nav-link" data-scroll-target="#advanced-exploratory-data-analysis">Advanced Exploratory Data Analysis</a></li>
-  <li><a href="#time-series-visualization-co-wind-and-aqi" id="toc-time-series-visualization-co-wind-and-aqi" class="nav-link" data-scroll-target="#time-series-visualization-co-wind-and-aqi">Time Series Visualization: CO, Wind and AQI</a></li>
-  <li><a href="#time-series-visualization-so2-no2-and-ozone" id="toc-time-series-visualization-so2-no2-and-ozone" class="nav-link" data-scroll-target="#time-series-visualization-so2-no2-and-ozone">Time Series Visualization: SO2, NO2 and Ozone</a></li>
+  <li><a href="#advanced-data-analysis" id="toc-advanced-data-analysis" class="nav-link" data-scroll-target="#advanced-data-analysis">Advanced Data Analysis</a></li>
+  <li><a href="#time-series-visualization-in-portland" id="toc-time-series-visualization-in-portland" class="nav-link" data-scroll-target="#time-series-visualization-in-portland">Time Series Visualization in Portland</a>
+  <ul class="collapse">
+  <li><a href="#carbon-monoxyde-co-wind-and-air-quality-index-aqi" id="toc-carbon-monoxyde-co-wind-and-air-quality-index-aqi" class="nav-link" data-scroll-target="#carbon-monoxyde-co-wind-and-air-quality-index-aqi">Carbon Monoxyde (CO), Wind and Air Quality Index (AQI)</a></li>
+  <li><a href="#nitrogen-dioxide-no2-sulfur-dioxyde-so2-and-ozone-o₃" id="toc-nitrogen-dioxide-no2-sulfur-dioxyde-so2-and-ozone-o₃" class="nav-link" data-scroll-target="#nitrogen-dioxide-no2-sulfur-dioxyde-so2-and-ozone-o₃">Nitrogen Dioxide (NO2), Sulfur Dioxyde (SO2) and Ozone (O₃)</a></li>
+  </ul></li>
+  </ul></li>
   <li><a href="#results-machine-learning-scikit-learn" id="toc-results-machine-learning-scikit-learn" class="nav-link" data-scroll-target="#results-machine-learning-scikit-learn">Results Machine Learning Scikit-Learn</a></li>
   <li><a href="#results-machine-learning-sarimax" id="toc-results-machine-learning-sarimax" class="nav-link" data-scroll-target="#results-machine-learning-sarimax">Results Machine Learning SARIMAX</a></li>
   <li><a href="#decomposing-the-time-series-with-additive-method" id="toc-decomposing-the-time-series-with-additive-method" class="nav-link" data-scroll-target="#decomposing-the-time-series-with-additive-method">Decomposing the Time Series With Additive Method</a>
@@ -275,9 +269,8 @@ window.Quarto = {
 <p>Key features of Prophet include seasonality detection and holiday incorporation, while providing easy use and understanding for users. We can use this software to get complex understanding from simple applications.</p>
 <p>To conduct this analysis, we prepare data into a two column table, date and AQI. Prophet uses the trends of past data to highlight similarities over days of the year, weeks, months, and seasons. From this, prophet is able to generate its predictions, cross validate, and give performance metrics such as mean absolute percentage error to quantify the accuracy of the results.</p>
 </section>
-</section>
-<section id="what-is-sarimax" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-sarimax">What is SARIMAX?​​​​​​​​​​​​​​​</h2>
+<section id="what-is-sarimax" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-sarimax">What is SARIMAX?​​​​​​​​​​​​​​​</h3>
 <p>The most common method used in time series forecasting is known as the ARIMA model. We will use an extended version called SARIMAX (<em>Seasonal Auto Regressive Integrated Moving Averages with exogenous factor</em>)</p>
 <p>Here’s a breakdown of its components: There are three distinct integers (p,d,q) that are used to parametrize SARIMAX models. Because of that, ARIMA models are denoted with the notation SARIMAX(p,d,q). Together these three parameters account for seasonality, trend, and noise in datasets:</p>
 <ol type="1">
@@ -290,8 +283,8 @@ window.Quarto = {
 <p>We are trying to find the right p, d, q hyperparameters to correctly forecast and predict the AQI values.</p>
 <p>The SARIMAX model is used when the data sets have seasonal cycles. In the dataset concerning the air quality/AQI there is a seasonal pattern which we have explained in the above section. SARIMAX is a model that can be fitted to time series data in order to better understand or predict future points. SARIMAX is particularly useful for forecasting time series data that exhibits both trends and seasonality.</p>
 </section>
-<section id="akaike-information-criteria-aic" class="level2">
-<h2 class="anchored" data-anchor-id="akaike-information-criteria-aic">Akaike Information Criteria (AIC)?</h2>
+<section id="akaike-information-criteria-aic" class="level3">
+<h3 class="anchored" data-anchor-id="akaike-information-criteria-aic">Akaike Information Criteria (AIC)</h3>
 <p>The Akaike Information Criterion (AIC) is a measure used to compare different statistical models. It helps in model selection by balancing the goodness of fit and the complexity of the model. Used to measure of a statistical model, the AiC quantifies the goodness of fit and its simplicity.When comparing two models, the one with the lower AIC is generally “better”.</p>
 <p>Here’s how to interpret the AIC value:</p>
 <ul>
@@ -299,6 +292,7 @@ window.Quarto = {
 <li><em>Comparative Measure</em>: AIC is most useful when comparing multiple models. The model with the lowest AIC among a set of candidate models is generally preferred.</li>
 <li><em>Penalty for Complexity</em>: AIC includes a penalty for the number of parameters in the model. This discourages overfitting by penalizing models that use more parameters without a corresponding improvement in fit.</li>
 </ul>
+</section>
 <section id="train-and-test" class="level3">
 <h3 class="anchored" data-anchor-id="train-and-test">Train and Test</h3>
 <p>Rigorous validation is paramount to establishing the model’s reliability and practical application. To ensure the model’s generalizability, we will employ a train-test split. This approach safeguards against overfitting by exposing the model to unseen data, allowing for a more accurate assessment of its predictive capabilities.</p>
@@ -350,34 +344,15 @@ window.Quarto = {
 </figure>
 </div>
 </section>
-<section id="initial-exploratory-data-analysis-eda" class="level2">
-<h2 class="anchored" data-anchor-id="initial-exploratory-data-analysis-eda">Initial Exploratory Data Analysis (EDA)</h2>
-<p>We have a new dataset named metro_1mil.csv. This file was created using a SQL statement that joins all relevant tables, filtering for metropolitan areas with populations less than or equal to 1 million. This approach limits our EDA to mid-sized metropolitan cities, such as Portland, Oregon.</p>
-</section>
-<section id="visualization-aqi-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="visualization-aqi-distribution">Visualization AQI Distribution</h2>
+<section id="exploratory-data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="exploratory-data-analysis">Exploratory Data Analysis</h2>
+<p>We have new dataset metro_1mil.csv. This file was generated using a SQL statement that joins all relevant tables, filtering for metropolitan areas with populations less than or equal to 1 million. This approach limits our EDA to mid-sized metropolitan cities, such as Portland, Oregon.</p>
 <p>Let’s plot the AQI data distribution</p>
-<div id="cell-plot-aqi" class="cell" data-execution_count="3">
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="capstone_files/figure-html/plot-aqi-output-1.png" id="plot-aqi" width="829" height="523" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="dataframe-shape" class="level2">
-<h2 class="anchored" data-anchor-id="dataframe-shape">Dataframe Shape</h2>
 <p>The DataFrame contains 147039 rows and 44 columns.</p>
-</section>
-</section>
-<section id="exploring-oregon-state" class="level1">
-<h1>Exploring Oregon State</h1>
 <p>By filtering our Dataframe for Oregon state, our DataFrame contains 2922 rows.</p>
 </section>
-<section id="features-engineering" class="level1">
-<h1>Features Engineering</h1>
+<section id="features-engineering" class="level2">
+<h2 class="anchored" data-anchor-id="features-engineering">Features Engineering</h2>
 <p>Date Column Preprocessing:</p>
 <ul>
 <li>Converted the date column to DateTime objects for easier manipulation and analysis.</li>
@@ -412,37 +387,21 @@ window.Quarto = {
 <li>Decomposed time series data into trend, seasonality, and residual components for relevant variables.</li>
 </ul>
 </section>
-<section id="sweetviz-data-report" class="level1">
-<h1>Sweetviz Data Report</h1>
-<div id="cell-sweetvis-report" class="cell" data-execution_count="9">
-<div id="sweetvis-report" class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"e4d70ec065c84a57bba9cc94541a4b4f","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Report SWEETVIZ_REPORT.html was generated! NOTEBOOK/COLAB USERS: the web browser MAY not pop up, regardless, the report IS saved in your notebook/colab files.</code></pre>
-</div>
-</div>
-<p>We have generated a complete statistical report confirming the quality of EDA steps.</p>
+<section id="sweetviz-data-report" class="level2">
+<h2 class="anchored" data-anchor-id="sweetviz-data-report">Sweetviz Data Report</h2>
+<p>We have generated Sweetviz statistical report confirming the quality of EDA steps.</p>
 </section>
-<section id="advanced-exploratory-data-analysis" class="level1">
-<h1>Advanced Exploratory Data Analysis</h1>
+<section id="advanced-data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="advanced-data-analysis">Advanced Data Analysis</h2>
 <p>We have also employed the ydata-profiling package, a powerful Time Series Analysis EDA package that offers more detailed analysis.</p>
-<p>We have unlocked time series-specific features using ydata-profiling: - Set tsmode=True when creating the ProfileReport - Ensure our DataFrame is sorted or specify the sortby parameter - Time Series Feature Identification</p>
-<p>The ydata identifies time-dependent features using autocorrelation analysis.<br>
-For recognized time series features: - Histograms are replaced with line plots - Feature details include new autocorrelation and partial autocorrelation plots - Two additional warnings may appear: <code>NON STATIONARY</code> and <code>SEASONAL</code></p>
-<p>Handling Multi-Entity Time Series Data, In our case, with category_id:</p>
+<p>We have unlocked time series-specific features using ydata-profiling: We ensure our DataFrame is sorted or specify the sortby parameter, setting tsmode=True when creating the ProfileReport to allow Time Series Feature Identification</p>
+<p>The ydata-profiling identifies time-dependent features using autocorrelation analysis.<br>
+For recognized time series features, the histograms are replaced with line plots and feature details include new autocorrelation and partial autocorrelation plots.</p>
+<p>To handle Multi-Entity Time Series Data, In our case, with category_id, each pollutants represents a distinct time series. For optimal analysis, we filter and profile each pollutant separately</p>
+<p>To conclude our exploratory data analysis (EDA) process consisted of two complementary approaches:</p>
 <ul>
-<li>Each pollutants represents a distinct time series</li>
-<li>For optimal analysis, we filter and profile each pollutant separately</li>
-</ul>
-<p>Our exploratory data analysis (EDA) process consisted of two complementary approaches:</p>
-<ul>
-<li><p><em>Manual Investigation</em>: We conducted an in-depth, hands-on examination of the dataset.</p></li>
-<li><p><em>Automated Analysis</em>: We leveraged two powerful EDA packages:</p></li>
-<li><p><em>Sweetviz</em>: For quick, visual data summaries</p></li>
-<li><p><em>ydata-profiling</em>: For more detailed, customizable reports</p></li>
+<li><em>Manual Investigation</em>: We conducted an in-depth, hands-on examination of the dataset.</li>
+<li><em>Automated Analysis</em>: We leveraged two powerful EDA packages: Sweetviz For quick, visual data summaries, ydata-profiling for more detailed, customizable reports</li>
 </ul>
 <p>These methods allowed us to thoroughly evaluate key data quality aspects, including:</p>
 <ul>
@@ -453,8 +412,10 @@ For recognized time series features: - Histograms are replaced with line plots -
 </ul>
 <p>This multi-faceted approach ensures a robust understanding of our dataset’s structure, quality, and potential challenges before proceeding with further analysis.</p>
 </section>
-<section id="time-series-visualization-co-wind-and-aqi" class="level1">
-<h1>Time Series Visualization: CO, Wind and AQI</h1>
+<section id="time-series-visualization-in-portland" class="level2">
+<h2 class="anchored" data-anchor-id="time-series-visualization-in-portland">Time Series Visualization in Portland</h2>
+<section id="carbon-monoxyde-co-wind-and-air-quality-index-aqi" class="level3">
+<h3 class="anchored" data-anchor-id="carbon-monoxyde-co-wind-and-air-quality-index-aqi">Carbon Monoxyde (CO), Wind and Air Quality Index (AQI)</h3>
 <p>CO pollutant refers to carbon monoxide, which is a colorless, odorless, and tasteless gas that can be harmful to human health and the environment. Here’s some key information about CO as a pollutant:</p>
 <p>Primarily produced by incomplete combustion of carbon-containing fuels Major sources include vehicle exhaust, industrial processes, and some natural sources like volcanoes</p>
 <ul>
@@ -474,20 +435,11 @@ For recognized time series features: - Histograms are replaced with line plots -
 </div>
 </div>
 </section>
-<section id="time-series-visualization-so2-no2-and-ozone" class="level1">
-<h1>Time Series Visualization: SO2, NO2 and Ozone</h1>
-<p>NO2 (nitrogen dioxide) is an important air pollutant. Here’s a concise overview of it:<br>
-- Reddish-brown gas with a pungent odor - Part of a group of pollutants known as nitrogen oxides (NOx)</p>
-<p>SO2 (sulfur dioxide) is an important air pollutant. Here’s a concise overview of SO2 as a pollutant:</p>
-<ul>
-<li>Colorless gas with a sharp, pungent odor</li>
-<li>Highly soluble in water</li>
-</ul>
-<p>Ozone (O₃) as a pollutant is a complex topic, as it can be both beneficial and harmful depending on its location in the atmosphere. Here’s a concise overview of ozone as a ground-level pollutant:</p>
-<ul>
-<li>Colorless to pale blue gas with a distinctive smell</li>
-<li>Highly reactive molecule composed of three oxygen atoms</li>
-</ul>
+<section id="nitrogen-dioxide-no2-sulfur-dioxyde-so2-and-ozone-o₃" class="level3">
+<h3 class="anchored" data-anchor-id="nitrogen-dioxide-no2-sulfur-dioxyde-so2-and-ozone-o₃">Nitrogen Dioxide (NO2), Sulfur Dioxyde (SO2) and Ozone (O₃)</h3>
+<p>NO2 (nitrogen dioxide) is an important air pollutant. - Reddish-brown gas with a pungent odor - Part of a group of pollutants known as nitrogen oxides (NOx)</p>
+<p>SO2 (sulfur dioxide) is an important air pollutant. - Colorless gas with a sharp, pungent odor - Highly soluble in water</p>
+<p>Ozone (O₃) as a pollutant is a complex topic, as it can be both beneficial and harmful depending on its location in the atmosphere. - Colorless to pale blue gas with a distinctive smell - Highly reactive molecule composed of three oxygen atoms</p>
 <div id="ts-so2-no2-ozone" class="cell" data-execution_count="15">
 <div id="ts-so2-no2-ozone-1" class="cell-output cell-output-display">
 <pre><code>&lt;Figure size 1500x2000 with 0 Axes&gt;</code></pre>
@@ -500,7 +452,8 @@ For recognized time series features: - Histograms are replaced with line plots -
 </div>
 </div>
 </div>
-<p>We finally completed the exploratory data analysis.</p>
+</section>
+</section>
 </section>
 <section id="results-machine-learning-scikit-learn" class="level1">
 <h1>Results Machine Learning Scikit-Learn</h1>
@@ -687,8 +640,8 @@ For recognized time series features: - Histograms are replaced with line plots -
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
 <td>Tree</td>
-<td>0.392198</td>
-<td>0.522591</td>
+<td>0.390407</td>
+<td>0.520958</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
@@ -744,42 +697,42 @@ For recognized time series features: - Histograms are replaced with line plots -
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
 <td>RF_model__bootstrap</td>
-<td>False</td>
+<td>True</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
 <td>RF_model__max_depth</td>
-<td>29</td>
+<td>16</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
 <td>RF_model__max_features</td>
-<td>log2</td>
+<td>sqrt</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
 <td>RF_model__min_samples_leaf</td>
-<td>3</td>
+<td>8</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
 <td>RF_model__min_samples_split</td>
-<td>7</td>
+<td>4</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">5</td>
 <td>RF_model__n_estimators</td>
-<td>113</td>
+<td>171</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">6</td>
 <td>aqi_transformer__categories__max_categories</td>
-<td>3</td>
+<td>26</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">7</td>
 <td>aqi_transformer__categories__min_frequency</td>
-<td>5</td>
+<td>13</td>
 </tr>
 </tbody>
 </table>
@@ -791,8 +744,8 @@ For recognized time series features: - Histograms are replaced with line plots -
 <p>Using these hyperparameters, we reach an accuracy of about 63%.</p>
 <div id="predict-x_test" class="cell" data-execution_count="44">
 <div class="cell-output cell-output-stdout">
-<pre><code>Cohen Kappa Score:  0.4560366420007884
-Accuracy:  0.5857376156777354</code></pre>
+<pre><code>Cohen Kappa Score:  0.4887640537274136
+Accuracy:  0.6124115405552532</code></pre>
 </div>
 </div>
 <p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/AirQuality-ConfusionMatrix_init2.png?raw=true" class="img-fluid" alt="AirQuality Confusion Matrix 2"> (Figure 4582)</p>
@@ -816,93 +769,93 @@ Accuracy:  0.5857376156777354</code></pre>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0-30</td>
-<td>0.833333</td>
-<td>0.408163</td>
-<td>0.547945</td>
+<td>0.846154</td>
+<td>0.224490</td>
+<td>0.354839</td>
 <td>49.000000</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">101-150</td>
-<td>0.458333</td>
-<td>0.244444</td>
-<td>0.318841</td>
+<td>0.534884</td>
+<td>0.511111</td>
+<td>0.522727</td>
 <td>45.000000</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">151+</td>
-<td>1.000000</td>
-<td>0.100000</td>
-<td>0.181818</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
 <td>20.000000</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">31-40</td>
-<td>0.697619</td>
-<td>0.763021</td>
-<td>0.728856</td>
+<td>0.707483</td>
+<td>0.812500</td>
+<td>0.756364</td>
 <td>384.000000</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">41-50</td>
-<td>0.640990</td>
-<td>0.740859</td>
-<td>0.687316</td>
+<td>0.667564</td>
+<td>0.788553</td>
+<td>0.723032</td>
 <td>629.000000</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">51-60</td>
-<td>0.503778</td>
-<td>0.529101</td>
-<td>0.516129</td>
+<td>0.542199</td>
+<td>0.560847</td>
+<td>0.551365</td>
 <td>378.000000</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">61-70</td>
-<td>0.387097</td>
-<td>0.340909</td>
-<td>0.362538</td>
+<td>0.376812</td>
+<td>0.295455</td>
+<td>0.331210</td>
 <td>176.000000</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">71-80</td>
-<td>0.245902</td>
-<td>0.172414</td>
-<td>0.202703</td>
+<td>0.295455</td>
+<td>0.149425</td>
+<td>0.198473</td>
 <td>87.000000</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">81-90</td>
-<td>0.318182</td>
-<td>0.155556</td>
-<td>0.208955</td>
+<td>0.250000</td>
+<td>0.111111</td>
+<td>0.153846</td>
 <td>45.000000</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">91-100</td>
-<td>0.400000</td>
-<td>0.083333</td>
-<td>0.137931</td>
+<td>0.250000</td>
+<td>0.041667</td>
+<td>0.071429</td>
 <td>24.000000</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">accuracy</td>
-<td>0.585738</td>
-<td>0.585738</td>
-<td>0.585738</td>
-<td>0.585738</td>
+<td>0.612412</td>
+<td>0.612412</td>
+<td>0.612412</td>
+<td>0.612412</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">macro avg</td>
-<td>0.548523</td>
-<td>0.353780</td>
-<td>0.389303</td>
+<td>0.447055</td>
+<td>0.349516</td>
+<td>0.366329</td>
 <td>1837.000000</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">weighted avg</td>
-<td>0.575066</td>
-<td>0.585738</td>
-<td>0.569563</td>
+<td>0.583194</td>
+<td>0.612412</td>
+<td>0.587237</td>
 <td>1837.000000</td>
 </tr>
 </tbody>
@@ -1229,11 +1182,8 @@ sigma2       134.1503   3.35e+05      0.000      1.000   -6.57e+05    6.57e+05
 
 </main> <!-- /main -->
 <script type="application/vnd.jupyter.widget-state+json">
-
-{"state":{"1f9fe1345d4f4370b1baf6b9730153e1":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":"2","flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"23c6ee7c17864511a504ff936e934b8e":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"2aa0d6b6826e45ed9543c78e38cf2de4":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"2f3c420a6f6248ea8cdf6dfa8dad7093":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"66764381e8644d48a49676ddc8b8e7c4":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"853b93430d4247ca839e7fd296320d76":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_2aa0d6b6826e45ed9543c78e38cf2de4","placeholder":"​","style":"IPY_MODEL_66764381e8644d48a49676ddc8b8e7c4","tabbable":null,"tooltip":null,"value":" [100%]   00:01 -&gt; (00:00 left)"}},"bd4a71cf4eb04903aa58074711b5e65c":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"d3a33750c5e3485c9003a4adc782eb56":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_2f3c420a6f6248ea8cdf6dfa8dad7093","placeholder":"​","style":"IPY_MODEL_bd4a71cf4eb04903aa58074711b5e65c","tabbable":null,"tooltip":null,"value":"Done! Use &#x27;show&#x27; commands to display/save.   "}},"da93a38d7a334a838161354f636f890d":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"success","description":"","description_allow_html":false,"layout":"IPY_MODEL_1f9fe1345d4f4370b1baf6b9730153e1","max":1,"min":0,"orientation":"horizontal","style":"IPY_MODEL_23c6ee7c17864511a504ff936e934b8e","tabbable":null,"tooltip":null,"value":1}},"e4d70ec065c84a57bba9cc94541a4b4f":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_d3a33750c5e3485c9003a4adc782eb56","IPY_MODEL_da93a38d7a334a838161354f636f890d","IPY_MODEL_853b93430d4247ca839e7fd296320d76"],"layout":"IPY_MODEL_ffa963e164834a3d9525a86cf294e1f1","tabbable":null,"tooltip":null}},"ffa963e164834a3d9525a86cf294e1f1":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":"inline-flex","flex":null,"flex_flow":"row wrap","grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}}},"version_major":2,"version_minor":0}
-
+{"state":{"0e817cd6ef654310b3eda009c537816e":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"143a286ae1c244ca9eb5d1988d48722e":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"190442a2e2b34952a5d1cfcd10af9b4f":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_5e765b09b2614decaaf978bbc8274eea","placeholder":"​","style":"IPY_MODEL_143a286ae1c244ca9eb5d1988d48722e","tabbable":null,"tooltip":null,"value":" [100%]   00:01 -&gt; (00:00 left)"}},"1eecaf358b254d46995876a8da536004":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"2cfb531d7d784fcd873b2d95be575d7d":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_1eecaf358b254d46995876a8da536004","placeholder":"​","style":"IPY_MODEL_ac3fa321bbdc4814a71d18aab3643b1b","tabbable":null,"tooltip":null,"value":"Done! Use &#x27;show&#x27; commands to display/save.   "}},"2f4b8d7882864c54af121df7b2e5c55d":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"success","description":"","description_allow_html":false,"layout":"IPY_MODEL_d728b0963843455ea706163c06f7e2b0","max":1,"min":0,"orientation":"horizontal","style":"IPY_MODEL_0e817cd6ef654310b3eda009c537816e","tabbable":null,"tooltip":null,"value":1}},"2f81c16f598d47a686bb5b1c5fdc431c":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":"inline-flex","flex":null,"flex_flow":"row wrap","grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}},"5ba77439d00c486d91e8634110ead889":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_2cfb531d7d784fcd873b2d95be575d7d","IPY_MODEL_2f4b8d7882864c54af121df7b2e5c55d","IPY_MODEL_190442a2e2b34952a5d1cfcd10af9b4f"],"layout":"IPY_MODEL_2f81c16f598d47a686bb5b1c5fdc431c","tabbable":null,"tooltip":null}},"5e765b09b2614decaaf978bbc8274eea":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"ac3fa321bbdc4814a71d18aab3643b1b":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"d728b0963843455ea706163c06f7e2b0":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":"2","flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}}},"version_major":2,"version_minor":0}
 </script>
-
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
