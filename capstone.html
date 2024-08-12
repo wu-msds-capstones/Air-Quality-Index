@@ -175,16 +175,17 @@ window.Quarto = {
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a>
+  <ul class="collapse">
+  <li><a href="#data-ethics" id="toc-data-ethics" class="nav-link" data-scroll-target="#data-ethics">Data Ethics</a></li>
+  </ul></li>
   <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a>
   <ul class="collapse">
-  <li><a href="#tools-deployed" id="toc-tools-deployed" class="nav-link" data-scroll-target="#tools-deployed">Tools Deployed</a>
-  <ul class="collapse">
-  <li><a href="#what-is-prophet" id="toc-what-is-prophet" class="nav-link" data-scroll-target="#what-is-prophet">What is Prophet?</a></li>
-  <li><a href="#what-is-sarimax" id="toc-what-is-sarimax" class="nav-link" data-scroll-target="#what-is-sarimax">What is SARIMAX?​​​​​​​​​​​​​​​</a></li>
+  <li><a href="#prophet" id="toc-prophet" class="nav-link" data-scroll-target="#prophet">Prophet</a></li>
+  <li><a href="#sarimax" id="toc-sarimax" class="nav-link" data-scroll-target="#sarimax">SARIMAX​​</a></li>
   <li><a href="#akaike-information-criteria-aic" id="toc-akaike-information-criteria-aic" class="nav-link" data-scroll-target="#akaike-information-criteria-aic">Akaike Information Criteria (AIC)</a></li>
-  <li><a href="#train-and-test" id="toc-train-and-test" class="nav-link" data-scroll-target="#train-and-test">Train and Test</a></li>
-  </ul></li>
+  <li><a href="#train-test-split" id="toc-train-test-split" class="nav-link" data-scroll-target="#train-test-split">Train-Test-Split</a></li>
+  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning">Machine Learning</a></li>
   </ul></li>
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a>
   <ul class="collapse">
@@ -244,10 +245,10 @@ window.Quarto = {
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>On October 30, 1948, the Donora High School Football team played through a dense smog to complete the game with hundreds of fans in the audience, despite very poor visibility. The team, fueled by resilience, took pride in playing through poor conditions, a testament to the high spirit of the small town. Soon after, calls to the town’s medical offices began flooding in, complaining of difficulty breathing and respiratory issues. Donora, Pennsylvania, was a town of metalworks, built by the American Steel and Wire company and the Donora Zinc Works company, which made up major parts of the town’s economy. The heavy smog and pollution clouds that covered the sky had been viewed as a sign of prosperity, owing to the industrial might that powered their economy. Within just twelve hours, seventeen people would be dead, 1440 seriously affected, and 4470 with mild to moderate conditions—almost half the town’s working population (Jacobs, Burgess, Abbott).</p>
+<p>In their journal article published in The American Journal of Public Health, Jacobs, Burgess, and Abbott tell the story of the Donora Pennsylvania Smog crisis. On October 30, 1948, the Donora High School Football team played through a dense smog to complete the game with hundreds of fans in the audience, despite very poor visibility. The team, fueled by resilience, took pride in playing through poor conditions, a testament to the high spirit of the small town. Soon after, calls to the town’s medical offices began flooding in, complaining of difficulty breathing and respiratory issues. Donora, Pennsylvania, was a town of metalworks, built by the American Steel and Wire company and the Donora Zinc Works company, which made up major parts of the town’s economy. The heavy smog and pollution clouds that covered the sky had been viewed as a sign of prosperity, owing to the industrial might that powered their economy. Within just twelve hours, seventeen people would be dead, 1440 seriously affected, and 4470 with mild to moderate conditions—almost half the town’s working population (Jacobs, Burgess, Abbott).</p>
 <p>This event, known as the Donora Smog of 1948, prompted the country into taking a closer look at the negative impacts of air pollution. Widespread debate surrounding the event led to the first legislation aimed at regulating the air quality within the United States, ushering in a new era of tracking, combatting, and reversing the ill effects of poor air quality. The quality of air we breathe has direct impacts on our health. We must understand the factors that contribute to poor air quality and how we individually and collectively contribute to these changes. Until we can visualize the impact we have on our atmosphere, we will continue behavior that negatively impacts the air around us.</p>
 <p>In this project, we will focus on the key factors influencing air quality in Portland, Oregon. We aim to understand the complex interplay between various environmental and human-made factors that contribute to high air pollution levels. Initially, we were surprised to discover that Portland, the city we reside in, has some of the best air quality for a city of its size in the United States. This led us to narrow our focus to understanding the factors that contribute to these favorable outcomes in this city.</p>
-<p>Our project aims to develop and validate machine learning models to analyze the various factors influencing air quality. By focusing on Portland in comparison to other large US cities, we hope to find things Portland does that lead to the greater AQI outcomes. Our approach will consider a range of variables, including meteorological conditions, pollution sources, and transit systems. Through this analysis, we aim to provide actionable insights and recommendations for sustaining and improving air quality. By examining both the contributors to clean air and the sources of pollution, we can understand the factors affecting air quality and develop comprehensive strategies for enhancement.</p>
+<p>Our project aims to develop and validate machine learning models to analyze the various factors influencing air quality. By focusing on Portland in comparison to other large US cities, we hope to find things Portland does that lead to the greater AQI outcomes. Our approach will consider a range of variables, including meteorological conditions, pollution sources, transit systems, park land, and livestock. Through this analysis, we aim to provide actionable insights and recommendations for sustaining and improving air quality. By examining both the contributors to clean air and the sources of pollution, we can understand the factors affecting air quality and develop comprehensive strategies for enhancement.</p>
 </section>
 <section id="background" class="level1">
 <h1>Background</h1>
@@ -255,37 +256,42 @@ window.Quarto = {
 <p>Also established in 1970, the Environmental Protection Agency (EPA) implemented and monitored the requirements established by these rulings. The EPA’s authority extended beyond federal lands and roads to include all companies operating within the United States. Enforcement authority was expanded to allow upholding these established standards, and prevent companies from circumventing the law. Much of the improvement in the quality of air in the US over the past fifty years can be attributed to these regulations. In 1990, when deaths due to air quality were first measured, an estimated 135,000 Americans died. By 2010, that number had dropped to 71,000 (Zhang et al.). Despite the significant improvements led by the federal guidelines of the late 70s, nearly four in ten Americans still live in places where they are exposed to unhealthy air (American Lung Association).</p>
 <p>In 1999, the EPA developed the Air Quality Index (AQI), creating an easily understood measurement of air quality. The AQI measures air pollution levels on a scale from 0 to 500, divided into six categories. A score of 0 to 50 represents good air quality which poses little or no risk to those breathing it in, while a score above 300 signifies emergency conditions, an extremely high risk which impacts everyone. This measurement is mainly derived from five major pollutants: ozone, particulate matter (2.5μm and 10μm), carbon monoxide, nitrogen dioxide, and sulfur dioxide (Airnow.gov). Poor air quality has been linked to a variety of diseases including respiratory infections, stroke, heart disease, lung cancer, and chronic obstructive pulmonary disease, among others (World Health Organization). An estimated seven million premature deaths annually can be attributed to air pollution, which equates to a global mean loss of life expectancy of 2.9 years, making it the largest environmental risk factor for disease and premature death (Fuller, Landrigan, Balakrishnan, et. al.). Thus, it is important to understand factors that contribute to poor air quality, and outcomes that can be attributed to the state of the AQI.</p>
 <p>These harmful factors can originate from a variety of sources. Anything that releases a foreign substance into the air can lower the quality of the air. This includes smoking, vehicle exhaust, combustion processes for production and manufacturing, household cleaning products, appliances, central air and heating systems, agriculture pesticides, livestock, shipping and transportation, and much more. Individually, we can reduce our individual contributions by lowering our reliance on personal vehicles, watching our power usage, supporting companies that monitor and address their emissions, and more. However, there are many factors beyond our control. Larger pollutant sources, such as manufacturing and transportation, are often regulated to some extent but may still release significant amounts of pollutants into the atmosphere which we as individuals have no say over (Manisalidis, Stavropoulou, Stavropoulos, Bezirtzoglou). It is challenging to restrict and watch our personal contributions to the polluting of the environment without worrying about what others are doing. Measuring and analyzing the impact these pollutants have on air quality is a crucial step towards addressing these issues.</p>
+<section id="data-ethics" class="level2">
+<h2 class="anchored" data-anchor-id="data-ethics">Data Ethics</h2>
+<p>The ethical implications of conducting this analysis should always be considered and addressed. Air quality has historically impacted lower income communities significantly more. Marginalized communities may be built near major pollution sources such as factories or highways. In Portland, for example, Interstate 5 completed construction in 1966. It was part of an Oregon State Highway Department (OSHD) development, a project run by the state as a part of the Federal Aid Highway Act. The highway was built on the existing Minnesota Avenue, cutting North Portland, the heart of Portland’s African American community in half. It was decided to avoid affecting the higher income downtown properties. In fact, the OSHD contracted work on the Minnesota Ave portion of the highway to private contractors, in an effort to avoid a political battle (Oregon Encyclopedia). Today, the neighborhoods surrounding the large highway have worse AQI outcomes than those further away, all other factors equal (Shandas and George). Any recommendations given by this analysis should properly consider the ramifications of those impacted.</p>
+<p>Another important ethical issue to be aware of is data transparency. Data can be used to push a specific narrative without faking or editing the specific data points. By leaving out important information, pushing correlated data as causation to push an agenda, or by purposely misconstruing what the data mean, one can create a narrative that can misinform or deceive readers. All analysis methodology must be openly discussed to ensure full understanding by audiences. This leads to credibility, reproducibility, and trust in the methods and conclusions of any piece of data analysis. All data is sourced from credible online sources that are open about their collection methods. Data privacy is addressed and no personalized information is given. Limitations are also addressed allowing readers to understand where any uncertainty may be.</p>
+</section>
 </section>
 <section id="methods" class="level1">
 <h1>Methods</h1>
-<section id="tools-deployed" class="level2">
-<h2 class="anchored" data-anchor-id="tools-deployed">Tools Deployed</h2>
-<p>Python will be the primary programming language used to conduct this analysis. We will also use R language in statistical applications where necessary.</p>
-<p>To perform our analysis, we will employ NumPy and Pandas for data manipulation. Matplotlib and Seaborn for visualization, and Time Series forecasting algorithms such as Prophet and SARIMAX.</p>
-<p>We will address data inconsistencies, missing values and ensure that data is in a tidy format. We may need to normalize or standardize data if necessary and create new features through aggregation to enhance the model’s performance.</p>
-<section id="what-is-prophet" class="level3">
-<h3 class="anchored" data-anchor-id="what-is-prophet">What is Prophet?</h3>
+<p>Python will be the primary programming language used to conduct this analysis. We will also use R language in statistical applications. To perform our analysis, we will employ the NumPy and Pandas libraries for data manipulation, Matplotlib and Seaborn for visualization, and Time Series forecasting algorithms such as Prophet and SARIMAX. We will address data inconsistencies, missing values and ensure that data is in a tidy format. We may need to normalize or standardize data if necessary and create new features through aggregation to enhance the model’s performance.</p>
+<section id="prophet" class="level2">
+<h2 class="anchored" data-anchor-id="prophet">Prophet</h2>
 <p>Prophet is an open-source forecasting tool developed by Meta, designed for forecasting time series data. It is suited for datasets with strong seasonal, monthly, weekly, or daily patterns, and it handles missing data and outliers well. We utilized prophet to gain a quick understanding of our AQI patterns, seeking to understand basic trends before conducting a more thorough analysis.</p>
 <p>Key features of Prophet include seasonality detection and holiday incorporation, while providing easy use and understanding for users. We can use this software to get complex understanding from simple applications.</p>
-<p>To conduct this analysis, we prepare data into a two column table, date and AQI. Prophet uses the trends of past data to highlight similarities over days of the year, weeks, months, and seasons. From this, prophet is able to generate its predictions, cross validate, and give performance metrics such as mean absolute percentage error to quantify the accuracy of the results.</p>
+<p>To conduct this analysis, we prepare data into a two column table, date and AQI. Prophet uses the trends of past data to highlight similarities over days of the year, weeks, months, and seasons. From this, prophet is able to generate its predictions, cross validate, and give performance metrics such as mean absolute percentage error to quantify the accuracy of the results</p>
 </section>
-<section id="what-is-sarimax" class="level3">
-<h3 class="anchored" data-anchor-id="what-is-sarimax">What is SARIMAX?​​​​​​​​​​​​​​​</h3>
+<section id="sarimax" class="level2">
+<h2 class="anchored" data-anchor-id="sarimax">SARIMAX​​</h2>
 <p>The most common method used in time series forecasting is known as the ARIMA model. We will use an extended version called SARIMAX (<em>Seasonal Auto Regressive Integrated Moving Averages with exogenous factor</em>)</p>
-<p>Here’s a breakdown of its components: There are three distinct integers (p,d,q) that are used to parametrize SARIMAX models. Because of that, ARIMA models are denoted with the notation SARIMAX(p,d,q). Together these three parameters account for seasonality, trend, and noise in datasets:</p>
-<ol type="1">
-<li><em>Seasonality (S)</em>: Accounts for recurring patterns or cycles in the data.</li>
-<li><em>AutoRegressive (AR)</em>: Uses past values to predict future values.</li>
-<li><em>Integrated (I)</em>: Applies differencing to make the time series stationary.</li>
-<li><em>Moving Average (MA)</em>: Uses past forecast errors in the prediction.</li>
-<li><em>eXogenous factors (X)</em>: Incorporates external variables that may influence the forecast.</li>
-</ol>
-<p>We are trying to find the right p, d, q hyperparameters to correctly forecast and predict the AQI values.</p>
-<p>The SARIMAX model is used when the data sets have seasonal cycles. In the dataset concerning the air quality/AQI there is a seasonal pattern which we have explained in the above section. SARIMAX is a model that can be fitted to time series data in order to better understand or predict future points. SARIMAX is particularly useful for forecasting time series data that exhibits both trends and seasonality.</p>
+<ul>
+<li><em>(S) Seasonality</em>: Accounts for recurring patterns or cycles in the data.</li>
+<li><em>(AR) AutoRegressive</em>: Uses past values to predict future values.</li>
+<li><em>(I) Integrated</em>: Applies differencing to make the time series stationary.</li>
+<li><em>(MA) Moving Average</em>: Uses past forecast errors in the prediction.</li>
+<li><em>(X) eXogenous factors</em>: Incorporates external variables that may influence the forecast.</li>
+</ul>
+<p>The SARIMAX model is used when the data sets have seasonal cycles. In the dataset concerning the air quality/AQI there is a seasonal pattern. SARIMAX is a model that can be fitted to time series data in order to better understand or predict future points. SARIMAX is particularly useful for forecasting time series data that exhibits both trends and seasonality. There are three distinct integers (p,d,q) that are used to parametrize SARIMAX models. Because of that, SARIMAX models are denoted with the notation SARIMAX(p,d,q). Together these three parameters account for seasonality, trend, and noise in datasets:</p>
+<ul>
+<li><em>p</em> is the auto-regressive part of the model. It allows us to incorporate the effect of past values into our model.</li>
+<li><em>d</em> is the integrated part of the model. This includes terms in the model that incorporate the amount of differencing (the number of past time points to subtract from the current value) to apply the time series.</li>
+<li><em>q</em> is the moving average part of the model. This allows us to set the error of our model as a linear combination of the error values observed at previous time points in the past.</li>
+</ul>
+<p>We use a tuning technique called grid search method that attempts to compute the optimum values of the hyperparameters. We are trying to find the right p,d,q values that would be given as an input to the SARIMAX time series model.</p>
 </section>
-<section id="akaike-information-criteria-aic" class="level3">
-<h3 class="anchored" data-anchor-id="akaike-information-criteria-aic">Akaike Information Criteria (AIC)</h3>
-<p>The Akaike Information Criterion (AIC) is a measure used to compare different statistical models. It helps in model selection by balancing the goodness of fit and the complexity of the model. Used to measure of a statistical model, the AiC quantifies the goodness of fit and its simplicity.When comparing two models, the one with the lower AIC is generally “better”.</p>
+<section id="akaike-information-criteria-aic" class="level2">
+<h2 class="anchored" data-anchor-id="akaike-information-criteria-aic">Akaike Information Criteria (AIC)</h2>
+<p>The Akaike Information Criterion (AIC) is a measure used to compare different statistical models. It helps in model selection by balancing the goodness of fit and the complexity of the model. When comparing two models, the one with the lower AIC is generally “better”.</p>
 <p>Here’s how to interpret the AIC value:</p>
 <ul>
 <li><em>AIC Value</em>: A lower AIC value indicates a better-fitting model. It means the model has a good balance between accuracy and complexity.</li>
@@ -293,8 +299,8 @@ window.Quarto = {
 <li><em>Penalty for Complexity</em>: AIC includes a penalty for the number of parameters in the model. This discourages overfitting by penalizing models that use more parameters without a corresponding improvement in fit.</li>
 </ul>
 </section>
-<section id="train-and-test" class="level3">
-<h3 class="anchored" data-anchor-id="train-and-test">Train and Test</h3>
+<section id="train-test-split" class="level2">
+<h2 class="anchored" data-anchor-id="train-test-split">Train-Test-Split</h2>
 <p>Rigorous validation is paramount to establishing the model’s reliability and practical application. To ensure the model’s generalizability, we will employ a train-test split. This approach safeguards against overfitting by exposing the model to unseen data, allowing for a more accurate assessment of its predictive capabilities.</p>
 <p>By partitioning the dataset, we can:</p>
 <ul>
@@ -306,6 +312,28 @@ window.Quarto = {
 </ul>
 <p>This rigorous process underpins the credibility and utility of our research findings. To split the data, we follow the recommended 70:30 ratio, 70% of the data is the training data, and 30% of the data is the testing data.</p>
 </section>
+<section id="machine-learning" class="level2">
+<h2 class="anchored" data-anchor-id="machine-learning">Machine Learning</h2>
+<p>Machine learning is done in scikit-learn, an open source ML library built in Python. It is built on top of other common Python libraries such as NumPy, Pandas, and Matplotlib. The following tools are used:</p>
+<ul>
+<li><em>One Hot Encoder</em>: Transforms categorical data into a binary matrix. Each category is represented as a vector where one element is tagged with a 1 and all others are tagged as 0. This is done for certain machine learning algorithms that require all discrete data.</li>
+<li><em>Standard Scaler</em>: Used to normalize or standardize numerical data. Certain machine learning algorithms are affected by unscaled data and therefore require normalized data.</li>
+<li><em>Transformer</em>: Can be used to change multiple variables in one step in methods such as One Hot Encoder and Standard Scaler.</li>
+<li><em>Pipeline</em>: Allows multiple functions in a series of steps that can include transformers and models. Incorporates chaining to supply the output of one step as the input of the next step.</li>
+<li><em>Feature Selection</em>: Chooses a subset of most relevant features, with the ability to specify how many features.</li>
+<li><em>Hyperparameter Optimization</em>: Selects the best set of hyperparameters in a model. These hyperparameters are set before training and control various aspects of the training process and model behavior. The optimization method used is a Randomized search. This evaluates a fixed number of random combinations from a specified distribution. This is far more efficient than a Grid search which systematically checks every single combination of the specified hyperparameter distribution.</li>
+<li><em>Cohen Kappa Score</em>: A statistical measure used to assess agreement between two classifiers when they categorize items into classes. In ML specifically, the Cohen Kappa Score is used to evaluate agreement between predicted and actual labels in classification algorithms. It is measured on a scale from -1 to 1, where 1 represents perfect agreement in classifiers, 0 represents agreement being no better or worse than random chance, and -1 represents perfect disagreement.</li>
+<li><em>Random Forest Model</em>: An ensemble model used in prediction tasks. It combines multiple decision trees and aggregates their predictions to improve performance and reduce overfitting.</li>
+<li><em>Confusion Matrix</em>: Measures and visualizes the accuracy of a classification model. It breaks down raw numbers of correctly and incorrectly classified values.</li>
+<li><em>Classification Report</em>: A detailed evaluation of the prediction model. Includes:
+<ul>
+<li><em>Precision</em>: The ratio of correctly predicted positive observations to the total predicted positives</li>
+<li><em>Recall</em>: The ratio of correctly predicted positive observations to all observations</li>
+<li><em>F1 score</em>: Mean of precision and recall</li>
+<li><em>Support</em>: Number of observations</li>
+</ul></li>
+</ul>
+<p>Reference Machine Learning Metrics Table in Appendix for additional information.</p>
 </section>
 </section>
 <section id="data" class="level1">
@@ -640,8 +668,8 @@ For recognized time series features, the histograms are replaced with line plots
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
 <td>Tree</td>
-<td>0.390407</td>
-<td>0.520958</td>
+<td>0.398080</td>
+<td>0.527490</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
@@ -702,37 +730,37 @@ For recognized time series features, the histograms are replaced with line plots
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
 <td>RF_model__max_depth</td>
-<td>16</td>
+<td>9</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
 <td>RF_model__max_features</td>
-<td>sqrt</td>
+<td>log2</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
 <td>RF_model__min_samples_leaf</td>
-<td>8</td>
+<td>5</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
 <td>RF_model__min_samples_split</td>
-<td>4</td>
+<td>6</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">5</td>
 <td>RF_model__n_estimators</td>
-<td>171</td>
+<td>88</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">6</td>
 <td>aqi_transformer__categories__max_categories</td>
-<td>26</td>
+<td>21</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">7</td>
 <td>aqi_transformer__categories__min_frequency</td>
-<td>13</td>
+<td>12</td>
 </tr>
 </tbody>
 </table>
@@ -744,8 +772,8 @@ For recognized time series features, the histograms are replaced with line plots
 <p>Using these hyperparameters, we reach an accuracy of about 63%.</p>
 <div id="predict-x_test" class="cell" data-execution_count="44">
 <div class="cell-output cell-output-stdout">
-<pre><code>Cohen Kappa Score:  0.4887640537274136
-Accuracy:  0.6124115405552532</code></pre>
+<pre><code>Cohen Kappa Score:  0.45285245165987287
+Accuracy:  0.5895481763745237</code></pre>
 </div>
 </div>
 <p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/AirQuality-ConfusionMatrix_init2.png?raw=true" class="img-fluid" alt="AirQuality Confusion Matrix 2"> (Figure 4582)</p>
@@ -769,16 +797,16 @@ Accuracy:  0.6124115405552532</code></pre>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0-30</td>
-<td>0.846154</td>
-<td>0.224490</td>
-<td>0.354839</td>
+<td>1.000000</td>
+<td>0.102041</td>
+<td>0.185185</td>
 <td>49.000000</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">101-150</td>
-<td>0.534884</td>
-<td>0.511111</td>
-<td>0.522727</td>
+<td>0.553191</td>
+<td>0.577778</td>
+<td>0.565217</td>
 <td>45.000000</td>
 </tr>
 <tr class="odd">
@@ -790,72 +818,72 @@ Accuracy:  0.6124115405552532</code></pre>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">31-40</td>
-<td>0.707483</td>
-<td>0.812500</td>
-<td>0.756364</td>
+<td>0.696262</td>
+<td>0.776042</td>
+<td>0.733990</td>
 <td>384.000000</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">41-50</td>
-<td>0.667564</td>
-<td>0.788553</td>
-<td>0.723032</td>
+<td>0.626700</td>
+<td>0.806041</td>
+<td>0.705146</td>
 <td>629.000000</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">51-60</td>
-<td>0.542199</td>
-<td>0.560847</td>
-<td>0.551365</td>
+<td>0.501312</td>
+<td>0.505291</td>
+<td>0.503294</td>
 <td>378.000000</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">61-70</td>
-<td>0.376812</td>
-<td>0.295455</td>
-<td>0.331210</td>
+<td>0.357143</td>
+<td>0.227273</td>
+<td>0.277778</td>
 <td>176.000000</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">71-80</td>
-<td>0.295455</td>
-<td>0.149425</td>
-<td>0.198473</td>
+<td>0.303030</td>
+<td>0.114943</td>
+<td>0.166667</td>
 <td>87.000000</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">81-90</td>
-<td>0.250000</td>
-<td>0.111111</td>
-<td>0.153846</td>
+<td>0.333333</td>
+<td>0.133333</td>
+<td>0.190476</td>
 <td>45.000000</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">91-100</td>
-<td>0.250000</td>
-<td>0.041667</td>
-<td>0.071429</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
 <td>24.000000</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">accuracy</td>
-<td>0.612412</td>
-<td>0.612412</td>
-<td>0.612412</td>
-<td>0.612412</td>
+<td>0.589548</td>
+<td>0.589548</td>
+<td>0.589548</td>
+<td>0.589548</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">macro avg</td>
-<td>0.447055</td>
-<td>0.349516</td>
-<td>0.366329</td>
+<td>0.437097</td>
+<td>0.324274</td>
+<td>0.332775</td>
 <td>1837.000000</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">weighted avg</td>
-<td>0.583194</td>
-<td>0.612412</td>
-<td>0.587237</td>
+<td>0.560244</td>
+<td>0.589548</td>
+<td>0.556398</td>
 <td>1837.000000</td>
 </tr>
 </tbody>
@@ -1182,7 +1210,7 @@ sigma2       134.1503   3.35e+05      0.000      1.000   -6.57e+05    6.57e+05
 
 </main> <!-- /main -->
 <script type="application/vnd.jupyter.widget-state+json">
-{"state":{"0e817cd6ef654310b3eda009c537816e":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"143a286ae1c244ca9eb5d1988d48722e":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"190442a2e2b34952a5d1cfcd10af9b4f":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_5e765b09b2614decaaf978bbc8274eea","placeholder":"​","style":"IPY_MODEL_143a286ae1c244ca9eb5d1988d48722e","tabbable":null,"tooltip":null,"value":" [100%]   00:01 -&gt; (00:00 left)"}},"1eecaf358b254d46995876a8da536004":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"2cfb531d7d784fcd873b2d95be575d7d":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_1eecaf358b254d46995876a8da536004","placeholder":"​","style":"IPY_MODEL_ac3fa321bbdc4814a71d18aab3643b1b","tabbable":null,"tooltip":null,"value":"Done! Use &#x27;show&#x27; commands to display/save.   "}},"2f4b8d7882864c54af121df7b2e5c55d":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"success","description":"","description_allow_html":false,"layout":"IPY_MODEL_d728b0963843455ea706163c06f7e2b0","max":1,"min":0,"orientation":"horizontal","style":"IPY_MODEL_0e817cd6ef654310b3eda009c537816e","tabbable":null,"tooltip":null,"value":1}},"2f81c16f598d47a686bb5b1c5fdc431c":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":"inline-flex","flex":null,"flex_flow":"row wrap","grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}},"5ba77439d00c486d91e8634110ead889":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_2cfb531d7d784fcd873b2d95be575d7d","IPY_MODEL_2f4b8d7882864c54af121df7b2e5c55d","IPY_MODEL_190442a2e2b34952a5d1cfcd10af9b4f"],"layout":"IPY_MODEL_2f81c16f598d47a686bb5b1c5fdc431c","tabbable":null,"tooltip":null}},"5e765b09b2614decaaf978bbc8274eea":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"ac3fa321bbdc4814a71d18aab3643b1b":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"d728b0963843455ea706163c06f7e2b0":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":"2","flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}}},"version_major":2,"version_minor":0}
+{"state":{"04271fdfd32a4ed5b8ed4cb816411e6d":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"352c26dbecc946eb95a0342b415c39d1":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"5b935e2d1ded4cdbaa8c06a6ea9efef5":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"success","description":"","description_allow_html":false,"layout":"IPY_MODEL_92309245bf4b4eab9e24710c3a30e7c4","max":1,"min":0,"orientation":"horizontal","style":"IPY_MODEL_04271fdfd32a4ed5b8ed4cb816411e6d","tabbable":null,"tooltip":null,"value":1}},"65f8b8ef9f9a416c85bd0757bca0b820":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_8c21d2e5d1f84acca3ccfb3f32377a01","placeholder":"​","style":"IPY_MODEL_352c26dbecc946eb95a0342b415c39d1","tabbable":null,"tooltip":null,"value":" [100%]   00:05 -&gt; (00:00 left)"}},"8c21d2e5d1f84acca3ccfb3f32377a01":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"92309245bf4b4eab9e24710c3a30e7c4":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":"2","flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"b56ed9b1498d45b4b69509ac9604affd":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":"inline-flex","flex":null,"flex_flow":"row wrap","grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}},"b5e386b77e58472683b7949be5c7c788":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_dfd4489b48df4abf888b656798e11d6f","IPY_MODEL_5b935e2d1ded4cdbaa8c06a6ea9efef5","IPY_MODEL_65f8b8ef9f9a416c85bd0757bca0b820"],"layout":"IPY_MODEL_b56ed9b1498d45b4b69509ac9604affd","tabbable":null,"tooltip":null}},"d03333a475c84697b8052d8611d56073":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"dfd4489b48df4abf888b656798e11d6f":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_d03333a475c84697b8052d8611d56073","placeholder":"​","style":"IPY_MODEL_e015bfe20d024105a855f33a3c1dd267","tabbable":null,"tooltip":null,"value":"Done! Use &#x27;show&#x27; commands to display/save.   "}},"e015bfe20d024105a855f33a3c1dd267":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}}},"version_major":2,"version_minor":0}
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
