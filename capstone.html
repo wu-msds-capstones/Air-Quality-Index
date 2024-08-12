@@ -72,12 +72,8 @@ ul.task-list li input[type="checkbox"] {
 <style>html{ scroll-behavior: smooth; }</style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
-
-
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
 <script src="https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
-
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -189,6 +185,7 @@ window.Quarto = {
   <li><a href="#sarimax" id="toc-sarimax" class="nav-link" data-scroll-target="#sarimax">SARIMAX​​</a></li>
   <li><a href="#akaike-information-criteria-aic" id="toc-akaike-information-criteria-aic" class="nav-link" data-scroll-target="#akaike-information-criteria-aic">Akaike Information Criteria (AIC)</a></li>
   <li><a href="#train-test-split" id="toc-train-test-split" class="nav-link" data-scroll-target="#train-test-split">Train-Test-Split</a></li>
+  <li><a href="#hypothesis-testing" id="toc-hypothesis-testing" class="nav-link" data-scroll-target="#hypothesis-testing">Hypothesis Testing</a></li>
   <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning">Machine Learning</a></li>
   </ul></li>
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a>
@@ -203,17 +200,16 @@ window.Quarto = {
   <li><a href="#population-data" id="toc-population-data" class="nav-link" data-scroll-target="#population-data">Population Data</a></li>
   <li><a href="#data-organization" id="toc-data-organization" class="nav-link" data-scroll-target="#data-organization">Data Organization</a></li>
   </ul></li>
-  <li><a href="#prophet-aqi-trend-forecasting-and-statistical-testing" id="toc-prophet-aqi-trend-forecasting-and-statistical-testing" class="nav-link" data-scroll-target="#prophet-aqi-trend-forecasting-and-statistical-testing">Prophet AQI Trend Forecasting and Statistical Testing</a></li>
-  <li><a href="#prophet-data-forecasting" id="toc-prophet-data-forecasting" class="nav-link" data-scroll-target="#prophet-data-forecasting">Prophet Data Forecasting</a>
+  <li><a href="#prophet-aqi-trend-forecasting-and-statistical-testing" id="toc-prophet-aqi-trend-forecasting-and-statistical-testing" class="nav-link" data-scroll-target="#prophet-aqi-trend-forecasting-and-statistical-testing">Prophet AQI Trend Forecasting and Statistical Testing</a>
   <ul class="collapse">
-  <li><a href="#data-forecasting" id="toc-data-forecasting" class="nav-link" data-scroll-target="#data-forecasting">Data Forecasting</a></li>
+  <li><a href="#data-forecasting-with-prophet" id="toc-data-forecasting-with-prophet" class="nav-link" data-scroll-target="#data-forecasting-with-prophet">Data Forecasting with Prophet</a></li>
   <li><a href="#wildfires" id="toc-wildfires" class="nav-link" data-scroll-target="#wildfires">2020 Wildfires</a></li>
   <li><a href="#aqi-trends" id="toc-aqi-trends" class="nav-link" data-scroll-target="#aqi-trends">AQI Trends</a></li>
   <li><a href="#cross-validation" id="toc-cross-validation" class="nav-link" data-scroll-target="#cross-validation">Cross Validation</a></li>
   <li><a href="#portlands-transit-system" id="toc-portlands-transit-system" class="nav-link" data-scroll-target="#portlands-transit-system">Portland’s Transit System</a></li>
   </ul></li>
   <li><a href="#results-machine-learning-scikit-learn" id="toc-results-machine-learning-scikit-learn" class="nav-link" data-scroll-target="#results-machine-learning-scikit-learn">Results Machine Learning Scikit-Learn</a></li>
-  <li><a href="#results-machine-learning-sarimax" id="toc-results-machine-learning-sarimax" class="nav-link" data-scroll-target="#results-machine-learning-sarimax">Results Machine Learning SARIMAX</a></li>
+  <li><a href="#machine-learning-sarimax" id="toc-machine-learning-sarimax" class="nav-link" data-scroll-target="#machine-learning-sarimax">Machine Learning SARIMAX</a></li>
   <li><a href="#decomposing-the-time-series-with-additive-method" id="toc-decomposing-the-time-series-with-additive-method" class="nav-link" data-scroll-target="#decomposing-the-time-series-with-additive-method">Decomposing the Time Series With Additive Method</a>
   <ul class="collapse">
   <li><a href="#time-series-prediction" id="toc-time-series-prediction" class="nav-link" data-scroll-target="#time-series-prediction">Time Series Prediction</a></li>
@@ -327,6 +323,25 @@ window.Quarto = {
 </ul>
 <p>This rigorous process underpins the credibility and utility of our research findings. To split the data, we follow the recommended 70:30 ratio, 70% of the data is the training data, and 30% of the data is the testing data.</p>
 </section>
+<section id="hypothesis-testing" class="level2">
+<h2 class="anchored" data-anchor-id="hypothesis-testing">Hypothesis Testing</h2>
+<p>Hypothesis tests for significance are conducted to understand the significance of differences in datasets. Statistics are done in R using a variety of statistical methods and measurements:</p>
+<ul>
+<li><em>Null Hypothesis</em>: This serves as the baseline of a hypothesis test. It represents the idea that there is no effect, difference, or relationship between tested variables. Any observed differences are due to random chance.</li>
+<li><em>Alternate Hypothesis</em>: On the other hand, the alternative hypothesis suggests a potential effect, difference, or relationship between tested variables exists. It reflects what is hoped to be found by the data.</li>
+<li><em>Independence</em>: The idea that data in one sample or population has no impact on the data in another sample or population.</li>
+<li><em>Normal Distribution</em>: A continuous probability distribution symmetric around the mean. It is characterized by mean and standard deviation.</li>
+<li><em>Normal QQ Plot</em>: A plot to measure the normality of a distribution. It compares the quantiles of a dataset against the quantiles of a theoretical normal distribution. Data is mapped along a y=x trendline. Deviations of the data from the trendline indicate non normality. An “S” shaped bend suggests data with heavy or light tails. A convex or concave bend suggests skewness in the distribution.</li>
+<li><em>Histogram</em>: Plot that displayed data frequencies of values within specified intervals known as bins. Histograms are used to visualize the shape and spread of a distribution.</li>
+<li><em>Welch Two Sample t-test</em>: This type of hypothesis test measures the statistical significance of the difference in mean of the two samples. Unlike the Student’s two sample t-test, the Welch two-sample t-test is used in cases where the groups being compared have unequal variances. A Welch two sample t-test includes the following:
+<ul>
+<li><em>t-Statistic (t)</em>: Difference between sample means relative to variance of samples. Larger t-statistics indicate larger differences between means.</li>
+<li><em>Degrees of Freedom (df)</em>: Amount of information available to estimate variance of sample means.</li>
+<li><em>p-Value</em>: The probability of observing the sample data or something more extreme if the null hypothesis is true. A small p-value (&lt; 0.05) suggests the observed difference is statistically significant.</li>
+<li><em>95 Percent Confidence Interval</em>: Range in which the true difference in means is 95% likely to lie within.</li>
+</ul></li>
+</ul>
+</section>
 <section id="machine-learning" class="level2">
 <h2 class="anchored" data-anchor-id="machine-learning">Machine Learning</h2>
 <p>Machine learning is done in scikit-learn, an open source ML library built in Python. It is built on top of other common Python libraries such as NumPy, Pandas, and Matplotlib. The following tools are used:</p>
@@ -419,16 +434,13 @@ window.Quarto = {
 </figure>
 </div>
 <p>From the QQ plots and histograms, we can see both datasets are clearly not normally distributed. They have long tails to the right. However, since the tails have such low frequencies and the samples are very large, this likely will not impact the results.</p>
-<p>The partial violations of the assumptions in the t test in our analysis suggest that the conclusions should be considered with a degree of caution.</p>
+<p>The partial violations of the assumptions in the t-test in our analysis suggest that the conclusions should be considered with a degree of caution.</p>
 <p><strong>Two Sample T Test Portland AQI vs Large Metro Areas AQI</strong></p>
 <p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/hypothesis_test_results_1_pdx_vs_lma.png?raw=true" class="img-fluid"></p>
 <p>Based on the low P-value of 6.862*10<sup>-4</sup>, we can safely reject the null hypothesis. We conclude that Portland’s AQI mean is not greater than or equal to the AQI of all large metropolitan areas. This agrees with our initial observations on the greater AQI outcomes of Portland, and specifies the significance of this statistically.</p>
-</section>
-<section id="prophet-data-forecasting" class="level1">
-<h1>Prophet Data Forecasting</h1>
+<section id="data-forecasting-with-prophet" class="level2">
+<h2 class="anchored" data-anchor-id="data-forecasting-with-prophet">Data Forecasting with Prophet</h2>
 <p>Prophet by Meta is used as time series prediction to estimate and map trends based on our data. We use this to see how AQI trends vary by day, month, and year. It is also able to give us a forecast for a given period after the end of our data which we can analyze and use to anticipate future AQI values.</p>
-<section id="data-forecasting" class="level2">
-<h2 class="anchored" data-anchor-id="data-forecasting">Data Forecasting</h2>
 <p>To use the package, data must be in the format of a two column graph, with the first column being the date data, and the second being the variable being mapped and predicted. In this case, this predicted variable is AQI.</p>
 <p>The package allows a future period to be generated, which can be specified and added to the end of the time data. It can then predict future AQI values for the new data period.</p>
 <p>The graph below (figure 4324), shows the supplied data with the future prediction over the future period. The actual values are shown with the black datapoints, and the blue line represents the prediction. The upper and lower bounds of the error are represented with the transparent blue area. Each year, the data spikes during the late summer to early fall. Even more significant is the large spike in September 2020. What caused it? How significant was it?</p>
@@ -472,7 +484,7 @@ window.Quarto = {
 <figcaption>Figure 21111: Prophet Component Trend Aggregations</figcaption>
 </figure>
 </div>
-<p>This allows us to see how AQI changes by day. In the top full time span graph, it shows the potential spread of data for the predicted period with the transparent blue area. We can also see that day of the week tends to have very little impact on the trend (it may look significant but it is only moving up and down less than 1.5 AQI between days). Finally, from the yearly graph we cab see the consistent increase during the late summer to mid fall each year.</p>
+<p>This allows us to see how AQI changes by day. In the top full time span graph, it shows the potential spread of data for the predicted period with the transparent blue area. We can also see that day of the week tends to have very little impact on the trend (it may look significant but it is only moving up and down less than 1.5 AQI between days). Finally, from the yearly graph we can see the consistent increase during the late summer to mid fall each year.</p>
 </section>
 <section id="cross-validation" class="level2">
 <h2 class="anchored" data-anchor-id="cross-validation">Cross Validation</h2>
@@ -516,217 +528,53 @@ window.Quarto = {
 </section>
 <section id="results-machine-learning-scikit-learn" class="level1">
 <h1>Results Machine Learning Scikit-Learn</h1>
-<p>Ultimately, we want to see which variables have the greatest impact on AQI. To do this we must perform a machine learning analysis and create a prediction algorithm.</p>
-<p>First, missing data must be addressed. This can be done in a variety of ways, but for this we replace NA values with the mean for the respective city and group by week. If there is no data to take a mean of, that row will be dropped.</p>
-<p>Since AQI is the dependent variable being measured, all rows without AQI data are dropped. Certain cities have very little data and will be dropped out of necessity.</p>
-<p>The data collected has separate information for the city of New York City. NYC is divided into five boroughs, each within its own county. These values are grouped and averaged out to make NYC have the same amount of datapoints as every other city. This will also address data present in some New York boroughs but not others. Likewise, Kansas City spans two states and two counties, so those values are grouped together.</p>
-<p>After this data cleaning, we are left with a total of eighteen cities across the country with a total metropolitan area population of greater than one million. The table below (figure 24324) shows all eighteen cities being used in the prediction algorithm and their respective row counts.</p>
-<div id="cell-count-cities" class="cell" data-execution_count="12">
-<div id="count-cities" class="cell-output cell-output-display" data-execution_count="12">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">city</th>
-<th data-quarto-table-cell-role="th">count</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Boston</td>
-<td>418</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Charlotte</td>
-<td>418</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>Cincinnati</td>
-<td>418</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>Cleveland</td>
-<td>418</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>Dallas</td>
-<td>418</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>Detroit</td>
-<td>418</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>Houston</td>
-<td>418</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">7</td>
-<td>Kansas City</td>
-<td>241</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8</td>
-<td>Los Angeles</td>
-<td>418</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">9</td>
-<td>Memphis</td>
-<td>418</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">10</td>
-<td>New York City</td>
-<td>418</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">11</td>
-<td>Phoenix</td>
-<td>418</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">12</td>
-<td>Pittsburgh</td>
-<td>418</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">13</td>
-<td>Portland</td>
-<td>418</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">14</td>
-<td>Raleigh</td>
-<td>418</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">15</td>
-<td>Seattle</td>
-<td>418</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">16</td>
-<td>St. Louis</td>
-<td>418</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">17</td>
-<td>Washington</td>
-<td>418</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p>(Figure 24324)</p>
-<p>To perform a ML prediction algorithm, the predicted variable (AQI) must be discrete. To achieve this, we bin AQI data into discrete groups. Initially, we thought to bin them based on the existing AQI categories, but found that most of the data is grouped in the sub 100 range. Therefore, we expanded the bins, focusing the prediction on outcomes in the double digits. The bins chosen are:</p>
-<ul>
-<li>0-30</li>
-<li>31-40</li>
-<li>41-50</li>
-<li>51-60</li>
-<li>61-70</li>
-<li>71-80</li>
-<li>81-90</li>
-<li>91-100</li>
-<li>101-150</li>
-<li>151+</li>
-</ul>
-<p>A feature selector is run on the set of all variables. This chooses the best predictors of the dependent variable AQI.</p>
-<p>The following tools are used:</p>
-<ul>
-<li>Train Test Split</li>
-<li>One Hot Encoder</li>
-<li>Transformer</li>
-<li>Pipeline</li>
-<li>Standard Scaler</li>
-</ul>
-<p>Feature selection is done on the data. From this we are given the following variables:</p>
+<p>Ultimately, we want to see which variables have the greatest impact on AQI. To do this we perform a machine learning analysis and create a prediction algorithm. As the AQI is defined by the four criteria gasses and particulate matter (PM10 and PM2.5), those should not be included in the algorithm. Thus we start with all the other variables.</p>
+<p>After data is cleaned, we are left with a total of eighteen cities across the country with a total metropolitan area population of greater than one million. To perform the ML prediction algorithm, AQI will be predicted. We will use existing AQI cateogories as classifiers. A feature selector is run on the set of all variables except for the six that define AQI (CO, NO2, O3, SO2, PM10, PM2.5). This chooses the best predictors of the dependent variable AQI.</p>
+<p>Features Selected in Initial Model:</p>
 <ul>
 <li>City</li>
+<li>Month</li>
+<li>Population</li>
+<li>City Area</li>
+<li>Park Area</li>
 <li>Temperature</li>
 <li>Humidity</li>
-<li>Carbon Monoxide</li>
-<li>Nitrogen Dioxide</li>
-<li>Ozone</li>
-<li>PM10</li>
-<li>PM2.5</li>
+<li>Cattle</li>
 </ul>
-<p>These features are used in the final model.</p>
-<p>With these features, we test various models with default parameters to see which is the most accurate at predicting AQI from this dataset. The five models tested are:</p>
+<p>In pre testing, it was found that a Random Forest Model performed the best on this dataset. Therefore, this model type is used in all models.</p>
+<p>An initial Random Forest Model run with the selected features returns the following Cohen Kappa score and accuracy:</p>
+<div id="cks-accuracy" class="cell" data-execution_count="23">
+<div class="cell-output cell-output-stdout">
+<pre><code>Cohen Kappa Score:  0.47095947226723733
+Accuracy:  0.7343494828524768</code></pre>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/confusion_matrix_1.png?raw=true" class="img-fluid figure-img"></p>
+<figcaption>Figure 12459999: Confusion Matrix For Bin Size 1</figcaption>
+</figure>
+</div>
+<p>Looking only at Cohen Kappa score and accuracy, this seems like a good prediction model. However, the confusion matrix shows the data’s skew, centered around the 0-100 range. Therefore, more bins and bin size combinations are tested in order to provide a more meaningful prediction.</p>
+<p>After further testing the following bins were decided on:</p>
 <ul>
-<li>K nearest neighbors</li>
-<li>Tree model</li>
-<li>Random Forest model</li>
-<li>Logistic Regression</li>
-<li>Naive Bayes</li>
+<li>0-25</li>
+<li>26-50</li>
+<li>51-75</li>
+<li>76-100</li>
+<li>101-200</li>
+<li>201-500</li>
 </ul>
-<p>Running the models gives the output shown below in figure 12345. Random Forest model is the most accurate and will be used for the final model.</p>
-<div id="cell-model-select" class="cell" data-execution_count="21">
-<div id="model-select" class="cell-output cell-output-display">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Model</th>
-<th data-quarto-table-cell-role="th">Cohen Kappa Score</th>
-<th data-quarto-table-cell-role="th">Accuracy</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>KNN</td>
-<td>0.279682</td>
-<td>0.451824</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Tree</td>
-<td>0.393116</td>
-<td>0.523680</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>Random Forest</td>
-<td>0.481175</td>
-<td>0.602069</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>Logistic</td>
-<td>0.312286</td>
-<td>0.485574</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>naive Bayes</td>
-<td>0.003825</td>
-<td>0.048993</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p>(Figure 12345)</p>
+<p>As bins are made smaller, predictions become far less accurate. This bin size serves as a good balance between having enough bins to generate conclusions and maintaining decent accuracy. Different bin sizes also lead to different features being selected. The following features will be present in the final model:</p>
+<ul>
+<li>City</li>
+<li>Population</li>
+<li>City Area</li>
+<li>Park Area</li>
+<li>Temperature</li>
+<li>Humidity</li>
+<li>Cattle</li>
+</ul>
 <p>Hyperparameter optimization will be done to further improve the model. A randomized search is run with 100 iterations. The following hyperparameters are optimized:</p>
 <ul>
 <li>Max Categories</li>
@@ -738,8 +586,8 @@ window.Quarto = {
 <li>Num Estimators</li>
 <li>Bootstrap</li>
 </ul>
-<p>Figure 9999 below shows the selected hyperparameters.</p>
-<div id="cell-randsearch-get-params" class="cell" data-execution_count="28">
+<p>Table 9999 below shows the selected hyperparameters.</p>
+<div id="cell-randsearch-get-params" class="cell" data-execution_count="34">
 <div id="randsearch-get-params" class="cell-output cell-output-display">
 <div>
 
@@ -761,37 +609,37 @@ window.Quarto = {
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
 <td>RF_model__max_depth</td>
-<td>25</td>
+<td>14</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
 <td>RF_model__max_features</td>
-<td>None</td>
+<td>log2</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
 <td>RF_model__min_samples_leaf</td>
-<td>6</td>
+<td>8</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
 <td>RF_model__min_samples_split</td>
-<td>9</td>
+<td>5</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">5</td>
 <td>RF_model__n_estimators</td>
-<td>85</td>
+<td>91</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">6</td>
 <td>aqi_transformer__categories__max_categories</td>
-<td>27</td>
+<td>21</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">7</td>
 <td>aqi_transformer__categories__min_frequency</td>
-<td>19</td>
+<td>3</td>
 </tr>
 </tbody>
 </table>
@@ -799,18 +647,23 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>(Figure 9999)</p>
-<p>Using these hyperparameters, we reach an accuracy of about 63%.</p>
-<div id="predict-x_test" class="cell" data-execution_count="29">
+<p>Table 9999: Selected Hyperparameters following hyperparamenter optimization</p>
+<p>Using these hyperparameters, we reach an accuracy of over 70%.</p>
+<div id="predict-x_test-final" class="cell" data-execution_count="35">
 <div class="cell-output cell-output-stdout">
-<pre><code>Cohen Kappa Score:  0.5044449361669376
-Accuracy:  0.6183995645073489</code></pre>
+<pre><code>Cohen Kappa Score:  0.4519156017241738
+Accuracy:  0.7114861186717474</code></pre>
 </div>
 </div>
-<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/AirQuality-ConfusionMatrix_init2.png?raw=true" class="img-fluid" alt="AirQuality Confusion Matrix 2"> (Figure 4582)</p>
-<p>We can use this model for the prediction of AQI, exploring the features that predict it, and use that to generate conclusions for what particles to reduce or systems to increase.</p>
-<p>Below, figure 111111 shows a classification report of the model. We can see that AQI groups from around 31-60 are strongest. We can attribute this to the higher amounts of data for these groups. To make the model more accurate, more data from AQI values outside this range will need to be collected.</p>
-<div id="cell-classification-report" class="cell" data-execution_count="31">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/confusion_matrix_final.png?raw=true" class="img-fluid figure-img"></p>
+<figcaption>Figure 12445: Final Model Confusion Matrix</figcaption>
+</figure>
+</div>
+<p>We can use this model for the prediction of AQI, exploring the features that predict it, and use that to generate conclusions for what variables or systems should be addressed.</p>
+<p>Below, Table 111111 shows a classification report of the model. Support represents the amount of data points total in that bin. We can see that AQI groups with more data tend to be more accurate (higher f1-score). This makes sense as the model has more of this data to train on. To make the model more accurate, more data from AQI values outside this 26-200 range will need to be collected.</p>
+<div id="cell-classification-report" class="cell" data-execution_count="37">
 <div id="classification-report" class="cell-output cell-output-display">
 <div>
 
@@ -827,95 +680,46 @@ Accuracy:  0.6183995645073489</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">0-30</td>
-<td>0.785714</td>
-<td>0.448980</td>
+<td data-quarto-table-cell-role="th">0-25</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">26-50</td>
+<td>0.780880</td>
+<td>0.873226</td>
+<td>0.824475</td>
+<td>1057.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">51-75</td>
+<td>0.607774</td>
 <td>0.571429</td>
-<td>49.0000</td>
+<td>0.589041</td>
+<td>602.0</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">101-150</td>
-<td>0.543478</td>
-<td>0.555556</td>
-<td>0.549451</td>
-<td>45.0000</td>
+<td data-quarto-table-cell-role="th">76-100</td>
+<td>0.368421</td>
+<td>0.194444</td>
+<td>0.254545</td>
+<td>108.0</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">151+</td>
-<td>0.666667</td>
-<td>0.100000</td>
-<td>0.173913</td>
-<td>20.0000</td>
+<td data-quarto-table-cell-role="th">101-200</td>
+<td>0.593750</td>
+<td>0.316667</td>
+<td>0.413043</td>
+<td>60.0</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">31-40</td>
-<td>0.706422</td>
-<td>0.802083</td>
-<td>0.751220</td>
-<td>384.0000</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">41-50</td>
-<td>0.686765</td>
-<td>0.742448</td>
-<td>0.713522</td>
-<td>629.0000</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">51-60</td>
-<td>0.566757</td>
-<td>0.550265</td>
-<td>0.558389</td>
-<td>378.0000</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">61-70</td>
-<td>0.415301</td>
-<td>0.431818</td>
-<td>0.423398</td>
-<td>176.0000</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">71-80</td>
-<td>0.303571</td>
-<td>0.195402</td>
-<td>0.237762</td>
-<td>87.0000</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">81-90</td>
-<td>0.266667</td>
-<td>0.177778</td>
-<td>0.213333</td>
-<td>45.0000</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">91-100</td>
-<td>0.375000</td>
-<td>0.125000</td>
-<td>0.187500</td>
-<td>24.0000</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">accuracy</td>
-<td>0.618400</td>
-<td>0.618400</td>
-<td>0.618400</td>
-<td>0.6184</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">macro avg</td>
-<td>0.531634</td>
-<td>0.412933</td>
-<td>0.437992</td>
-<td>1837.0000</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">weighted avg</td>
-<td>0.606570</td>
-<td>0.618400</td>
-<td>0.606343</td>
-<td>1837.0000</td>
+<td data-quarto-table-cell-role="th">201-500</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>5.0</td>
 </tr>
 </tbody>
 </table>
@@ -923,21 +727,21 @@ Accuracy:  0.6183995645073489</code></pre>
 </div>
 </div>
 </div>
-<p>(Figure 111111)</p>
-<p>We can also take a look at which features end up being most influential in the model. Below figure 1414 shows PM2.5 being by far the most influential variable in the model. Thus, we can focus more of our efforts on impacting the amount of PM2.5 in the air.</p>
-<div id="cell-feature-importance" class="cell" data-execution_count="32">
+<p>(Table 111111: Final Model Classification Report)</p>
+<p>We can also take a look at which features end up being most influential in the model. Below figure 1414 shows Temperature and Humidity being by far the most influential variables in the model. However, temperature and humidity are not variables we can directly impact easily, and therefore, the four other variables are where we should put our efforts.</p>
+<div id="cell-feature-importance" class="cell" data-execution_count="38">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="capstone_files/figure-html/feature-importance-output-1.png" id="feature-importance" width="672" height="505" class="figure-img"></p>
+<p><img src="capstone_files/figure-html/feature-importance-output-1.png" id="feature-importance" width="663" height="505" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>(Figure 1414)</p>
+<p>(Figure 1414: Feature Importance of Selected Variables in Final Model)</p>
 </section>
-<section id="results-machine-learning-sarimax" class="level1">
-<h1>Results Machine Learning SARIMAX</h1>
+<section id="machine-learning-sarimax" class="level1">
+<h1>Machine Learning SARIMAX</h1>
 <p>Any time series is composed of three things:</p>
 <ul>
 <li>Seasonality</li>
@@ -948,7 +752,7 @@ Accuracy:  0.6183995645073489</code></pre>
 </section>
 <section id="decomposing-the-time-series-with-additive-method" class="level1">
 <h1>Decomposing the Time Series With Additive Method</h1>
-<div id="cell-additive-decomp" class="cell" data-execution_count="36">
+<div id="cell-additive-decomp" class="cell" data-execution_count="42">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -983,7 +787,7 @@ Accuracy:  0.6183995645073489</code></pre>
 <h1>Summary of SARIMAX</h1>
 <section id="print-the-summary-which-includes-aic" class="level2">
 <h2 class="anchored" data-anchor-id="print-the-summary-which-includes-aic">Print the summary which includes AIC</h2>
-<div id="mod-fit" class="cell" data-execution_count="38">
+<div id="mod-fit" class="cell" data-execution_count="44">
 <div class="cell-output cell-output-stdout">
 <pre><code>==============================================================================
                  coef    std err          z      P&gt;|z|      [0.025      0.975]
@@ -999,7 +803,7 @@ sigma2       134.1503   3.35e+05      0.000      1.000   -6.57e+05    6.57e+05
 </section>
 <section id="how-fit-the-sarimax-model" class="level1">
 <h1>How Fit the SARIMAX model</h1>
-<div id="extract-aic-value-plot" class="cell" data-execution_count="39">
+<div id="extract-aic-value-plot" class="cell" data-execution_count="45">
 <div class="cell-output cell-output-stdout">
 <pre><code>The AIC value is: 561.5301944999834</code></pre>
 </div>
@@ -1012,7 +816,7 @@ sigma2       134.1503   3.35e+05      0.000      1.000   -6.57e+05    6.57e+05
 </div>
 <p>Once the model is created, predicted values are generated using the .get_prediction() method, with datetime as input</p>
 <p>The graph indicates overlapping patterns in the testing and training data, suggesting strong potential for the forecasting model’s performance.</p>
-<div id="cell-plot-prediction" class="cell" data-execution_count="42">
+<div id="cell-plot-prediction" class="cell" data-execution_count="48">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1023,7 +827,7 @@ sigma2       134.1503   3.35e+05      0.000      1.000   -6.57e+05    6.57e+05
 </div>
 <p>To facilitate comparison of true and predicted test values, we will create a separate DataFrame. Mean Error Estimation will be used for analysis.</p>
 <p>To evaluate model performance, we calculate the MSE.</p>
-<div id="calculate-mse" class="cell" data-execution_count="44">
+<div id="calculate-mse" class="cell" data-execution_count="50">
 <div class="cell-output cell-output-stdout">
 <pre><code>The Mean Squared Error of our forecasts is 1.41</code></pre>
 </div>
@@ -1064,7 +868,7 @@ sigma2       134.1503   3.35e+05      0.000      1.000   -6.57e+05    6.57e+05
 </ul></li>
 </ol>
 <p>This visual representation not only summarizes our extensive data analysis but also provides a powerful tool for understanding potential future air quality trends. It bridges the gap between complex statistical models and actionable insights, making our findings accessible and meaningful to a broader audience.</p>
-<div id="cell-plot-forecast" class="cell" data-execution_count="47">
+<div id="cell-plot-forecast" class="cell" data-execution_count="53">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1210,7 +1014,7 @@ For recognized time series features, the histograms are replaced with line plots
 <li>Slightly less dense than air</li>
 <li>Highly flammable</li>
 </ul>
-<div id="ts-wind-co-aqi" class="cell" data-execution_count="61">
+<div id="ts-wind-co-aqi" class="cell" data-execution_count="67">
 <div id="ts-wind-co-aqi-1" class="cell-output cell-output-display">
 <pre><code>&lt;Figure size 1000x1800 with 0 Axes&gt;</code></pre>
 </div>
@@ -1228,7 +1032,7 @@ For recognized time series features, the histograms are replaced with line plots
 <p>NO2 (nitrogen dioxide) is an important air pollutant. - Reddish-brown gas with a pungent odor - Part of a group of pollutants known as nitrogen oxides (NOx)</p>
 <p>SO2 (sulfur dioxide) is an important air pollutant. - Colorless gas with a sharp, pungent odor - Highly soluble in water</p>
 <p>Ozone (O₃) as a pollutant is a complex topic, as it can be both beneficial and harmful depending on its location in the atmosphere. - Colorless to pale blue gas with a distinctive smell - Highly reactive molecule composed of three oxygen atoms</p>
-<div id="ts-so2-no2-ozone" class="cell" data-execution_count="62">
+<div id="ts-so2-no2-ozone" class="cell" data-execution_count="68">
 <div id="ts-so2-no2-ozone-1" class="cell-output cell-output-display">
 <pre><code>&lt;Figure size 1500x2000 with 0 Axes&gt;</code></pre>
 </div>
@@ -1354,11 +1158,8 @@ For recognized time series features, the histograms are replaced with line plots
 
 </main> <!-- /main -->
 <script type="application/vnd.jupyter.widget-state+json">
-
-{"state":{"036111fe8c77459383038e5b011d46b9":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"20bbc6471fe443149b36930e254744e0":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":"inline-flex","flex":null,"flex_flow":"row wrap","grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}},"3192d3bd11d34f6595dbe480ef8030cf":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_d4d7b13b2a9d43a9bf978891e365427f","IPY_MODEL_c1a13480820a465781c3d9cbee8b6d33","IPY_MODEL_a067c7bc264e43d4b60cf7e9e571bc6b"],"layout":"IPY_MODEL_20bbc6471fe443149b36930e254744e0","tabbable":null,"tooltip":null}},"31eeefaea4394d0e863c075c0cae0c48":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"8503f06d20a2457db5d12a3b42d6f18f":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"885783d7217e4a78b521058e018b597b":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"a067c7bc264e43d4b60cf7e9e571bc6b":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_31eeefaea4394d0e863c075c0cae0c48","placeholder":"​","style":"IPY_MODEL_885783d7217e4a78b521058e018b597b","tabbable":null,"tooltip":null,"value":" [100%]   00:11 -&gt; (00:00 left)"}},"b066eb860211494090f61e9900786ee4":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"c1a13480820a465781c3d9cbee8b6d33":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"success","description":"","description_allow_html":false,"layout":"IPY_MODEL_c68e6ac842bd47199f2a706828cb24fa","max":1,"min":0,"orientation":"horizontal","style":"IPY_MODEL_b066eb860211494090f61e9900786ee4","tabbable":null,"tooltip":null,"value":1}},"c68e6ac842bd47199f2a706828cb24fa":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":"2","flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"d4d7b13b2a9d43a9bf978891e365427f":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_036111fe8c77459383038e5b011d46b9","placeholder":"​","style":"IPY_MODEL_8503f06d20a2457db5d12a3b42d6f18f","tabbable":null,"tooltip":null,"value":"Done! Use &#x27;show&#x27; commands to display/save.   "}}},"version_major":2,"version_minor":0}
-
+{"state":{"47c6af575b2f44fba21f8e3e82ae3bbc":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_9b92c79e1a5541b39342b74b2c2b4043","placeholder":"​","style":"IPY_MODEL_8257b8fc7dd546c89174eafaef81956b","tabbable":null,"tooltip":null,"value":"Done! Use &#x27;show&#x27; commands to display/save.   "}},"51e31f58841746baba5ae84e5f5e9edd":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":"2","flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"76040a0bee3e49f5994e1991d1a49480":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"810b2f1a2db845bf9cf41cf7c3e574e9":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"success","description":"","description_allow_html":false,"layout":"IPY_MODEL_51e31f58841746baba5ae84e5f5e9edd","max":1,"min":0,"orientation":"horizontal","style":"IPY_MODEL_76040a0bee3e49f5994e1991d1a49480","tabbable":null,"tooltip":null,"value":1}},"8257b8fc7dd546c89174eafaef81956b":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"8f9fda1a0bbb464296c436e18984bd78":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_d1fef3536c9c480c906e0f865aaa8d96","placeholder":"​","style":"IPY_MODEL_b8add96b070243aeb0dfd918d6470d98","tabbable":null,"tooltip":null,"value":" [100%]   00:02 -&gt; (00:00 left)"}},"9b92c79e1a5541b39342b74b2c2b4043":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"b8add96b070243aeb0dfd918d6470d98":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"cc8e7cc329a24866884fb9eb74472bc6":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_47c6af575b2f44fba21f8e3e82ae3bbc","IPY_MODEL_810b2f1a2db845bf9cf41cf7c3e574e9","IPY_MODEL_8f9fda1a0bbb464296c436e18984bd78"],"layout":"IPY_MODEL_fbad68dfb1e04533aa45ec5eccd93ce6","tabbable":null,"tooltip":null}},"d1fef3536c9c480c906e0f865aaa8d96":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"fbad68dfb1e04533aa45ec5eccd93ce6":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":"inline-flex","flex":null,"flex_flow":"row wrap","grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}}},"version_major":2,"version_minor":0}
 </script>
-
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
