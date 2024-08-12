@@ -15,7 +15,6 @@ Pollution data was again sourced from the EPA database, separated by criteria ga
 
 This data was given daily by city, separated into different files by year. They are sourced from thousands of individual sources, which measure various selections of these pollution sources. Because of the variety of different pollutants being measured, there was a significant amount of missing data, especially from small towns. Measurements were taken hourly, pre-compiled into a daily average and maximum. After stacking years in R, columns regarding date, location (state, city), pollutant observation average and maximum, and observation unit were brought into the database.
 
-
 ### Public Transit Data:
 Information on motor buses taken from the National Transit Database, produced by the Federal Transit Administration. Includes information of bus systems and ridership by city, separated by year. Data is recorded yearly, encompassing annual totals for information such as number of buses, total revenue, passengers, and miles driven for the respective city transit systems. Information was given in yearly CSVs, separated by the city transit system. For cities with multiple systems, data was combined. Only motorbus data was compiled, which may not be reflective of cities with other large methods of public transportation, such as the New York subway system. After stacking years in R, columns regarding date, location (state, city), transport mode, number of buses, passenger trips in hours and miles, and bus operations in hours and miles were brought into the database.
 
@@ -50,18 +49,18 @@ import sweetviz as sv
 from ydata_profiling import ProfileReport
 ```
 
-## Initial Exploratory Data Analysis (EDA)
-We have a new dataset named metro_1mil.csv. This file was created using a SQL statement that joins all relevant tables, filtering for metropolitan areas with populations less than or equal to 1 million. This approach limits our EDA to mid-sized metropolitan cities, such as Portland, Oregon.
+## Exploratory Data Analysis
+We have new dataset metro_1mil.csv. This file was generated using a SQL statement that joins all relevant tables, filtering for metropolitan areas with populations less than or equal to 1 million. This approach limits our EDA to mid-sized metropolitan cities, such as Portland, Oregon.
 
 ```{python}
 #| label: read-data
 df = pd.read_csv('https://raw.githubusercontent.com/wu-msds-capstones/Air-Quality-Index/main/data/metro_1mil.csv')
 ```
 
-## Visualization AQI Distribution
 Let's plot the AQI data distribution
 ```{python}
 #| label: plot-aqi
+#| output: false
 plt.figure(figsize=(10, 6))
 sns.histplot(df['aqi'], kde=True)
 
@@ -70,14 +69,12 @@ plt.xlabel('AQI')
 plt.show()
 ```
 
-## Dataframe Shape
 ```{python}
 #| label: describe-shape
 num_rows, num_columns = df.shape
 ```
 The DataFrame contains `{python} num_rows` rows and `{python} num_columns` columns.
 
-# Exploring Oregon State 
 ```{python}
 #| label: filter-df
 df = df[df['state'] == 'Oregon']
@@ -85,8 +82,7 @@ num_rows_oregon = df.shape[0]
 ```
 By filtering our Dataframe for Oregon state, our DataFrame contains `{python} num_rows_oregon` rows.
 
-# Features Engineering
-
+## Features Engineering
 ```{python}
 #| label: convert-dt
 df['date'] = pd.to_datetime(df['date'])
@@ -122,19 +118,16 @@ Date Column Preprocessing:
 - Converted the date column to DateTime objects for easier manipulation and analysis.
 - Extracted additional time-based features: year, month, day of week, and quarter.
 
-
 Feature Selection:
 
 - Removed irrelevant columns to focus the analysis on pertinent variables.
 - Retained features: pollutant, aqi, wind
-
 
 Missing Value Treatment:
 
 - Identified columns with missing values: most all of them
 - Applied mean() imputation method for numerical columns.
 - For categorical columns: n/a
-
 
 Data Types and Memory Usage:
 
@@ -145,42 +138,34 @@ Basic Statistics:
 - Generated summary statistics for numerical columns using df.describe().
 - Calculated frequency distributions for categorical variables.
 
-
 Distribution Analysis:
 
 - Plotted histograms and kernel density estimates for main numerical features.
-
 
 Time Series Components:
 
 - Decomposed time series data into trend, seasonality, and residual components for relevant variables.
 
-# Sweetviz Data Report
+## Sweetviz Data Report
 ```{python}
 #| label: sweetvis-report
+#| output: false
 my_report = sv.analyze(df)
 my_report.show_html()
 ```
-We have generated a complete statistical report confirming the quality of EDA steps.
+We have generated Sweetviz statistical report confirming the quality of EDA steps.
 
-# Advanced Exploratory Data Analysis
+## Advanced Data Analysis
 We have also employed the ydata-profiling package, a powerful Time Series Analysis EDA package that offers more detailed analysis.
 
 We have unlocked time series-specific features using ydata-profiling:
-- Set tsmode=True when creating the ProfileReport
-- Ensure our DataFrame is sorted or specify the sortby parameter
-- Time Series Feature Identification
+We ensure our DataFrame is sorted or specify the sortby parameter, setting tsmode=True when creating the ProfileReport to allow Time Series Feature Identification
 
-The ydata identifies time-dependent features using autocorrelation analysis.  
-For recognized time series features:
-- Histograms are replaced with line plots
-- Feature details include new autocorrelation and partial autocorrelation plots
-- Two additional warnings may appear: `NON STATIONARY` and `SEASONAL`
+The ydata-profiling identifies time-dependent features using autocorrelation analysis.  
+For recognized time series features, the histograms are replaced with line plots and feature details include new autocorrelation and partial autocorrelation plots.
 
-Handling Multi-Entity Time Series Data, In our case, with category_id:
-
-- Each pollutants represents a distinct time series
-- For optimal analysis, we filter and profile each pollutant separately
+To handle Multi-Entity Time Series Data, In our case, with category_id, each pollutants represents a distinct time series.
+For optimal analysis, we filter and profile each pollutant separately
 
 ```{python}
 #| label: ydata-report
@@ -213,13 +198,10 @@ Handling Multi-Entity Time Series Data, In our case, with category_id:
 #df.to_pickle('/data/df.pkl')
 ```
 
-Our exploratory data analysis (EDA) process consisted of two complementary approaches:
+To conclude our exploratory data analysis (EDA) process consisted of two complementary approaches:
 
 - *Manual Investigation*: We conducted an in-depth, hands-on examination of the dataset.
-- *Automated Analysis*: We leveraged two powerful EDA packages:
-
-- *Sweetviz*: For quick, visual data summaries
-- *ydata-profiling*: For more detailed, customizable reports  
+- *Automated Analysis*: We leveraged two powerful EDA packages: Sweetviz For quick, visual data summaries, ydata-profiling for more detailed, customizable reports  
 
 These methods allowed us to thoroughly evaluate key data quality aspects, including:
 
@@ -236,7 +218,8 @@ df_aqi = df[['date', 'aqi']]
 df_aqi = df_aqi.set_index('date')
 ```
 
-# Time Series Visualization: CO, Wind and AQI
+## Time Series Visualization in Portland
+### Carbon Monoxyde (CO), Wind and Air Quality Index (AQI)
 CO pollutant refers to carbon monoxide, which is a colorless, odorless, and tasteless gas that can be harmful to human health and the environment. Here's some key information about CO as a pollutant:
 
 Primarily produced by incomplete combustion of carbon-containing fuels
@@ -308,19 +291,16 @@ g.fig.suptitle('Mean Wind Knots, CO PPM, and AQI Resampled by Year, Month, and D
 plt.show()
 ```
 
-# Time Series Visualization: SO2, NO2 and Ozone
-NO2 (nitrogen dioxide) is an important air pollutant. Here's a concise overview of it:  
+### Nitrogen Dioxide (NO2), Sulfur Dioxyde (SO2) and Ozone (O₃)
+NO2 (nitrogen dioxide) is an important air pollutant.
 - Reddish-brown gas with a pungent odor
 - Part of a group of pollutants known as nitrogen oxides (NOx)
 
-SO2 (sulfur dioxide) is an important air pollutant. Here's a concise overview of SO2 as a pollutant:
-
+SO2 (sulfur dioxide) is an important air pollutant.
 - Colorless gas with a sharp, pungent odor
 - Highly soluble in water
 
 Ozone (O₃) as a pollutant is a complex topic, as it can be both beneficial and harmful depending on its location in the atmosphere. 
-Here's a concise overview of ozone as a ground-level pollutant:
-
 - Colorless to pale blue gas with a distinctive smell
 - Highly reactive molecule composed of three oxygen atoms
 ```{python}
@@ -391,4 +371,3 @@ plt.subplots_adjust(top=0.9)
 g.fig.suptitle('Mean SO2, NO2, and Ozone Resampled by Year, Month, and Day')
 plt.show()
 ```
-We finally completed the exploratory data analysis.
