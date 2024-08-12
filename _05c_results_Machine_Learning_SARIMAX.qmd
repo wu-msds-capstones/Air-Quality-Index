@@ -1,4 +1,4 @@
-# Results Machine Learning SARIMAX
+# Machine Learning SARIMAX
 
 ```{python}
 #| label: import-lib

@@ -96,6 +96,25 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>This rigorous process underpins the credibility and utility of our research findings. To split the data, we follow the recommended 70:30 ratio, 70% of the data is the training data, and 30% of the data is the testing data.</p>
 </section>
+<section id="hypothesis-testing" class="level2">
+<h2 class="anchored" data-anchor-id="hypothesis-testing">Hypothesis Testing</h2>
+<p>Hypothesis tests for significance are conducted to understand the significance of differences in datasets. Statistics are done in R using a variety of statistical methods and measurements:</p>
+<ul>
+<li><em>Null Hypothesis</em>: This serves as the baseline of a hypothesis test. It represents the idea that there is no effect, difference, or relationship between tested variables. Any observed differences are due to random chance.</li>
+<li><em>Alternate Hypothesis</em>: On the other hand, the alternative hypothesis suggests a potential effect, difference, or relationship between tested variables exists. It reflects what is hoped to be found by the data.</li>
+<li><em>Independence</em>: The idea that data in one sample or population has no impact on the data in another sample or population.</li>
+<li><em>Normal Distribution</em>: A continuous probability distribution symmetric around the mean. It is characterized by mean and standard deviation.</li>
+<li><em>Normal QQ Plot</em>: A plot to measure the normality of a distribution. It compares the quantiles of a dataset against the quantiles of a theoretical normal distribution. Data is mapped along a y=x trendline. Deviations of the data from the trendline indicate non normality. An “S” shaped bend suggests data with heavy or light tails. A convex or concave bend suggests skewness in the distribution.</li>
+<li><em>Histogram</em>: Plot that displayed data frequencies of values within specified intervals known as bins. Histograms are used to visualize the shape and spread of a distribution.</li>
+<li><em>Welch Two Sample t-test</em>: This type of hypothesis test measures the statistical significance of the difference in mean of the two samples. Unlike the Student’s two sample t-test, the Welch two-sample t-test is used in cases where the groups being compared have unequal variances. A Welch two sample t-test includes the following:
+<ul>
+<li><em>t-Statistic (t)</em>: Difference between sample means relative to variance of samples. Larger t-statistics indicate larger differences between means.</li>
+<li><em>Degrees of Freedom (df)</em>: Amount of information available to estimate variance of sample means.</li>
+<li><em>p-Value</em>: The probability of observing the sample data or something more extreme if the null hypothesis is true. A small p-value (&lt; 0.05) suggests the observed difference is statistically significant.</li>
+<li><em>95 Percent Confidence Interval</em>: Range in which the true difference in means is 95% likely to lie within.</li>
+</ul></li>
+</ul>
+</section>
 <section id="machine-learning" class="level2">
 <h2 class="anchored" data-anchor-id="machine-learning">Machine Learning</h2>
 <p>Machine learning is done in scikit-learn, an open source ML library built in Python. It is built on top of other common Python libraries such as NumPy, Pandas, and Matplotlib. The following tools are used:</p>

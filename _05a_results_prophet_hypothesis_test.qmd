@@ -1,5 +1,4 @@
 # Prophet AQI Trend Forecasting and Statistical Testing
-
 To gain an understanding of how Portland's AQI differs from other large cities, we can start by running a hypothesis test to determine the significance.
 
 Initially we can run a two sample t-test to show that Portland's AQI average is statistically greater than the average AQI of all large metropolitan areas within the US. We compare the sample of Portland AQI datapoints in the time period with the sample of all metropolitan areas with a population greater than one million.
