@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.53">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>appendix</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="_07_appendix_files/libs/clipboard/clipboard.min.js"></script>
+<script src="_07_appendix_files/libs/quarto-html/quarto.js"></script>
+<script src="_07_appendix_files/libs/quarto-html/popper.min.js"></script>
+<script src="_07_appendix_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="_07_appendix_files/libs/quarto-html/anchor.min.js"></script>
+<link href="_07_appendix_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="_07_appendix_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="_07_appendix_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="_07_appendix_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="_07_appendix_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<script src="https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Appendix</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="bibliography" class="level2">
+<h2 class="anchored" data-anchor-id="bibliography">Bibliography</h2>
+<p>Airly. (n.d.). <em>How does humidity affect air quality? All you need to know</em>. <a href="https://airly.org/en/how-does-humidity-affect-air-quality-all-you-need-to-know/">airly.org/en/how-does-humidity-affect-air-quality-all-you-need-to-know/</a></p>
+<p>AirNow. (n.d.). <em>Using air quality index</em>. <a href="https://www.airnow.gov/aqi/aqi-basics/using-air-quality-index">www.airnow.gov/aqi/aqi-basics/using-air-quality-index</a></p>
+<p>American Lung Association. (n.d.). <em>Key findings: State of the air</em>. <a href="https://www.lung.org/research/sota/key-findings">www.lung.org/research/sota/key-findings</a></p>
+<p>California Air Resources Board. (n.d.). <em>Carbon monoxide &amp; health</em>. <a href="https://ww2.arb.ca.gov/resources/carbon-monoxide-and-health">ww2.arb.ca.gov/resources/carbon-monoxide-and-health</a></p>
+<p>Centers for Disease Control and Prevention, Agency for Toxic Substances and Disease Registry. (2014, October 21). <em>Medical management guidelines for sulfur dioxide</em>. <a href="https://wwwn.cdc.gov/TSP/MMG/MMGDetails.aspx?mmgid=249&amp;toxid=46">wwwn.cdc.gov/TSP/MMG/MMGDetails.aspx?mmgid=249&amp;toxid=46</a></p>
+<p>Centers for Disease Control and Prevention, Agency for Toxic Substances and Disease Registry. (2023, April 12). <em>Toxic substances portal - Nitrogen oxides</em>. <a href="https://wwwn.cdc.gov/TSP/ToxFAQs/ToxFAQsDetails.aspx?faqid=396&amp;toxid=69">wwwn.cdc.gov/TSP/ToxFAQs/ToxFAQsDetails.aspx?faqid=396&amp;toxid=69</a></p>
+<p>Congressional Budget Office. (2023, May). <em>Reducing emissions from transportation</em>. <a href="https://www.cbo.gov/publication/60030">www.cbo.gov/publication/60030</a></p>
+<p>Environmental Protection Agency. (n.d.-a). <em>Evolution of the Clean Air Act</em>. <a href="https://www.epa.gov/clean-air-act-overview/evolution-clean-air-act">www.epa.gov/clean-air-act-overview/evolution-clean-air-act</a></p>
+<p>Environmental Protection Agency. (n.d.-b). <em>Health effects of ozone pollution</em>. <a href="https://www.epa.gov/ground-level-ozone-pollution/health-effects-ozone-pollution">www.epa.gov/ground-level-ozone-pollution/health-effects-ozone-pollution</a></p>
+<p>Environmental Protection Agency. (n.d.-c). <em>Particulate matter (PM) basics</em>. <a href="https://www.epa.gov/pm-pollution/particulate-matter-pm-basics">www.epa.gov/pm-pollution/particulate-matter-pm-basics</a></p>
+<p>Federal Transit Administration. (n.d.). <em>NTD data tables</em>. American Public Transportation Association. <a href="https://www.apta.com/research-technical-resources/transit-statistics/ntd-data-tables/">www.apta.com/research-technical-resources/transit-statistics/ntd-data-tables/</a></p>
+<p>Fuller, R., Landrigan, P. J., Balakrishnan, K., Bathan, G., Bose-O’Reilly, S., Brauer, M., Caravanos, J., Chiles, T., Cohen, A., Corra, L., Cropper, M., Ferraro, G., Hanna, J., Hanrahan, D., Hu, H., Hunter, D., Janata, G., Kupka, R., Lanphear, B., . . . Yadama, G. N. (2022). Pollution and health: A progress update. <em>The Lancet Planetary Health</em>, <em>6</em>(6), e535-e547. <a href="https://www.thelancet.com/journals/lanplh/article/PIIS2542-5196(22)00090-0/fulltext">www.thelancet.com/journals/lanplh/article/PIIS2542-5196(22)00090-0/fulltext</a></p>
+<p>Jacobs, E. T., Burgess, J. L., &amp; Abbott, M. B. (2018). The Donora smog revisited: 70 years after the event that inspired the clean air act. <em>American Journal of Public Health</em>, <em>108</em>(S2), S85-S88. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5922205/">www.ncbi.nlm.nih.gov/pmc/articles/PMC5922205/</a></p>
+<p>Manisalidis, I., Stavropoulou, E., Stavropoulos, A., &amp; Bezirtzoglou, E. (2020). Environmental and health impacts of air pollution: A review. <em>Frontiers in Public Health</em>, <em>8</em>, 14. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7044178/">www.ncbi.nlm.nih.gov/pmc/articles/PMC7044178/</a></p>
+<p>National Oceanic and Atmospheric Administration. (n.d.). <em>What are a nautical mile and a knot?</em> <a href="https://oceanservice.noaa.gov/facts/nautical-mile-knot.html">oceanservice.noaa.gov/facts/nautical-mile-knot.html</a></p>
+<p>National Weather Service. (n.d.). <em>Pressure and winds</em>. <a href="https://www.weather.gov/source/zhu/ZHU_Training_Page/winds/pressure_winds/Pressure.htm">www.weather.gov/source/zhu/ZHU_Training_Page/winds/pressure_winds/Pressure.htm</a></p>
+<p>Oregon Wildfire Response and Recovery. (n.d.). <em>Wildfire prevention</em>. <a href="https://wildfire.oregon.gov/prevention">wildfire.oregon.gov/prevention</a></p>
+<p>World Health Organization. (2014, March 25). <em>7 million premature deaths annually linked to air pollution</em>. <a href="https://www.who.int/news/item/25-03-2014-7-million-premature-deaths-annually-linked-to-air-pollution">www.who.int/news/item/25-03-2014-7-million-premature-deaths-annually-linked-to-air-pollution</a></p>
+<p>World Health Organization. (2022, October 31). <em>Lead poisoning and health</em>. <a href="https://www.who.int/news-room/fact-sheets/detail/lead-poisoning-and-health">www.who.int/news-room/fact-sheets/detail/lead-poisoning-and-health</a></p>
+<p>Zhang, Y., Cooper, O. R., Gaudel, A., Thompson, A. M., Nédélec, P., Ogino, S. Y., &amp; West, J. J. (2018). Tropospheric ozone change from 1980 to 2010 dominated by equatorward redistribution of emissions. <em>Nature Geoscience</em>, <em>11</em>, 637-644. <a href="https://acp.copernicus.org/articles/18/15003/2018/">acp.copernicus.org/articles/18/15003/2018/</a></p>
+</section>
+<section id="additional-resources---eda" class="level2">
+<h2 class="anchored" data-anchor-id="additional-resources---eda">Additional Resources - EDA</h2>
+<div id="import-package" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sqlalchemy <span class="im">import</span> create_engine, text</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> dotenv</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> datetime</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> missingno <span class="im">as</span> msno</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> summarytools <span class="im">import</span> dfSummary</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sweetviz <span class="im">as</span> sv</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ydata_profiling <span class="im">import</span> ProfileReport</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="exploratory-data-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="exploratory-data-analysis">Exploratory Data Analysis</h3>
+<p>We have new dataset metro_1mil.csv. This file was generated using a SQL statement that joins all relevant tables, filtering for metropolitan areas with populations less than or equal to 1 million. This approach limits our EDA to mid-sized metropolitan cities, such as Portland, Oregon.</p>
+<div id="read-data" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/wu-msds-capstones/Air-Quality-Index/main/data/metro_1mil.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s plot the AQI data distribution</p>
+<div id="plot-aqi" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sns.histplot(df[<span class="st">'aqi'</span>], kde<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Distribution of Air Quality Index'</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'AQI'</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="describe-shape" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>num_rows, num_columns <span class="op">=</span> df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The DataFrame contains 147039 rows and 44 columns.</p>
+<div id="filter-df" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[df[<span class="st">'state'</span>] <span class="op">==</span> <span class="st">'Oregon'</span>]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>num_rows_oregon <span class="op">=</span> df.shape[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>By filtering our Dataframe for Oregon state, our DataFrame contains 2922 rows.</p>
+</section>
+<section id="features-engineering" class="level3">
+<h3 class="anchored" data-anchor-id="features-engineering">Features Engineering</h3>
+<div id="convert-dt" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'date'</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">'date'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="df-drop-col" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.drop([<span class="st">'aqi_range'</span>, <span class="st">'st_abbv'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.drop([<span class="st">'mean_lead_micrograms_per_cubic_meter'</span>, <span class="st">'max_lead_micrograms_per_cubic_meter'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.drop([<span class="st">'mean_pm100_micrograms_per_cubic_meter'</span>, <span class="st">'max_pm100_micrograms_per_cubic_meter'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.drop([<span class="st">'mean_pm25_micrograms_per_cubic_meter'</span>, <span class="st">'max_pm25_micrograms_per_cubic_meter'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="df-ampute" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>columns_to_impute <span class="op">=</span> [</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'mean_temperature_fahrenheit'</span>, <span class="st">'max_temperature_fahrenheit'</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'mean_pressure_millibars'</span>, <span class="st">'max_pressure_millibars'</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'mean_humidity_percent_relative_humidity'</span>, <span class="st">'max_humidity_percent_relative_humidity'</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'mean_wind_knots'</span>, <span class="st">'max_wind_knots'</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'mean_co_ppm'</span>, <span class="st">'max_co_ppm'</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'mean_no2_ppb'</span>, <span class="st">'max_no2_ppb'</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'mean_ozone_ppm'</span>, <span class="st">'max_ozone_ppm'</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'mean_so2_ppb'</span>, <span class="st">'max_so2_ppb'</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>means <span class="op">=</span> {col: df[col].mean() <span class="cf">for</span> col <span class="kw">in</span> columns_to_impute}</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.assign(<span class="op">**</span>{col: df[col].fillna(means[col]) <span class="cf">for</span> col <span class="kw">in</span> columns_to_impute})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Date Column Preprocessing:</p>
+<ul>
+<li>Converted the date column to DateTime objects for easier manipulation and analysis.</li>
+<li>Extracted additional time-based features: year, month, day of week, and quarter.</li>
+</ul>
+<p>Feature Selection:</p>
+<ul>
+<li>Removed irrelevant columns to focus the analysis on pertinent variables.</li>
+<li>Retained features: pollutant, aqi, wind</li>
+</ul>
+<p>Missing Value Treatment:</p>
+<ul>
+<li>Identified columns with missing values: most all of them</li>
+<li>Applied mean() imputation method for numerical columns.</li>
+<li>For categorical columns: n/a</li>
+</ul>
+<p>Data Types and Memory Usage:</p>
+<ul>
+<li>Optimized data types to reduce memory usage (e.g., using categories for low-cardinality strings, int8/int16 for small integers).</li>
+</ul>
+<p>Basic Statistics:</p>
+<ul>
+<li>Generated summary statistics for numerical columns using df.describe().</li>
+<li>Calculated frequency distributions for categorical variables.</li>
+</ul>
+<p>Distribution Analysis:</p>
+<ul>
+<li>Plotted histograms and kernel density estimates for main numerical features.</li>
+</ul>
+<p>Time Series Components:</p>
+<ul>
+<li>Decomposed time series data into trend, seasonality, and residual components for relevant variables.</li>
+</ul>
+</section>
+<section id="sweetviz-data-report" class="level3">
+<h3 class="anchored" data-anchor-id="sweetviz-data-report">Sweetviz Data Report</h3>
+<div id="sweetvis-report" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>my_report <span class="op">=</span> sv.analyze(df)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>my_report.show_html()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We have generated Sweetviz statistical report confirming the quality of EDA steps.</p>
+</section>
+<section id="advanced-data-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="advanced-data-analysis">Advanced Data Analysis</h3>
+<p>We have also employed the ydata-profiling package, a powerful Time Series Analysis EDA package that offers more detailed analysis.</p>
+<p>We have unlocked time series-specific features using ydata-profiling: We ensure our DataFrame is sorted or specify the sortby parameter, setting tsmode=True when creating the ProfileReport to allow Time Series Feature Identification</p>
+<p>The ydata-profiling identifies time-dependent features using autocorrelation analysis.<br>
+For recognized time series features, the histograms are replaced with line plots and feature details include new autocorrelation and partial autocorrelation plots.</p>
+<p>To handle Multi-Entity Time Series Data, In our case, with category_id, each pollutants represents a distinct time series. For optimal analysis, we filter and profile each pollutant separately</p>
+<div id="ydata-report" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#for group in df.groupby("category_id"):</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#    # Running 1 profile per station</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#    profile = ProfileReport(</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#        group[1],</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#        minimal=True,</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#        sortby="date",</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#        # title=f"Air Quality profiling - Site Num: {group[0]}"</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">#    )</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a> <span class="co">#   profile.to_file(f"Ts_Profile_{group[0]}.html")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="ydata-render" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#profile = ProfileReport(</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#    group[1],</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#    tsmode=True,</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#    sortby="date",</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#    # title=f"Air Quality profiling - Site Num: {group[0]}"</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">#)</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">#profile.to_file("your_report2.html")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="quarto-cross-ref-pickle" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#df.to_pickle('/data/df.pkl')</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To conclude our exploratory data analysis (EDA) process consisted of two complementary approaches:</p>
+<ul>
+<li><em>Manual Investigation</em>: We conducted an in-depth, hands-on examination of the dataset.</li>
+<li><em>Automated Analysis</em>: We leveraged two powerful EDA packages: Sweetviz For quick, visual data summaries, ydata-profiling for more detailed, customizable reports</li>
+</ul>
+<p>These methods allowed us to thoroughly evaluate key data quality aspects, including:</p>
+<ul>
+<li>Class balance in categorical variables</li>
+<li>Presence and distribution of missing values (NaN)</li>
+<li>Feature distributions and correlations</li>
+<li>Potential time-series characteristics</li>
+</ul>
+<p>This multi-faceted approach ensures a robust understanding of our dataset’s structure, quality, and potential challenges before proceeding with further analysis.</p>
+<div id="df-aqi" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df_aqi <span class="op">=</span> df[[<span class="st">'date'</span>, <span class="st">'aqi'</span>]]</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df_aqi <span class="op">=</span> df_aqi.set_index(<span class="st">'date'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="time-series-visualization-in-portland" class="level3">
+<h3 class="anchored" data-anchor-id="time-series-visualization-in-portland">Time Series Visualization in Portland</h3>
+<section id="carbon-monoxyde-co-wind-and-air-quality-index-aqi" class="level4">
+<h4 class="anchored" data-anchor-id="carbon-monoxyde-co-wind-and-air-quality-index-aqi">Carbon Monoxyde (CO), Wind and Air Quality Index (AQI)</h4>
+<p>CO pollutant refers to carbon monoxide, which is a colorless, odorless, and tasteless gas that can be harmful to human health and the environment. Here’s some key information about CO as a pollutant:</p>
+<p>Primarily produced by incomplete combustion of carbon-containing fuels Major sources include vehicle exhaust, industrial processes, and some natural sources like volcanoes</p>
+<ul>
+<li>Slightly less dense than air</li>
+<li>Highly flammable</li>
+</ul>
+<div id="ts-wind-co-aqi" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"darkgrid"</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare wind data</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>df_wind <span class="op">=</span> df[[<span class="st">'date'</span>, <span class="st">'mean_wind_knots'</span>, <span class="st">'max_wind_knots'</span>]]</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>df_wind <span class="op">=</span> df_wind.set_index(<span class="st">'date'</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>df_wind_year <span class="op">=</span> df_wind.resample(<span class="st">'YE'</span>).mean().assign(Resample<span class="op">=</span><span class="st">'Year'</span>)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>df_wind_month <span class="op">=</span> df_wind.resample(<span class="st">'ME'</span>).mean().assign(Resample<span class="op">=</span><span class="st">'Month'</span>)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>df_wind_day <span class="op">=</span> df_wind.resample(<span class="st">'D'</span>).mean().assign(Resample<span class="op">=</span><span class="st">'Day'</span>)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>df_wind_combined <span class="op">=</span> pd.concat([df_wind_year, df_wind_month, df_wind_day])</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>df_wind_combined.ffill(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>df_wind_combined.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare CO data</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>df_co <span class="op">=</span> df[[<span class="st">'date'</span>, <span class="st">'mean_co_ppm'</span>, <span class="st">'max_co_ppm'</span>]]</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>df_co <span class="op">=</span> df_co.set_index(<span class="st">'date'</span>)</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>df_co_year <span class="op">=</span> df_co.resample(<span class="st">'YE'</span>).mean().assign(Resample<span class="op">=</span><span class="st">'Year'</span>)</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>df_co_month <span class="op">=</span> df_co.resample(<span class="st">'ME'</span>).mean().assign(Resample<span class="op">=</span><span class="st">'Month'</span>)</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>df_co_day <span class="op">=</span> df_co.resample(<span class="st">'D'</span>).mean().assign(Resample<span class="op">=</span><span class="st">'Day'</span>)</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>df_co_combined <span class="op">=</span> pd.concat([df_co_year, df_co_month, df_co_day])</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>df_co_combined.ffill(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>df_co_combined.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare AQI data</span></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>df_aqi <span class="op">=</span> df[[<span class="st">'date'</span>,<span class="st">'aqi'</span>]]</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>df_aqi <span class="op">=</span> df_aqi.set_index(<span class="st">'date'</span>)</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>df_aqi_year <span class="op">=</span> df_aqi.resample(<span class="st">'YE'</span>).mean().assign(Resample<span class="op">=</span><span class="st">'Year'</span>)</span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>df_aqi_month <span class="op">=</span> df_aqi.resample(<span class="st">'ME'</span>).mean().assign(Resample<span class="op">=</span><span class="st">'Month'</span>)</span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>df_aqi_day <span class="op">=</span> df_aqi.resample(<span class="st">'D'</span>).mean().assign(Resample<span class="op">=</span><span class="st">'Day'</span>)</span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>df_aqi_combined <span class="op">=</span> pd.concat([df_aqi_year, df_aqi_month, df_aqi_day])</span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>df_aqi_combined.ffill(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>df_aqi_combined.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge the three DataFrames</span></span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>df_combined <span class="op">=</span> pd.merge(df_wind_combined, df_co_combined, on<span class="op">=</span>[<span class="st">'date'</span>, <span class="st">'Resample'</span>], suffixes<span class="op">=</span>(<span class="st">'_wind'</span>, <span class="st">'_co'</span>))</span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>df_combined <span class="op">=</span> pd.merge(df_combined, df_aqi_combined, on<span class="op">=</span>[<span class="st">'date'</span>, <span class="st">'Resample'</span>])</span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Melt the DataFrame for FacetGrid</span></span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a>df_melted <span class="op">=</span> df_combined.melt(id_vars<span class="op">=</span>[<span class="st">'date'</span>, <span class="st">'Resample'</span>], value_vars<span class="op">=</span>[<span class="st">'mean_wind_knots'</span>, <span class="st">'mean_co_ppm'</span>, <span class="st">'aqi'</span>], </span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a>                             var_name<span class="op">=</span><span class="st">'Variable'</span>, value_name<span class="op">=</span><span class="st">'Value'</span>)</span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the figure size</span></span>
+<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">18</span>))</span>
+<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot using seaborn</span></span>
+<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.FacetGrid(df_melted, row<span class="op">=</span><span class="st">'Resample'</span>, col<span class="op">=</span><span class="st">'Variable'</span>, hue<span class="op">=</span><span class="st">'Resample'</span>, sharex<span class="op">=</span><span class="va">True</span>, sharey<span class="op">=</span><span class="va">False</span>, height<span class="op">=</span><span class="dv">4</span>, aspect<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb14-52"><a href="#cb14-52" aria-hidden="true" tabindex="-1"></a>g.<span class="bu">map</span>(sns.lineplot, <span class="st">'date'</span>, <span class="st">'Value'</span>)</span>
+<span id="cb14-53"><a href="#cb14-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-54"><a href="#cb14-54" aria-hidden="true" tabindex="-1"></a><span class="co"># Adjust the plot</span></span>
+<span id="cb14-55"><a href="#cb14-55" aria-hidden="true" tabindex="-1"></a>g.add_legend()</span>
+<span id="cb14-56"><a href="#cb14-56" aria-hidden="true" tabindex="-1"></a>g.set_axis_labels(<span class="st">'Date'</span>, <span class="st">'Value'</span>)</span>
+<span id="cb14-57"><a href="#cb14-57" aria-hidden="true" tabindex="-1"></a>plt.subplots_adjust(top<span class="op">=</span><span class="fl">0.9</span>)</span>
+<span id="cb14-58"><a href="#cb14-58" aria-hidden="true" tabindex="-1"></a>g.fig.suptitle(<span class="st">'Mean Wind Knots, CO PPM, and AQI Resampled by Year, Month, and Day'</span>)</span>
+<span id="cb14-59"><a href="#cb14-59" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ts-wind-co-aqi-1" class="cell-output cell-output-display">
+<pre><code>&lt;Figure size 1000x1800 with 0 Axes&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="_07_appendix_files/figure-html/ts-wind-co-aqi-output-2.png" id="ts-wind-co-aqi-2" width="3689" height="1179" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="nitrogen-dioxide-no2-sulfur-dioxyde-so2-and-ozone-o₃" class="level4">
+<h4 class="anchored" data-anchor-id="nitrogen-dioxide-no2-sulfur-dioxyde-so2-and-ozone-o₃">Nitrogen Dioxide (NO2), Sulfur Dioxyde (SO2) and Ozone (O₃)</h4>
+<p>NO2 (nitrogen dioxide) is an important air pollutant. - Reddish-brown gas with a pungent odor - Part of a group of pollutants known as nitrogen oxides (NOx)</p>
+<p>SO2 (sulfur dioxide) is an important air pollutant. - Colorless gas with a sharp, pungent odor - Highly soluble in water</p>
+<p>Ozone (O₃) as a pollutant is a complex topic, as it can be both beneficial and harmful depending on its location in the atmosphere. - Colorless to pale blue gas with a distinctive smell - Highly reactive molecule composed of three oxygen atoms</p>
+<div id="ts-so2-no2-ozone" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"darkgrid"</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter and resample SO2 data</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>df_so2 <span class="op">=</span> df[[<span class="st">'date'</span>, <span class="st">'mean_so2_ppb'</span>, <span class="st">'max_so2_ppb'</span>]]</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>df_so2 <span class="op">=</span> df_so2.set_index(<span class="st">'date'</span>)</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>df_so2_year <span class="op">=</span> df_so2.resample(<span class="st">'YE'</span>).mean().assign(Resample<span class="op">=</span><span class="st">'Year'</span>)</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>df_so2_month <span class="op">=</span> df_so2.resample(<span class="st">'ME'</span>).mean().assign(Resample<span class="op">=</span><span class="st">'Month'</span>)</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>df_so2_day <span class="op">=</span> df_so2.resample(<span class="st">'D'</span>).mean().assign(Resample<span class="op">=</span><span class="st">'Day'</span>)</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>df_so2_combined <span class="op">=</span> pd.concat([df_so2_year, df_so2_month, df_so2_day])</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>df_so2_combined.ffill(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>df_so2_combined.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter and resample NO2 data</span></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>df_no2 <span class="op">=</span> df[[<span class="st">'date'</span>, <span class="st">'mean_no2_ppb'</span>, <span class="st">'max_no2_ppb'</span>]]</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>df_no2 <span class="op">=</span> df_no2.set_index(<span class="st">'date'</span>)</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>df_no2_year <span class="op">=</span> df_no2.resample(<span class="st">'YE'</span>).mean().assign(Resample<span class="op">=</span><span class="st">'Year'</span>)</span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>df_no2_month <span class="op">=</span> df_no2.resample(<span class="st">'ME'</span>).mean().assign(Resample<span class="op">=</span><span class="st">'Month'</span>)</span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>df_no2_day <span class="op">=</span> df_no2.resample(<span class="st">'D'</span>).mean().assign(Resample<span class="op">=</span><span class="st">'Day'</span>)</span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>df_no2_combined <span class="op">=</span> pd.concat([df_no2_year, df_no2_month, df_no2_day])</span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>df_no2_combined.ffill(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>df_no2_combined.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter and resample ozone data</span></span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>df_ozone <span class="op">=</span> df[[<span class="st">'date'</span>, <span class="st">'mean_ozone_ppm'</span>, <span class="st">'max_ozone_ppm'</span>]]</span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>df_ozone <span class="op">=</span> df_ozone.set_index(<span class="st">'date'</span>)</span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>df_ozone_year <span class="op">=</span> df_ozone.resample(<span class="st">'YE'</span>).mean().assign(Resample<span class="op">=</span><span class="st">'Year'</span>)</span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>df_ozone_month <span class="op">=</span> df_ozone.resample(<span class="st">'ME'</span>).mean().assign(Resample<span class="op">=</span><span class="st">'Month'</span>)</span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a>df_ozone_day <span class="op">=</span> df_ozone.resample(<span class="st">'D'</span>).mean().assign(Resample<span class="op">=</span><span class="st">'Day'</span>)</span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a>df_ozone_combined <span class="op">=</span> pd.concat([df_ozone_year, df_ozone_month, df_ozone_day])</span>
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a>df_ozone_combined.ffill(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a>df_ozone_combined.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge the three DataFrames</span></span>
+<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a>df_combined <span class="op">=</span> pd.merge(df_so2_combined, df_no2_combined, on<span class="op">=</span>[<span class="st">'date'</span>, <span class="st">'Resample'</span>], suffixes<span class="op">=</span>(<span class="st">'_so2'</span>, <span class="st">'_no2'</span>))</span>
+<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a>df_combined <span class="op">=</span> pd.merge(df_combined, df_ozone_combined, on<span class="op">=</span>[<span class="st">'date'</span>, <span class="st">'Resample'</span>])</span>
+<span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Melt the DataFrame for FacetGrid</span></span>
+<span id="cb16-48"><a href="#cb16-48" aria-hidden="true" tabindex="-1"></a>df_melted <span class="op">=</span> df_combined.melt(id_vars<span class="op">=</span>[<span class="st">'date'</span>, <span class="st">'Resample'</span>], </span>
+<span id="cb16-49"><a href="#cb16-49" aria-hidden="true" tabindex="-1"></a>                             value_vars<span class="op">=</span>[<span class="st">'mean_so2_ppb'</span>, <span class="st">'mean_no2_ppb'</span>, <span class="st">'mean_ozone_ppm'</span>], </span>
+<span id="cb16-50"><a href="#cb16-50" aria-hidden="true" tabindex="-1"></a>                             var_name<span class="op">=</span><span class="st">'Variable'</span>, value_name<span class="op">=</span><span class="st">'Value'</span>)</span>
+<span id="cb16-51"><a href="#cb16-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-52"><a href="#cb16-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the figure size</span></span>
+<span id="cb16-53"><a href="#cb16-53" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">20</span>))</span>
+<span id="cb16-54"><a href="#cb16-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-55"><a href="#cb16-55" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot using seaborn</span></span>
+<span id="cb16-56"><a href="#cb16-56" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.FacetGrid(df_melted, row<span class="op">=</span><span class="st">'Resample'</span>, col<span class="op">=</span><span class="st">'Variable'</span>, hue<span class="op">=</span><span class="st">'Resample'</span>,sharex<span class="op">=</span><span class="va">True</span>, sharey<span class="op">=</span><span class="va">False</span>, height<span class="op">=</span><span class="dv">6</span>, aspect<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb16-57"><a href="#cb16-57" aria-hidden="true" tabindex="-1"></a>g.<span class="bu">map</span>(sns.lineplot, <span class="st">'date'</span>, <span class="st">'Value'</span>)</span>
+<span id="cb16-58"><a href="#cb16-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-59"><a href="#cb16-59" aria-hidden="true" tabindex="-1"></a><span class="co"># Adjust the plot</span></span>
+<span id="cb16-60"><a href="#cb16-60" aria-hidden="true" tabindex="-1"></a>g.add_legend()</span>
+<span id="cb16-61"><a href="#cb16-61" aria-hidden="true" tabindex="-1"></a><span class="co">#g.set_axis_labels('Date', 'Value (PPB/PPM)')</span></span>
+<span id="cb16-62"><a href="#cb16-62" aria-hidden="true" tabindex="-1"></a>plt.subplots_adjust(top<span class="op">=</span><span class="fl">0.9</span>)</span>
+<span id="cb16-63"><a href="#cb16-63" aria-hidden="true" tabindex="-1"></a>g.fig.suptitle(<span class="st">'Mean SO2, NO2, and Ozone Resampled by Year, Month, and Day'</span>)</span>
+<span id="cb16-64"><a href="#cb16-64" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ts-so2-no2-ozone-1" class="cell-output cell-output-display">
+<pre><code>&lt;Figure size 1500x2000 with 0 Axes&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="_07_appendix_files/figure-html/ts-so2-no2-ozone-output-2.png" id="ts-so2-no2-ozone-2" width="3689" height="1767" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="additional-resources---machine-learning-metrics-table" class="level2">
+<h2 class="anchored" data-anchor-id="additional-resources---machine-learning-metrics-table">Additional Resources - Machine Learning Metrics Table</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 19%">
+<col style="width: 25%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Technique/Metric</th>
+<th>Description</th>
+<th>Purpose/Formula</th>
+<th>Scenario: Cancer prediction</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1. Train-Test Split</td>
+<td>Split the dataset into training and testing subsets</td>
+<td>Assess model performance on unseen data to detect overfitting and ensure generalizability</td>
+<td>Always used; crucial for unbiased evaluation of model performance</td>
+</tr>
+<tr class="even">
+<td>2. Cross-Validation</td>
+<td>Divide data into k subsets and train the model k times, using a different subset as test set each time</td>
+<td>Provides robust estimate of model performance by averaging results over multiple splits</td>
+<td>Useful for smaller datasets or when data collection is expensive (e.g., rare cancer types)</td>
+</tr>
+<tr class="odd">
+<td>3. Confusion Matrix</td>
+<td>Table comparing predicted and actual values in classification</td>
+<td>Metrics: True Positives (TP), True Negatives (TN), False Positives (FP), False Negatives (FN)</td>
+<td>Fundamental for understanding model performance in classification tasks, like cancer detection</td>
+</tr>
+<tr class="even">
+<td>4. Accuracy</td>
+<td>Ratio of correctly predicted instances to total instances</td>
+<td><span class="math inline">\(\frac{TP + TN}{TP + TN + FP + FN}\)</span></td>
+<td>Used when classes are balanced; less suitable for rare cancer detection due to class imbalance</td>
+</tr>
+<tr class="odd">
+<td>5a. Precision</td>
+<td>Ratio of correctly predicted positive observations to total predicted positives</td>
+<td><span class="math inline">\(\frac{TP}{TP + FP}\)</span></td>
+<td>Important when false positives are costly (e.g., unnecessary biopsies or treatments)</td>
+</tr>
+<tr class="even">
+<td>5b. Recall (Sensitivity)</td>
+<td>Ratio of correctly predicted positive observations to all actual positive observations</td>
+<td><span class="math inline">\(\frac{TP}{TP + FN}\)</span></td>
+<td>Critical in cancer detection to minimize false negatives (missed cancer cases)</td>
+</tr>
+<tr class="odd">
+<td>5c. F1-Score</td>
+<td>Harmonic mean of Precision and Recall</td>
+<td><span class="math inline">\(2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}\)</span></td>
+<td>Balances precision and recall; useful when seeking a compromise between false positives and false negatives</td>
+</tr>
+<tr class="even">
+<td>6. ROC Curve and AUC</td>
+<td>ROC: Graph of true positive rate vs false positive rate at various thresholds. AUC: Area under ROC curve</td>
+<td>Higher AUC indicates better model performance</td>
+<td>Useful for comparing models and choosing optimal threshold, especially in diagnostic tests</td>
+</tr>
+<tr class="odd">
+<td>7. Mean Absolute Error (MAE)</td>
+<td>Average of absolute differences between predicted and actual values</td>
+<td><span class="math inline">\(\frac{1}{n} \sum_{i=1}^{n} \|y_i - \hat{y}_i\|\)</span></td>
+<td>Used in regression tasks, e.g., predicting survival time; less sensitive to outliers than MSE</td>
+</tr>
+<tr class="even">
+<td>8a. Mean Squared Error (MSE)</td>
+<td>Average of squared differences between predicted and actual values</td>
+<td><span class="math inline">\(\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2\)</span></td>
+<td>Used in regression; penalizes large errors more, suitable when large errors are particularly undesirable</td>
+</tr>
+<tr class="odd">
+<td>8b. Root Mean Squared Error (RMSE)</td>
+<td>Square root of MSE</td>
+<td><span class="math inline">\(\sqrt{\text{MSE}}\)</span></td>
+<td>Same as MSE, but in the original unit of the target variable, making it more interpretable</td>
+</tr>
+<tr class="even">
+<td>9. R-squared</td>
+<td>Proportion of variance in dependent variable predictable from independent variables</td>
+<td><span class="math inline">\(1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}\)</span></td>
+<td>Used in regression to assess overall fit; indicates how well the model explains the variance in the data</td>
+</tr>
+<tr class="odd">
+<td>10a. Akaike Information Criterion (AIC)</td>
+<td>Measures relative quality of statistical model for given data</td>
+<td><span class="math inline">\(2k - 2\ln(L)\)</span> where <span class="math inline">\(k\)</span> is number of parameters and <span class="math inline">\(L\)</span> is likelihood</td>
+<td>Used for model selection; helps prevent overfitting by penalizing complex models</td>
+</tr>
+<tr class="even">
+<td>10b. Bayesian Information Criterion (BIC)</td>
+<td>Similar to AIC but with stronger penalty term for number of parameters</td>
+<td><span class="math inline">\(k\ln(n) - 2\ln(L)\)</span> where <span class="math inline">\(n\)</span> is number of observations</td>
+<td>Also used for model selection; tends to favor simpler models compared to AIC</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+</main>
+<!-- /main column -->
+<script type="application/vnd.jupyter.widget-state+json">
+{"state":{"1247a520ea0643acb0fc546d0f62957d":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_d481b3f00df64be6860f2670df608dcc","placeholder":"​","style":"IPY_MODEL_162a9a1a02a146589e08f7f9bb8a1432","tabbable":null,"tooltip":null,"value":"Done! Use &#x27;show&#x27; commands to display/save.   "}},"14c9b7b6bde1493ab5dcdf12104b52c7":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"162a9a1a02a146589e08f7f9bb8a1432":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"29ac84f7f1b54abe9caf47fb3fcc079b":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_14c9b7b6bde1493ab5dcdf12104b52c7","placeholder":"​","style":"IPY_MODEL_6af440d777dd4e4b914b13df1b8a6279","tabbable":null,"tooltip":null,"value":" [100%]   00:10 -&gt; (00:00 left)"}},"384cc1713781434f8a0850a8eddae122":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_1247a520ea0643acb0fc546d0f62957d","IPY_MODEL_543113fd07dc4fbba12b223909d85a04","IPY_MODEL_29ac84f7f1b54abe9caf47fb3fcc079b"],"layout":"IPY_MODEL_dc43c5d45d4b4bb0b70d1fecfaf334c5","tabbable":null,"tooltip":null}},"543113fd07dc4fbba12b223909d85a04":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"success","description":"","description_allow_html":false,"layout":"IPY_MODEL_adaad41af86c4ea5a6fec24c469cf911","max":1,"min":0,"orientation":"horizontal","style":"IPY_MODEL_a9d82fe68af64ec78b3351cb98a8a5fa","tabbable":null,"tooltip":null,"value":1}},"6af440d777dd4e4b914b13df1b8a6279":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"a9d82fe68af64ec78b3351cb98a8a5fa":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"adaad41af86c4ea5a6fec24c469cf911":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":"2","flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"d481b3f00df64be6860f2670df608dcc":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"dc43c5d45d4b4bb0b70d1fecfaf334c5":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":"inline-flex","flex":null,"flex_flow":"row wrap","grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}}},"version_major":2,"version_minor":0}
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
