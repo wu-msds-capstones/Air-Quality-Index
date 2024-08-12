@@ -1,5 +1,4 @@
 # Prophet AQI Trend Forecasting and Statistical Testing
-
 To gain an understanding of how Portland's AQI differs from other large cities, we can start by running a hypothesis test to determine the significance.
 
 Initially we can run a two sample t-test to show that Portland's AQI average is statistically greater than the average AQI of all large metropolitan areas within the US. We compare the sample of Portland AQI datapoints in the time period with the sample of all metropolitan areas with a population greater than one million.
@@ -20,7 +19,7 @@ Initially we can run a two sample t-test to show that Portland's AQI average is 
 
 From the QQ plots and histograms, we can see both datasets are clearly not normally distributed. They have long tails to the right. However, since the tails have such low frequencies and the samples are very large, this likely will not impact the results.
 
-The partial violations of the assumptions in the t-test in our analysis suggest that the conclusions should be considered with a degree of caution.
+The partial violations of the assumptions in the t test in our analysis suggest that the conclusions should be considered with a degree of caution.
 
 **Two Sample T Test Portland AQI vs Large Metro Areas AQI**
 
@@ -28,9 +27,11 @@ The partial violations of the assumptions in the t-test in our analysis suggest 
 
 Based on the low P-value of 6.862\*10^-4^, we can safely reject the null hypothesis. We conclude that Portland's AQI mean is not greater than or equal to the AQI of all large metropolitan areas. This agrees with our initial observations on the greater AQI outcomes of Portland, and specifies the significance of this statistically.
 
-## Data Forecasting with Prophet
+# Prophet Data Forecasting
 
 Prophet by Meta is used as time series prediction to estimate and map trends based on our data. We use this to see how AQI trends vary by day, month, and year. It is also able to give us a forecast for a given period after the end of our data which we can analyze and use to anticipate future AQI values.
+
+## Data Forecasting
 
 To use the package, data must be in the format of a two column graph, with the first column being the date data, and the second being the variable being mapped and predicted. In this case, this predicted variable is AQI.
 
@@ -77,7 +78,7 @@ Prophet's plot component function allows us to see specific trends including the
 
 ![Figure 21111: Prophet Component Trend Aggregations](https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/prophet_components_plot_aqi.png?raw=true)
 
-This allows us to see how AQI changes by day. In the top full time span graph, it shows the potential spread of data for the predicted period with the transparent blue area. We can also see that day of the week tends to have very little impact on the trend (it may look significant but it is only moving up and down less than 1.5 AQI between days). Finally, from the yearly graph we can see the consistent increase during the late summer to mid fall each year.
+This allows us to see how AQI changes by day. In the top full time span graph, it shows the potential spread of data for the predicted period with the transparent blue area. We can also see that day of the week tends to have very little impact on the trend (it may look significant but it is only moving up and down less than 1.5 AQI between days). Finally, from the yearly graph we cab see the consistent increase during the late summer to mid fall each year.
 
 ## Cross Validation
 
