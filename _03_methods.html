@@ -48,43 +48,43 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="methods" class="level1">
 <h1>Methods</h1>
-<section id="tools-deployed" class="level2">
-<h2 class="anchored" data-anchor-id="tools-deployed">Tools Deployed</h2>
-<p>Python will be the primary programming language used to conduct this analysis. We will also use R language in statistical applications where necessary.</p>
-<p>To perform our analysis, we will employ NumPy and Pandas for data manipulation. Matplotlib and Seaborn for visualization, and Time Series forecasting algorithms such as Prophet and SARIMAX.</p>
-<p>We will address data inconsistencies, missing values and ensure that data is in a tidy format. We may need to normalize or standardize data if necessary and create new features through aggregation to enhance the model’s performance.</p>
-<section id="what-is-prophet" class="level3">
-<h3 class="anchored" data-anchor-id="what-is-prophet">What is Prophet?</h3>
+<p>Python will be the primary programming language used to conduct this analysis. We will also use R language in statistical applications. To perform our analysis, we will employ the NumPy and Pandas libraries for data manipulation, Matplotlib and Seaborn for visualization, and Time Series forecasting algorithms such as Prophet and SARIMAX. We will address data inconsistencies, missing values and ensure that data is in a tidy format. We may need to normalize or standardize data if necessary and create new features through aggregation to enhance the model’s performance.</p>
+<section id="prophet" class="level2">
+<h2 class="anchored" data-anchor-id="prophet">Prophet</h2>
 <p>Prophet is an open-source forecasting tool developed by Meta, designed for forecasting time series data. It is suited for datasets with strong seasonal, monthly, weekly, or daily patterns, and it handles missing data and outliers well. We utilized prophet to gain a quick understanding of our AQI patterns, seeking to understand basic trends before conducting a more thorough analysis.</p>
 <p>Key features of Prophet include seasonality detection and holiday incorporation, while providing easy use and understanding for users. We can use this software to get complex understanding from simple applications.</p>
-<p>To conduct this analysis, we prepare data into a two column table, date and AQI. Prophet uses the trends of past data to highlight similarities over days of the year, weeks, months, and seasons. From this, prophet is able to generate its predictions, cross validate, and give performance metrics such as mean absolute percentage error to quantify the accuracy of the results.</p>
+<p>To conduct this analysis, we prepare data into a two column table, date and AQI. Prophet uses the trends of past data to highlight similarities over days of the year, weeks, months, and seasons. From this, prophet is able to generate its predictions, cross validate, and give performance metrics such as mean absolute percentage error to quantify the accuracy of the results</p>
 </section>
-</section>
-<section id="what-is-sarimax" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-sarimax">What is SARIMAX?​​​​​​​​​​​​​​​</h2>
+<section id="sarimax" class="level2">
+<h2 class="anchored" data-anchor-id="sarimax">SARIMAX​​</h2>
 <p>The most common method used in time series forecasting is known as the ARIMA model. We will use an extended version called SARIMAX (<em>Seasonal Auto Regressive Integrated Moving Averages with exogenous factor</em>)</p>
-<p>Here’s a breakdown of its components: There are three distinct integers (p,d,q) that are used to parametrize SARIMAX models. Because of that, ARIMA models are denoted with the notation SARIMAX(p,d,q). Together these three parameters account for seasonality, trend, and noise in datasets:</p>
-<ol type="1">
-<li><em>Seasonality (S)</em>: Accounts for recurring patterns or cycles in the data.</li>
-<li><em>AutoRegressive (AR)</em>: Uses past values to predict future values.</li>
-<li><em>Integrated (I)</em>: Applies differencing to make the time series stationary.</li>
-<li><em>Moving Average (MA)</em>: Uses past forecast errors in the prediction.</li>
-<li><em>eXogenous factors (X)</em>: Incorporates external variables that may influence the forecast.</li>
-</ol>
-<p>We are trying to find the right p, d, q hyperparameters to correctly forecast and predict the AQI values.</p>
-<p>The SARIMAX model is used when the data sets have seasonal cycles. In the dataset concerning the air quality/AQI there is a seasonal pattern which we have explained in the above section. SARIMAX is a model that can be fitted to time series data in order to better understand or predict future points. SARIMAX is particularly useful for forecasting time series data that exhibits both trends and seasonality.</p>
+<ul>
+<li><em>(S) Seasonality</em>: Accounts for recurring patterns or cycles in the data.</li>
+<li><em>(AR) AutoRegressive</em>: Uses past values to predict future values.</li>
+<li><em>(I) Integrated</em>: Applies differencing to make the time series stationary.</li>
+<li><em>(MA) Moving Average</em>: Uses past forecast errors in the prediction.</li>
+<li><em>(X) eXogenous factors</em>: Incorporates external variables that may influence the forecast.</li>
+</ul>
+<p>The SARIMAX model is used when the data sets have seasonal cycles. In the dataset concerning the air quality/AQI there is a seasonal pattern. SARIMAX is a model that can be fitted to time series data in order to better understand or predict future points. SARIMAX is particularly useful for forecasting time series data that exhibits both trends and seasonality. There are three distinct integers (p,d,q) that are used to parametrize SARIMAX models. Because of that, SARIMAX models are denoted with the notation SARIMAX(p,d,q). Together these three parameters account for seasonality, trend, and noise in datasets:</p>
+<ul>
+<li><em>p</em> is the auto-regressive part of the model. It allows us to incorporate the effect of past values into our model.</li>
+<li><em>d</em> is the integrated part of the model. This includes terms in the model that incorporate the amount of differencing (the number of past time points to subtract from the current value) to apply the time series.</li>
+<li><em>q</em> is the moving average part of the model. This allows us to set the error of our model as a linear combination of the error values observed at previous time points in the past.</li>
+</ul>
+<p>We use a tuning technique called grid search method that attempts to compute the optimum values of the hyperparameters. We are trying to find the right p,d,q values that would be given as an input to the SARIMAX time series model.</p>
 </section>
 <section id="akaike-information-criteria-aic" class="level2">
-<h2 class="anchored" data-anchor-id="akaike-information-criteria-aic">Akaike Information Criteria (AIC)?</h2>
-<p>The Akaike Information Criterion (AIC) is a measure used to compare different statistical models. It helps in model selection by balancing the goodness of fit and the complexity of the model. Used to measure of a statistical model, the AiC quantifies the goodness of fit and its simplicity.When comparing two models, the one with the lower AIC is generally “better”.</p>
+<h2 class="anchored" data-anchor-id="akaike-information-criteria-aic">Akaike Information Criteria (AIC)</h2>
+<p>The Akaike Information Criterion (AIC) is a measure used to compare different statistical models. It helps in model selection by balancing the goodness of fit and the complexity of the model. When comparing two models, the one with the lower AIC is generally “better”.</p>
 <p>Here’s how to interpret the AIC value:</p>
 <ul>
 <li><em>AIC Value</em>: A lower AIC value indicates a better-fitting model. It means the model has a good balance between accuracy and complexity.</li>
 <li><em>Comparative Measure</em>: AIC is most useful when comparing multiple models. The model with the lowest AIC among a set of candidate models is generally preferred.</li>
 <li><em>Penalty for Complexity</em>: AIC includes a penalty for the number of parameters in the model. This discourages overfitting by penalizing models that use more parameters without a corresponding improvement in fit.</li>
 </ul>
-<section id="train-and-test" class="level3">
-<h3 class="anchored" data-anchor-id="train-and-test">Train and Test</h3>
+</section>
+<section id="train-test-split" class="level2">
+<h2 class="anchored" data-anchor-id="train-test-split">Train-Test-Split</h2>
 <p>Rigorous validation is paramount to establishing the model’s reliability and practical application. To ensure the model’s generalizability, we will employ a train-test split. This approach safeguards against overfitting by exposing the model to unseen data, allowing for a more accurate assessment of its predictive capabilities.</p>
 <p>By partitioning the dataset, we can:</p>
 <ul>
@@ -96,6 +96,28 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>This rigorous process underpins the credibility and utility of our research findings. To split the data, we follow the recommended 70:30 ratio, 70% of the data is the training data, and 30% of the data is the testing data.</p>
 </section>
+<section id="machine-learning" class="level2">
+<h2 class="anchored" data-anchor-id="machine-learning">Machine Learning</h2>
+<p>Machine learning is done in scikit-learn, an open source ML library built in Python. It is built on top of other common Python libraries such as NumPy, Pandas, and Matplotlib. The following tools are used:</p>
+<ul>
+<li><em>One Hot Encoder</em>: Transforms categorical data into a binary matrix. Each category is represented as a vector where one element is tagged with a 1 and all others are tagged as 0. This is done for certain machine learning algorithms that require all discrete data.</li>
+<li><em>Standard Scaler</em>: Used to normalize or standardize numerical data. Certain machine learning algorithms are affected by unscaled data and therefore require normalized data.</li>
+<li><em>Transformer</em>: Can be used to change multiple variables in one step in methods such as One Hot Encoder and Standard Scaler.</li>
+<li><em>Pipeline</em>: Allows multiple functions in a series of steps that can include transformers and models. Incorporates chaining to supply the output of one step as the input of the next step.</li>
+<li><em>Feature Selection</em>: Chooses a subset of most relevant features, with the ability to specify how many features.</li>
+<li><em>Hyperparameter Optimization</em>: Selects the best set of hyperparameters in a model. These hyperparameters are set before training and control various aspects of the training process and model behavior. The optimization method used is a Randomized search. This evaluates a fixed number of random combinations from a specified distribution. This is far more efficient than a Grid search which systematically checks every single combination of the specified hyperparameter distribution.</li>
+<li><em>Cohen Kappa Score</em>: A statistical measure used to assess agreement between two classifiers when they categorize items into classes. In ML specifically, the Cohen Kappa Score is used to evaluate agreement between predicted and actual labels in classification algorithms. It is measured on a scale from -1 to 1, where 1 represents perfect agreement in classifiers, 0 represents agreement being no better or worse than random chance, and -1 represents perfect disagreement.</li>
+<li><em>Random Forest Model</em>: An ensemble model used in prediction tasks. It combines multiple decision trees and aggregates their predictions to improve performance and reduce overfitting.</li>
+<li><em>Confusion Matrix</em>: Measures and visualizes the accuracy of a classification model. It breaks down raw numbers of correctly and incorrectly classified values.</li>
+<li><em>Classification Report</em>: A detailed evaluation of the prediction model. Includes:
+<ul>
+<li><em>Precision</em>: The ratio of correctly predicted positive observations to the total predicted positives</li>
+<li><em>Recall</em>: The ratio of correctly predicted positive observations to all observations</li>
+<li><em>F1 score</em>: Mean of precision and recall</li>
+<li><em>Support</em>: Number of observations</li>
+</ul></li>
+</ul>
+<p>Reference Machine Learning Metrics Table in Appendix for additional information.</p>
 </section>
 </section>
 
