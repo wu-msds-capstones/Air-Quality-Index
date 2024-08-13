@@ -1,4 +1,5 @@
 # Machine Learning SARIMAX
+A time series is a sequence of data points collected at regular intervals over a period of time. These intervals are typically uniform, such as hourly, daily, or quarterly measurements. This orderly arrangement allows for the analysis of trends, patterns, and behaviors over time. Common examples of time series data include stock market closing prices, household electricity consumption readings, and weather measurements. In the context of our capstone project, we're focusing on air quality index measurements as our time series data. This sequential record of air quality provides insights into pollution trends and can be used to forecast future air quality conditions.
 
 ```{python}
 #| label: import-lib
@@ -27,45 +28,120 @@ df_aqi.ffill(inplace=True)
 ```
 Any time series is composed of three things:
 
-- Seasonality
-- Trends
-- Residuals
+- *Trend*: Trend tells you how things are overall changing  
+- *Seasonality*: Seasonality shows you how things change within a given period (e.g. year,month, week, day)  
+- *Residual*: The Error/residual/irregular activity are the anomalies whitch cannot be explained by the trend or the seasonal value
 
-By the help of `statsmodel` package we can break the time series into its seasonal pattern and trends.
-This will helps us to understand the data clearly and will help us to make more sense of the data.
+## Statsmodel
+Using the statsmodel package, we can map the seasonal pattern and trends using seasonal_decompose method. It requires as inputs a dataframe with two columns date data and the AQI. This will help us to understand the seasonality and trend clearly and allowing us to make more sense of the data for the forecast.
+In a additive time series, the components add together to make the time series. If you have an increasing trend, you still see roughly the same size peaks and troughs throughout the time series.
 
-# Decomposing the Time Series With Additive Method
+## Components Of A Time Series
+Time series decomposition is a statistical technique that separates data into three key components: trend, seasonality, and residuals. 
+The trend shows the long-term direction, seasonality reveals recurring patterns, and residuals represent unexplained variations.
+Visualizing these components individually provides insights that may not be evident in the raw data. This process helps analysts identify underlying patterns, recognize cyclical behaviors, and detect anomalies. 
+
+By understanding these elements separately, we can gain deeper insights into the factors driving the time series, leading to more accurate analysis and forecasting.
+Decomposition is particularly useful when the complexity of a time series makes it challenging to discern important patterns from simple observation of the dataset.
 ```{python}
-#| label: additive-decomp
-sns.set_theme(style="darkgrid")
+#| label: seasonal-decompose
+import seaborn as sns
+import statsmodels.api as sm
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
+
+# Set the theme for seaborn
+sns.set_theme(style="white")
+
+# Perform seasonal decomposition
 decomposition = sm.tsa.seasonal_decompose(df_aqi, model='additive')
+
+# Plot the decomposition
 fig = decomposition.plot()
+
+# Set y-labels for each subplot
+fig.axes[0].set_ylabel('Observed')
+fig.axes[1].set_ylabel('Trend')
+fig.axes[2].set_ylabel('Seasonal')
+fig.axes[3].set_ylabel('Residuals')
+
+# Add a box in the "Observed" plot for September 2020
+ax_observed = fig.axes[0]
+rect = patches.Rectangle((pd.Timestamp('2020-09-01'), ax_observed.get_ylim()[0]), 
+                         pd.Timestamp('2020-10-30') - pd.Timestamp('2020-09-01'), 
+                         ax_observed.get_ylim()[1] - ax_observed.get_ylim()[0], 
+                         linewidth=1, edgecolor='r', facecolor='none')
+ax_observed.add_patch(rect)
+
+# Add text "Wildfire" near the box
+ax_observed.text(pd.Timestamp('2020-09-15'), ax_observed.get_ylim()[1], 'Wildfire', 
+                 verticalalignment='bottom', horizontalalignment='center', 
+                 color='r', fontsize=12, fontweight='bold')
+
+# Add a box in the "Seasonal" plot from July 2018 to July 2019
+ax_seasonal = fig.axes[2]
+rect_seasonal = patches.Rectangle((pd.Timestamp('2018-07-01'), ax_seasonal.get_ylim()[0]), 
+                                  pd.Timestamp('2019-07-01') - pd.Timestamp('2018-07-01'), 
+                                  ax_seasonal.get_ylim()[1] - ax_seasonal.get_ylim()[0], 
+                                  linewidth=1, edgecolor='b', facecolor='none')
+ax_seasonal.add_patch(rect_seasonal)
+
+# Add an arrow in the "Seasonal" plot
+ax_seasonal.annotate('', xy=(pd.Timestamp('2018-07-01'), ax_seasonal.get_ylim()[1]), 
+                     xytext=(pd.Timestamp('2019-07-01'), ax_seasonal.get_ylim()[1]), 
+                     arrowprops=dict(arrowstyle='<->', color='b'))
+
+# Add text "Seasonality Period" near the arrow
+ax_seasonal.text(pd.Timestamp('2018-12-01'), ax_seasonal.get_ylim()[1] * 0.50, 'Season', 
+                 verticalalignment='bottom', horizontalalignment='center', 
+                 color='r', fontsize=12, fontweight='bold', alpha=0.6)
+
+# Set x-labels with year and rotate them 45 degrees
+for ax in fig.axes:
+    ax.set_xlabel('Year')
+    for label in ax.get_xticklabels():
+        label.set_rotation(45)
+        label.set_ha('right')
+
+# Show the plot
 plt.show()
 ```
+Figure 20: Seasonal, Trend, and Residual Decomposition of Portland AQI Time Series
 
-There are three components to a time series: 
+The uppermost graph, labeled *Observed*, presents the raw time series data as originally recorded. Its y-axis quantifies the daily air quality measurements, while the x-axis represents the passage of time. This graph is a composite representation, effectively combining the three underlying components: trend, seasonality, and residuals.
+A notable anomaly is evident in the data: a significant spike in air quality measurements occurring in September 2020. This outlier corresponds to the severe wildfires that ravaged Oregon during that period. The dramatic increase in air pollution levels during this time underscores the profound impact of extreme environmental events on air quality.
 
-1. `Trend`: Trend tells you how things are overall changing  
-2. `Seasonality`: Seasonality shows you how things change within a given period (e.g. year,month, week, day)  
-3. `Residual`: The Error/residual/irregular activity are the anomalies whitch cannot be explained by the trend or the seasonal value  
+The *Seasonal* component graph illustrates the cyclical patterns in air quality that repeat annually. This visualization reveals a distinctive yearly pattern in Air Quality Index (AQI) fluctuations.
+The cycle begins with relatively low AQI values, indicating better air quality. As the year progresses, the AQI rises to a peak, signifying a period of poorer air quality. This is followed by an improvement (decrease in AQI), another deterioration (increase), and a final improvement towards the year's end.
+These recurring variations likely reflect the influence of seasonal factors such as changing weather patterns, temperature inversions, and seasonal human activities. For instance, winter months might see higher AQI due to increased heating emissions, while spring could bring lower AQI with more favorable dispersion conditions. 
 
-In a additive time series, the components add together to make the time series. If you have an increasing trend, you still
-see roughly the same size peaks and troughs throughout the time series. This is often seen in indexed time series where the
-absolute value is growing but changes stay relative.
+The graph includes a highlighted box that demarcates the seasonal period. This visual element clearly illustrates the duration and boundaries of one complete seasonal cycle in the air quality data.
+Understanding these seasonal trends is crucial for accurately interpreting air quality data and making informed predictions. It allows environmental agencies and policymakers to anticipate periods of potentially compromised air quality and plan interventions accordingly.
 
+Lastly, the final row displays the *Residuals*, which represent the portion of the data not explained by the trend or the seasonal component. We can interpret the residuals as the difference between the sum of the Trend and Seasonal components and the Observed values at each point in time. 
+Essentially, the Residuals indicate the amount that needs to be added to the Trend and Seasonal components to align the result with the Observed values.
+Residuals are typically attributed to random errors, often referred to as white noise, which we will explore further. These residuals embody the unpredictable elements of the data that cannot be captured or forecasted by the model, as they are inherently random.
 
-## Time Series Prediction
-For this project, we have used an extended version of *ARIMA* model knows as *SARIMAX* model as we have explained in the methods section.
-The *SARIMAX* model is used when the data sets have seasonal cycles. In our dataset concerning air quality/AQI there is a seasonal pattern
-which we can see in the above visualization.
-
-We need to find the right p,d and q parameters to correctly forecast and predict the AQI value.
-
-- *p* is the auto-regressive part of the model. It allows us to incorporate the effect of past values into our model.
-- *d* is the integrated part of the model. This includes terms in the model that incorporate the amount of diferencing (the number of past time points to subtract from the current value) to apply the time series.
-- *q* is the moving average part of the model. This allows us to set the error of our model as a linear combination of the error values observed at previous time points in the past.  
-
+## Finding the Best Forecasting Model with Grid Search
+For this project, we used an extended version of *ARIMA* model knows as *SARIMAX* model as we have explained in the methods section.
 We use a tuning technique called grid search method that attempts to compute the optimum values of hyperparameters. We are trying to find the right p,d,q values that would be given as an input to the SARIMAX time series model.
+This process helps us find the best settings for a forecasting model called SARIMAX by testing various options to find the best fit for our data. Here’s an easy-to-understand explanation of how this works:
+
+### Step 1: Getting Everything Ready
+We start by setting up all the tools we need for our analysis.
+
+### Step 2: Setting Up Our Options
+We define different settings that the SARIMAX model can use to predict future values. These include the p, d, and q parameters, which help the model decide how much weight to give to past values, trends, and patterns. We then create a list of all possible combinations of these settings.
+
+### Step 3: Adding Seasonal Flavors
+We know that some data has seasonal patterns, like sales going up during the holidays. We include options for these seasonal changes.
+
+### Step 4: Trying Out Different Combinations
+We go through each combination of settings to see how well each one works. For each main setting, we also try different seasonal settings to find the perfect combination.
+
+### Step 5: Checking the Results
+For each set of settings, we create a forecasting model and test it on our data. We measure how well each model works using a score called the Akaike Information Criterion (AIC). This score tells us how well the model predicts the data, with lower scores being better. If something goes wrong with a particular set of settings, we catch the error and move on to the next set without stopping the whole process.
+
 ```{python}
 #| label: grid-search
 #| output: false
@@ -103,46 +179,77 @@ for param in pdq:
 
 We have to find the lowest AIC values which would have the best corresponding p,d,q values to have the best forecast of AQI values.  
 
-# Summary of SARIMAX
-## Print the summary which includes AIC 
+## SARIMAX Model Results
 ```{python}
 #| label: mod-fit
 mod = sm.tsa.statespace.SARIMAX(df_aqi,order=(1, 1, 1),seasonal_order=(0,1, 1, 12),enforce_stationarity=False,enforce_invertibility=False)
 results = mod.fit()
+print(results.summary().tables[0])
 print(results.summary().tables[1])
+#print(results.summary().tables[2])
 ```
 
-# How Fit the SARIMAX model
+This summary presents a concise overview of the SARIMAX model’s performance and fit. The SARIMAX(1, 1, 1)x(0, 1, 1, 12) model integrates both non-seasonal and seasonal components, effectively capturing both immediate and periodic influences on the Air Quality Index (AQI). The model utilizes 96 observations, providing a robust dataset for accurate model fitting.
+Key metrics such as the log-likelihood, AIC, BIC, and HQIC are used to assess the model's effectiveness, with lower values typically indicating a better fit that balances complexity and accuracy. The summary also includes the date and time of model execution, the timeframe of the data, and the type of covariance used, which aids in understanding how the model accounts for uncertainties in parameter estimates.
+
+### Autoregressive Term (ar.L1)
+Coefficient: 0.0483  Suggests a slight positive influence of the previous observation on the current value.
+Standard Error: 0.306 Indicates significant variability in the coefficient estimate.
+Z-Value: 0.158 Low value, indicating the coefficient is not statistically significant.
+P-Value: 0.875 Not significant (p-value > 0.05).
+Confidence Interval: [-0.551, 0.648]
+Includes zero, reinforcing the lack of significance.
+
+### Moving Average Term (ma.L1)
+Coefficient: -1.0000 Implies the model tries to correct nearly all errors from the previous period.
+Standard Error: 924.523 Extremely large, pointing to high uncertainty in the estimate.
+Z-Value: -0.001 Near zero, indicating no statistical significance.
+P-Value: 0.999  Not significant.
+Confidence Interval: [-1813.031, 1811.031] Very wide and includes zero, confirming lack of significance.
+
+### Seasonal Moving Average Term (ma.S.L12)
+Coefficient: -1.0000 Attempts to correct errors regarding data seasonality.
+Standard Error: 2355.498 Very large, indicating substantial uncertainty.
+Z-Value: -0.000 Near zero, suggesting no significance.
+P-Value: 1.000 Not significant.
+Confidence Interval: [-4617.692, 4615.692] Wide interval, includes zero, further indicating no significance.
+
+### Variance of the Residuals (sigma2)
+Coefficient: 134.1503 Represents the variance of the residuals or errors.
+Standard Error: 335000 Extremely high, showing great uncertainty.
+Z-Value: 0.000 Indicates no statistical significance.
+P-Value: 1.000 Not significant.
+Confidence Interval: [-657000, 657000] Very wide, includes zero, highlighting lack of significance.
+
+##Overall Summary
+None of the coefficients in the SARIMAX model are statistically significant, as indicated by the high p-values and z-values close to zero. This means that the parameters do not effectively predict the AQI data. The large standard errors and wide confidence intervals point to a high degree of uncertainty in the parameter estimates. This suggests the model may not be well-suited for capturing the dynamics of the AQI data, and re-evaluation of the model or data is recommended.
+
+## Fit SARIMAX model
 ```{python}
 #| label: Extract-AIC-value-plot
 aic_value = results.aic
 print(f"The AIC value is: {aic_value}")
 ```
+Explain what is the value AIC tells us, and how to interpret the plot. Look at the method
 
 ```{python}
 #results.plot_diagnostics(figsize=(10, 8))
 ```
 
-![Plot Diagnostics](https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/plot-diag.png?raw=true)
-
-
-
-Once the model is created, predicted values are generated using the .get_prediction() method, with datetime as input
+Once the model is created, predicted values are generated using the .get_prediction() method, with datetime as input.
 ```{python}
 #| label: check-prediction
 pred = results.get_prediction(start=pd.to_datetime('2023-01-01 00:00:00'), dynamic=False)
 pred_ci = pred.conf_int()
 ```
 
-The graph indicates overlapping patterns in the testing and training data, suggesting strong potential for the forecasting model's performance.
 ```{python}
 #| label: plot-prediction
+#| output: false
 ax = df_aqi['2015-01-31 00:00:00':].plot(label='Observed') # plot the observed data 
 pred.predicted_mean.plot(ax=ax, label='One-step ahead Forecast', alpha=.7, figsize=(14, 7))
-
 ax.fill_between(pred_ci.index,pred_ci.iloc[:, 0],pred_ci.iloc[:, 1], color='k', alpha=.2)
-
-ax.set_xlabel('Days')
+ax.set_xlabel('Date')
 ax.set_ylabel('AQI index')
 plt.legend()
 plt.show()
@@ -203,12 +310,10 @@ forecast_df = pd.DataFrame({
 #print(forecast_df.head(30).to_markdown(index=False))
 ```
 
-## Visualizing Our Results: The Culmination of Our Analysis
-
+## Visualizing Our Results
 The final and crucial step of our project is the creation of a comprehensive plot that encapsulates our complex analysis. This visualization serves as the key to understanding and interpreting our findings.
 
 ### Interpreting the Forecast Plot
-
 Our plot consists of several key elements:
 
 1. **Observed Values (Blue Line)**

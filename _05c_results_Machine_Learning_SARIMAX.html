@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Results Machine Learning SARIMAX</h1>
+<h1 class="title">Machine Learning SARIMAX</h1>
 </div>
 
 
@@ -96,6 +96,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p>A time series is a sequence of data points collected at regular intervals over a period of time. These intervals are typically uniform, such as hourly, daily, or quarterly measurements. This orderly arrangement allows for the analysis of trends, patterns, and behaviors over time. Common examples of time series data include stock market closing prices, household electricity consumption readings, and weather measurements. In the context of our capstone project, we’re focusing on air quality index measurements as our time series data. This sequential record of air quality provides insights into pollution trends and can be used to forecast future air quality conditions.</p>
 <div id="import-lib" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -116,46 +117,119 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>df_aqi.ffill(inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#df_aqi.plot(figsize=(15,8))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Any time series is decomposed of two things:</p>
+<p>Any time series is composed of three things:</p>
 <ul>
-<li>Seasonality</li>
-<li>Trends</li>
+<li><em>Trend</em>: Trend tells you how things are overall changing<br>
+</li>
+<li><em>Seasonality</em>: Seasonality shows you how things change within a given period (e.g.&nbsp;year,month, week, day)<br>
+</li>
+<li><em>Residual</em>: The Error/residual/irregular activity are the anomalies whitch cannot be explained by the trend or the seasonal value</li>
 </ul>
-<p>By the help of <code>statsmodel</code> package we can break the time series into its seasonal pattern and trends. This will helps us to understand the data clearly and will help us to make more sense of the data.</p>
-<section id="decomposing-the-time-series-with-additive-method" class="level1">
-<h1>Decomposing the Time Series With Additive Method</h1>
-<div id="cell-additive-decomp" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"darkgrid"</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>decomposition <span class="op">=</span> sm.tsa.seasonal_decompose(df_aqi, model<span class="op">=</span><span class="st">'additive'</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> decomposition.plot()</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="statsmodel" class="level2">
+<h2 class="anchored" data-anchor-id="statsmodel">Statsmodel</h2>
+<p>Using the statsmodel package, we can map the seasonal pattern and trends using seasonal_decompose method. It requires as inputs a dataframe with two columns date data and the AQI. This will help us to understand the seasonality and trend clearly and allowing us to make more sense of the data for the forecast. In a additive time series, the components add together to make the time series. If you have an increasing trend, you still see roughly the same size peaks and troughs throughout the time series.</p>
+</section>
+<section id="components-of-a-time-series" class="level2">
+<h2 class="anchored" data-anchor-id="components-of-a-time-series">Components Of A Time Series</h2>
+<p>Time series decomposition is a statistical technique that separates data into three key components: trend, seasonality, and residuals. The trend shows the long-term direction, seasonality reveals recurring patterns, and residuals represent unexplained variations. Visualizing these components individually provides insights that may not be evident in the raw data. This process helps analysts identify underlying patterns, recognize cyclical behaviors, and detect anomalies.</p>
+<p>By understanding these elements separately, we can gain deeper insights into the factors driving the time series, leading to more accurate analysis and forecasting. Decomposition is particularly useful when the complexity of a time series makes it challenging to discern important patterns from simple observation of the dataset.</p>
+<div id="cell-seasonal-decompose" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.patches <span class="im">as</span> patches</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the theme for seaborn</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"white"</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform seasonal decomposition</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>decomposition <span class="op">=</span> sm.tsa.seasonal_decompose(df_aqi, model<span class="op">=</span><span class="st">'additive'</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the decomposition</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> decomposition.plot()</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Set y-labels for each subplot</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>fig.axes[<span class="dv">0</span>].set_ylabel(<span class="st">'Observed'</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>fig.axes[<span class="dv">1</span>].set_ylabel(<span class="st">'Trend'</span>)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>fig.axes[<span class="dv">2</span>].set_ylabel(<span class="st">'Seasonal'</span>)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>fig.axes[<span class="dv">3</span>].set_ylabel(<span class="st">'Residuals'</span>)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a box in the "Observed" plot for September 2020</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>ax_observed <span class="op">=</span> fig.axes[<span class="dv">0</span>]</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>rect <span class="op">=</span> patches.Rectangle((pd.Timestamp(<span class="st">'2020-09-01'</span>), ax_observed.get_ylim()[<span class="dv">0</span>]), </span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>                         pd.Timestamp(<span class="st">'2020-10-30'</span>) <span class="op">-</span> pd.Timestamp(<span class="st">'2020-09-01'</span>), </span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>                         ax_observed.get_ylim()[<span class="dv">1</span>] <span class="op">-</span> ax_observed.get_ylim()[<span class="dv">0</span>], </span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>                         linewidth<span class="op">=</span><span class="dv">1</span>, edgecolor<span class="op">=</span><span class="st">'r'</span>, facecolor<span class="op">=</span><span class="st">'none'</span>)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>ax_observed.add_patch(rect)</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Add text "Wildfire" near the box</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>ax_observed.text(pd.Timestamp(<span class="st">'2020-09-15'</span>), ax_observed.get_ylim()[<span class="dv">1</span>], <span class="st">'Wildfire'</span>, </span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>                 verticalalignment<span class="op">=</span><span class="st">'bottom'</span>, horizontalalignment<span class="op">=</span><span class="st">'center'</span>, </span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>                 color<span class="op">=</span><span class="st">'r'</span>, fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a box in the "Seasonal" plot from July 2018 to July 2019</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>ax_seasonal <span class="op">=</span> fig.axes[<span class="dv">2</span>]</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>rect_seasonal <span class="op">=</span> patches.Rectangle((pd.Timestamp(<span class="st">'2018-07-01'</span>), ax_seasonal.get_ylim()[<span class="dv">0</span>]), </span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>                                  pd.Timestamp(<span class="st">'2019-07-01'</span>) <span class="op">-</span> pd.Timestamp(<span class="st">'2018-07-01'</span>), </span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>                                  ax_seasonal.get_ylim()[<span class="dv">1</span>] <span class="op">-</span> ax_seasonal.get_ylim()[<span class="dv">0</span>], </span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>                                  linewidth<span class="op">=</span><span class="dv">1</span>, edgecolor<span class="op">=</span><span class="st">'b'</span>, facecolor<span class="op">=</span><span class="st">'none'</span>)</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>ax_seasonal.add_patch(rect_seasonal)</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Add an arrow in the "Seasonal" plot</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>ax_seasonal.annotate(<span class="st">''</span>, xy<span class="op">=</span>(pd.Timestamp(<span class="st">'2018-07-01'</span>), ax_seasonal.get_ylim()[<span class="dv">1</span>]), </span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>                     xytext<span class="op">=</span>(pd.Timestamp(<span class="st">'2019-07-01'</span>), ax_seasonal.get_ylim()[<span class="dv">1</span>]), </span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>                     arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">'&lt;-&gt;'</span>, color<span class="op">=</span><span class="st">'b'</span>))</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Add text "Seasonality Period" near the arrow</span></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>ax_seasonal.text(pd.Timestamp(<span class="st">'2018-12-01'</span>), ax_seasonal.get_ylim()[<span class="dv">1</span>] <span class="op">*</span> <span class="fl">0.50</span>, <span class="st">'Season'</span>, </span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>                 verticalalignment<span class="op">=</span><span class="st">'bottom'</span>, horizontalalignment<span class="op">=</span><span class="st">'center'</span>, </span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>                 color<span class="op">=</span><span class="st">'r'</span>, fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Set x-labels with year and rotate them 45 degrees</span></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax <span class="kw">in</span> fig.axes:</span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>    ax.set_xlabel(<span class="st">'Year'</span>)</span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> label <span class="kw">in</span> ax.get_xticklabels():</span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>        label.set_rotation(<span class="dv">45</span>)</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>        label.set_ha(<span class="st">'right'</span>)</span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="_05c_results_Machine_Learning_SARIMAX_files/figure-html/additive-decomp-output-1.png" id="additive-decomp" width="656" height="465" class="figure-img"></p>
+<p><img src="_05c_results_Machine_Learning_SARIMAX_files/figure-html/seasonal-decompose-output-1.png" id="seasonal-decompose" width="664" height="518" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>There are three components to a time series:</p>
-<ol type="1">
-<li><code>Trend</code>: Trend tells you how things are overall changing<br>
-</li>
-<li><code>Seasonality</code>: Seasonality shows you how things change within a given period (e.g.&nbsp;year,month, week, day)<br>
-</li>
-<li><code>Residual</code>: The Error/residual/irregular activity are the anomalies whitch cannot be explained by the trend or the seasonal value</li>
-</ol>
-<p>In a additive time series, the components add together to make the time series. If you have an increasing trend, you still see roughly the same size peaks and troughs throughout the time series. This is often seen in indexed time series where the absolute value is growing but changes stay relative.</p>
-<section id="time-series-prediction" class="level2">
-<h2 class="anchored" data-anchor-id="time-series-prediction">Time Series Prediction</h2>
-<p>For this project, we have used an extended version of <em>ARIMA</em> model knows as <em>SARIMAX</em> model as we have explained in the methods section. The <em>SARIMAX</em> model is used when the data sets have seasonal cycles. In our dataset concerning air quality/AQI there is a seasonal pattern which we can see in the above visualization.</p>
-<p>We need to find the right p,d and q parameters to correctly forecast and predict the AQI value.</p>
-<ul>
-<li><em>p</em> is the auto-regressive part of the model. It allows us to incorporate the effect of past values into our model.</li>
-<li><em>d</em> is the integrated part of the model. This includes terms in the model that incorporate the amount of diferencing (the number of past time points to subtract from the current value) to apply the time series.</li>
-<li><em>q</em> is the moving average part of the model. This allows us to set the error of our model as a linear combination of the error values observed at previous time points in the past.</li>
-</ul>
-<p>We use a tuning technique called grid search method that attempts to compute the optimum values of hyperparameters. We are trying to find the right p,d,q values that would be given as an input to the SARIMAX time series model.</p>
+<p>Figure 20: Seasonal, Trend, and Residual Decomposition of Portland AQI Time Series</p>
+<p>The uppermost graph, labeled <em>Observed</em>, presents the raw time series data as originally recorded. Its y-axis quantifies the daily air quality measurements, while the x-axis represents the passage of time. This graph is a composite representation, effectively combining the three underlying components: trend, seasonality, and residuals. A notable anomaly is evident in the data: a significant spike in air quality measurements occurring in September 2020. This outlier corresponds to the severe wildfires that ravaged Oregon during that period. The dramatic increase in air pollution levels during this time underscores the profound impact of extreme environmental events on air quality.</p>
+<p>The <em>Seasonal</em> component graph illustrates the cyclical patterns in air quality that repeat annually. This visualization reveals a distinctive yearly pattern in Air Quality Index (AQI) fluctuations. The cycle begins with relatively low AQI values, indicating better air quality. As the year progresses, the AQI rises to a peak, signifying a period of poorer air quality. This is followed by an improvement (decrease in AQI), another deterioration (increase), and a final improvement towards the year’s end. These recurring variations likely reflect the influence of seasonal factors such as changing weather patterns, temperature inversions, and seasonal human activities. For instance, winter months might see higher AQI due to increased heating emissions, while spring could bring lower AQI with more favorable dispersion conditions.</p>
+<p>The graph includes a highlighted box that demarcates the seasonal period. This visual element clearly illustrates the duration and boundaries of one complete seasonal cycle in the air quality data. Understanding these seasonal trends is crucial for accurately interpreting air quality data and making informed predictions. It allows environmental agencies and policymakers to anticipate periods of potentially compromised air quality and plan interventions accordingly.</p>
+<p>Lastly, the final row displays the <em>Residuals</em>, which represent the portion of the data not explained by the trend or the seasonal component. We can interpret the residuals as the difference between the sum of the Trend and Seasonal components and the Observed values at each point in time. Essentially, the Residuals indicate the amount that needs to be added to the Trend and Seasonal components to align the result with the Observed values. Residuals are typically attributed to random errors, often referred to as white noise, which we will explore further. These residuals embody the unpredictable elements of the data that cannot be captured or forecasted by the model, as they are inherently random.</p>
+</section>
+<section id="finding-the-best-forecasting-model-with-grid-search" class="level2">
+<h2 class="anchored" data-anchor-id="finding-the-best-forecasting-model-with-grid-search">Finding the Best Forecasting Model with Grid Search</h2>
+<p>For this project, we used an extended version of <em>ARIMA</em> model knows as <em>SARIMAX</em> model as we have explained in the methods section. We use a tuning technique called grid search method that attempts to compute the optimum values of hyperparameters. We are trying to find the right p,d,q values that would be given as an input to the SARIMAX time series model. This process helps us find the best settings for a forecasting model called SARIMAX by testing various options to find the best fit for our data. Here’s an easy-to-understand explanation of how this works:</p>
+<section id="step-1-getting-everything-ready" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-getting-everything-ready">Step 1: Getting Everything Ready</h3>
+<p>We start by setting up all the tools we need for our analysis.</p>
+</section>
+<section id="step-2-setting-up-our-options" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-setting-up-our-options">Step 2: Setting Up Our Options</h3>
+<p>We define different settings that the SARIMAX model can use to predict future values. These include the p, d, and q parameters, which help the model decide how much weight to give to past values, trends, and patterns. We then create a list of all possible combinations of these settings.</p>
+</section>
+<section id="step-3-adding-seasonal-flavors" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-adding-seasonal-flavors">Step 3: Adding Seasonal Flavors</h3>
+<p>We know that some data has seasonal patterns, like sales going up during the holidays. We include options for these seasonal changes.</p>
+</section>
+<section id="step-4-trying-out-different-combinations" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-trying-out-different-combinations">Step 4: Trying Out Different Combinations</h3>
+<p>We go through each combination of settings to see how well each one works. For each main setting, we also try different seasonal settings to find the perfect combination.</p>
+</section>
+<section id="step-5-checking-the-results" class="level3">
+<h3 class="anchored" data-anchor-id="step-5-checking-the-results">Step 5: Checking the Results</h3>
+<p>For each set of settings, we create a forecasting model and test it on our data. We measure how well each model works using a score called the Akaike Information Criterion (AIC). This score tells us how well the model predicts the data, with lower scores being better. If something goes wrong with a particular set of settings, we catch the error and move on to the next set without stopping the whole process.</p>
 <div id="grid-search" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> itertools</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -191,16 +265,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>We have to find the lowest AIC values which would have the best corresponding p,d,q values to have the best forecast of AQI values.</p>
 </section>
 </section>
-<section id="summary-of-sarimax" class="level1">
-<h1>Summary of SARIMAX</h1>
-<section id="print-the-summary-which-includes-aic" class="level2">
-<h2 class="anchored" data-anchor-id="print-the-summary-which-includes-aic">Print the summary which includes AIC</h2>
+<section id="sarimax-model-results" class="level2">
+<h2 class="anchored" data-anchor-id="sarimax-model-results">SARIMAX Model Results</h2>
 <div id="mod-fit" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mod <span class="op">=</span> sm.tsa.statespace.SARIMAX(df_aqi,order<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>),seasonal_order<span class="op">=</span>(<span class="dv">0</span>,<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">12</span>),enforce_stationarity<span class="op">=</span><span class="va">False</span>,enforce_invertibility<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> mod.fit()</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results.summary().tables[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results.summary().tables[<span class="dv">0</span>])</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results.summary().tables[<span class="dv">1</span>])</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#print(results.summary().tables[2])</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>==============================================================================
+<pre><code>                                     SARIMAX Results                                      
+==========================================================================================
+Dep. Variable:                                aqi   No. Observations:                   96
+Model:             SARIMAX(1, 1, 1)x(0, 1, 1, 12)   Log Likelihood                -276.765
+Date:                            Tue, 13 Aug 2024   AIC                            561.530
+Time:                                    15:08:04   BIC                            570.467
+Sample:                                01-31-2015   HQIC                           565.076
+                                     - 12-31-2022                                         
+Covariance Type:                              opg                                         
+==========================================================================================
+==============================================================================
                  coef    std err          z      P&gt;|z|      [0.025      0.975]
 ------------------------------------------------------------------------------
 ar.L1          0.0483      0.306      0.158      0.875      -0.551       0.648
@@ -210,12 +294,27 @@ sigma2       134.1503   3.35e+05      0.000      1.000   -6.57e+05    6.57e+05
 ==============================================================================</code></pre>
 </div>
 </div>
+<p>This summary presents a concise overview of the SARIMAX model’s performance and fit. The SARIMAX(1, 1, 1)x(0, 1, 1, 12) model integrates both non-seasonal and seasonal components, effectively capturing both immediate and periodic influences on the Air Quality Index (AQI). The model utilizes 96 observations, providing a robust dataset for accurate model fitting. Key metrics such as the log-likelihood, AIC, BIC, and HQIC are used to assess the model’s effectiveness, with lower values typically indicating a better fit that balances complexity and accuracy. The summary also includes the date and time of model execution, the timeframe of the data, and the type of covariance used, which aids in understanding how the model accounts for uncertainties in parameter estimates.</p>
+<section id="autoregressive-term-ar.l1" class="level3">
+<h3 class="anchored" data-anchor-id="autoregressive-term-ar.l1">Autoregressive Term (ar.L1)</h3>
+<p>Coefficient: 0.0483 Suggests a slight positive influence of the previous observation on the current value. Standard Error: 0.306 Indicates significant variability in the coefficient estimate. Z-Value: 0.158 Low value, indicating the coefficient is not statistically significant. P-Value: 0.875 Not significant (p-value &gt; 0.05). Confidence Interval: [-0.551, 0.648] Includes zero, reinforcing the lack of significance.</p>
+</section>
+<section id="moving-average-term-ma.l1" class="level3">
+<h3 class="anchored" data-anchor-id="moving-average-term-ma.l1">Moving Average Term (ma.L1)</h3>
+<p>Coefficient: -1.0000 Implies the model tries to correct nearly all errors from the previous period. Standard Error: 924.523 Extremely large, pointing to high uncertainty in the estimate. Z-Value: -0.001 Near zero, indicating no statistical significance. P-Value: 0.999 Not significant. Confidence Interval: [-1813.031, 1811.031] Very wide and includes zero, confirming lack of significance.</p>
+</section>
+<section id="seasonal-moving-average-term-ma.s.l12" class="level3">
+<h3 class="anchored" data-anchor-id="seasonal-moving-average-term-ma.s.l12">Seasonal Moving Average Term (ma.S.L12)</h3>
+<p>Coefficient: -1.0000 Attempts to correct errors regarding data seasonality. Standard Error: 2355.498 Very large, indicating substantial uncertainty. Z-Value: -0.000 Near zero, suggesting no significance. P-Value: 1.000 Not significant. Confidence Interval: [-4617.692, 4615.692] Wide interval, includes zero, further indicating no significance.</p>
+</section>
+<section id="variance-of-the-residuals-sigma2" class="level3">
+<h3 class="anchored" data-anchor-id="variance-of-the-residuals-sigma2">Variance of the Residuals (sigma2)</h3>
+<p>Coefficient: 134.1503 Represents the variance of the residuals or errors. Standard Error: 335000 Extremely high, showing great uncertainty. Z-Value: 0.000 Indicates no statistical significance. P-Value: 1.000 Not significant. Confidence Interval: [-657000, 657000] Very wide, includes zero, highlighting lack of significance.</p>
+<p>##Overall Summary None of the coefficients in the SARIMAX model are statistically significant, as indicated by the high p-values and z-values close to zero. This means that the parameters do not effectively predict the AQI data. The large standard errors and wide confidence intervals point to a high degree of uncertainty in the parameter estimates. This suggests the model may not be well-suited for capturing the dynamics of the AQI data, and re-evaluation of the model or data is recommended.</p>
 </section>
 </section>
-<section id="how-fit-the-sarimax-model" class="level1">
-<h1>How Fit the SARIMAX model</h1>
-<section id="plot-diagnostics" class="level2">
-<h2 class="anchored" data-anchor-id="plot-diagnostics">Plot Diagnostics</h2>
+<section id="fit-sarimax-model" class="level2">
+<h2 class="anchored" data-anchor-id="fit-sarimax-model">Fit SARIMAX model</h2>
 <div id="extract-aic-value-plot" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>aic_value <span class="op">=</span> results.aic</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The AIC value is: </span><span class="sc">{</span>aic_value<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -223,45 +322,30 @@ sigma2       134.1503   3.35e+05      0.000      1.000   -6.57e+05    6.57e+05
 <pre><code>The AIC value is: 561.5301944999834</code></pre>
 </div>
 </div>
-<div id="71028160" class="cell" data-execution_count="8">
+<p>Explain what is the value AIC tells us, and how to interpret the plot. Look at the method</p>
+<div id="c79cea62" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#results.plot_diagnostics(figsize=(10, 8))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/plot-diag.png?raw=true" class="img-fluid figure-img"></p>
-<figcaption>Plot Diag</figcaption>
-</figure>
-</div>
-<p>Once the model is created, predicted values are generated using the .get_prediction() method, with datetime as input</p>
+<p>Once the model is created, predicted values are generated using the .get_prediction() method, with datetime as input.</p>
 <div id="check-prediction" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>pred <span class="op">=</span> results.get_prediction(start<span class="op">=</span>pd.to_datetime(<span class="st">'2023-01-01 00:00:00'</span>), dynamic<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>pred_ci <span class="op">=</span> pred.conf_int()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The graph indicates overlapping patterns in the testing and training data, suggesting strong potential for the forecasting model’s performance.</p>
-<div id="cell-plot-prediction" class="cell" data-execution_count="10">
+<div id="plot-prediction" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> df_aqi[<span class="st">'2015-01-31 00:00:00'</span>:].plot(label<span class="op">=</span><span class="st">'Observed'</span>) <span class="co"># plot the observed data </span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>pred.predicted_mean.plot(ax<span class="op">=</span>ax, label<span class="op">=</span><span class="st">'One-step ahead Forecast'</span>, alpha<span class="op">=</span><span class="fl">.7</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">7</span>))</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>ax.fill_between(pred_ci.index,pred_ci.iloc[:, <span class="dv">0</span>],pred_ci.iloc[:, <span class="dv">1</span>], color<span class="op">=</span><span class="st">'k'</span>, alpha<span class="op">=</span><span class="fl">.2</span>)</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Days'</span>)</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'AQI index'</span>)</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="_05c_results_Machine_Learning_SARIMAX_files/figure-html/plot-prediction-output-1.png" id="plot-prediction" width="1134" height="583" class="figure-img"></p>
-</figure>
-</div>
-</div>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>ax.fill_between(pred_ci.index,pred_ci.iloc[:, <span class="dv">0</span>],pred_ci.iloc[:, <span class="dv">1</span>], color<span class="op">=</span><span class="st">'k'</span>, alpha<span class="op">=</span><span class="fl">.2</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Date'</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'AQI index'</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To facilitate comparison of true and predicted test values, we will create a separate DataFrame. Mean Error Estimation will be used for analysis.</p>
 <div id="define-forecast-truth" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>y_forecasted <span class="op">=</span> pred.predicted_mean</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>y_truth <span class="op">=</span> df_aqi[<span class="st">'2022-12-31 00:00:00'</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>To evaluate model performance, we calculate the MSE</p>
+<p>To evaluate model performance, we calculate the MSE.</p>
 <div id="calculate-mse" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error</span>
@@ -286,8 +370,6 @@ sigma2       134.1503   3.35e+05      0.000      1.000   -6.57e+05    6.57e+05
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>pred_uc <span class="op">=</span> results.get_forecast(steps<span class="op">=</span><span class="dv">30</span>)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>pred_ci <span class="op">=</span> pred_uc.conf_int()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="forecasted-values-with-dates" class="level3">
-<h3 class="anchored" data-anchor-id="forecasted-values-with-dates">Forecasted Values with Dates</h3>
 <div id="show-tab-pred" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the forecasted values</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>forecasted_values <span class="op">=</span> pred_uc.predicted_mean</span>
@@ -305,9 +387,8 @@ sigma2       134.1503   3.35e+05      0.000      1.000   -6.57e+05    6.57e+05
 <span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="co">#print(forecast_df.head(30).to_markdown(index=False))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-</section>
-<section id="visualizing-our-results-the-culmination-of-our-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="visualizing-our-results-the-culmination-of-our-analysis">Visualizing Our Results: The Culmination of Our Analysis</h2>
+<section id="visualizing-our-results" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-our-results">Visualizing Our Results</h2>
 <p>The final and crucial step of our project is the creation of a comprehensive plot that encapsulates our complex analysis. This visualization serves as the key to understanding and interpreting our findings.</p>
 <section id="interpreting-the-forecast-plot" class="level3">
 <h3 class="anchored" data-anchor-id="interpreting-the-forecast-plot">Interpreting the Forecast Plot</h3>
@@ -347,7 +428,6 @@ sigma2       134.1503   3.35e+05      0.000      1.000   -6.57e+05    6.57e+05
 </div>
 </div>
 </div>
-</section>
 </section>
 </section>
 
