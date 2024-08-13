@@ -209,19 +209,28 @@ window.Quarto = {
   <li><a href="#portlands-transit-system" id="toc-portlands-transit-system" class="nav-link" data-scroll-target="#portlands-transit-system">Portland’s Transit System</a></li>
   </ul></li>
   <li><a href="#results-machine-learning-scikit-learn" id="toc-results-machine-learning-scikit-learn" class="nav-link" data-scroll-target="#results-machine-learning-scikit-learn">Results Machine Learning Scikit-Learn</a></li>
-  <li><a href="#machine-learning-sarimax" id="toc-machine-learning-sarimax" class="nav-link" data-scroll-target="#machine-learning-sarimax">Machine Learning SARIMAX</a></li>
-  <li><a href="#decomposing-the-time-series-with-additive-method" id="toc-decomposing-the-time-series-with-additive-method" class="nav-link" data-scroll-target="#decomposing-the-time-series-with-additive-method">Decomposing the Time Series With Additive Method</a>
+  <li><a href="#machine-learning-sarimax" id="toc-machine-learning-sarimax" class="nav-link" data-scroll-target="#machine-learning-sarimax">Machine Learning SARIMAX</a>
   <ul class="collapse">
-  <li><a href="#time-series-prediction" id="toc-time-series-prediction" class="nav-link" data-scroll-target="#time-series-prediction">Time Series Prediction</a></li>
+  <li><a href="#statsmodel" id="toc-statsmodel" class="nav-link" data-scroll-target="#statsmodel">Statsmodel</a></li>
+  <li><a href="#components-of-a-time-series" id="toc-components-of-a-time-series" class="nav-link" data-scroll-target="#components-of-a-time-series">Components Of A Time Series</a></li>
+  <li><a href="#finding-the-best-forecasting-model-with-grid-search" id="toc-finding-the-best-forecasting-model-with-grid-search" class="nav-link" data-scroll-target="#finding-the-best-forecasting-model-with-grid-search">Finding the Best Forecasting Model with Grid Search</a>
+  <ul class="collapse">
+  <li><a href="#step-1-getting-everything-ready" id="toc-step-1-getting-everything-ready" class="nav-link" data-scroll-target="#step-1-getting-everything-ready">Step 1: Getting Everything Ready</a></li>
+  <li><a href="#step-2-setting-up-our-options" id="toc-step-2-setting-up-our-options" class="nav-link" data-scroll-target="#step-2-setting-up-our-options">Step 2: Setting Up Our Options</a></li>
+  <li><a href="#step-3-adding-seasonal-flavors" id="toc-step-3-adding-seasonal-flavors" class="nav-link" data-scroll-target="#step-3-adding-seasonal-flavors">Step 3: Adding Seasonal Flavors</a></li>
+  <li><a href="#step-4-trying-out-different-combinations" id="toc-step-4-trying-out-different-combinations" class="nav-link" data-scroll-target="#step-4-trying-out-different-combinations">Step 4: Trying Out Different Combinations</a></li>
+  <li><a href="#step-5-checking-the-results" id="toc-step-5-checking-the-results" class="nav-link" data-scroll-target="#step-5-checking-the-results">Step 5: Checking the Results</a></li>
   </ul></li>
-  <li><a href="#summary-of-sarimax" id="toc-summary-of-sarimax" class="nav-link" data-scroll-target="#summary-of-sarimax">Summary of SARIMAX</a>
+  <li><a href="#sarimax-model-results" id="toc-sarimax-model-results" class="nav-link" data-scroll-target="#sarimax-model-results">SARIMAX Model Results</a>
   <ul class="collapse">
-  <li><a href="#print-the-summary-which-includes-aic" id="toc-print-the-summary-which-includes-aic" class="nav-link" data-scroll-target="#print-the-summary-which-includes-aic">Print the summary which includes AIC</a></li>
+  <li><a href="#autoregressive-term-ar.l1" id="toc-autoregressive-term-ar.l1" class="nav-link" data-scroll-target="#autoregressive-term-ar.l1">Autoregressive Term (ar.L1)</a></li>
+  <li><a href="#moving-average-term-ma.l1" id="toc-moving-average-term-ma.l1" class="nav-link" data-scroll-target="#moving-average-term-ma.l1">Moving Average Term (ma.L1)</a></li>
+  <li><a href="#seasonal-moving-average-term-ma.s.l12" id="toc-seasonal-moving-average-term-ma.s.l12" class="nav-link" data-scroll-target="#seasonal-moving-average-term-ma.s.l12">Seasonal Moving Average Term (ma.S.L12)</a></li>
+  <li><a href="#variance-of-the-residuals-sigma2" id="toc-variance-of-the-residuals-sigma2" class="nav-link" data-scroll-target="#variance-of-the-residuals-sigma2">Variance of the Residuals (sigma2)</a></li>
   </ul></li>
-  <li><a href="#how-fit-the-sarimax-model" id="toc-how-fit-the-sarimax-model" class="nav-link" data-scroll-target="#how-fit-the-sarimax-model">How Fit the SARIMAX model</a>
-  <ul class="collapse">
+  <li><a href="#fit-sarimax-model" id="toc-fit-sarimax-model" class="nav-link" data-scroll-target="#fit-sarimax-model">Fit SARIMAX model</a></li>
   <li><a href="#forecasting-future-values" id="toc-forecasting-future-values" class="nav-link" data-scroll-target="#forecasting-future-values">Forecasting Future Values</a></li>
-  <li><a href="#visualizing-our-results-the-culmination-of-our-analysis" id="toc-visualizing-our-results-the-culmination-of-our-analysis" class="nav-link" data-scroll-target="#visualizing-our-results-the-culmination-of-our-analysis">Visualizing Our Results: The Culmination of Our Analysis</a>
+  <li><a href="#visualizing-our-results" id="toc-visualizing-our-results" class="nav-link" data-scroll-target="#visualizing-our-results">Visualizing Our Results</a>
   <ul class="collapse">
   <li><a href="#interpreting-the-forecast-plot" id="toc-interpreting-the-forecast-plot" class="nav-link" data-scroll-target="#interpreting-the-forecast-plot">Interpreting the Forecast Plot</a></li>
   </ul></li>
@@ -545,8 +554,8 @@ window.Quarto = {
 <p>An initial Random Forest Model run with the selected features returns the following Cohen Kappa score and accuracy:</p>
 <div id="cks-accuracy" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-stdout">
-<pre><code>Cohen Kappa Score:  0.49183116502409163
-Accuracy:  0.7446924333151878</code></pre>
+<pre><code>Cohen Kappa Score:  0.45773246657290456
+Accuracy:  0.7272727272727273</code></pre>
 </div>
 </div>
 <div class="quarto-figure quarto-figure-center">
@@ -619,27 +628,27 @@ Accuracy:  0.7446924333151878</code></pre>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
 <td>RF_model__min_samples_leaf</td>
-<td>4</td>
+<td>5</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
 <td>RF_model__min_samples_split</td>
-<td>5</td>
+<td>2</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">5</td>
 <td>RF_model__n_estimators</td>
-<td>179</td>
+<td>143</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">6</td>
 <td>aqi_transformer__categories__max_categories</td>
-<td>7</td>
+<td>24</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">7</td>
 <td>aqi_transformer__categories__min_frequency</td>
-<td>5</td>
+<td>10</td>
 </tr>
 </tbody>
 </table>
@@ -651,8 +660,8 @@ Accuracy:  0.7446924333151878</code></pre>
 <p>Using these hyperparameters, we reach an accuracy of over 70%.</p>
 <div id="predict-x_test-final" class="cell" data-execution_count="35">
 <div class="cell-output cell-output-stdout">
-<pre><code>Cohen Kappa Score:  0.46134993655267875
-Accuracy:  0.7158410451823626</code></pre>
+<pre><code>Cohen Kappa Score:  0.4572878941739983
+Accuracy:  0.713663581927055</code></pre>
 </div>
 </div>
 <div class="quarto-figure quarto-figure-center">
@@ -688,30 +697,30 @@ Accuracy:  0.7158410451823626</code></pre>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">26-50</td>
-<td>0.783531</td>
+<td>0.784197</td>
 <td>0.873226</td>
-<td>0.825951</td>
+<td>0.826321</td>
 <td>1057.0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">51-75</td>
-<td>0.615520</td>
+<td>0.614437</td>
 <td>0.579734</td>
-<td>0.597092</td>
+<td>0.596581</td>
 <td>602.0</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">76-100</td>
-<td>0.387755</td>
+<td>0.351852</td>
 <td>0.175926</td>
-<td>0.242038</td>
+<td>0.234568</td>
 <td>108.0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">101-200</td>
-<td>0.558140</td>
-<td>0.400000</td>
-<td>0.466019</td>
+<td>0.526316</td>
+<td>0.333333</td>
+<td>0.408163</td>
 <td>60.0</td>
 </tr>
 <tr class="even">
@@ -742,54 +751,78 @@ Accuracy:  0.7158410451823626</code></pre>
 </section>
 <section id="machine-learning-sarimax" class="level1">
 <h1>Machine Learning SARIMAX</h1>
+<p>A time series is a sequence of data points collected at regular intervals over a period of time. These intervals are typically uniform, such as hourly, daily, or quarterly measurements. This orderly arrangement allows for the analysis of trends, patterns, and behaviors over time. Common examples of time series data include stock market closing prices, household electricity consumption readings, and weather measurements. In the context of our capstone project, we’re focusing on air quality index measurements as our time series data. This sequential record of air quality provides insights into pollution trends and can be used to forecast future air quality conditions.</p>
 <p>Any time series is composed of three things:</p>
 <ul>
-<li>Seasonality</li>
-<li>Trends</li>
-<li>Residuals</li>
+<li><em>Trend</em>: Trend tells you how things are overall changing<br>
+</li>
+<li><em>Seasonality</em>: Seasonality shows you how things change within a given period (e.g.&nbsp;year,month, week, day)<br>
+</li>
+<li><em>Residual</em>: The Error/residual/irregular activity are the anomalies whitch cannot be explained by the trend or the seasonal value</li>
 </ul>
-<p>By the help of <code>statsmodel</code> package we can break the time series into its seasonal pattern and trends. This will helps us to understand the data clearly and will help us to make more sense of the data.</p>
+<section id="statsmodel" class="level2">
+<h2 class="anchored" data-anchor-id="statsmodel">Statsmodel</h2>
+<p>Using the statsmodel package, we can map the seasonal pattern and trends using seasonal_decompose method. It requires as inputs a dataframe with two columns date data and the AQI. This will help us to understand the seasonality and trend clearly and allowing us to make more sense of the data for the forecast. In a additive time series, the components add together to make the time series. If you have an increasing trend, you still see roughly the same size peaks and troughs throughout the time series.</p>
 </section>
-<section id="decomposing-the-time-series-with-additive-method" class="level1">
-<h1>Decomposing the Time Series With Additive Method</h1>
-<div id="cell-additive-decomp" class="cell" data-execution_count="42">
+<section id="components-of-a-time-series" class="level2">
+<h2 class="anchored" data-anchor-id="components-of-a-time-series">Components Of A Time Series</h2>
+<p>Time series decomposition is a statistical technique that separates data into three key components: trend, seasonality, and residuals. The trend shows the long-term direction, seasonality reveals recurring patterns, and residuals represent unexplained variations. Visualizing these components individually provides insights that may not be evident in the raw data. This process helps analysts identify underlying patterns, recognize cyclical behaviors, and detect anomalies.</p>
+<p>By understanding these elements separately, we can gain deeper insights into the factors driving the time series, leading to more accurate analysis and forecasting. Decomposition is particularly useful when the complexity of a time series makes it challenging to discern important patterns from simple observation of the dataset.</p>
+<div id="cell-seasonal-decompose" class="cell" data-execution_count="42">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="capstone_files/figure-html/additive-decomp-output-1.png" id="additive-decomp" width="752" height="561" class="figure-img"></p>
+<p><img src="capstone_files/figure-html/seasonal-decompose-output-1.png" id="seasonal-decompose" width="760" height="614" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>There are three components to a time series:</p>
-<ol type="1">
-<li><code>Trend</code>: Trend tells you how things are overall changing<br>
-</li>
-<li><code>Seasonality</code>: Seasonality shows you how things change within a given period (e.g.&nbsp;year,month, week, day)<br>
-</li>
-<li><code>Residual</code>: The Error/residual/irregular activity are the anomalies whitch cannot be explained by the trend or the seasonal value</li>
-</ol>
-<p>In a additive time series, the components add together to make the time series. If you have an increasing trend, you still see roughly the same size peaks and troughs throughout the time series. This is often seen in indexed time series where the absolute value is growing but changes stay relative.</p>
-<section id="time-series-prediction" class="level2">
-<h2 class="anchored" data-anchor-id="time-series-prediction">Time Series Prediction</h2>
-<p>For this project, we have used an extended version of <em>ARIMA</em> model knows as <em>SARIMAX</em> model as we have explained in the methods section. The <em>SARIMAX</em> model is used when the data sets have seasonal cycles. In our dataset concerning air quality/AQI there is a seasonal pattern which we can see in the above visualization.</p>
-<p>We need to find the right p,d and q parameters to correctly forecast and predict the AQI value.</p>
-<ul>
-<li><em>p</em> is the auto-regressive part of the model. It allows us to incorporate the effect of past values into our model.</li>
-<li><em>d</em> is the integrated part of the model. This includes terms in the model that incorporate the amount of diferencing (the number of past time points to subtract from the current value) to apply the time series.</li>
-<li><em>q</em> is the moving average part of the model. This allows us to set the error of our model as a linear combination of the error values observed at previous time points in the past.</li>
-</ul>
-<p>We use a tuning technique called grid search method that attempts to compute the optimum values of hyperparameters. We are trying to find the right p,d,q values that would be given as an input to the SARIMAX time series model.</p>
+<p>Figure 20: Seasonal, Trend, and Residual Decomposition of Portland AQI Time Series</p>
+<p>The uppermost graph, labeled <em>Observed</em>, presents the raw time series data as originally recorded. Its y-axis quantifies the daily air quality measurements, while the x-axis represents the passage of time. This graph is a composite representation, effectively combining the three underlying components: trend, seasonality, and residuals. A notable anomaly is evident in the data: a significant spike in air quality measurements occurring in September 2020. This outlier corresponds to the severe wildfires that ravaged Oregon during that period. The dramatic increase in air pollution levels during this time underscores the profound impact of extreme environmental events on air quality.</p>
+<p>The <em>Seasonal</em> component graph illustrates the cyclical patterns in air quality that repeat annually. This visualization reveals a distinctive yearly pattern in Air Quality Index (AQI) fluctuations. The cycle begins with relatively low AQI values, indicating better air quality. As the year progresses, the AQI rises to a peak, signifying a period of poorer air quality. This is followed by an improvement (decrease in AQI), another deterioration (increase), and a final improvement towards the year’s end. These recurring variations likely reflect the influence of seasonal factors such as changing weather patterns, temperature inversions, and seasonal human activities. For instance, winter months might see higher AQI due to increased heating emissions, while spring could bring lower AQI with more favorable dispersion conditions.</p>
+<p>The graph includes a highlighted box that demarcates the seasonal period. This visual element clearly illustrates the duration and boundaries of one complete seasonal cycle in the air quality data. Understanding these seasonal trends is crucial for accurately interpreting air quality data and making informed predictions. It allows environmental agencies and policymakers to anticipate periods of potentially compromised air quality and plan interventions accordingly.</p>
+<p>Lastly, the final row displays the <em>Residuals</em>, which represent the portion of the data not explained by the trend or the seasonal component. We can interpret the residuals as the difference between the sum of the Trend and Seasonal components and the Observed values at each point in time. Essentially, the Residuals indicate the amount that needs to be added to the Trend and Seasonal components to align the result with the Observed values. Residuals are typically attributed to random errors, often referred to as white noise, which we will explore further. These residuals embody the unpredictable elements of the data that cannot be captured or forecasted by the model, as they are inherently random.</p>
+</section>
+<section id="finding-the-best-forecasting-model-with-grid-search" class="level2">
+<h2 class="anchored" data-anchor-id="finding-the-best-forecasting-model-with-grid-search">Finding the Best Forecasting Model with Grid Search</h2>
+<p>For this project, we used an extended version of <em>ARIMA</em> model knows as <em>SARIMAX</em> model as we have explained in the methods section. We use a tuning technique called grid search method that attempts to compute the optimum values of hyperparameters. We are trying to find the right p,d,q values that would be given as an input to the SARIMAX time series model. This process helps us find the best settings for a forecasting model called SARIMAX by testing various options to find the best fit for our data. Here’s an easy-to-understand explanation of how this works:</p>
+<section id="step-1-getting-everything-ready" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-getting-everything-ready">Step 1: Getting Everything Ready</h3>
+<p>We start by setting up all the tools we need for our analysis.</p>
+</section>
+<section id="step-2-setting-up-our-options" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-setting-up-our-options">Step 2: Setting Up Our Options</h3>
+<p>We define different settings that the SARIMAX model can use to predict future values. These include the p, d, and q parameters, which help the model decide how much weight to give to past values, trends, and patterns. We then create a list of all possible combinations of these settings.</p>
+</section>
+<section id="step-3-adding-seasonal-flavors" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-adding-seasonal-flavors">Step 3: Adding Seasonal Flavors</h3>
+<p>We know that some data has seasonal patterns, like sales going up during the holidays. We include options for these seasonal changes.</p>
+</section>
+<section id="step-4-trying-out-different-combinations" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-trying-out-different-combinations">Step 4: Trying Out Different Combinations</h3>
+<p>We go through each combination of settings to see how well each one works. For each main setting, we also try different seasonal settings to find the perfect combination.</p>
+</section>
+<section id="step-5-checking-the-results" class="level3">
+<h3 class="anchored" data-anchor-id="step-5-checking-the-results">Step 5: Checking the Results</h3>
+<p>For each set of settings, we create a forecasting model and test it on our data. We measure how well each model works using a score called the Akaike Information Criterion (AIC). This score tells us how well the model predicts the data, with lower scores being better. If something goes wrong with a particular set of settings, we catch the error and move on to the next set without stopping the whole process.</p>
 <p>We have to find the lowest AIC values which would have the best corresponding p,d,q values to have the best forecast of AQI values.</p>
 </section>
 </section>
-<section id="summary-of-sarimax" class="level1">
-<h1>Summary of SARIMAX</h1>
-<section id="print-the-summary-which-includes-aic" class="level2">
-<h2 class="anchored" data-anchor-id="print-the-summary-which-includes-aic">Print the summary which includes AIC</h2>
+<section id="sarimax-model-results" class="level2">
+<h2 class="anchored" data-anchor-id="sarimax-model-results">SARIMAX Model Results</h2>
 <div id="mod-fit" class="cell" data-execution_count="44">
 <div class="cell-output cell-output-stdout">
-<pre><code>==============================================================================
+<pre><code>                                     SARIMAX Results                                      
+==========================================================================================
+Dep. Variable:                                aqi   No. Observations:                   96
+Model:             SARIMAX(1, 1, 1)x(0, 1, 1, 12)   Log Likelihood                -276.765
+Date:                            Tue, 13 Aug 2024   AIC                            561.530
+Time:                                    15:13:32   BIC                            570.467
+Sample:                                01-31-2015   HQIC                           565.076
+                                     - 12-31-2022                                         
+Covariance Type:                              opg                                         
+==========================================================================================
+==============================================================================
                  coef    std err          z      P&gt;|z|      [0.025      0.975]
 ------------------------------------------------------------------------------
 ar.L1          0.0483      0.306      0.158      0.875      -0.551       0.648
@@ -799,32 +832,34 @@ sigma2       134.1503   3.35e+05      0.000      1.000   -6.57e+05    6.57e+05
 ==============================================================================</code></pre>
 </div>
 </div>
+<p>This summary presents a concise overview of the SARIMAX model’s performance and fit. The SARIMAX(1, 1, 1)x(0, 1, 1, 12) model integrates both non-seasonal and seasonal components, effectively capturing both immediate and periodic influences on the Air Quality Index (AQI). The model utilizes 96 observations, providing a robust dataset for accurate model fitting. Key metrics such as the log-likelihood, AIC, BIC, and HQIC are used to assess the model’s effectiveness, with lower values typically indicating a better fit that balances complexity and accuracy. The summary also includes the date and time of model execution, the timeframe of the data, and the type of covariance used, which aids in understanding how the model accounts for uncertainties in parameter estimates.</p>
+<section id="autoregressive-term-ar.l1" class="level3">
+<h3 class="anchored" data-anchor-id="autoregressive-term-ar.l1">Autoregressive Term (ar.L1)</h3>
+<p>Coefficient: 0.0483 Suggests a slight positive influence of the previous observation on the current value. Standard Error: 0.306 Indicates significant variability in the coefficient estimate. Z-Value: 0.158 Low value, indicating the coefficient is not statistically significant. P-Value: 0.875 Not significant (p-value &gt; 0.05). Confidence Interval: [-0.551, 0.648] Includes zero, reinforcing the lack of significance.</p>
+</section>
+<section id="moving-average-term-ma.l1" class="level3">
+<h3 class="anchored" data-anchor-id="moving-average-term-ma.l1">Moving Average Term (ma.L1)</h3>
+<p>Coefficient: -1.0000 Implies the model tries to correct nearly all errors from the previous period. Standard Error: 924.523 Extremely large, pointing to high uncertainty in the estimate. Z-Value: -0.001 Near zero, indicating no statistical significance. P-Value: 0.999 Not significant. Confidence Interval: [-1813.031, 1811.031] Very wide and includes zero, confirming lack of significance.</p>
+</section>
+<section id="seasonal-moving-average-term-ma.s.l12" class="level3">
+<h3 class="anchored" data-anchor-id="seasonal-moving-average-term-ma.s.l12">Seasonal Moving Average Term (ma.S.L12)</h3>
+<p>Coefficient: -1.0000 Attempts to correct errors regarding data seasonality. Standard Error: 2355.498 Very large, indicating substantial uncertainty. Z-Value: -0.000 Near zero, suggesting no significance. P-Value: 1.000 Not significant. Confidence Interval: [-4617.692, 4615.692] Wide interval, includes zero, further indicating no significance.</p>
+</section>
+<section id="variance-of-the-residuals-sigma2" class="level3">
+<h3 class="anchored" data-anchor-id="variance-of-the-residuals-sigma2">Variance of the Residuals (sigma2)</h3>
+<p>Coefficient: 134.1503 Represents the variance of the residuals or errors. Standard Error: 335000 Extremely high, showing great uncertainty. Z-Value: 0.000 Indicates no statistical significance. P-Value: 1.000 Not significant. Confidence Interval: [-657000, 657000] Very wide, includes zero, highlighting lack of significance.</p>
+<p>##Overall Summary None of the coefficients in the SARIMAX model are statistically significant, as indicated by the high p-values and z-values close to zero. This means that the parameters do not effectively predict the AQI data. The large standard errors and wide confidence intervals point to a high degree of uncertainty in the parameter estimates. This suggests the model may not be well-suited for capturing the dynamics of the AQI data, and re-evaluation of the model or data is recommended.</p>
 </section>
 </section>
-<section id="how-fit-the-sarimax-model" class="level1">
-<h1>How Fit the SARIMAX model</h1>
+<section id="fit-sarimax-model" class="level2">
+<h2 class="anchored" data-anchor-id="fit-sarimax-model">Fit SARIMAX model</h2>
 <div id="extract-aic-value-plot" class="cell" data-execution_count="45">
 <div class="cell-output cell-output-stdout">
 <pre><code>The AIC value is: 561.5301944999834</code></pre>
 </div>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/plot-diag.png?raw=true" class="img-fluid figure-img"></p>
-<figcaption>Plot Diagnostics</figcaption>
-</figure>
-</div>
-<p>Once the model is created, predicted values are generated using the .get_prediction() method, with datetime as input</p>
-<p>The graph indicates overlapping patterns in the testing and training data, suggesting strong potential for the forecasting model’s performance.</p>
-<div id="cell-plot-prediction" class="cell" data-execution_count="48">
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="capstone_files/figure-html/plot-prediction-output-1.png" id="plot-prediction" width="1134" height="583" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
+<p>Explain what is the value AIC tells us, and how to interpret the plot. Look at the method</p>
+<p>Once the model is created, predicted values are generated using the .get_prediction() method, with datetime as input.</p>
 <p>To facilitate comparison of true and predicted test values, we will create a separate DataFrame. Mean Error Estimation will be used for analysis.</p>
 <p>To evaluate model performance, we calculate the MSE.</p>
 <div id="calculate-mse" class="cell" data-execution_count="50">
@@ -832,6 +867,7 @@ sigma2       134.1503   3.35e+05      0.000      1.000   -6.57e+05    6.57e+05
 <pre><code>The Mean Squared Error of our forecasts is 1.41</code></pre>
 </div>
 </div>
+</section>
 <section id="forecasting-future-values" class="level2">
 <h2 class="anchored" data-anchor-id="forecasting-future-values">Forecasting Future Values</h2>
 <p>As we conclude our modeling process, we generate predictions for the next 30 data points:</p>
@@ -843,8 +879,8 @@ sigma2       134.1503   3.35e+05      0.000      1.000   -6.57e+05    6.57e+05
 </ol>
 <p>This step transforms our analytical work into actionable insights for air quality management.</p>
 </section>
-<section id="visualizing-our-results-the-culmination-of-our-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="visualizing-our-results-the-culmination-of-our-analysis">Visualizing Our Results: The Culmination of Our Analysis</h2>
+<section id="visualizing-our-results" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-our-results">Visualizing Our Results</h2>
 <p>The final and crucial step of our project is the creation of a comprehensive plot that encapsulates our complex analysis. This visualization serves as the key to understanding and interpreting our findings.</p>
 <section id="interpreting-the-forecast-plot" class="level3">
 <h3 class="anchored" data-anchor-id="interpreting-the-forecast-plot">Interpreting the Forecast Plot</h3>
@@ -1158,7 +1194,7 @@ For recognized time series features, the histograms are replaced with line plots
 
 </main> <!-- /main -->
 <script type="application/vnd.jupyter.widget-state+json">
-{"state":{"055d6859e8884141b948611248211b9d":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"15934123e5f8478fa4667818421e041b":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"success","description":"","description_allow_html":false,"layout":"IPY_MODEL_e3af608f26f54fbfa1b65202b7ca1bd5","max":1,"min":0,"orientation":"horizontal","style":"IPY_MODEL_ff37e3f8061a430982bfe25dea2cab04","tabbable":null,"tooltip":null,"value":1}},"1fa233fa76b7488c87ff77ba48b38423":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"30c47e5ad5eb4efbb8c8d8ef9e06cc62":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_e64129282c274ccfbbdf1b4b5f9e04db","placeholder":"​","style":"IPY_MODEL_055d6859e8884141b948611248211b9d","tabbable":null,"tooltip":null,"value":"Done! Use &#x27;show&#x27; commands to display/save.   "}},"354e6136efd94a49919ee9d490870c4d":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_ea9927edfeb24266950effe504710517","placeholder":"​","style":"IPY_MODEL_1fa233fa76b7488c87ff77ba48b38423","tabbable":null,"tooltip":null,"value":" [100%]   00:02 -&gt; (00:00 left)"}},"55e1406030634bd09a3fea41bcac6da8":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":"inline-flex","flex":null,"flex_flow":"row wrap","grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}},"b2017af16da2471cb646878caa985c3e":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_30c47e5ad5eb4efbb8c8d8ef9e06cc62","IPY_MODEL_15934123e5f8478fa4667818421e041b","IPY_MODEL_354e6136efd94a49919ee9d490870c4d"],"layout":"IPY_MODEL_55e1406030634bd09a3fea41bcac6da8","tabbable":null,"tooltip":null}},"e3af608f26f54fbfa1b65202b7ca1bd5":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":"2","flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"e64129282c274ccfbbdf1b4b5f9e04db":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"ea9927edfeb24266950effe504710517":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"ff37e3f8061a430982bfe25dea2cab04":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":null,"description_width":""}}},"version_major":2,"version_minor":0}
+{"state":{"211baaf54d604b288392d5a3d7e11677":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_47dd781c77e14e128a26cbeb4834d14e","placeholder":"​","style":"IPY_MODEL_71012a2d899b445cb714e1a6e6d44551","tabbable":null,"tooltip":null,"value":"Done! Use &#x27;show&#x27; commands to display/save.   "}},"21d5b50dea0849f0ae63a97abea9145f":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":"2","flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"2f1d99534cea4843b6adb028024a2629":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_211baaf54d604b288392d5a3d7e11677","IPY_MODEL_ea681c3b234c4414adb2b7780853325f","IPY_MODEL_aca03710e5c54f138936c3b89a4b09f7"],"layout":"IPY_MODEL_95faadad07cf4968b828b0715a736025","tabbable":null,"tooltip":null}},"3ffbe4d73deb46cb93d36410c0f32bf9":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"47dd781c77e14e128a26cbeb4834d14e":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"71012a2d899b445cb714e1a6e6d44551":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"95faadad07cf4968b828b0715a736025":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":"inline-flex","flex":null,"flex_flow":"row wrap","grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}},"aca03710e5c54f138936c3b89a4b09f7":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_feb15f12848246a29d183d608ae4b1cd","placeholder":"​","style":"IPY_MODEL_3ffbe4d73deb46cb93d36410c0f32bf9","tabbable":null,"tooltip":null,"value":" [100%]   00:01 -&gt; (00:00 left)"}},"ea681c3b234c4414adb2b7780853325f":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"success","description":"","description_allow_html":false,"layout":"IPY_MODEL_21d5b50dea0849f0ae63a97abea9145f","max":1,"min":0,"orientation":"horizontal","style":"IPY_MODEL_ec4803ddbd0e4bcead4da60fbd55735d","tabbable":null,"tooltip":null,"value":1}},"ec4803ddbd0e4bcead4da60fbd55735d":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"feb15f12848246a29d183d608ae4b1cd":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}}},"version_major":2,"version_minor":0}
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
