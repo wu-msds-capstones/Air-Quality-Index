@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>reference</title>
+<title>a_results_prophet_hypothesis_test</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,46 +23,17 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="_08_reference_files/libs/clipboard/clipboard.min.js"></script>
-<script src="_08_reference_files/libs/quarto-html/quarto.js"></script>
-<script src="_08_reference_files/libs/quarto-html/popper.min.js"></script>
-<script src="_08_reference_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="_08_reference_files/libs/quarto-html/anchor.min.js"></script>
-<link href="_08_reference_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="_08_reference_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="_08_reference_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="_08_reference_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="_08_reference_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="_05a_results_prophet_hypothesis_test_files/libs/clipboard/clipboard.min.js"></script>
+<script src="_05a_results_prophet_hypothesis_test_files/libs/quarto-html/quarto.js"></script>
+<script src="_05a_results_prophet_hypothesis_test_files/libs/quarto-html/popper.min.js"></script>
+<script src="_05a_results_prophet_hypothesis_test_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="_05a_results_prophet_hypothesis_test_files/libs/quarto-html/anchor.min.js"></script>
+<link href="_05a_results_prophet_hypothesis_test_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="_05a_results_prophet_hypothesis_test_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="_05a_results_prophet_hypothesis_test_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="_05a_results_prophet_hypothesis_test_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="_05a_results_prophet_hypothesis_test_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -75,110 +46,131 @@ window.Quarto = {
 
 
 
-<section id="metrics-to-evaluate-machine-model-performance" class="level1">
-<h1>Metrics to Evaluate Machine Model Performance</h1>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 26%">
-<col style="width: 19%">
-<col style="width: 25%">
-<col style="width: 28%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Technique/Metric</th>
-<th>Description</th>
-<th>Purpose/Formula</th>
-<th>Scenario: Cancer prediction</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1. Train-Test Split</td>
-<td>Split the dataset into training and testing subsets</td>
-<td>Assess model performance on unseen data to detect overfitting and ensure generalizability</td>
-<td>Always used; crucial for unbiased evaluation of model performance</td>
-</tr>
-<tr class="even">
-<td>2. Cross-Validation</td>
-<td>Divide data into k subsets and train the model k times, using a different subset as test set each time</td>
-<td>Provides robust estimate of model performance by averaging results over multiple splits</td>
-<td>Useful for smaller datasets or when data collection is expensive (e.g., rare cancer types)</td>
-</tr>
-<tr class="odd">
-<td>3. Confusion Matrix</td>
-<td>Table comparing predicted and actual values in classification</td>
-<td>Metrics: True Positives (TP), True Negatives (TN), False Positives (FP), False Negatives (FN)</td>
-<td>Fundamental for understanding model performance in classification tasks, like cancer detection</td>
-</tr>
-<tr class="even">
-<td>4. Accuracy</td>
-<td>Ratio of correctly predicted instances to total instances</td>
-<td><span class="math inline">\(\frac{TP + TN}{TP + TN + FP + FN}\)</span></td>
-<td>Used when classes are balanced; less suitable for rare cancer detection due to class imbalance</td>
-</tr>
-<tr class="odd">
-<td>5a. Precision</td>
-<td>Ratio of correctly predicted positive observations to total predicted positives</td>
-<td><span class="math inline">\(\frac{TP}{TP + FP}\)</span></td>
-<td>Important when false positives are costly (e.g., unnecessary biopsies or treatments)</td>
-</tr>
-<tr class="even">
-<td>5b. Recall (Sensitivity)</td>
-<td>Ratio of correctly predicted positive observations to all actual positive observations</td>
-<td><span class="math inline">\(\frac{TP}{TP + FN}\)</span></td>
-<td>Critical in cancer detection to minimize false negatives (missed cancer cases)</td>
-</tr>
-<tr class="odd">
-<td>5c. F1-Score</td>
-<td>Harmonic mean of Precision and Recall</td>
-<td><span class="math inline">\(2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}\)</span></td>
-<td>Balances precision and recall; useful when seeking a compromise between false positives and false negatives</td>
-</tr>
-<tr class="even">
-<td>6. ROC Curve and AUC</td>
-<td>ROC: Graph of true positive rate vs false positive rate at various thresholds. AUC: Area under ROC curve</td>
-<td>Higher AUC indicates better model performance</td>
-<td>Useful for comparing models and choosing optimal threshold, especially in diagnostic tests</td>
-</tr>
-<tr class="odd">
-<td>7. Mean Absolute Error (MAE)</td>
-<td>Average of absolute differences between predicted and actual values</td>
-<td><span class="math inline">\(\frac{1}{n} \sum_{i=1}^{n} \|y_i - \hat{y}_i\|\)</span></td>
-<td>Used in regression tasks, e.g., predicting survival time; less sensitive to outliers than MSE</td>
-</tr>
-<tr class="even">
-<td>8a. Mean Squared Error (MSE)</td>
-<td>Average of squared differences between predicted and actual values</td>
-<td><span class="math inline">\(\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2\)</span></td>
-<td>Used in regression; penalizes large errors more, suitable when large errors are particularly undesirable</td>
-</tr>
-<tr class="odd">
-<td>8b. Root Mean Squared Error (RMSE)</td>
-<td>Square root of MSE</td>
-<td><span class="math inline">\(\sqrt{\text{MSE}}\)</span></td>
-<td>Same as MSE, but in the original unit of the target variable, making it more interpretable</td>
-</tr>
-<tr class="even">
-<td>9. R-squared</td>
-<td>Proportion of variance in dependent variable predictable from independent variables</td>
-<td><span class="math inline">\(1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}\)</span></td>
-<td>Used in regression to assess overall fit; indicates how well the model explains the variance in the data</td>
-</tr>
-<tr class="odd">
-<td>10a. Akaike Information Criterion (AIC)</td>
-<td>Measures relative quality of statistical model for given data</td>
-<td><span class="math inline">\(2k - 2\ln(L)\)</span> where <span class="math inline">\(k\)</span> is number of parameters and <span class="math inline">\(L\)</span> is likelihood</td>
-<td>Used for model selection; helps prevent overfitting by penalizing complex models</td>
-</tr>
-<tr class="even">
-<td>10b. Bayesian Information Criterion (BIC)</td>
-<td>Similar to AIC but with stronger penalty term for number of parameters</td>
-<td><span class="math inline">\(k\ln(n) - 2\ln(L)\)</span> where <span class="math inline">\(n\)</span> is number of observations</td>
-<td>Also used for model selection; tends to favor simpler models compared to AIC</td>
-</tr>
-</tbody>
-</table>
+<section id="prophet-aqi-trend-forecasting-and-statistical-testing" class="level1">
+<h1>Prophet AQI Trend Forecasting and Statistical Testing</h1>
+<p>To gain an understanding of how Portland’s AQI differs from other large cities, we can start by running a hypothesis test to determine the significance.</p>
+<p>Initially we can run a two sample t-test to show that Portland’s AQI average is statistically greater than the average AQI of all large metropolitan areas within the US. We compare the sample of Portland AQI datapoints in the time period with the sample of all metropolitan areas with a population greater than one million.</p>
+<p><strong>Null Hypothesis</strong>: The Portland AQI is greater than or equal to the AQI of all large metro cities in the US.</p>
+<p><strong>Alternate Hypothesis</strong>: The Portland AQI is less than the AQI of all large metro cities in the US.</p>
+<p><strong>Assumptions</strong>:</p>
+<ol type="1">
+<li><p>Simple Random Sample: Data is a simple random sample. We have selected 10% of values from each population set.</p></li>
+<li><p>Independence: AQI in Portland does not affect AQI in the rest of the country. However, the dataset for the large metro areas does include Portland, so Portland AQI will be repeated within both population groups. Both groups are largely independent, though this should be noted.</p></li>
+<li><p>Normal Distribution:</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/normal_distribution_1_pdx_vs_lma.png?raw=true" class="img-fluid figure-img"></p>
+<figcaption>Figure 2: PDX Vs Large Metro Areas Distribution</figcaption>
+</figure>
+</div>
+<p>From the QQ plots and histograms, we can see both datasets are clearly not normally distributed. They have long tails to the right. However, since the tails have such low frequencies and the samples are very large, this likely will not impact the results.</p>
+<p>The partial violations of the assumptions in the t-test in our analysis suggest that the conclusions should be considered with a degree of caution.</p>
+<p><strong>Two-Sample t-Test Portland AQI vs Large Metro Areas AQI</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/hypothesis_test_results_1_pdx_vs_lma.png?raw=true" class="img-fluid figure-img"></p>
+<figcaption>Figure 3: Two-Sample t-Test</figcaption>
+</figure>
+</div>
+<p>Based on the low P-value of 6.862*10<sup>-4</sup>, we can safely reject the null hypothesis. We conclude that Portland’s AQI mean is not greater than or equal to the AQI of all large metropolitan areas. This agrees with our initial observations on the greater AQI outcomes of Portland, and specifies the significance of this statistically.</p>
+<section id="data-forecasting-with-prophet" class="level2">
+<h2 class="anchored" data-anchor-id="data-forecasting-with-prophet">Data Forecasting with Prophet</h2>
+<p>Prophet by Meta is used as time series prediction to estimate and map trends based on our data. We use this to see how AQI trends vary by day, month, and year. It is also able to give us a forecast for a given period after the end of our data which we can analyze and use to anticipate future AQI values.</p>
+<p>To use the package, data must be in the format of a two column graph, with the first column being the date data, and the second being the variable being mapped and predicted. In this case, this predicted variable is AQI.</p>
+<p>The package allows a future period to be generated, which can be specified and added to the end of the time data. It can then predict future AQI values for the new data period.</p>
+<p>The graph below (figure 4324), shows the supplied data with the future prediction over the future period. The actual values are shown with the black datapoints, and the blue line represents the prediction. The upper and lower bounds of the error are represented with the transparent blue area. Each year, the data spikes during the late summer to early fall. Even more significant is the large spike in September 2020. What caused it? How significant was it?</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/prophet_pdx_trend_and_prediction.png?raw=true" class="img-fluid figure-img"></p>
+<figcaption>Figure 4: Prophet Prediction</figcaption>
+</figure>
+</div>
+</section>
+<section id="wildfires" class="level2">
+<h2 class="anchored" data-anchor-id="wildfires">2020 Wildfires</h2>
+<p>In September 2020, a wildfire ravaged the state of Oregon, as well as many other areas of the United States and Canada. The fires burned more than one million acres of land, destroying thousands of homes, and killing 11 people. 500,000 Oregonians were on evacuation alert, and 40,000 were actually forced to leave (Oregon Department of Emergency Management). Anyone around during that time will recall the orange skies, thick atmosphere, and strong smoke smell, but how unusual was this period actually?</p>
+<p>To understand, we will conduct a two sample t-test to see whether or not this month had greater than usual AQI.</p>
+<p><strong>Null Hypothesis</strong>: September 2020 AQI less than or equal to AQI of entire period in Portland</p>
+<p><strong>Alternate Hypothesis</strong>: September 2020 AQI greater AQI of entire period in Portland</p>
+<p><strong>Assumptions</strong>:</p>
+<ol type="1">
+<li><p>Simple Random Sample: Data is not a simple random sample. Since there are so few datapoints for the September 2020 population (30 datapoints), taking a 10% sample may not be suitable to accurately capture the variance of this month. Thus, it was decided to use the entire population as the sample. A 10% sample will be taken of the entire Portland data population.</p></li>
+<li><p>Independence: AQI in September 2020 does not affect AQI in the rest of the timeframe.</p></li>
+<li><p>Normal Distribution:</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/normal_distribution_2_wildfires.png?raw=true" class="img-fluid figure-img"></p>
+<figcaption>Figure 5: Wildfire Distribution</figcaption>
+</figure>
+</div>
+<p>From the QQ plots and histograms, we can see both datasets are clearly not normally distributed. They have long tails to the right, and the September 2020 dataset is oddly shaped due to lack of data.</p>
+<p>The partial violations of the assumptions in the t test in our analysis suggest that the conclusions should be considered with a degree of caution.</p>
+<p><strong>Two-Sample t-Test September 2020 vs Full Period of Portland AQI</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/hypothesis_test_results_2_wildfires.png?raw=true" class="img-fluid figure-img"></p>
+<figcaption>Figure 6: Two-Sample t-Test</figcaption>
+</figure>
+</div>
+<p>Based on the low p value of 1.85*10<sup>-3</sup>, we reject the null. We conclude that the September AQI in Portland is not less than or equal to the AQI for the entire period. The wildfire had a significant effect on the air quality, making it much more difficult to breathe. This aligns with the observation of the large spike during this period. We must do more to address and combat the wildfires that not only harm the air we breathe, but cause long lasting damage to the local environment.</p>
+</section>
+<section id="aqi-trends" class="level2">
+<h2 class="anchored" data-anchor-id="aqi-trends">AQI Trends</h2>
+<p>Prophet’s plot component function allows us to see specific trends including the total (entire eight years), weekly, and yearly trends in figure 21111.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/prophet_components_plot_aqi.png?raw=true" class="img-fluid figure-img"></p>
+<figcaption>Figure 7: Prophet Component Trend Aggregations</figcaption>
+</figure>
+</div>
+<p>This allows us to see how AQI changes by day. In the top full time span graph, it shows the potential spread of data for the predicted period with the transparent blue area. We can also see that day of the week tends to have very little impact on the trend (it may look significant but it is only moving up and down less than 1.5 AQI between days). Finally, from the yearly graph we can see the consistent increase during the late summer to mid fall each year.</p>
+</section>
+<section id="cross-validation" class="level2">
+<h2 class="anchored" data-anchor-id="cross-validation">Cross Validation</h2>
+<p>How accurate are these predictions? A cross validation predicts over the period from the cutoff date up to specified date in the ds column date.</p>
+<p>Cross validating the predictions allows us to create many estimates from a starting date up to an end date within out timeframe. In this instance, the tool predicts using start dates every half a year. It will predict AQI for that date to every day up to a year after the start date, giving us 365 estimates per start date. We then compare all estimations seeing how accurate the prediction is for a number of days after the start date.</p>
+<p>The tool allows us to measure the difference in predicted y and actual y with a variety of different measurements. In figure 559955 below, we have selected mean absolute percent error, to show how if the error on average increased as the prediction got further from the starting point.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/prophet_cross_val_aqi.png?raw=true" class="img-fluid figure-img"></p>
+<figcaption>Figure 8: Prophet Error on Cross Validated Estimates</figcaption>
+</figure>
+</div>
+<p>The light grey datapoints represent the mean absolute percent error. A datapoint with a x value 200 and y value 1 means it was predicted for a period of 200 days after the cutoff date, and was 1% off the actual value. We can see that most predictions are under 1%, making this a pretty decent estimation. The fact that they do not increase over time allows us to have a certain degree of confidence in the prediction even a year out. The blue line shows the mean of these datapoints.</p>
+</section>
+<section id="portlands-transit-system" class="level2">
+<h2 class="anchored" data-anchor-id="portlands-transit-system">Portland’s Transit System</h2>
+<p>As shown in the graphs and tests above, Portland has greater than normal AQI outcomes when compared with other cities of high populations. The AQI follows certain yearly trends, with the notable exception in September 2020 due to the large wildfires. Using Prophet, we are able to predict AQI up to a year out of the final datapoint in the time period. What exactly is the reason for these outcomes in this city?</p>
+<p>One hypothesis for Portland’s better air quality outcomes is due to the increased focus on public transportation. Portland has placed high emphasis on utilizing public transit, with rates comparable to larger cities and higher than most other cities of its size. We will run a two sample t test to see how Portland’s rate of ridership compares with other large cites.</p>
+<p>We have standardized rates by passenger miles ridden per person. This is the total amount of miles ridden in a given year divided by the population. This allows us to properly compare cities with different population sizes.</p>
+<p><strong>Null Hypothesis</strong>: Transit ridership in Portland is less than or equal to transit ridership across the country (large metro areas only).</p>
+<p><strong>Alternate Hypothesis</strong>: Transit ridership in Portland is greater than transit ridership across the country (large metro areas only).</p>
+<p><strong>Assumptions</strong>:</p>
+<ol type="1">
+<li><p>Simple Random Sample: Data is not a simple random sample. Since there are so few datapoints for the Portland transit ridership population (8 datapoints), taking a 10% sample may not be suitable to accurately capture the variance of this month. Thus, it was decided to use the entire population as the sample. A 10% sample will be taken of the large cities transit population.</p></li>
+<li><p>Independence: Transit ridership in Portland does not affect transit ridership in the rest of the country.</p></li>
+<li><p>Normal Distribution:</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/normal_distribution_3_pdx_transit.png?raw=true" class="img-fluid figure-img"></p>
+<figcaption>Figure 9: Transit Distribution</figcaption>
+</figure>
+</div>
+<p>From the QQ plots and histograms, we can see both datasets are clearly not normally distributed. The Portland data has so few datapoints that it is hard to tell if it has a normal distribution or not. The large city transit data seems normal with the exception of one datapoint.</p>
+<p>The partial violations of the assumptions in the t test in our analysis suggest that the conclusions should be considered with a degree of caution.</p>
+<p><strong>Two-Sample t-Test Portland Transit Ridership vs Large Metro Area Ridership</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/hypothesis_test_results_3_transit.png?raw=true" class="img-fluid figure-img"></p>
+<figcaption>Figure 10: Two-Sample t-Test</figcaption>
+</figure>
+</div>
+<p>Based on the high p value of 0.2469, we fail to reject the null. We cannot conclude that Portland’s transit ridership is different from the average transit ridership of other large metro areas across the country. Transit ridership may have some impact on AQI but not enough to make a statistical difference by itself. Likely, this is a situation of correlated variables. Cities that invest more in public infrastructure are more likely to make a concerned effort into being environmentally conscious.</p>
+<p>It should also be noted that some cities have higher public transit numbers not reflected in the data. For example, in New York City, subway ridership is almost double that of its motor bus numbers. In this data only motor bus numbers were included which may contribute to the lack of evidence for transit numbers influence on AQI. We will explore which features have a greater effect on AQI in the upcoming Machine Learning section.</p>
+</section>
 </section>
 
 </main>

@@ -40,7 +40,66 @@ World Health Organization. (2022, October 31). *Lead poisoning and health*. [www
 
 Zhang, Y., Cooper, O. R., Gaudel, A., Thompson, A. M., Nédélec, P., Ogino, S. Y., & West, J. J. (2018). Tropospheric ozone change from 1980 to 2010 dominated by equatorward redistribution of emissions. *Nature Geoscience*, *11*, 637-644. [acp.copernicus.org/articles/18/15003/2018/](https://acp.copernicus.org/articles/18/15003/2018/)
 
+-----------------------------------------------------------------------------------------------------------
+1. Airly. (n.d.). *How does humidity affect air quality? All you need to know*. [airly.org/en/how-does-humidity-affect-air-quality-all-you-need-to-know/](https://airly.org/en/how-does-humidity-affect-air-quality-all-you-need-to-know/)
 
+2. AirNow. (n.d.). *Using air quality index*. [www.airnow.gov/aqi/aqi-basics/using-air-quality-index](https://www.airnow.gov/aqi/aqi-basics/using-air-quality-index)
+
+3. American Lung Association. (n.d.). *Key findings: State of the air*. [www.lung.org/research/sota/key-findings](https://www.lung.org/research/sota/key-findings)
+
+4. Broadbent, P., Grantz, D. A., & Leigh, A. (2023). Air quality in cities: Complexities and progress in mitigation. *Frontiers in Sustainable Cities*, *5*. [www.ncbi.nlm.nih.gov/pmc/articles/PMC10068020/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10068020/)
+
+5. California Air Resources Board. (n.d.). *Carbon monoxide & health*. [ww2.arb.ca.gov/resources/carbon-monoxide-and-health](https://ww2.arb.ca.gov/resources/carbon-monoxide-and-health)
+
+6. Centers for Disease Control and Prevention, Agency for Toxic Substances and Disease Registry. (2014, October 21). *Medical management guidelines for sulfur dioxide*. [wwwn.cdc.gov/TSP/MMG/MMGDetails.aspx?mmgid=249&toxid=46](https://wwwn.cdc.gov/TSP/MMG/MMGDetails.aspx?mmgid=249&toxid=46)
+
+7. Centers for Disease Control and Prevention, Agency for Toxic Substances and Disease Registry. (2023, April 12). *Toxic substances portal - Nitrogen oxides*. [wwwn.cdc.gov/TSP/ToxFAQs/ToxFAQsDetails.aspx?faqid=396&toxid=69](https://wwwn.cdc.gov/TSP/ToxFAQs/ToxFAQsDetails.aspx?faqid=396&toxid=69)
+
+8. Climate & Clean Air Commission. (n.d.). Methane. Retrieved August 14, 2024, from https://www.ccacoalition.org/short-lived-climate-pollutants/methane
+
+9. Congressional Budget Office. (2023, May). *Reducing emissions from transportation*. [www.cbo.gov/publication/60030](https://www.cbo.gov/publication/60030)
+
+10. Environmental Protection Agency. (n.d.-a). *Evolution of the Clean Air Act*. [www.epa.gov/clean-air-act-overview/evolution-clean-air-act](https://www.epa.gov/clean-air-act-overview/evolution-clean-air-act)
+
+11. Environmental Protection Agency. (n.d.). Agriculture and aquaculture: Food for thought. Retrieved August 14, 2024, from https://www.epa.gov/snep/agriculture-and-aquaculture-food-thought
+
+12. Environmental Protection Agency. (n.d.-b). *Health effects of ozone pollution*. [www.epa.gov/ground-level-ozone-pollution/health-effects-ozone-pollution](https://www.epa.gov/ground-level-ozone-pollution/health-effects-ozone-pollution)
+
+13. Environmental Protection Agency. (n.d.-c). *Particulate matter (PM) basics*. [www.epa.gov/pm-pollution/particulate-matter-pm-basics](https://www.epa.gov/pm-pollution/particulate-matter-pm-basics)
+
+14. Federal Transit Administration. (n.d.). *NTD data tables*. American Public Transportation Association. [www.apta.com/research-technical-resources/transit-statistics/ntd-data-tables/](https://www.apta.com/research-technical-resources/transit-statistics/ntd-data-tables/)
+
+15. Fuller, R., Landrigan, P. J., Balakrishnan, K., Bathan, G., Bose-O'Reilly, S., Brauer, M., Caravanos, J., Chiles, T., Cohen, A., Corra, L., Cropper, M., Ferraro, G., Hanna, J., Hanrahan, D., Hu, H., Hunter, D., Janata, G., Kupka, R., Lanphear, B., . . . Yadama, G. N. (2022). Pollution and health: A progress update. *The Lancet Planetary Health*, *6*(6), e535-e547. [www.thelancet.com/journals/lanplh/article/PIIS2542-5196(22)00090-0/fulltext](https://www.thelancet.com/journals/lanplh/article/PIIS2542-5196(22)00090-0/fulltext)
+
+16. Hog Wild Preserve. (n.d.). *Pig, boar, or hog: What's the difference?* [www.hogwildok.com/blog/336-pig,-boar,-or-hog-what-s-the-difference.html](https://www.hogwildok.com/blog/336-pig,-boar,-or-hog-what-s-the-difference.html)
+
+17. Jacobs, E. T., Burgess, J. L., & Abbott, M. B. (2018). The Donora smog revisited: 70 years after the event that inspired the clean air act. *American Journal of Public Health*, *108*(S2), S85-S88. [www.ncbi.nlm.nih.gov/pmc/articles/PMC5922205/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5922205/)
+
+18. Manisalidis, I., Stavropoulou, E., Stavropoulos, A., & Bezirtzoglou, E. (2020). Environmental and health impacts of air pollution: A review. *Frontiers in Public Health*, *8*, 14. [www.ncbi.nlm.nih.gov/pmc/articles/PMC7044178/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7044178/)
+
+19. National Agricultural Statistics Service. (2017). *2017 Census of Agriculture*. United States Department of Agriculture. [www.nass.usda.gov/Publications/AgCensus/2017/Full_Report/Volume_1,_Chapter_1_US/](https://www.nass.usda.gov/Publications/AgCensus/2017/Full_Report/Volume_1,_Chapter_1_US/)
+
+20. National Oceanic and Atmospheric Administration. (n.d.). *What are a nautical mile and a knot?* [oceanservice.noaa.gov/facts/nautical-mile-knot.html](https://oceanservice.noaa.gov/facts/nautical-mile-knot.html)
+
+21. National Weather Service. (n.d.). *Pressure and winds*. [www.weather.gov/source/zhu/ZHU_Training_Page/winds/pressure_winds/Pressure.htm](https://www.weather.gov/source/zhu/ZHU_Training_Page/winds/pressure_winds/Pressure.htm)
+
+22. Oregon Encyclopedia. (n.d.). *Interstate 5 in Oregon*. [www.oregonencyclopedia.org/articles/interstate_5_in_oregon/](https://www.oregonencyclopedia.org/articles/interstate_5_in_oregon/)
+
+23. Oregon Wildfire Response and Recovery. (n.d.). *Wildfire prevention*. [wildfire.oregon.gov/prevention](https://wildfire.oregon.gov/prevention)
+
+24. Portland.gov. (n.d.). *City of Portland Charter, Chapter 1*. [www.portland.gov/charter/1/2](https://www.portland.gov/charter/1/2)
+
+25. Shandas, V., & George, L. (2009). Neighborhood, neighborhood, neighborhood: Spatial patterns of air toxins and implications for metroscape residents and urban planners. *Metroscape*, Winter 2009. [pdxscholar.library.pdx.edu/cgi/viewcontent.cgi?article=1033&context=usp_fac](https://pdxscholar.library.pdx.edu/cgi/viewcontent.cgi?article=1033&context=usp_fac)
+
+26. Trust for Public Land. (n.d.). *Park data downloads*. [www.tpl.org/park-data-downloads](https://www.tpl.org/park-data-downloads)
+
+27. United States Census Bureau. (n.d.). *Home page*. [www.census.gov/en.html](https://www.census.gov/en.html)
+
+28. World Health Organization. (2014, March 25). *7 million premature deaths annually linked to air pollution*. [www.who.int/news/item/25-03-2014-7-million-premature-deaths-annually-linked-to-air-pollution](https://www.who.int/news/item/25-03-2014-7-million-premature-deaths-annually-linked-to-air-pollution)
+
+29. World Health Organization. (2022, October 31). *Lead poisoning and health*. [www.who.int/news-room/fact-sheets/detail/lead-poisoning-and-health](https://www.who.int/news-room/fact-sheets/detail/lead-poisoning-and-health)
+
+30. Zhang, Y., Cooper, O. R., Gaudel, A., Thompson, A. M., Nédélec, P., Ogino, S. Y., & West, J. J. (2018). Tropospheric ozone change from 1980 to 2010 dominated by equatorward redistribution of emissions. *Nature Geoscience*, *11*, 637-644. [acp.copernicus.org/articles/18/15003/2018/](https://acp.copernicus.org/articles/18/15003/2018/)
 
 ## Additional Resources - EDA
 ```{python}
@@ -161,8 +220,8 @@ Time Series Components:
 ```{python}
 #| label: sweetvis-report
 #| output: false
-my_report = sv.analyze(df)
-my_report.show_html()
+#my_report = sv.analyze(df)
+#my_report.show_html()
 ```
 We have generated Sweetviz statistical report confirming the quality of EDA steps.
 

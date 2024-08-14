@@ -30,7 +30,7 @@ Any time series is composed of three things:
 
 - *Trend*: Trend tells you how things are overall changing  
 - *Seasonality*: Seasonality shows you how things change within a given period (e.g. year,month, week, day)  
-- *Residual*: The Error/residual/irregular activity are the anomalies whitch cannot be explained by the trend or the seasonal value
+- *Residual*: The Error/residual/irregular activity are the anomalies which cannot be explained by the trend or the seasonal value
 
 ## Statsmodel
 Using the statsmodel package, we can map the seasonal pattern and trends using seasonal_decompose method. It requires as inputs a dataframe with two columns date data and the AQI. This will help us to understand the seasonality and trend clearly and allowing us to make more sense of the data for the forecast.
@@ -106,7 +106,7 @@ for ax in fig.axes:
 # Show the plot
 plt.show()
 ```
-Figure 20: Seasonal, Trend, and Residual Decomposition of Portland AQI Time Series
+Figure 14: Seasonal, Trend, and Residual Decomposition of Portland AQI Time Series
 
 The uppermost graph, labeled *Observed*, presents the raw time series data as originally recorded. Its y-axis quantifies the daily air quality measurements, while the x-axis represents the passage of time. This graph is a composite representation, effectively combining the three underlying components: trend, seasonality, and residuals.
 A notable anomaly is evident in the data: a significant spike in air quality measurements occurring in September 2020. This outlier corresponds to the severe wildfires that ravaged Oregon during that period. The dramatic increase in air pollution levels during this time underscores the profound impact of extreme environmental events on air quality.

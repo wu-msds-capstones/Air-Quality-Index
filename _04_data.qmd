@@ -32,6 +32,6 @@ Given the raw data available, the table structure was simplified compared to the
 
 The central table has a compound primary key composed of location_id and date. Each other table has a serialized primary key, which are used to connect to each other. Several additional indexes are included on columns that will be queried often. Finally, constraints have been added to limit unusual or impossible data. For example, an AQI value less than 0 or greater than 500 would be impossible and thus would be caught by the constraint.
 
-Tracking these identifiers independently allows for accurate analysis of changes over time and across different areas, and allows adding new information should we need to update the database. Figure 1 illustrates the resulting ERD structure using drawSQL.
+Tracking these identifiers independently allows for accurate analysis of changes over time and across different areas, and allows adding new information should we need to update the database. Figure 1 illustrates the resulting ERD diagram using drawSQL.
 
-![Figure 1: ERD diagram, structure of database](https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/erd_diagram_final_extended.png?raw=true)
+![Figure 1: ERD diagram](https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/erd_diagram_final_extended.png?raw=true)
