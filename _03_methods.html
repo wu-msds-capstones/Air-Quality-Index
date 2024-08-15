@@ -53,7 +53,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="prophet">Prophet</h2>
 <p>Prophet is an open-source forecasting tool developed by Meta, designed for forecasting time series data. It is suited for datasets with strong seasonal, monthly, weekly, or daily patterns, and it handles missing data and outliers well. We utilized prophet to gain a quick understanding of our AQI patterns, seeking to understand basic trends before conducting a more thorough analysis.</p>
 <p>Key features of Prophet include seasonality detection and holiday incorporation, while providing easy use and understanding for users. We can use this software to get complex understanding from simple applications.</p>
-<p>To conduct this analysis, we prepare data into a two column table, date and AQI. Prophet uses the trends of past data to highlight similarities over days of the year, weeks, months, and seasons. From this, prophet is able to generate its predictions, cross validate, and give performance metrics such as mean absolute percentage error to quantify the accuracy of the results</p>
+<p>To conduct this analysis, we prepare data into a two column table, with columns date and AQI. Prophet uses the trends of past data to highlight similarities over days of the year, weeks, months, and seasons. From this, prophet is able to generate its predictions, cross validate, and give performance metrics such as mean absolute percentage error to quantify the accuracy of the results</p>
 </section>
 <section id="sarimax" class="level2">
 <h2 class="anchored" data-anchor-id="sarimax">SARIMAX​​</h2>
@@ -65,7 +65,7 @@ ul.task-list li input[type="checkbox"] {
 <li><em>(MA) Moving Average</em>: Uses past forecast errors in the prediction.</li>
 <li><em>(X) eXogenous factors</em>: Incorporates external variables that may influence the forecast.</li>
 </ul>
-<p>The SARIMAX model is used when the data sets have seasonal cycles. In the dataset concerning the air quality/AQI there is a seasonal pattern. SARIMAX is a model that can be fitted to time series data in order to better understand or predict future points. SARIMAX is particularly useful for forecasting time series data that exhibits both trends and seasonality. There are three distinct integers (p,d,q) that are used to parametrize SARIMAX models. Because of that, SARIMAX models are denoted with the notation SARIMAX(p,d,q). Together these three parameters account for seasonality, trend, and noise in datasets:</p>
+<p>The SARIMAX model is used when the data sets have seasonal cycles. In the dataset concerning the air quality/AQI there is a seasonal pattern. SARIMAX can be fitted to time series data in order to better understand or predict future points. SARIMAX is particularly useful for forecasting time series data that exhibits both trends and seasonality. There are three distinct integers (p,d,q) that are used to parametrize SARIMAX models. Because of that, SARIMAX models are denoted with the notation SARIMAX(p,d,q). Together these three parameters account for seasonality, trend, and noise in datasets:</p>
 <ul>
 <li><em>p</em> is the auto-regressive part of the model. It allows us to incorporate the effect of past values into our model.</li>
 <li><em>d</em> is the integrated part of the model. This includes terms in the model that incorporate the amount of differencing (the number of past time points to subtract from the current value) to apply the time series.</li>
@@ -75,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="akaike-information-criteria-aic" class="level2">
 <h2 class="anchored" data-anchor-id="akaike-information-criteria-aic">Akaike Information Criteria (AIC)</h2>
-<p>The Akaike Information Criterion (AIC) is a measure used to compare different statistical models. It helps in model selection by balancing the goodness of fit and the complexity of the model. When comparing two models, the one with the lower AIC is generally “better”.</p>
+<p>The Akaike Information Criterion (AIC) is a measurement used to compare different statistical models. It helps in model selection by balancing the goodness of fit and the complexity of the model. When comparing two models, the one with the lower AIC is generally “better”.</p>
 <p>Here’s how to interpret the AIC value:</p>
 <ul>
 <li><em>AIC Value</em>: A lower AIC value indicates a better-fitting model. It means the model has a good balance between accuracy and complexity.</li>

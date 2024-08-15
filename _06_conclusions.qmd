@@ -2,7 +2,8 @@
 
 After conducting our thorough research, we have landed on these specific recommendations. 
 
-AQI is impacted by six explanatory features:
+AQI is impacted by six explanatory features:  
+
 - Temperature
 - Humidity
 - Park Land Area
@@ -14,14 +15,14 @@ AQI is impacted by six explanatory features:
 
 ![Figure 14: AQI explained by influential features, Portland highlighted](https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/aqi_features_scatterplots_final.png?raw=true)
 
-To improve AQI, a city should:
+To improve AQI, a city should:  
 
-     - Decrease temperatures
-     - Increase humidity
-     - Decrease park land area
-     - Decrease number of cattle
-     - Decrease city area
-     - Decrease population
+- Decrease temperatures
+- Increase humidity
+- Decrease park land area
+- Decrease number of cattle
+- Decrease city area
+- Decrease population
 
 We also found there are high seasonal trends that show up each year from the time series analysis models.  AQI tends to be highest during late summer to early fall. We can attribute this increase to the increased temperatures and decreased humidity. As climate change raises temperatures and water sources dry up, the seasonal AQI increases will become more severe. We must be aware of the nature of air quality and how it changes at different parts of the year. We should understand how the AQI works, and avoid being outside for too long when it reaches more dangerous levels. 
 
