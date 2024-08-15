@@ -73,7 +73,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-<script src="https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -415,11 +414,11 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="data-organization">Data Organization</h2>
 <p>Given the raw data available, the table structure was simplified compared to the original data sources. Data was organized around the air_quality table. This table tracks AQI, pollutant, weather and toxin data daily for each location. It includes all 1438 locations with a line for each of the 2922 days in the eight year time period, reaching a total of over 4.2 million rows. Location is split into a separate table to reduce repeated data. This table lists cities, labeled with their city name, county, and state. It includes metropolitan area population data given in raw numbers and as a density. Additionally, this table includes the city area in square kilometers and park area in acres. The aqi_category table is a short list of AQI value categories (Good, Unhealthy, Hazardous, etc.) with their respective AQI value range as minimum and maximum values. The yearly_transit table is connected to the location table and gives the information for the transit system of the respective city during the specified year. Finally, the livestock table, also connected via locations, includes counts for cattle, hogs, and sheep.</p>
 <p>The central table has a compound primary key composed of location_id and date. Each other table has a serialized primary key, which are used to connect to each other. Several additional indexes are included on columns that will be queried often. Finally, constraints have been added to limit unusual or impossible data. For example, an AQI value less than 0 or greater than 500 would be impossible and thus would be caught by the constraint.</p>
-<p>Tracking these identifiers independently allows for accurate analysis of changes over time and across different areas, and allows adding new information should we need to update the database. Figure 1 illustrates the resulting ERD structure using drawSQL.</p>
+<p>Tracking these identifiers independently allows for accurate analysis of changes over time and across different areas, and allows adding new information should we need to update the database. Figure 1 illustrates the resulting ERD diagram using drawSQL.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/erd_diagram_final_extended.png?raw=true" class="img-fluid figure-img"></p>
-<figcaption>Figure 1: ERD diagram, structure of database</figcaption>
+<figcaption>Figure 1: ERD diagram</figcaption>
 </figure>
 </div>
 </section>
@@ -439,13 +438,18 @@ window.Quarto = {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/normal_distribution_1_pdx_vs_lma.png?raw=true" class="img-fluid figure-img"></p>
-<figcaption>Figure 3334566: PDX Vs Large Metro Areas Distribution</figcaption>
+<figcaption>Figure 2: PDX Vs Large Metro Areas Distribution</figcaption>
 </figure>
 </div>
 <p>From the QQ plots and histograms, we can see both datasets are clearly not normally distributed. They have long tails to the right. However, since the tails have such low frequencies and the samples are very large, this likely will not impact the results.</p>
 <p>The partial violations of the assumptions in the t-test in our analysis suggest that the conclusions should be considered with a degree of caution.</p>
-<p><strong>Two Sample T Test Portland AQI vs Large Metro Areas AQI</strong></p>
-<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/hypothesis_test_results_1_pdx_vs_lma.png?raw=true" class="img-fluid"></p>
+<p><strong>Two-Sample t-Test Portland AQI vs Large Metro Areas AQI</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/hypothesis_test_results_1_pdx_vs_lma.png?raw=true" class="img-fluid figure-img"></p>
+<figcaption>Figure 3: Two-Sample t-Test</figcaption>
+</figure>
+</div>
 <p>Based on the low P-value of 6.862*10<sup>-4</sup>, we can safely reject the null hypothesis. We conclude that Portland’s AQI mean is not greater than or equal to the AQI of all large metropolitan areas. This agrees with our initial observations on the greater AQI outcomes of Portland, and specifies the significance of this statistically.</p>
 <section id="data-forecasting-with-prophet" class="level2">
 <h2 class="anchored" data-anchor-id="data-forecasting-with-prophet">Data Forecasting with Prophet</h2>
@@ -456,7 +460,7 @@ window.Quarto = {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/prophet_pdx_trend_and_prediction.png?raw=true" class="img-fluid figure-img"></p>
-<figcaption>Figure 4324: Prophet Prediction</figcaption>
+<figcaption>Figure 4: Prophet Prediction</figcaption>
 </figure>
 </div>
 </section>
@@ -475,13 +479,18 @@ window.Quarto = {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/normal_distribution_2_wildfires.png?raw=true" class="img-fluid figure-img"></p>
-<figcaption>Figure 4444: Wildfire Distribution</figcaption>
+<figcaption>Figure 5: Wildfire Distribution</figcaption>
 </figure>
 </div>
 <p>From the QQ plots and histograms, we can see both datasets are clearly not normally distributed. They have long tails to the right, and the September 2020 dataset is oddly shaped due to lack of data.</p>
 <p>The partial violations of the assumptions in the t test in our analysis suggest that the conclusions should be considered with a degree of caution.</p>
-<p><strong>Two Sample T Test September 2020 vs Full Period of Portland AQI</strong></p>
-<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/hypothesis_test_results_2_wildfires.png?raw=true" class="img-fluid"></p>
+<p><strong>Two-Sample t-Test September 2020 vs Full Period of Portland AQI</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/hypothesis_test_results_2_wildfires.png?raw=true" class="img-fluid figure-img"></p>
+<figcaption>Figure 6: Two-Sample t-Test</figcaption>
+</figure>
+</div>
 <p>Based on the low p value of 1.85*10<sup>-3</sup>, we reject the null. We conclude that the September AQI in Portland is not less than or equal to the AQI for the entire period. The wildfire had a significant effect on the air quality, making it much more difficult to breathe. This aligns with the observation of the large spike during this period. We must do more to address and combat the wildfires that not only harm the air we breathe, but cause long lasting damage to the local environment.</p>
 </section>
 <section id="aqi-trends" class="level2">
@@ -490,7 +499,7 @@ window.Quarto = {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/prophet_components_plot_aqi.png?raw=true" class="img-fluid figure-img"></p>
-<figcaption>Figure 21111: Prophet Component Trend Aggregations</figcaption>
+<figcaption>Figure 7: Prophet Component Trend Aggregations</figcaption>
 </figure>
 </div>
 <p>This allows us to see how AQI changes by day. In the top full time span graph, it shows the potential spread of data for the predicted period with the transparent blue area. We can also see that day of the week tends to have very little impact on the trend (it may look significant but it is only moving up and down less than 1.5 AQI between days). Finally, from the yearly graph we can see the consistent increase during the late summer to mid fall each year.</p>
@@ -503,7 +512,7 @@ window.Quarto = {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/prophet_cross_val_aqi.png?raw=true" class="img-fluid figure-img"></p>
-<figcaption>Figure 559955: Prophet Error on Cross Validated Estimates</figcaption>
+<figcaption>Figure 8: Prophet Error on Cross Validated Estimates</figcaption>
 </figure>
 </div>
 <p>The light grey datapoints represent the mean absolute percent error. A datapoint with a x value 200 and y value 1 means it was predicted for a period of 200 days after the cutoff date, and was 1% off the actual value. We can see that most predictions are under 1%, making this a pretty decent estimation. The fact that they do not increase over time allows us to have a certain degree of confidence in the prediction even a year out. The blue line shows the mean of these datapoints.</p>
@@ -524,13 +533,18 @@ window.Quarto = {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/normal_distribution_3_pdx_transit.png?raw=true" class="img-fluid figure-img"></p>
-<figcaption>Figure 300000: Transit Distribution</figcaption>
+<figcaption>Figure 9: Transit Distribution</figcaption>
 </figure>
 </div>
 <p>From the QQ plots and histograms, we can see both datasets are clearly not normally distributed. The Portland data has so few datapoints that it is hard to tell if it has a normal distribution or not. The large city transit data seems normal with the exception of one datapoint.</p>
 <p>The partial violations of the assumptions in the t test in our analysis suggest that the conclusions should be considered with a degree of caution.</p>
-<p><strong>Two Sample T Test Portland Transit Ridership vs Large Metro Area Ridership</strong></p>
-<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/hypothesis_test_results_3_transit.png?raw=true" class="img-fluid"></p>
+<p><strong>Two-Sample t-Test Portland Transit Ridership vs Large Metro Area Ridership</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/hypothesis_test_results_3_transit.png?raw=true" class="img-fluid figure-img"></p>
+<figcaption>Figure 10: Two-Sample t-Test</figcaption>
+</figure>
+</div>
 <p>Based on the high p value of 0.2469, we fail to reject the null. We cannot conclude that Portland’s transit ridership is different from the average transit ridership of other large metro areas across the country. Transit ridership may have some impact on AQI but not enough to make a statistical difference by itself. Likely, this is a situation of correlated variables. Cities that invest more in public infrastructure are more likely to make a concerned effort into being environmentally conscious.</p>
 <p>It should also be noted that some cities have higher public transit numbers not reflected in the data. For example, in New York City, subway ridership is almost double that of its motor bus numbers. In this data only motor bus numbers were included which may contribute to the lack of evidence for transit numbers influence on AQI. We will explore which features have a greater effect on AQI in the upcoming Machine Learning section.</p>
 </section>
@@ -554,14 +568,14 @@ window.Quarto = {
 <p>An initial Random Forest Model run with the selected features returns the following Cohen Kappa score and accuracy:</p>
 <div id="cks-accuracy" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-stdout">
-<pre><code>Cohen Kappa Score:  0.45773246657290456
-Accuracy:  0.7272727272727273</code></pre>
+<pre><code>Cohen Kappa Score:  0.44492288879204367
+Accuracy:  0.7218290691344583</code></pre>
 </div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/confusion_matrix_1.png?raw=true" class="img-fluid figure-img"></p>
-<figcaption>Figure 12459999: Confusion Matrix For Bin Size 1</figcaption>
+<figcaption>Figure 11: Confusion Matrix For Bin Size 1</figcaption>
 </figure>
 </div>
 <p>Looking only at Cohen Kappa score and accuracy, this seems like a good prediction model. However, the confusion matrix shows the data’s skew, centered around the 0-100 range. Therefore, more bins and bin size combinations are tested in order to provide a more meaningful prediction.</p>
@@ -595,7 +609,7 @@ Accuracy:  0.7272727272727273</code></pre>
 <li>Num Estimators</li>
 <li>Bootstrap</li>
 </ul>
-<p>Table 9999 below shows the selected hyperparameters.</p>
+<p>Table 1 below shows the selected hyperparameters.</p>
 <div id="cell-randsearch-get-params" class="cell" data-execution_count="34">
 <div id="randsearch-get-params" class="cell-output cell-output-display">
 <div>
@@ -618,32 +632,32 @@ Accuracy:  0.7272727272727273</code></pre>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
 <td>RF_model__max_depth</td>
-<td>7</td>
+<td>10</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
 <td>RF_model__max_features</td>
-<td>None</td>
+<td>log2</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
 <td>RF_model__min_samples_leaf</td>
-<td>5</td>
+<td>7</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
 <td>RF_model__min_samples_split</td>
-<td>2</td>
+<td>5</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">5</td>
 <td>RF_model__n_estimators</td>
-<td>143</td>
+<td>177</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">6</td>
 <td>aqi_transformer__categories__max_categories</td>
-<td>24</td>
+<td>9</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">7</td>
@@ -656,22 +670,22 @@ Accuracy:  0.7272727272727273</code></pre>
 </div>
 </div>
 </div>
-<p>Table 9999: Selected Hyperparameters following hyperparamenter optimization</p>
+<p>Table 2 below shows the selected hyperparameters having hyperparamenter optimization</p>
 <p>Using these hyperparameters, we reach an accuracy of over 70%.</p>
 <div id="predict-x_test-final" class="cell" data-execution_count="35">
 <div class="cell-output cell-output-stdout">
-<pre><code>Cohen Kappa Score:  0.4572878941739983
-Accuracy:  0.713663581927055</code></pre>
+<pre><code>Cohen Kappa Score:  0.457560636753082
+Accuracy:  0.7158410451823626</code></pre>
 </div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/confusion_matrix_final.png?raw=true" class="img-fluid figure-img"></p>
-<figcaption>Figure 12445: Final Model Confusion Matrix</figcaption>
+<figcaption>Figure 12: Final Model Confusion Matrix</figcaption>
 </figure>
 </div>
 <p>We can use this model for the prediction of AQI, exploring the features that predict it, and use that to generate conclusions for what variables or systems should be addressed.</p>
-<p>Below, Table 111111 shows a classification report of the model. Support represents the amount of data points total in that bin. We can see that AQI groups with more data tend to be more accurate (higher f1-score). This makes sense as the model has more of this data to train on. To make the model more accurate, more data from AQI values outside this 26-200 range will need to be collected.</p>
+<p>Below, the table 3 shows a classification report of the model. Support represents the amount of data points total in that bin. We can see that AQI groups with more data tend to be more accurate (higher f1-score). This makes sense as the model has more of this data to train on. To make the model more accurate, more data from AQI values outside this 26-200 range will need to be collected.</p>
 <div id="cell-classification-report" class="cell" data-execution_count="37">
 <div id="classification-report" class="cell-output cell-output-display">
 <div>
@@ -697,30 +711,30 @@ Accuracy:  0.713663581927055</code></pre>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">26-50</td>
-<td>0.784197</td>
-<td>0.873226</td>
-<td>0.826321</td>
+<td>0.778702</td>
+<td>0.885525</td>
+<td>0.828685</td>
 <td>1057.0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">51-75</td>
-<td>0.614437</td>
-<td>0.579734</td>
-<td>0.596581</td>
+<td>0.616514</td>
+<td>0.558140</td>
+<td>0.585876</td>
 <td>602.0</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">76-100</td>
-<td>0.351852</td>
-<td>0.175926</td>
-<td>0.234568</td>
+<td>0.396552</td>
+<td>0.212963</td>
+<td>0.277108</td>
 <td>108.0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">101-200</td>
-<td>0.526316</td>
+<td>0.625000</td>
 <td>0.333333</td>
-<td>0.408163</td>
+<td>0.434783</td>
 <td>60.0</td>
 </tr>
 <tr class="even">
@@ -736,8 +750,8 @@ Accuracy:  0.713663581927055</code></pre>
 </div>
 </div>
 </div>
-<p>(Table 111111: Final Model Classification Report)</p>
-<p>We can also take a look at which features end up being most influential in the model. Below figure 1414 shows Temperature and Humidity being by far the most influential variables in the model. However, temperature and humidity are not variables we can directly impact easily, and therefore, the four other variables are where we should put our efforts.</p>
+<p>Table 3: Final Model Classification Report)</p>
+<p>We can also take a look at which features end up being most influential in the model. Below figure 13 shows Temperature and Humidity being by far the most influential variables in the model. However, temperature and humidity are not variables we can directly impact easily, and therefore, the four other variables are where we should put our efforts.</p>
 <div id="cell-feature-importance" class="cell" data-execution_count="38">
 <div class="cell-output cell-output-display">
 <div>
@@ -747,7 +761,7 @@ Accuracy:  0.713663581927055</code></pre>
 </div>
 </div>
 </div>
-<p>(Figure 1414: Feature Importance of Selected Variables in Final Model)</p>
+<p>Figure 13: Feature Importance of Selected Variables in Final Model</p>
 </section>
 <section id="machine-learning-sarimax" class="level1">
 <h1>Machine Learning SARIMAX</h1>
@@ -758,7 +772,7 @@ Accuracy:  0.713663581927055</code></pre>
 </li>
 <li><em>Seasonality</em>: Seasonality shows you how things change within a given period (e.g.&nbsp;year,month, week, day)<br>
 </li>
-<li><em>Residual</em>: The Error/residual/irregular activity are the anomalies whitch cannot be explained by the trend or the seasonal value</li>
+<li><em>Residual</em>: The Error/residual/irregular activity are the anomalies which cannot be explained by the trend or the seasonal value</li>
 </ul>
 <section id="statsmodel" class="level2">
 <h2 class="anchored" data-anchor-id="statsmodel">Statsmodel</h2>
@@ -777,7 +791,7 @@ Accuracy:  0.713663581927055</code></pre>
 </div>
 </div>
 </div>
-<p>Figure 20: Seasonal, Trend, and Residual Decomposition of Portland AQI Time Series</p>
+<p>Figure 14: Seasonal, Trend, and Residual Decomposition of Portland AQI Time Series</p>
 <p>The uppermost graph, labeled <em>Observed</em>, presents the raw time series data as originally recorded. Its y-axis quantifies the daily air quality measurements, while the x-axis represents the passage of time. This graph is a composite representation, effectively combining the three underlying components: trend, seasonality, and residuals. A notable anomaly is evident in the data: a significant spike in air quality measurements occurring in September 2020. This outlier corresponds to the severe wildfires that ravaged Oregon during that period. The dramatic increase in air pollution levels during this time underscores the profound impact of extreme environmental events on air quality.</p>
 <p>The <em>Seasonal</em> component graph illustrates the cyclical patterns in air quality that repeat annually. This visualization reveals a distinctive yearly pattern in Air Quality Index (AQI) fluctuations. The cycle begins with relatively low AQI values, indicating better air quality. As the year progresses, the AQI rises to a peak, signifying a period of poorer air quality. This is followed by an improvement (decrease in AQI), another deterioration (increase), and a final improvement towards the year’s end. These recurring variations likely reflect the influence of seasonal factors such as changing weather patterns, temperature inversions, and seasonal human activities. For instance, winter months might see higher AQI due to increased heating emissions, while spring could bring lower AQI with more favorable dispersion conditions.</p>
 <p>The graph includes a highlighted box that demarcates the seasonal period. This visual element clearly illustrates the duration and boundaries of one complete seasonal cycle in the air quality data. Understanding these seasonal trends is crucial for accurately interpreting air quality data and making informed predictions. It allows environmental agencies and policymakers to anticipate periods of potentially compromised air quality and plan interventions accordingly.</p>
@@ -816,8 +830,8 @@ Accuracy:  0.713663581927055</code></pre>
 ==========================================================================================
 Dep. Variable:                                aqi   No. Observations:                   96
 Model:             SARIMAX(1, 1, 1)x(0, 1, 1, 12)   Log Likelihood                -276.765
-Date:                            Tue, 13 Aug 2024   AIC                            561.530
-Time:                                    15:13:32   BIC                            570.467
+Date:                            Wed, 14 Aug 2024   AIC                            561.530
+Time:                                    17:04:02   BIC                            570.467
 Sample:                                01-31-2015   HQIC                           565.076
                                      - 12-31-2022                                         
 Covariance Type:                              opg                                         
@@ -941,7 +955,6 @@ sigma2       134.1503   3.35e+05      0.000      1.000   -6.57e+05    6.57e+05
 <li>The potential effects of wildfires on air quality</li>
 </ul>
 <p>These geographical factors play a significant role in local air quality dynamics but were beyond the scope of our current data set. The impact of the geological features can be seen in the image below illustrates how the surrounding mountains create a basin effect, trapping pollutants and contributing to higher air pollution levels. The concentrated red and orange areas, particularly on right side of the Willamette Valley.Do the mountains in the image seem to create barriers to air flow, potentially trapping pollutants in certain areas? <img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/AirNow-Map.png?raw=true" class="img-fluid" alt="AirNow Interactive Map"></p>
-<p>For more information the EPA AirNow website, please visit the <img src="https://gispub.epa.gov/airnow/?monitors=none&amp;contours=pm25&amp;boundaries=tribal%2Fnps%2Fcounty&amp;xmin=-14017111.250925817&amp;xmax=-13198317.803935051&amp;ymin=5220588.626956775&amp;ymax=6039993.570173823" class="img-fluid" alt="Interactive Map of Air Quality"></p>
 <p>By recognizing these limitations, we can better interpret and apply our forecasting results, while also identifying areas for future research and data collection to enhance prediction accuracy.</p>
 <p>Ultimately, we have a responsibility to take care of our planet and combat climate change. The worse climate conditions get, the more wildfires will spread, and the worse the air quality will become. As time goes on, with worsening air conditions, more people will catch and even die from preventable conditions sparked by poor air quality. Water, pollution, food, and financial problems will get worse. One should look at what they can do to make a difference, support those who vouch to make larger changes, and encourage people they know to do the same. While the situation may seem dire, there is hope for progress through concerted and informed efforts.</p>
 </section>
@@ -949,26 +962,38 @@ sigma2       134.1503   3.35e+05      0.000      1.000   -6.57e+05    6.57e+05
 <h1>Appendix</h1>
 <section id="bibliography" class="level2">
 <h2 class="anchored" data-anchor-id="bibliography">Bibliography</h2>
-<p>Airly. (n.d.). <em>How does humidity affect air quality? All you need to know</em>. <a href="https://airly.org/en/how-does-humidity-affect-air-quality-all-you-need-to-know/">airly.org/en/how-does-humidity-affect-air-quality-all-you-need-to-know/</a></p>
-<p>AirNow. (n.d.). <em>Using air quality index</em>. <a href="https://www.airnow.gov/aqi/aqi-basics/using-air-quality-index">www.airnow.gov/aqi/aqi-basics/using-air-quality-index</a></p>
-<p>American Lung Association. (n.d.). <em>Key findings: State of the air</em>. <a href="https://www.lung.org/research/sota/key-findings">www.lung.org/research/sota/key-findings</a></p>
-<p>California Air Resources Board. (n.d.). <em>Carbon monoxide &amp; health</em>. <a href="https://ww2.arb.ca.gov/resources/carbon-monoxide-and-health">ww2.arb.ca.gov/resources/carbon-monoxide-and-health</a></p>
-<p>Centers for Disease Control and Prevention, Agency for Toxic Substances and Disease Registry. (2014, October 21). <em>Medical management guidelines for sulfur dioxide</em>. <a href="https://wwwn.cdc.gov/TSP/MMG/MMGDetails.aspx?mmgid=249&amp;toxid=46">wwwn.cdc.gov/TSP/MMG/MMGDetails.aspx?mmgid=249&amp;toxid=46</a></p>
-<p>Centers for Disease Control and Prevention, Agency for Toxic Substances and Disease Registry. (2023, April 12). <em>Toxic substances portal - Nitrogen oxides</em>. <a href="https://wwwn.cdc.gov/TSP/ToxFAQs/ToxFAQsDetails.aspx?faqid=396&amp;toxid=69">wwwn.cdc.gov/TSP/ToxFAQs/ToxFAQsDetails.aspx?faqid=396&amp;toxid=69</a></p>
-<p>Congressional Budget Office. (2023, May). <em>Reducing emissions from transportation</em>. <a href="https://www.cbo.gov/publication/60030">www.cbo.gov/publication/60030</a></p>
-<p>Environmental Protection Agency. (n.d.-a). <em>Evolution of the Clean Air Act</em>. <a href="https://www.epa.gov/clean-air-act-overview/evolution-clean-air-act">www.epa.gov/clean-air-act-overview/evolution-clean-air-act</a></p>
-<p>Environmental Protection Agency. (n.d.-b). <em>Health effects of ozone pollution</em>. <a href="https://www.epa.gov/ground-level-ozone-pollution/health-effects-ozone-pollution">www.epa.gov/ground-level-ozone-pollution/health-effects-ozone-pollution</a></p>
-<p>Environmental Protection Agency. (n.d.-c). <em>Particulate matter (PM) basics</em>. <a href="https://www.epa.gov/pm-pollution/particulate-matter-pm-basics">www.epa.gov/pm-pollution/particulate-matter-pm-basics</a></p>
-<p>Federal Transit Administration. (n.d.). <em>NTD data tables</em>. American Public Transportation Association. <a href="https://www.apta.com/research-technical-resources/transit-statistics/ntd-data-tables/">www.apta.com/research-technical-resources/transit-statistics/ntd-data-tables/</a></p>
-<p>Fuller, R., Landrigan, P. J., Balakrishnan, K., Bathan, G., Bose-O’Reilly, S., Brauer, M., Caravanos, J., Chiles, T., Cohen, A., Corra, L., Cropper, M., Ferraro, G., Hanna, J., Hanrahan, D., Hu, H., Hunter, D., Janata, G., Kupka, R., Lanphear, B., . . . Yadama, G. N. (2022). Pollution and health: A progress update. <em>The Lancet Planetary Health</em>, <em>6</em>(6), e535-e547. <a href="https://www.thelancet.com/journals/lanplh/article/PIIS2542-5196(22)00090-0/fulltext">www.thelancet.com/journals/lanplh/article/PIIS2542-5196(22)00090-0/fulltext</a></p>
-<p>Jacobs, E. T., Burgess, J. L., &amp; Abbott, M. B. (2018). The Donora smog revisited: 70 years after the event that inspired the clean air act. <em>American Journal of Public Health</em>, <em>108</em>(S2), S85-S88. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5922205/">www.ncbi.nlm.nih.gov/pmc/articles/PMC5922205/</a></p>
-<p>Manisalidis, I., Stavropoulou, E., Stavropoulos, A., &amp; Bezirtzoglou, E. (2020). Environmental and health impacts of air pollution: A review. <em>Frontiers in Public Health</em>, <em>8</em>, 14. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7044178/">www.ncbi.nlm.nih.gov/pmc/articles/PMC7044178/</a></p>
-<p>National Oceanic and Atmospheric Administration. (n.d.). <em>What are a nautical mile and a knot?</em> <a href="https://oceanservice.noaa.gov/facts/nautical-mile-knot.html">oceanservice.noaa.gov/facts/nautical-mile-knot.html</a></p>
-<p>National Weather Service. (n.d.). <em>Pressure and winds</em>. <a href="https://www.weather.gov/source/zhu/ZHU_Training_Page/winds/pressure_winds/Pressure.htm">www.weather.gov/source/zhu/ZHU_Training_Page/winds/pressure_winds/Pressure.htm</a></p>
-<p>Oregon Wildfire Response and Recovery. (n.d.). <em>Wildfire prevention</em>. <a href="https://wildfire.oregon.gov/prevention">wildfire.oregon.gov/prevention</a></p>
-<p>World Health Organization. (2014, March 25). <em>7 million premature deaths annually linked to air pollution</em>. <a href="https://www.who.int/news/item/25-03-2014-7-million-premature-deaths-annually-linked-to-air-pollution">www.who.int/news/item/25-03-2014-7-million-premature-deaths-annually-linked-to-air-pollution</a></p>
-<p>World Health Organization. (2022, October 31). <em>Lead poisoning and health</em>. <a href="https://www.who.int/news-room/fact-sheets/detail/lead-poisoning-and-health">www.who.int/news-room/fact-sheets/detail/lead-poisoning-and-health</a></p>
-<p>Zhang, Y., Cooper, O. R., Gaudel, A., Thompson, A. M., Nédélec, P., Ogino, S. Y., &amp; West, J. J. (2018). Tropospheric ozone change from 1980 to 2010 dominated by equatorward redistribution of emissions. <em>Nature Geoscience</em>, <em>11</em>, 637-644. <a href="https://acp.copernicus.org/articles/18/15003/2018/">acp.copernicus.org/articles/18/15003/2018/</a></p>
+<ol type="1">
+<li><p>Airly. (n.d.). <em>How does humidity affect air quality? All you need to know</em>. <a href="https://airly.org/en/how-does-humidity-affect-air-quality-all-you-need-to-know/">airly.org/en/how-does-humidity-affect-air-quality-all-you-need-to-know/</a></p></li>
+<li><p>AirNow. (n.d.). <em>Using air quality index</em>. <a href="https://www.airnow.gov/aqi/aqi-basics/using-air-quality-index">www.airnow.gov/aqi/aqi-basics/using-air-quality-index</a></p></li>
+<li><p>American Lung Association. (n.d.). <em>Key findings: State of the air</em>. <a href="https://www.lung.org/research/sota/key-findings">www.lung.org/research/sota/key-findings</a></p></li>
+<li><p>Broadbent, P., Grantz, D. A., &amp; Leigh, A. (2023). Air quality in cities: Complexities and progress in mitigation. <em>Frontiers in Sustainable Cities</em>, <em>5</em>. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10068020/">www.ncbi.nlm.nih.gov/pmc/articles/PMC10068020/</a></p></li>
+<li><p>California Air Resources Board. (n.d.). <em>Carbon monoxide &amp; health</em>. <a href="https://ww2.arb.ca.gov/resources/carbon-monoxide-and-health">ww2.arb.ca.gov/resources/carbon-monoxide-and-health</a></p></li>
+<li><p>Centers for Disease Control and Prevention, Agency for Toxic Substances and Disease Registry. (2014, October 21). <em>Medical management guidelines for sulfur dioxide</em>. <a href="https://wwwn.cdc.gov/TSP/MMG/MMGDetails.aspx?mmgid=249&amp;toxid=46">wwwn.cdc.gov/TSP/MMG/MMGDetails.aspx?mmgid=249&amp;toxid=46</a></p></li>
+<li><p>Centers for Disease Control and Prevention, Agency for Toxic Substances and Disease Registry. (2023, April 12). <em>Toxic substances portal - Nitrogen oxides</em>. <a href="https://wwwn.cdc.gov/TSP/ToxFAQs/ToxFAQsDetails.aspx?faqid=396&amp;toxid=69">wwwn.cdc.gov/TSP/ToxFAQs/ToxFAQsDetails.aspx?faqid=396&amp;toxid=69</a></p></li>
+<li><p>Climate &amp; Clean Air Commission. (n.d.). Methane. Retrieved August 14, 2024, from https://www.ccacoalition.org/short-lived-climate-pollutants/methane</p></li>
+<li><p>Congressional Budget Office. (2023, May). <em>Reducing emissions from transportation</em>. <a href="https://www.cbo.gov/publication/60030">www.cbo.gov/publication/60030</a></p></li>
+<li><p>Environmental Protection Agency. (n.d.-a). <em>Evolution of the Clean Air Act</em>. <a href="https://www.epa.gov/clean-air-act-overview/evolution-clean-air-act">www.epa.gov/clean-air-act-overview/evolution-clean-air-act</a></p></li>
+<li><p>Environmental Protection Agency. (n.d.). Agriculture and aquaculture: Food for thought. Retrieved August 14, 2024, from https://www.epa.gov/snep/agriculture-and-aquaculture-food-thought</p></li>
+<li><p>Environmental Protection Agency. (n.d.-b). <em>Health effects of ozone pollution</em>. <a href="https://www.epa.gov/ground-level-ozone-pollution/health-effects-ozone-pollution">www.epa.gov/ground-level-ozone-pollution/health-effects-ozone-pollution</a></p></li>
+<li><p>Environmental Protection Agency. (n.d.-c). <em>Particulate matter (PM) basics</em>. <a href="https://www.epa.gov/pm-pollution/particulate-matter-pm-basics">www.epa.gov/pm-pollution/particulate-matter-pm-basics</a></p></li>
+<li><p>Federal Transit Administration. (n.d.). <em>NTD data tables</em>. American Public Transportation Association. <a href="https://www.apta.com/research-technical-resources/transit-statistics/ntd-data-tables/">www.apta.com/research-technical-resources/transit-statistics/ntd-data-tables/</a></p></li>
+<li><p>Fuller, R., Landrigan, P. J., Balakrishnan, K., Bathan, G., Bose-O’Reilly, S., Brauer, M., Caravanos, J., Chiles, T., Cohen, A., Corra, L., Cropper, M., Ferraro, G., Hanna, J., Hanrahan, D., Hu, H., Hunter, D., Janata, G., Kupka, R., Lanphear, B., . . . Yadama, G. N. (2022). Pollution and health: A progress update. <em>The Lancet Planetary Health</em>, <em>6</em>(6), e535-e547. <a href="https://www.thelancet.com/journals/lanplh/article/PIIS2542-5196(22)00090-0/fulltext">www.thelancet.com/journals/lanplh/article/PIIS2542-5196(22)00090-0/fulltext</a></p></li>
+<li><p>Hog Wild Preserve. (n.d.). <em>Pig, boar, or hog: What’s the difference?</em> <a href="https://www.hogwildok.com/blog/336-pig,-boar,-or-hog-what-s-the-difference.html">www.hogwildok.com/blog/336-pig,-boar,-or-hog-what-s-the-difference.html</a></p></li>
+<li><p>Jacobs, E. T., Burgess, J. L., &amp; Abbott, M. B. (2018). The Donora smog revisited: 70 years after the event that inspired the clean air act. <em>American Journal of Public Health</em>, <em>108</em>(S2), S85-S88. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5922205/">www.ncbi.nlm.nih.gov/pmc/articles/PMC5922205/</a></p></li>
+<li><p>Manisalidis, I., Stavropoulou, E., Stavropoulos, A., &amp; Bezirtzoglou, E. (2020). Environmental and health impacts of air pollution: A review. <em>Frontiers in Public Health</em>, <em>8</em>, 14. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7044178/">www.ncbi.nlm.nih.gov/pmc/articles/PMC7044178/</a></p></li>
+<li><p>National Agricultural Statistics Service. (2017). <em>2017 Census of Agriculture</em>. United States Department of Agriculture. <a href="https://www.nass.usda.gov/Publications/AgCensus/2017/Full_Report/Volume_1,_Chapter_1_US/">www.nass.usda.gov/Publications/AgCensus/2017/Full_Report/Volume_1,_Chapter_1_US/</a></p></li>
+<li><p>National Oceanic and Atmospheric Administration. (n.d.). <em>What are a nautical mile and a knot?</em> <a href="https://oceanservice.noaa.gov/facts/nautical-mile-knot.html">oceanservice.noaa.gov/facts/nautical-mile-knot.html</a></p></li>
+<li><p>National Weather Service. (n.d.). <em>Pressure and winds</em>. <a href="https://www.weather.gov/source/zhu/ZHU_Training_Page/winds/pressure_winds/Pressure.htm">www.weather.gov/source/zhu/ZHU_Training_Page/winds/pressure_winds/Pressure.htm</a></p></li>
+<li><p>Oregon Encyclopedia. (n.d.). <em>Interstate 5 in Oregon</em>. <a href="https://www.oregonencyclopedia.org/articles/interstate_5_in_oregon/">www.oregonencyclopedia.org/articles/interstate_5_in_oregon/</a></p></li>
+<li><p>Oregon Wildfire Response and Recovery. (n.d.). <em>Wildfire prevention</em>. <a href="https://wildfire.oregon.gov/prevention">wildfire.oregon.gov/prevention</a></p></li>
+<li><p>Portland.gov. (n.d.). <em>City of Portland Charter, Chapter 1</em>. <a href="https://www.portland.gov/charter/1/2">www.portland.gov/charter/1/2</a></p></li>
+<li><p>Shandas, V., &amp; George, L. (2009). Neighborhood, neighborhood, neighborhood: Spatial patterns of air toxins and implications for metroscape residents and urban planners. <em>Metroscape</em>, Winter 2009. <a href="https://pdxscholar.library.pdx.edu/cgi/viewcontent.cgi?article=1033&amp;context=usp_fac">pdxscholar.library.pdx.edu/cgi/viewcontent.cgi?article=1033&amp;context=usp_fac</a></p></li>
+<li><p>Trust for Public Land. (n.d.). <em>Park data downloads</em>. <a href="https://www.tpl.org/park-data-downloads">www.tpl.org/park-data-downloads</a></p></li>
+<li><p>United States Census Bureau. (n.d.). <em>Home page</em>. <a href="https://www.census.gov/en.html">www.census.gov/en.html</a></p></li>
+<li><p>World Health Organization. (2014, March 25). <em>7 million premature deaths annually linked to air pollution</em>. <a href="https://www.who.int/news/item/25-03-2014-7-million-premature-deaths-annually-linked-to-air-pollution">www.who.int/news/item/25-03-2014-7-million-premature-deaths-annually-linked-to-air-pollution</a></p></li>
+<li><p>World Health Organization. (2022, October 31). <em>Lead poisoning and health</em>. <a href="https://www.who.int/news-room/fact-sheets/detail/lead-poisoning-and-health">www.who.int/news-room/fact-sheets/detail/lead-poisoning-and-health</a></p></li>
+<li><p>Zhang, Y., Cooper, O. R., Gaudel, A., Thompson, A. M., Nédélec, P., Ogino, S. Y., &amp; West, J. J. (2018). Tropospheric ozone change from 1980 to 2010 dominated by equatorward redistribution of emissions. <em>Nature Geoscience</em>, <em>11</em>, 637-644. <a href="https://acp.copernicus.org/articles/18/15003/2018/">acp.copernicus.org/articles/18/15003/2018/</a></p></li>
+</ol>
 </section>
 <section id="additional-resources---eda" class="level2">
 <h2 class="anchored" data-anchor-id="additional-resources---eda">Additional Resources - EDA</h2>
@@ -1052,12 +1077,12 @@ For recognized time series features, the histograms are replaced with line plots
 </ul>
 <div id="ts-wind-co-aqi" class="cell" data-execution_count="67">
 <div id="ts-wind-co-aqi-1" class="cell-output cell-output-display">
-<pre><code>&lt;Figure size 1000x1800 with 0 Axes&gt;</code></pre>
+<pre><code>&lt;Figure size 960x1728 with 0 Axes&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="capstone_files/figure-html/ts-wind-co-aqi-output-2.png" id="ts-wind-co-aqi-2" width="3689" height="1179" class="figure-img"></p>
+<p><img src="capstone_files/figure-html/ts-wind-co-aqi-output-2.png" id="ts-wind-co-aqi-2" width="3542" height="1130" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1070,12 +1095,12 @@ For recognized time series features, the histograms are replaced with line plots
 <p>Ozone (O₃) as a pollutant is a complex topic, as it can be both beneficial and harmful depending on its location in the atmosphere. - Colorless to pale blue gas with a distinctive smell - Highly reactive molecule composed of three oxygen atoms</p>
 <div id="ts-so2-no2-ozone" class="cell" data-execution_count="68">
 <div id="ts-so2-no2-ozone-1" class="cell-output cell-output-display">
-<pre><code>&lt;Figure size 1500x2000 with 0 Axes&gt;</code></pre>
+<pre><code>&lt;Figure size 1440x1920 with 0 Axes&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="capstone_files/figure-html/ts-so2-no2-ozone-output-2.png" id="ts-so2-no2-ozone-2" width="3689" height="1767" class="figure-img"></p>
+<p><img src="capstone_files/figure-html/ts-so2-no2-ozone-output-2.png" id="ts-so2-no2-ozone-2" width="3542" height="1695" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1193,9 +1218,6 @@ For recognized time series features, the histograms are replaced with line plots
 </section>
 
 </main> <!-- /main -->
-<script type="application/vnd.jupyter.widget-state+json">
-{"state":{"211baaf54d604b288392d5a3d7e11677":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_47dd781c77e14e128a26cbeb4834d14e","placeholder":"​","style":"IPY_MODEL_71012a2d899b445cb714e1a6e6d44551","tabbable":null,"tooltip":null,"value":"Done! Use &#x27;show&#x27; commands to display/save.   "}},"21d5b50dea0849f0ae63a97abea9145f":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":"2","flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"2f1d99534cea4843b6adb028024a2629":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_211baaf54d604b288392d5a3d7e11677","IPY_MODEL_ea681c3b234c4414adb2b7780853325f","IPY_MODEL_aca03710e5c54f138936c3b89a4b09f7"],"layout":"IPY_MODEL_95faadad07cf4968b828b0715a736025","tabbable":null,"tooltip":null}},"3ffbe4d73deb46cb93d36410c0f32bf9":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"47dd781c77e14e128a26cbeb4834d14e":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"71012a2d899b445cb714e1a6e6d44551":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"95faadad07cf4968b828b0715a736025":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":"inline-flex","flex":null,"flex_flow":"row wrap","grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}},"aca03710e5c54f138936c3b89a4b09f7":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_feb15f12848246a29d183d608ae4b1cd","placeholder":"​","style":"IPY_MODEL_3ffbe4d73deb46cb93d36410c0f32bf9","tabbable":null,"tooltip":null,"value":" [100%]   00:01 -&gt; (00:00 left)"}},"ea681c3b234c4414adb2b7780853325f":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"success","description":"","description_allow_html":false,"layout":"IPY_MODEL_21d5b50dea0849f0ae63a97abea9145f","max":1,"min":0,"orientation":"horizontal","style":"IPY_MODEL_ec4803ddbd0e4bcead4da60fbd55735d","tabbable":null,"tooltip":null,"value":1}},"ec4803ddbd0e4bcead4da60fbd55735d":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"feb15f12848246a29d183d608ae4b1cd":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}}},"version_major":2,"version_minor":0}
-</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
