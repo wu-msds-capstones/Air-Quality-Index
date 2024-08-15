@@ -96,7 +96,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>A time series is a sequence of data points collected at regular intervals over a period of time. These intervals are typically uniform, such as hourly, daily, or quarterly measurements. This orderly arrangement allows for the analysis of trends, patterns, and behaviors over time. Common examples of time series data include stock market closing prices, household electricity consumption readings, and weather measurements. In the context of our capstone project, we’re focusing on air quality index measurements as our time series data. This sequential record of air quality provides insights into pollution trends and can be used to forecast future air quality conditions.</p>
+<p>A time series is a sequence of data points collected at regular intervals over a period of time. These intervals are typically uniform, such as hourly, daily, or quarterly measurements.<br>
+This orderly arrangement allows for the analysis of trends, patterns, and behaviors over time.<br>
+Common examples of time series data include stock market closing prices, household electricity consumption readings, and weather measurements.</p>
+<p>In the context of our capstone project, we’re focusing on air quality index measurements as our time series data. This sequential record of air quality provides insights into pollution trends and can be used to forecast future air quality conditions.</p>
 <div id="import-lib" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -127,12 +130,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <section id="statsmodel" class="level2">
 <h2 class="anchored" data-anchor-id="statsmodel">Statsmodel</h2>
-<p>Using the statsmodel package, we can map the seasonal pattern and trends using seasonal_decompose method. It requires as inputs a dataframe with two columns date data and the AQI. This will help us to understand the seasonality and trend clearly and allowing us to make more sense of the data for the forecast. In a additive time series, the components add together to make the time series. If you have an increasing trend, you still see roughly the same size peaks and troughs throughout the time series.</p>
+<p>Using the statsmodel package, we can map the seasonal pattern and trends using seasonal_decompose method. It requires as inputs a dataframe with two columns date data and the AQI.<br>
+This will help us to understand the seasonality and trend clearly and allowing us to make more sense of the data for the forecast.<br>
+In a additive time series, the components add together to make the time series. If you have an increasing trend, you still see roughly the same size peaks and troughs throughout the time series.</p>
 </section>
 <section id="components-of-a-time-series" class="level2">
 <h2 class="anchored" data-anchor-id="components-of-a-time-series">Components Of A Time Series</h2>
-<p>Time series decomposition is a statistical technique that separates data into three key components: trend, seasonality, and residuals. The trend shows the long-term direction, seasonality reveals recurring patterns, and residuals represent unexplained variations. Visualizing these components individually provides insights that may not be evident in the raw data. This process helps analysts identify underlying patterns, recognize cyclical behaviors, and detect anomalies.</p>
-<p>By understanding these elements separately, we can gain deeper insights into the factors driving the time series, leading to more accurate analysis and forecasting. Decomposition is particularly useful when the complexity of a time series makes it challenging to discern important patterns from simple observation of the dataset.</p>
+<p>Time series decomposition is a statistical technique that separates data into three key components: trend, seasonality, and residuals.<br>
+The trend shows the long-term direction, seasonality reveals recurring patterns, and residuals represent unexplained variations.<br>
+Visualizing these components individually provides insights that may not be evident in the raw data. This process helps analysts identify underlying patterns, recognize cyclical behaviors, and detect anomalies. By understanding these elements separately, we can gain deeper insights into the factors driving the time series, leading to more accurate analysis and forecasting.</p>
+<p>Decomposition is particularly useful when the complexity of a time series makes it challenging to discern important patterns from simple observation of the dataset.</p>
 <div id="cell-seasonal-decompose" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
@@ -203,33 +210,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Figure 14: Seasonal, Trend, and Residual Decomposition of Portland AQI Time Series</p>
-<p>The uppermost graph, labeled <em>Observed</em>, presents the raw time series data as originally recorded. Its y-axis quantifies the daily air quality measurements, while the x-axis represents the passage of time. This graph is a composite representation, effectively combining the three underlying components: trend, seasonality, and residuals. A notable anomaly is evident in the data: a significant spike in air quality measurements occurring in September 2020. This outlier corresponds to the severe wildfires that ravaged Oregon during that period. The dramatic increase in air pollution levels during this time underscores the profound impact of extreme environmental events on air quality.</p>
-<p>The <em>Seasonal</em> component graph illustrates the cyclical patterns in air quality that repeat annually. This visualization reveals a distinctive yearly pattern in Air Quality Index (AQI) fluctuations. The cycle begins with relatively low AQI values, indicating better air quality. As the year progresses, the AQI rises to a peak, signifying a period of poorer air quality. This is followed by an improvement (decrease in AQI), another deterioration (increase), and a final improvement towards the year’s end. These recurring variations likely reflect the influence of seasonal factors such as changing weather patterns, temperature inversions, and seasonal human activities. For instance, winter months might see higher AQI due to increased heating emissions, while spring could bring lower AQI with more favorable dispersion conditions.</p>
-<p>The graph includes a highlighted box that demarcates the seasonal period. This visual element clearly illustrates the duration and boundaries of one complete seasonal cycle in the air quality data. Understanding these seasonal trends is crucial for accurately interpreting air quality data and making informed predictions. It allows environmental agencies and policymakers to anticipate periods of potentially compromised air quality and plan interventions accordingly.</p>
-<p>Lastly, the final row displays the <em>Residuals</em>, which represent the portion of the data not explained by the trend or the seasonal component. We can interpret the residuals as the difference between the sum of the Trend and Seasonal components and the Observed values at each point in time. Essentially, the Residuals indicate the amount that needs to be added to the Trend and Seasonal components to align the result with the Observed values. Residuals are typically attributed to random errors, often referred to as white noise, which we will explore further. These residuals embody the unpredictable elements of the data that cannot be captured or forecasted by the model, as they are inherently random.</p>
+<p>The uppermost graph, labeled <em>Observed</em>, presents the raw time series data as originally recorded. Its y-axis quantifies the daily air quality measurements, while the x-axis represents the passage of time.<br>
+This graph is a composite representation, effectively combining the three underlying components: trend, seasonality, and residuals.<br>
+A notable anomaly is evident in the data: a significant spike in air quality measurements occurring in September 2020. This outlier corresponds to the severe wildfires that ravaged Oregon during that period. The dramatic increase in air pollution levels during this time underscores the profound impact of extreme environmental events on air quality.</p>
+<p>The <em>Seasonal</em> component graph illustrates the cyclical patterns in air quality that repeat annually. This visualization reveals a distinctive yearly pattern in Air Quality Index (AQI) fluctuations. The cycle begins with relatively low AQI values, indicating better air quality. As the year progresses, the AQI rises to a peak, signifying a period of poorer air quality. This is followed by an improvement (decrease in AQI), another deterioration (increase), and a final improvement towards the year’s end.</p>
+<p>These recurring variations likely reflect the influence of seasonal factors such as changing weather patterns, temperature inversions, and seasonal human activities. For instance, winter months might see higher AQI due to increased heating emissions, while spring could bring lower AQI with more favorable dispersion conditions.<br>
+The graph includes a highlighted box that demarcates the seasonal period. This visual element clearly illustrates the duration and boundaries of one complete seasonal cycle in the air quality data. Understanding these seasonal trends is crucial for accurately interpreting air quality data and making informed predictions.<br>
+It allows environmental agencies and policymakers to anticipate periods of potentially compromised air quality and plan interventions accordingly.</p>
+<p>Lastly, the final row displays the <em>Residuals</em>, which represent the portion of the data not explained by the trend or the seasonal component. We can interpret the residuals as the difference between the sum of the Trend and Seasonal components and the Observed values at each point in time.</p>
+<p>Essentially, the Residuals indicate the amount that needs to be added to the Trend and Seasonal components to align the result with the Observed values. Residuals are typically attributed to random errors, often referred to as white noise, which we will explore further. These residuals embody the unpredictable elements of the data that cannot be captured or forecasted by the model, as they are inherently random.</p>
 </section>
 <section id="finding-the-best-forecasting-model-with-grid-search" class="level2">
 <h2 class="anchored" data-anchor-id="finding-the-best-forecasting-model-with-grid-search">Finding the Best Forecasting Model with Grid Search</h2>
-<p>For this project, we used an extended version of <em>ARIMA</em> model knows as <em>SARIMAX</em> model as we have explained in the methods section. We use a tuning technique called grid search method that attempts to compute the optimum values of hyperparameters. We are trying to find the right p,d,q values that would be given as an input to the SARIMAX time series model. This process helps us find the best settings for a forecasting model called SARIMAX by testing various options to find the best fit for our data. Here’s an easy-to-understand explanation of how this works:</p>
-<section id="step-1-getting-everything-ready" class="level3">
-<h3 class="anchored" data-anchor-id="step-1-getting-everything-ready">Step 1: Getting Everything Ready</h3>
-<p>We start by setting up all the tools we need for our analysis.</p>
+<p>For this project, we used an extended version of <em>ARIMA</em> model knows as <em>SARIMAX</em> model as we have explained in the methods section. We use a tuning technique called grid search method that attempts to compute the optimum values of hyperparameters. We are trying to find the right p,d,q values that would be given as an input to the SARIMAX time series model.</p>
+<p>This process helps us find the best settings for a forecasting model called SARIMAX by testing various options to find the best fit for our data. Here’s an easy-to-understand explanation of how this works:</p>
+<section id="step-1-setting-up-our-hyperparameters" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-setting-up-our-hyperparameters">Step 1: Setting Up Our Hyperparameters</h3>
+<p>We define p,d,q hyperparameters to take any value between 0 to 1. These include the p, d, and q parameters, which help the model decide how much weight to give to past values, trends, and patterns. We then create a list of all p,d,q possible combinations of these settings in a for loop.</p>
 </section>
-<section id="step-2-setting-up-our-options" class="level3">
-<h3 class="anchored" data-anchor-id="step-2-setting-up-our-options">Step 2: Setting Up Our Options</h3>
-<p>We define different settings that the SARIMAX model can use to predict future values. These include the p, d, and q parameters, which help the model decide how much weight to give to past values, trends, and patterns. We then create a list of all possible combinations of these settings.</p>
-</section>
-<section id="step-3-adding-seasonal-flavors" class="level3">
-<h3 class="anchored" data-anchor-id="step-3-adding-seasonal-flavors">Step 3: Adding Seasonal Flavors</h3>
-<p>We know that some data has seasonal patterns, like sales going up during the holidays. We include options for these seasonal changes.</p>
-</section>
-<section id="step-4-trying-out-different-combinations" class="level3">
-<h3 class="anchored" data-anchor-id="step-4-trying-out-different-combinations">Step 4: Trying Out Different Combinations</h3>
+<section id="step-2-trying-out-different-combinations" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-trying-out-different-combinations">Step 2: Trying Out Different Combinations</h3>
 <p>We go through each combination of settings to see how well each one works. For each main setting, we also try different seasonal settings to find the perfect combination.</p>
 </section>
-<section id="step-5-checking-the-results" class="level3">
-<h3 class="anchored" data-anchor-id="step-5-checking-the-results">Step 5: Checking the Results</h3>
-<p>For each set of settings, we create a forecasting model and test it on our data. We measure how well each model works using a score called the Akaike Information Criterion (AIC). This score tells us how well the model predicts the data, with lower scores being better. If something goes wrong with a particular set of settings, we catch the error and move on to the next set without stopping the whole process.</p>
+<section id="step-3-checking-the-results" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-checking-the-results">Step 3: Checking the Results</h3>
+<p>For each set of p,d,q settings, we create a forecasting model and test it on our data. We measure how well each model works using a score called the Akaike Information Criterion (AIC) as mentioned in the methods section. This score tells us how well the model predicts the data, with lower scores being better.</p>
+<p>If something goes wrong with a particular set of hyperparameter settings, we catch the error and move on to the next set without stopping the whole process.</p>
 <div id="grid-search" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> itertools</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -272,7 +278,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>mod <span class="op">=</span> sm.tsa.statespace.SARIMAX(df_aqi,order<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>),seasonal_order<span class="op">=</span>(<span class="dv">0</span>,<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">12</span>))</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> mod.fit()</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results.summary().tables[<span class="dv">0</span>])</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#print(results.summary().tables[0])</span></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results.summary().tables[<span class="dv">1</span>])</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#print(results.summary().tables[2])</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -282,17 +288,7 @@ Non-invertible starting seasonal moving average Using zeros as starting paramete
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                                     SARIMAX Results                                      
-==========================================================================================
-Dep. Variable:                                aqi   No. Observations:                   96
-Model:             SARIMAX(1, 1, 1)x(0, 1, 1, 12)   Log Likelihood                -330.316
-Date:                            Wed, 14 Aug 2024   AIC                            668.632
-Time:                                    18:22:57   BIC                            678.307
-Sample:                                01-31-2015   HQIC                           672.519
-                                     - 12-31-2022                                         
-Covariance Type:                              opg                                         
-==========================================================================================
-==============================================================================
+<pre><code>==============================================================================
                  coef    std err          z      P&gt;|z|      [0.025      0.975]
 ------------------------------------------------------------------------------
 ar.L1          0.0656      0.246      0.267      0.789      -0.416       0.547
@@ -302,10 +298,126 @@ sigma2       115.3748   3.03e+04      0.004      0.997   -5.93e+04    5.96e+04
 ==============================================================================</code></pre>
 </div>
 </div>
+<table class="table-striped table-hover caption-top table">
+<caption>SARIMAX Results</caption>
+<colgroup>
+<col style="width: 100%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>SARIMAX Results</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Dep. Variable:</strong> aqi</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Model:</strong> SARIMAX(1, 1, 1)x(0, 1, 1, 12)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Date:</strong> Thu, 15 Aug 2024</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Time:</strong> 12:09:16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Sample:</strong> 01-31-2015 - 12-31-2022</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>No.&nbsp;Observations:</strong> 96</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Log Likelihood:</strong> -330.316</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>AIC:</strong> 668.632</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>BIC:</strong> 678.307 (Bayesian Information Criterion)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>HQIC:</strong> 672.519 (Hannan-Quinn Information Criterion)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Covariance Type:</strong> opg (Outer Product of Gradients)</td>
+</tr>
+</tbody>
+</table>
+<section id="interpretation" class="level3">
+<h3 class="anchored" data-anchor-id="interpretation">Interpretation</h3>
+<p>The table above summarizes the results of the SARIMAX model applied to the air quality index data. The model and its corresponding criteria (AIC, BIC, HQIC) provide insight into the model’s fit and complexity.</p>
 <p>This summary presents a concise overview of the SARIMAX model’s performance and fit.</p>
 <p>The SARIMAX(1, 1, 1)x(0, 1, 1, 12) model integrates both non-seasonal and seasonal components, effectively capturing both immediate and periodic influences on the Air Quality Index (AQI). The model utilizes 96 observations, providing a robust dataset for accurate model fitting.</p>
 <p>Key metrics such as the log-likelihood, AIC, BIC, and HQIC are used to assess the model’s effectiveness, with lower values typically indicating a better fit that balances complexity and accuracy.</p>
 <p>The summary also includes the date and time of model execution, the timeframe of the data, and the type of covariance used, which aids in understanding how the model accounts for uncertainties in parameter estimates.</p>
+<p>Next, we extract the coefficient summary</p>
+<table class="table-striped table-hover caption-top table">
+<caption>SARIMAX Coefficient Summary</caption>
+<colgroup>
+<col style="width: 23%">
+<col style="width: 11%">
+<col style="width: 14%">
+<col style="width: 10%">
+<col style="width: 12%">
+<col style="width: 13%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Coefficient Table</strong></th>
+<th style="text-align: left;"><strong>coef</strong></th>
+<th style="text-align: left;"><strong>std err</strong></th>
+<th style="text-align: left;"><strong>z</strong></th>
+<th style="text-align: left;">**P&gt;</th>
+<th style="text-align: left;">z</th>
+<th style="text-align: left;">**</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>ar.L1</strong></td>
+<td style="text-align: left;">0.0656</td>
+<td style="text-align: left;">0.246</td>
+<td style="text-align: left;">0.267</td>
+<td style="text-align: left;">0.789</td>
+<td style="text-align: left;">-0.416</td>
+<td style="text-align: left;">0.547</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>ma.L1</strong></td>
+<td style="text-align: left;">-0.9993</td>
+<td style="text-align: left;">7.412</td>
+<td style="text-align: left;">-0.135</td>
+<td style="text-align: left;">0.893</td>
+<td style="text-align: left;">-15.527</td>
+<td style="text-align: left;">13.529</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>ma.S.L12</strong></td>
+<td style="text-align: left;">-0.9999</td>
+<td style="text-align: left;">263.482</td>
+<td style="text-align: left;">-0.004</td>
+<td style="text-align: left;">0.997</td>
+<td style="text-align: left;">-517.416</td>
+<td style="text-align: left;">515.416</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>sigma2</strong></td>
+<td style="text-align: left;">115.3748</td>
+<td style="text-align: left;">3.03e+04</td>
+<td style="text-align: left;">0.004</td>
+<td style="text-align: left;">0.997</td>
+<td style="text-align: left;">-5.93e+04</td>
+<td style="text-align: left;">5.96e+04</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="interpretation-1" class="level3">
+<h3 class="anchored" data-anchor-id="interpretation-1">Interpretation</h3>
+<p>The table above summarizes the coefficients, standard errors, z-values, p-values, and 95% confidence intervals for the SARIMAX model parameters. This information is crucial for evaluating the significance and reliability of each parameter estimate</p>
+</section>
 <section id="autoregressive-term-ar.l1" class="level3">
 <h3 class="anchored" data-anchor-id="autoregressive-term-ar.l1">Autoregressive Term (ar.L1)</h3>
 <ul>
@@ -368,19 +480,19 @@ sigma2       115.3748   3.03e+04      0.004      0.997   -5.93e+04    5.96e+04
 <li><em>Q-Q Plot</em>: This plot compares the distribution of residuals to a normal distribution. Points should ideally lie along the line of best fit.</li>
 <li><em>Forecast Plot</em>: Displays the fitted values versus the actual values and includes forecasted values. A good model will have fitted values close to the actual values with narrow confidence intervals</li>
 </ul>
-<div id="75c44ca1" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>results.plot_diagnostics(figsize<span class="op">=</span>(<span class="dv">9</span>,<span class="dv">7</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="68">
+<div id="cf17672d" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>results.plot_diagnostics(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="83">
 <div>
 <figure class="figure">
-<p><img src="_05c_results_Machine_Learning_SARIMAX_files/figure-html/cell-9-output-1.png" width="738" height="603" class="figure-img"></p>
+<p><img src="_05c_results_Machine_Learning_SARIMAX_files/figure-html/cell-9-output-1.png" width="812" height="824" class="figure-img"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="_05c_results_Machine_Learning_SARIMAX_files/figure-html/cell-9-output-2.png" width="738" height="603" class="figure-img"></p>
+<p><img src="_05c_results_Machine_Learning_SARIMAX_files/figure-html/cell-9-output-2.png" width="812" height="824" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -473,7 +585,7 @@ sigma2       115.3748   3.03e+04      0.004      0.997   -5.93e+04    5.96e+04
 </ul></li>
 </ol>
 <p>This visual representation not only summarizes our extensive data analysis but also provides a powerful tool for understanding potential future air quality trends. It bridges the gap between complex statistical models and actionable insights, making our findings accessible and meaningful to a broader audience.</p>
-<div id="cell-plot-forecast" class="cell" data-execution_count="15">
+<div id="cell-plot-forecast" class="cell" data-ouput="false" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the seaborn theme</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"whitegrid"</span>)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -498,7 +610,12 @@ sigma2       115.3748   3.03e+04      0.004      0.997   -5.93e+04    5.96e+04
 </div>
 </div>
 </div>
-<p>Figure 16: Portland AQI Forecast from 2023 to 2025</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src=".png" class="img-fluid figure-img"></p>
+<figcaption>Figure 16: Portland AQI Forecast from 2023 to 2025</figcaption>
+</figure>
+</div>
 <p>Our conclusion is that the SARIMAX model did not predict well the forecast values of the air quality index (AQI). As mentioned in the plot diagnostics, the high p-value and z-score close to zero indicate that the model’s hyperparameters may not be significantly contributing to the prediction accuracy.</p>
 </section>
 <section id="possible-reasons-for-poor-performance" class="level3">

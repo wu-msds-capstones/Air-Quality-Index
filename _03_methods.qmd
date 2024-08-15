@@ -27,7 +27,38 @@ There are three distinct integers (p,d,q) that are used to parametrize SARIMAX m
 We use a tuning technique called grid search method that attempts to compute the optimum values of the hyperparameters. We are trying to find the right p,d,q values that would be given as an input to the SARIMAX time series model.
 
 ## Akaike Information Criteria (AIC)
+<<<<<<< Updated upstream
 The Akaike Information Criterion (AIC) is a measurement used to compare different statistical models. It helps in model selection by balancing the goodness of fit and the complexity of the model. When comparing two models, the one with the lower AIC is generally "better".
+=======
+The Akaike Information Criterion (AIC) was formulated by the statistician Hirotsugu Akaike, is a measure used to compare different statistical models. It helps in model selection by balancing the goodness of fit and the complexity of the model. When comparing two models, the one with the lower AIC is generally "better".
+
+The Akaike Information Criterion (AIC) is defined as:
+
+$$
+\text{AIC} = 2k - 2\ln(\hat{L})
+$$
+
+Where:
+
+- \( k \) is the number of parameters in the model.
+- \( \hat{L} \) is the maximum value of the likelihood function for the model.
+-  \( \ln(\hat{L}) \) is the natural logarithm of the likelihood function.
+
+### Interpretation
+- **Likelihood Function (\(\hat{L}\))**: Measures how well the model fits the data. A higher likelihood indicates a better fit.
+- **Penalty Term (\(2k\))**: Accounts for the number of parameters in the model, penalizing more complex models to avoid overfitting.
+
+### Usage
+When comparing multiple models, the model with the lowest AIC value is generally preferred because it offers a better balance between goodness of fit and complexity.
+
+### Example
+For a linear regression model, the likelihood function \(\hat{L}\) is calculated based on the residual sum of squares (RSS). The formula can be expressed as:
+
+$$
+\text{AIC} = 2k + n \ln\left(\frac{\text{RSS}}{n}\right)
+$$
+Where \( n \) is the number of observations. Here, RSS is the sum of the squared differences between the observed and predicted values, reflecting the model's fit to the data.
+>>>>>>> Stashed changes
 
 Here’s how to interpret the AIC value:
 
