@@ -1,4 +1,4 @@
-# Results Machine Learning Scikit-Learn
+# Machine Learning with Scikit-Learn
 Ultimately, we want to see which variables have the greatest impact on AQI. To do this we perform a machine learning analysis and create a prediction algorithm. As the AQI is defined by the four criteria gasses and particulate matter (PM10 and PM2.5), those should not be included in the algorithm. Thus we start with all the other variables.
 
 ```{python}
@@ -273,7 +273,7 @@ ds.loc[:,'year'] = pd.to_datetime(ds['date']).dt.year
 ds.loc[:,'month'] = pd.to_datetime(ds['date']).dt.month
 ```
 
-After data is cleaned, we are left with a total of eighteen cities across the country with a total metropolitan area population of greater than one million. To perform the ML prediction algorithm, AQI will be predicted. We will use existing AQI cateogories as classifiers. A feature selector is run on the set of all variables except for the six that define AQI (CO, NO2, O3, SO2, PM10, PM2.5). This chooses the best predictors of the dependent variable AQI.
+After data is cleaned, we are left with a total of eighteen cities across the country with a total metropolitan area population of greater than one million. To perform the ML prediction algorithm, AQI will be predicted. We will use existing AQI categories as classifiers. A feature selector is run on the set of all variables except for the six that define AQI (CO, NO2, O3, SO2, PM10, PM2.5). This chooses the best predictors of the dependent variable AQI.
 
 ```{python}
 #| echo: false
