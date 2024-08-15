@@ -130,9 +130,7 @@ Common examples of time series data include stock market closing prices, househo
 </ul>
 <section id="statsmodel" class="level2">
 <h2 class="anchored" data-anchor-id="statsmodel">Statsmodel</h2>
-<p>Using the statsmodel package, we can map the seasonal pattern and trends using seasonal_decompose method. It requires as inputs a dataframe with two columns date data and the AQI.<br>
-This will help us to understand the seasonality and trend clearly and allowing us to make more sense of the data for the forecast.<br>
-In a additive time series, the components add together to make the time series. If you have an increasing trend, you still see roughly the same size peaks and troughs throughout the time series.</p>
+<p>Using the statsmodel package, we can map the seasonal pattern and trends using seasonal_decompose method. It requires as inputs a dataframe with two columns date data and the AQI.</p>
 </section>
 <section id="components-of-a-time-series" class="level2">
 <h2 class="anchored" data-anchor-id="components-of-a-time-series">Components Of A Time Series</h2>
@@ -218,15 +216,16 @@ A notable anomaly is evident in the data: a significant spike in air quality mea
 The graph includes a highlighted box that demarcates the seasonal period. This visual element clearly illustrates the duration and boundaries of one complete seasonal cycle in the air quality data. Understanding these seasonal trends is crucial for accurately interpreting air quality data and making informed predictions.<br>
 It allows environmental agencies and policymakers to anticipate periods of potentially compromised air quality and plan interventions accordingly.</p>
 <p>Lastly, the final row displays the <em>Residuals</em>, which represent the portion of the data not explained by the trend or the seasonal component. We can interpret the residuals as the difference between the sum of the Trend and Seasonal components and the Observed values at each point in time.</p>
-<p>Essentially, the Residuals indicate the amount that needs to be added to the Trend and Seasonal components to align the result with the Observed values. Residuals are typically attributed to random errors, often referred to as white noise, which we will explore further. These residuals embody the unpredictable elements of the data that cannot be captured or forecasted by the model, as they are inherently random.</p>
+<p>Essentially, the Residuals indicate the amount that needs to be added to the Trend and Seasonal components to align the result with the Observed values. Residuals are typically attributed to random errors, often referred to as noise. These residuals embody the unpredictable elements of the data that cannot be captured or forecasted by the model, as they are inherently random.</p>
 </section>
 <section id="finding-the-best-forecasting-model-with-grid-search" class="level2">
 <h2 class="anchored" data-anchor-id="finding-the-best-forecasting-model-with-grid-search">Finding the Best Forecasting Model with Grid Search</h2>
 <p>For this project, we used an extended version of <em>ARIMA</em> model knows as <em>SARIMAX</em> model as we have explained in the methods section. We use a tuning technique called grid search method that attempts to compute the optimum values of hyperparameters. We are trying to find the right p,d,q values that would be given as an input to the SARIMAX time series model.</p>
-<p>This process helps us find the best settings for a forecasting model called SARIMAX by testing various options to find the best fit for our data. Here’s an easy-to-understand explanation of how this works:</p>
+<p>Here’s an easy-to-understand explanation of how this works:</p>
 <section id="step-1-setting-up-our-hyperparameters" class="level3">
 <h3 class="anchored" data-anchor-id="step-1-setting-up-our-hyperparameters">Step 1: Setting Up Our Hyperparameters</h3>
-<p>We define p,d,q hyperparameters to take any value between 0 to 1. These include the p, d, and q parameters, which help the model decide how much weight to give to past values, trends, and patterns. We then create a list of all p,d,q possible combinations of these settings in a for loop.</p>
+<p>We define p,d,q hyperparameters to take any value between 0 to 1 which help the model decide how much weight to give to past values, trends, and patterns.<br>
+We then create a list of all p,d,q possible combinations of these settings in a for loop.</p>
 </section>
 <section id="step-2-trying-out-different-combinations" class="level3">
 <h3 class="anchored" data-anchor-id="step-2-trying-out-different-combinations">Step 2: Trying Out Different Combinations</h3>
@@ -268,7 +267,7 @@ It allows environmental agencies and policymakers to anticipate periods of poten
 <span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"Error with parameters </span><span class="sc">{</span>param<span class="sc">}</span><span class="ss"> and </span><span class="sc">{</span>param_seasonal<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We have to find the lowest AIC values which would have the best corresponding p,d,q values to have the best forecast of AQI values.</p>
+<p>We have found the lowest AIC values which would have the best corresponding p,d,q values to have the best forecast of AQI values.</p>
 </section>
 </section>
 <section id="sarimax-model-results" class="level2">
@@ -279,23 +278,13 @@ It allows environmental agencies and policymakers to anticipate periods of poten
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> mod.fit()</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#print(results.summary().tables[0])</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results.summary().tables[<span class="dv">1</span>])</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#print(results.summary().tables[1])</span></span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#print(results.summary().tables[2])</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>C:\Users\Steve\AppData\Local\Programs\Python\Python312\Lib\site-packages\statsmodels\tsa\statespace\sarimax.py:1009: UserWarning:
 
 Non-invertible starting seasonal moving average Using zeros as starting parameters.
 </code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>==============================================================================
-                 coef    std err          z      P&gt;|z|      [0.025      0.975]
-------------------------------------------------------------------------------
-ar.L1          0.0656      0.246      0.267      0.789      -0.416       0.547
-ma.L1         -0.9993      7.412     -0.135      0.893     -15.527      13.529
-ma.S.L12      -0.9999    263.482     -0.004      0.997    -517.416     515.416
-sigma2       115.3748   3.03e+04      0.004      0.997   -5.93e+04    5.96e+04
-==============================================================================</code></pre>
 </div>
 </div>
 <table class="table-striped table-hover caption-top table">
@@ -346,77 +335,11 @@ sigma2       115.3748   3.03e+04      0.004      0.997   -5.93e+04    5.96e+04
 </table>
 <section id="interpretation" class="level3">
 <h3 class="anchored" data-anchor-id="interpretation">Interpretation</h3>
-<p>The table above summarizes the results of the SARIMAX model applied to the air quality index data. The model and its corresponding criteria (AIC, BIC, HQIC) provide insight into the model’s fit and complexity.</p>
 <p>This summary presents a concise overview of the SARIMAX model’s performance and fit.</p>
 <p>The SARIMAX(1, 1, 1)x(0, 1, 1, 12) model integrates both non-seasonal and seasonal components, effectively capturing both immediate and periodic influences on the Air Quality Index (AQI). The model utilizes 96 observations, providing a robust dataset for accurate model fitting.</p>
 <p>Key metrics such as the log-likelihood, AIC, BIC, and HQIC are used to assess the model’s effectiveness, with lower values typically indicating a better fit that balances complexity and accuracy.</p>
 <p>The summary also includes the date and time of model execution, the timeframe of the data, and the type of covariance used, which aids in understanding how the model accounts for uncertainties in parameter estimates.</p>
-<p>Next, we extract the coefficient summary</p>
-<table class="table-striped table-hover caption-top table">
-<caption>SARIMAX Coefficient Summary</caption>
-<colgroup>
-<col style="width: 23%">
-<col style="width: 11%">
-<col style="width: 14%">
-<col style="width: 10%">
-<col style="width: 12%">
-<col style="width: 13%">
-<col style="width: 13%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Coefficient Table</strong></th>
-<th style="text-align: left;"><strong>coef</strong></th>
-<th style="text-align: left;"><strong>std err</strong></th>
-<th style="text-align: left;"><strong>z</strong></th>
-<th style="text-align: left;">**P&gt;</th>
-<th style="text-align: left;">z</th>
-<th style="text-align: left;">**</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>ar.L1</strong></td>
-<td style="text-align: left;">0.0656</td>
-<td style="text-align: left;">0.246</td>
-<td style="text-align: left;">0.267</td>
-<td style="text-align: left;">0.789</td>
-<td style="text-align: left;">-0.416</td>
-<td style="text-align: left;">0.547</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>ma.L1</strong></td>
-<td style="text-align: left;">-0.9993</td>
-<td style="text-align: left;">7.412</td>
-<td style="text-align: left;">-0.135</td>
-<td style="text-align: left;">0.893</td>
-<td style="text-align: left;">-15.527</td>
-<td style="text-align: left;">13.529</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>ma.S.L12</strong></td>
-<td style="text-align: left;">-0.9999</td>
-<td style="text-align: left;">263.482</td>
-<td style="text-align: left;">-0.004</td>
-<td style="text-align: left;">0.997</td>
-<td style="text-align: left;">-517.416</td>
-<td style="text-align: left;">515.416</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>sigma2</strong></td>
-<td style="text-align: left;">115.3748</td>
-<td style="text-align: left;">3.03e+04</td>
-<td style="text-align: left;">0.004</td>
-<td style="text-align: left;">0.997</td>
-<td style="text-align: left;">-5.93e+04</td>
-<td style="text-align: left;">5.96e+04</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="interpretation-1" class="level3">
-<h3 class="anchored" data-anchor-id="interpretation-1">Interpretation</h3>
-<p>The table above summarizes the coefficients, standard errors, z-values, p-values, and 95% confidence intervals for the SARIMAX model parameters. This information is crucial for evaluating the significance and reliability of each parameter estimate</p>
+<p>Next, we extract the coefficient, standard errors, z-values, p-values, and 95% confidence intervals for the SARIMAX model parameters. This information is crucial for evaluating the significance and reliability of each parameter estimate</p>
 </section>
 <section id="autoregressive-term-ar.l1" class="level3">
 <h3 class="anchored" data-anchor-id="autoregressive-term-ar.l1">Autoregressive Term (ar.L1)</h3>
@@ -459,16 +382,12 @@ sigma2       115.3748   3.03e+04      0.004      0.997   -5.93e+04    5.96e+04
 <li>Confidence Interval: [-657000, 657000] Very wide, includes zero, highlighting lack of significance.</li>
 </ul>
 </section>
-<section id="overall-summary" class="level3">
-<h3 class="anchored" data-anchor-id="overall-summary">Overall Summary</h3>
-<p>None of the coefficients in the SARIMAX model are statistically significant, as indicated by the high p-values and z-values close to zero. This means that the parameters do not effectively predict the AQI data. The large standard errors and wide confidence intervals point to a high degree of uncertainty in the parameter estimates. This suggests the model may not be well-suited for capturing the dynamics of the AQI data, and re-evaluation of the model or data is recommended.</p>
-</section>
 </section>
 <section id="fit-sarimax-model" class="level2">
 <h2 class="anchored" data-anchor-id="fit-sarimax-model">Fit SARIMAX model</h2>
 <div id="extract-aic-value-plot" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>aic_value <span class="op">=</span> results.aic</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The AIC value is: </span><span class="sc">{</span>aic_value<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>aic_value <span class="op">=</span> results.aic</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The AIC value is: </span><span class="sc">{</span>aic_value<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The AIC value is: 668.6317406918595</code></pre>
 </div>
@@ -480,49 +399,40 @@ sigma2       115.3748   3.03e+04      0.004      0.997   -5.93e+04    5.96e+04
 <li><em>Q-Q Plot</em>: This plot compares the distribution of residuals to a normal distribution. Points should ideally lie along the line of best fit.</li>
 <li><em>Forecast Plot</em>: Displays the fitted values versus the actual values and includes forecasted values. A good model will have fitted values close to the actual values with narrow confidence intervals</li>
 </ul>
-<div id="cf17672d" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>results.plot_diagnostics(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="83">
-<div>
+<div id="plot-diag" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>results.plot_diagnostics(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="_05c_results_Machine_Learning_SARIMAX_files/figure-html/cell-9-output-1.png" width="812" height="824" class="figure-img"></p>
+<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/final-plot.png?raw=true" class="img-fluid figure-img"></p>
+<figcaption>Figure 15: Diagnostic plots</figcaption>
 </figure>
 </div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="_05c_results_Machine_Learning_SARIMAX_files/figure-html/cell-9-output-2.png" width="812" height="824" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Figure 15: Diagnostic plots for standardized residuals of one endogenous variable</p>
 <p>Once the model is created, predicted values are generated using the .get_prediction() method, with datetime as input.</p>
 <div id="check-prediction" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>pred <span class="op">=</span> results.get_prediction(start<span class="op">=</span>pd.to_datetime(<span class="st">'2023-01-01 00:00:00'</span>), dynamic<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>pred_ci <span class="op">=</span> pred.conf_int()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>pred <span class="op">=</span> results.get_prediction(start<span class="op">=</span>pd.to_datetime(<span class="st">'2023-01-01 00:00:00'</span>), dynamic<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>pred_ci <span class="op">=</span> pred.conf_int()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="plot-prediction" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> df_aqi[<span class="st">'2015-01-31 00:00:00'</span>:].plot(label<span class="op">=</span><span class="st">'Observed'</span>) <span class="co"># plot the observed data </span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>pred.predicted_mean.plot(ax<span class="op">=</span>ax, label<span class="op">=</span><span class="st">'One-step ahead Forecast'</span>, alpha<span class="op">=</span><span class="fl">.7</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">7</span>))</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>ax.fill_between(pred_ci.index,pred_ci.iloc[:, <span class="dv">0</span>],pred_ci.iloc[:, <span class="dv">1</span>], color<span class="op">=</span><span class="st">'k'</span>, alpha<span class="op">=</span><span class="fl">.2</span>)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Date'</span>)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'AQI index'</span>)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> df_aqi[<span class="st">'2015-01-31 00:00:00'</span>:].plot(label<span class="op">=</span><span class="st">'Observed'</span>) <span class="co"># plot the observed data </span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>pred.predicted_mean.plot(ax<span class="op">=</span>ax, label<span class="op">=</span><span class="st">'One-step ahead Forecast'</span>, alpha<span class="op">=</span><span class="fl">.7</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">7</span>))</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>ax.fill_between(pred_ci.index,pred_ci.iloc[:, <span class="dv">0</span>],pred_ci.iloc[:, <span class="dv">1</span>], color<span class="op">=</span><span class="st">'k'</span>, alpha<span class="op">=</span><span class="fl">.2</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Date'</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'AQI index'</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To facilitate comparison of true and predicted test values, we will create a separate DataFrame. Mean Error Estimation will be used for analysis.</p>
 <div id="define-forecast-truth" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>y_forecasted <span class="op">=</span> pred.predicted_mean</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>y_truth <span class="op">=</span> df_aqi[<span class="st">'2022-12-31 00:00:00'</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>y_forecasted <span class="op">=</span> pred.predicted_mean</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>y_truth <span class="op">=</span> df_aqi[<span class="st">'2022-12-31 00:00:00'</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To evaluate model performance, we calculate the MSE.</p>
 <div id="calculate-mse" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>mse <span class="op">=</span> np.sqrt(mean_squared_error(y_truth, y_forecasted))   </span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The Mean Squared Error of our forecasts is </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(<span class="bu">round</span>(mse, <span class="dv">2</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>mse <span class="op">=</span> np.sqrt(mean_squared_error(y_truth, y_forecasted))   </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The Mean Squared Error of our forecasts is </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(<span class="bu">round</span>(mse, <span class="dv">2</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The Mean Squared Error of our forecasts is 0.83</code></pre>
 </div>
@@ -540,24 +450,24 @@ sigma2       115.3748   3.03e+04      0.004      0.997   -5.93e+04    5.96e+04
 </ol>
 <p>This step transforms our analytical work into actionable insights for air quality management.</p>
 <div id="recheck-forecast" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>pred_uc <span class="op">=</span> results.get_forecast(steps<span class="op">=</span><span class="dv">30</span>)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>pred_ci <span class="op">=</span> pred_uc.conf_int()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>pred_uc <span class="op">=</span> results.get_forecast(steps<span class="op">=</span><span class="dv">30</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>pred_ci <span class="op">=</span> pred_uc.conf_int()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="show-tab-pred" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the forecasted values</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>forecasted_values <span class="op">=</span> pred_uc.predicted_mean</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the forecasted dates</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>forecasted_dates <span class="op">=</span> forecasted_values.index</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a DataFrame with the dates and forecasted values</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>forecast_df <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Date'</span>: forecasted_dates,</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Forecasted Value'</span>: forecasted_values</span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the DataFrame as a table</span></span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="co">#print(forecast_df.head(30).to_markdown(index=False))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the forecasted values</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>forecasted_values <span class="op">=</span> pred_uc.predicted_mean</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the forecasted dates</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>forecasted_dates <span class="op">=</span> forecasted_values.index</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a DataFrame with the dates and forecasted values</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>forecast_df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Date'</span>: forecasted_dates,</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Forecasted Value'</span>: forecasted_values</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the DataFrame as a table</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="co">#print(forecast_df.head(30).to_markdown(index=False))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="visualizing-our-results" class="level2">
@@ -585,23 +495,23 @@ sigma2       115.3748   3.03e+04      0.004      0.997   -5.93e+04    5.96e+04
 </ul></li>
 </ol>
 <p>This visual representation not only summarizes our extensive data analysis but also provides a powerful tool for understanding potential future air quality trends. It bridges the gap between complex statistical models and actionable insights, making our findings accessible and meaningful to a broader audience.</p>
-<div id="cell-plot-forecast" class="cell" data-ouput="false" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the seaborn theme</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"whitegrid"</span>)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> df_aqi.plot(label<span class="op">=</span><span class="st">'Observed'</span>, figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">7</span>))</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>pred_uc.predicted_mean.plot(ax<span class="op">=</span>ax, label<span class="op">=</span><span class="st">'Forecast'</span>)</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>ax.fill_between(pred_ci.index,pred_ci.iloc[:, <span class="dv">0</span>],pred_ci.iloc[:, <span class="dv">1</span>], color<span class="op">=</span><span class="st">'k'</span>, alpha<span class="op">=</span><span class="fl">.25</span>)</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Add the vertical line for a specific year</span></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>year_to_highlight <span class="op">=</span> <span class="st">'2022-12-31'</span>  <span class="co"># Example date to highlight</span></span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>ax.axvline(pd.to_datetime(year_to_highlight), color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">'Year Highlight'</span>)</span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Set labels and legend</span></span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Year'</span>)</span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'AQI Index'</span>)</span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-plot-forecast" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the seaborn theme</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"whitegrid"</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> df_aqi.plot(label<span class="op">=</span><span class="st">'Observed'</span>, figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">7</span>))</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>pred_uc.predicted_mean.plot(ax<span class="op">=</span>ax, label<span class="op">=</span><span class="st">'Forecast'</span>)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>ax.fill_between(pred_ci.index,pred_ci.iloc[:, <span class="dv">0</span>],pred_ci.iloc[:, <span class="dv">1</span>], color<span class="op">=</span><span class="st">'k'</span>, alpha<span class="op">=</span><span class="fl">.25</span>)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Add the vertical line for a specific year</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>year_to_highlight <span class="op">=</span> <span class="st">'2022-12-31'</span>  <span class="co"># Example date to highlight</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>ax.axvline(pd.to_datetime(year_to_highlight), color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">'Year Highlight'</span>)</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Set labels and legend</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Year'</span>)</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'AQI Index'</span>)</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -610,13 +520,11 @@ sigma2       115.3748   3.03e+04      0.004      0.997   -5.93e+04    5.96e+04
 </div>
 </div>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src=".png" class="img-fluid figure-img"></p>
-<figcaption>Figure 16: Portland AQI Forecast from 2023 to 2025</figcaption>
-</figure>
-</div>
-<p>Our conclusion is that the SARIMAX model did not predict well the forecast values of the air quality index (AQI). As mentioned in the plot diagnostics, the high p-value and z-score close to zero indicate that the model’s hyperparameters may not be significantly contributing to the prediction accuracy.</p>
+<p>Figure 16: Portland AQI Plot Forecast from 2023 to 2025</p>
+</section>
+<section id="overall-conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="overall-conclusion">Overall Conclusion</h3>
+<p>None of the coefficients in the SARIMAX model are statistically significant, as indicated by the high p-values and z-values close to zero. This means that the parameters do not effectively predict the AQI data. The large standard errors and wide confidence intervals point to a high degree of uncertainty in the parameter estimates. This suggests the model may not be well-suited for capturing the dynamics of the AQI data, and re-evaluation of the model or data is recommended. Our conclusion is that the SARIMAX model did not predict well the forecast values of the air quality index (AQI).</p>
 </section>
 <section id="possible-reasons-for-poor-performance" class="level3">
 <h3 class="anchored" data-anchor-id="possible-reasons-for-poor-performance">Possible Reasons for Poor Performance</h3>
@@ -624,7 +532,8 @@ sigma2       115.3748   3.03e+04      0.004      0.997   -5.93e+04    5.96e+04
 <ul>
 <li><p><em>Overfitting or Underfitting</em>: A high p-value for the model coefficients suggests that these parameters are not statistically significant. This could be a sign of overfitting, where the model is too complex and captures noise instead of the underlying pattern, or underfitting, where the model is too simple to capture the complexity of the data.</p></li>
 <li><p><em>Residual Diagnostics</em>: The residuals from the SARIMAX model may not be normally distributed or might exhibit autocorrelation, as seen in the plot diagnostics. This violation of assumptions indicates that the model is not capturing all the patterns in the data.</p></li>
-<li><p><em>External Influences</em>: The SARIMAX model may not account for all external factors influencing AQI, such as sudden changes in weather conditions, local events, or policy changes affecting pollution levels.</p></li>
+<li><p><em>External Influences</em>: The SARIMAX model may not account for all external factors influencing AQI, such as sudden changes in weather conditions, wildfires, or policy changes affecting pollution levels.</p></li>
+<li><p><em>SARIMAX model</em>: The SARIMAX model is quite intricate and can be challenging to comprehend fully.</p></li>
 </ul>
 </section>
 </section>
