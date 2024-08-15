@@ -462,7 +462,7 @@ ConfusionMatrixDisplay(
         ).plot(xticks_rotation='vertical')
 ```
 
-![Figure 11: Confusion Matrix For Bin Size 1](https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/confusion_matrix_1.png?raw=true)
+![Figure 8: Confusion Matrix For Original AQI Categories](https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/confusion_matrix_1.png?raw=true)
 
 Looking only at Cohen Kappa score and accuracy, this seems like a good prediction model. However, the confusion matrix shows the data's skew, centered around the 0-100 range. Therefore, more bins and bin size combinations are tested in order to provide a more meaningful prediction.
 
@@ -722,6 +722,7 @@ Table 1 below shows the selected hyperparameters.
 ```{python}
 #| echo: false
 #| label: randsearch-get-params
+#| fig-cap: "Table 1: Selected Hyperparameters following hyperparamenter optimization"
 random_search.best_params_
 #random_search.best_estimator_.get_params()
 params_df = pd.DataFrame(list(random_search.best_params_.items()), columns=['Parameter', 'Value'])
@@ -729,7 +730,6 @@ params_df = pd.DataFrame(list(random_search.best_params_.items()), columns=['Par
 # Print the DataFrame
 display(params_df)
 ```
-Table 2 below shows the selected hyperparameters having hyperparamenter optimization
 
 Using these hyperparameters, we reach an accuracy of over 70%.
 
@@ -754,16 +754,17 @@ ConfusionMatrixDisplay(
         display_labels = ['0-25', '26-50', '51-75', '76-100', '101-200', '201-500']
         ).plot(xticks_rotation='vertical')
 ```
-![Figure 12: Final Model Confusion Matrix](https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/confusion_matrix_final.png?raw=true)
+![Figure 9: Final Model Confusion Matrix](https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/confusion_matrix_final.png?raw=true)
 
 We can use this model for the prediction of AQI, exploring the features that predict it, and use that to generate conclusions for what variables or systems should be addressed.
 
-Below, the table 3 shows a classification report of the model. Support represents the amount of data points total in that bin. We can see that AQI groups with more data tend to be more accurate (higher f1-score). This makes sense as the model has more of this data to train on. To make the model more accurate, more data from AQI values outside this 26-200 range will need to be collected.
+Below, table 2 shows a classification report of the model. Support represents the amount of data points total in that bin. We can see that AQI groups with more data tend to be more accurate (higher f1-score). This makes sense as the model has more of this data to train on. To make the model more accurate, more data from AQI values outside this 26-200 range will need to be collected.
 
 ```{python}
 #| echo: false
 #| warning: false
 #| label: classification-report
+#| fig-cap: "Table 2: Final Model Classification Report"
 report = classification_report(y_test, y_pred, target_names=classification_pipeline.classes_, output_dict=True)
 
 df_report = pd.DataFrame(report).transpose()
@@ -772,14 +773,14 @@ df_report = df_report[0:6]
 df_report = df_report.reindex(['0-25', '26-50', '51-75', '76-100', '101-200', '201-500'])
 display(df_report)
 ```
-Table 3: Final Model Classification Report)
 
-We can also take a look at which features end up being most influential in the model. Below figure 13 shows Temperature and Humidity being by far the most influential variables in the model. However, temperature and humidity are not variables we can directly impact easily, and therefore, the four other variables are where we should put our efforts.
+We can also take a look at which features end up being most influential in the model. Below, figure 10 shows temperature and humidity being by far the most influential variables in the model. However, temperature and humidity are not variables we can directly impact easily, and therefore, the four other variables are where we should put our efforts.
 
 ```{python}
 #| echo: false
 #| warning: false
 #| label: feature-importance
+#| fig-cap: "Figure 10: Feature Importance of Selected Variables in Final Model"
 
 features = pd.DataFrame(
    dict(
@@ -809,4 +810,4 @@ plt.ylabel('Feature Importance')
 
 plt.show()
 ```
-Figure 13: Feature Importance of Selected Variables in Final Model
+
