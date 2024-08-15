@@ -182,12 +182,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#prophet" id="toc-prophet" class="nav-link" data-scroll-target="#prophet">Prophet</a></li>
   <li><a href="#sarimax" id="toc-sarimax" class="nav-link" data-scroll-target="#sarimax">SARIMAX​​</a></li>
-  <li><a href="#akaike-information-criteria-aic" id="toc-akaike-information-criteria-aic" class="nav-link" data-scroll-target="#akaike-information-criteria-aic">Akaike Information Criteria (AIC)</a>
-  <ul class="collapse">
-  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation">Interpretation</a></li>
-  <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a></li>
-  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
-  </ul></li>
+  <li><a href="#akaike-information-criteria-aic" id="toc-akaike-information-criteria-aic" class="nav-link" data-scroll-target="#akaike-information-criteria-aic">Akaike Information Criteria (AIC)</a></li>
   <li><a href="#train-test-split" id="toc-train-test-split" class="nav-link" data-scroll-target="#train-test-split">Train-Test-Split</a></li>
   <li><a href="#hypothesis-testing" id="toc-hypothesis-testing" class="nav-link" data-scroll-target="#hypothesis-testing">Hypothesis Testing</a></li>
   <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning">Machine Learning</a></li>
@@ -225,7 +220,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#sarimax-model-results" id="toc-sarimax-model-results" class="nav-link" data-scroll-target="#sarimax-model-results">SARIMAX Model Results</a>
   <ul class="collapse">
-  <li><a href="#interpretation-1" id="toc-interpretation-1" class="nav-link" data-scroll-target="#interpretation-1">Interpretation</a></li>
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation">Interpretation</a></li>
   <li><a href="#autoregressive-term-ar.l1" id="toc-autoregressive-term-ar.l1" class="nav-link" data-scroll-target="#autoregressive-term-ar.l1">Autoregressive Term (ar.L1)</a></li>
   <li><a href="#moving-average-term-ma.l1" id="toc-moving-average-term-ma.l1" class="nav-link" data-scroll-target="#moving-average-term-ma.l1">Moving Average Term (ma.L1)</a></li>
   <li><a href="#seasonal-moving-average-term-ma.s.l12" id="toc-seasonal-moving-average-term-ma.s.l12" class="nav-link" data-scroll-target="#seasonal-moving-average-term-ma.s.l12">Seasonal Moving Average Term (ma.S.L12)</a></li>
@@ -316,41 +311,13 @@ window.Quarto = {
 </section>
 <section id="akaike-information-criteria-aic" class="level2">
 <h2 class="anchored" data-anchor-id="akaike-information-criteria-aic">Akaike Information Criteria (AIC)</h2>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; Updated upstream The Akaike Information Criterion (AIC) is a measurement used to compare different statistical models. It helps in model selection by balancing the goodness of fit and the complexity of the model. When comparing two models, the one with the lower AIC is generally “better”. ======= The Akaike Information Criterion (AIC) was formulated by the statistician Hirotsugu Akaike, is a measure used to compare different statistical models. It helps in model selection by balancing the goodness of fit and the complexity of the model. When comparing two models, the one with the lower AIC is generally “better”.</p>
-<p>The Akaike Information Criterion (AIC) is defined as:</p>
-<p><span class="math display">\[
-\text{AIC} = 2k - 2\ln(\hat{L})
-\]</span></p>
-<p>Where:</p>
-<ul>
-<li>( k ) is the number of parameters in the model.</li>
-<li>( ) is the maximum value of the likelihood function for the model.</li>
-<li>( () ) is the natural logarithm of the likelihood function.</li>
-</ul>
-<section id="interpretation" class="level3">
-<h3 class="anchored" data-anchor-id="interpretation">Interpretation</h3>
-<ul>
-<li><strong>Likelihood Function (())</strong>: Measures how well the model fits the data. A higher likelihood indicates a better fit.</li>
-<li><strong>Penalty Term ((2k))</strong>: Accounts for the number of parameters in the model, penalizing more complex models to avoid overfitting.</li>
-</ul>
-</section>
-<section id="usage" class="level3">
-<h3 class="anchored" data-anchor-id="usage">Usage</h3>
-<p>When comparing multiple models, the model with the lowest AIC value is generally preferred because it offers a better balance between goodness of fit and complexity.</p>
-</section>
-<section id="example" class="level3">
-<h3 class="anchored" data-anchor-id="example">Example</h3>
-<p>For a linear regression model, the likelihood function () is calculated based on the residual sum of squares (RSS). The formula can be expressed as:</p>
-<p><span class="math display">\[
-\text{AIC} = 2k + n \ln\left(\frac{\text{RSS}}{n}\right)
-\]</span> Where ( n ) is the number of observations. Here, RSS is the sum of the squared differences between the observed and predicted values, reflecting the model’s fit to the data. &gt;&gt;&gt;&gt;&gt;&gt;&gt; Stashed changes</p>
+<p>The Akaike Information Criterion (AIC) is a measurement used to compare different statistical models. It helps in model selection by balancing the goodness of fit and the complexity of the model. When comparing two models, the one with the lower AIC is generally “better”.</p>
 <p>Here’s how to interpret the AIC value:</p>
 <ul>
 <li><em>AIC Value</em>: A lower AIC value indicates a better-fitting model. It means the model has a good balance between accuracy and complexity.</li>
 <li><em>Comparative Measure</em>: AIC is most useful when comparing multiple models. The model with the lowest AIC among a set of candidate models is generally preferred.</li>
 <li><em>Penalty for Complexity</em>: AIC includes a penalty for the number of parameters in the model. This discourages overfitting by penalizing models that use more parameters without a corresponding improvement in fit.</li>
 </ul>
-</section>
 </section>
 <section id="train-test-split" class="level2">
 <h2 class="anchored" data-anchor-id="train-test-split">Train-Test-Split</h2>
@@ -587,8 +554,8 @@ window.Quarto = {
 <p>An initial Random Forest Model run with the selected features returns the following Cohen Kappa score and accuracy:</p>
 <div id="cks-accuracy" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-stdout">
-<pre><code>Cohen Kappa Score:  0.46725223812451755
-Accuracy:  0.7327163854109962</code></pre>
+<pre><code>Cohen Kappa Score:  0.46388141518006454
+Accuracy:  0.7316276537833424</code></pre>
 </div>
 </div>
 <div class="quarto-figure quarto-figure-center">
@@ -661,27 +628,27 @@ Accuracy:  0.7327163854109962</code></pre>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
 <td>RF_model__min_samples_leaf</td>
-<td>9</td>
+<td>8</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
 <td>RF_model__min_samples_split</td>
-<td>8</td>
+<td>7</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">5</td>
 <td>RF_model__n_estimators</td>
-<td>75</td>
+<td>105</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">6</td>
 <td>aqi_transformer__categories__max_categories</td>
-<td>13</td>
+<td>18</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">7</td>
 <td>aqi_transformer__categories__min_frequency</td>
-<td>11</td>
+<td>7</td>
 </tr>
 </tbody>
 </table>
@@ -693,7 +660,7 @@ Accuracy:  0.7327163854109962</code></pre>
 <p>Using these hyperparameters, we reach an accuracy of over 70%.</p>
 <div id="predict-x_test-final" class="cell" data-execution_count="35">
 <div class="cell-output cell-output-stdout">
-<pre><code>Cohen Kappa Score:  0.46043412332921485
+<pre><code>Cohen Kappa Score:  0.46131176825804976
 Accuracy:  0.7152966793685357</code></pre>
 </div>
 </div>
@@ -730,30 +697,30 @@ Accuracy:  0.7152966793685357</code></pre>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">26-50</td>
-<td>0.783966</td>
-<td>0.878903</td>
-<td>0.828724</td>
+<td>0.785714</td>
+<td>0.874172</td>
+<td>0.827586</td>
 <td>1057.0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">51-75</td>
-<td>0.619565</td>
-<td>0.568106</td>
-<td>0.592721</td>
+<td>0.617021</td>
+<td>0.578073</td>
+<td>0.596913</td>
 <td>602.0</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">76-100</td>
-<td>0.369231</td>
-<td>0.222222</td>
-<td>0.277457</td>
+<td>0.375000</td>
+<td>0.194444</td>
+<td>0.256098</td>
 <td>108.0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">101-200</td>
-<td>0.542857</td>
-<td>0.316667</td>
-<td>0.400000</td>
+<td>0.512195</td>
+<td>0.350000</td>
+<td>0.415842</td>
 <td>60.0</td>
 </tr>
 <tr class="even">
@@ -885,8 +852,8 @@ Common examples of time series data include stock market closing prices, househo
 </tr>
 </tbody>
 </table>
-<section id="interpretation-1" class="level3">
-<h3 class="anchored" data-anchor-id="interpretation-1">Interpretation</h3>
+<section id="interpretation" class="level3">
+<h3 class="anchored" data-anchor-id="interpretation">Interpretation</h3>
 <p>This summary presents a concise overview of the SARIMAX model’s performance and fit.</p>
 <p>The SARIMAX(1, 1, 1)x(0, 1, 1, 12) model integrates both non-seasonal and seasonal components, effectively capturing both immediate and periodic influences on the Air Quality Index (AQI). The model utilizes 96 observations, providing a robust dataset for accurate model fitting.</p>
 <p>Key metrics such as the log-likelihood, AIC, BIC, and HQIC are used to assess the model’s effectiveness, with lower values typically indicating a better fit that balances complexity and accuracy.</p>
@@ -1026,7 +993,15 @@ Common examples of time series data include stock market closing prices, househo
 <section id="conclusion" class="level1">
 <h1>Conclusion</h1>
 <p>After conducting our thorough research, we have landed on these specific recommendations.</p>
-<p>AQI is impacted by six explanatory features: - Temperature - Humidity - Park Land Area - Number of Cattle - City Area - Population</p>
+<p>AQI is impacted by six explanatory features:</p>
+<ul>
+<li>Temperature</li>
+<li>Humidity</li>
+<li>Park Land Area</li>
+<li>Number of Cattle</li>
+<li>City Area</li>
+<li>Population</li>
+</ul>
 <p>Figure 14 shows how each of these features impacts AQI</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1035,12 +1010,14 @@ Common examples of time series data include stock market closing prices, househo
 </figure>
 </div>
 <p>To improve AQI, a city should:</p>
-<pre><code> - Decrease temperatures
- - Increase humidity
- - Decrease park land area
- - Decrease number of cattle
- - Decrease city area
- - Decrease population</code></pre>
+<ul>
+<li>Decrease temperatures</li>
+<li>Increase humidity</li>
+<li>Decrease park land area</li>
+<li>Decrease number of cattle</li>
+<li>Decrease city area</li>
+<li>Decrease population</li>
+</ul>
 <p>We also found there are high seasonal trends that show up each year from the time series analysis models. AQI tends to be highest during late summer to early fall. We can attribute this increase to the increased temperatures and decreased humidity. As climate change raises temperatures and water sources dry up, the seasonal AQI increases will become more severe. We must be aware of the nature of air quality and how it changes at different parts of the year. We should understand how the AQI works, and avoid being outside for too long when it reaches more dangerous levels.</p>
 <p>We must focus on the variables that have the greatest impact on the AQI. Of these, we have little control over temperature and humidity, with the exception of fighting climate change. That leaves us with the city and park area, city population, and cattle numbers. City area and population are difficult to address. Population cannot be directly regulated; cities cannot put limits on the amount of people moving in. Population, however, is impacted by economics. As the cost of living in certain areas increases, more people will be priced out and forced to move away. This is not a recommendation to raise living costs. That comes with its own set of issues that are outside the scope of this project such as a decrease in the physical and mental health outcomes of the population (Broadbent et al.), which would ultimately be counter productive to the increase in air quality.</p>
 <p>Some cities, such as Portland, have boundary restrictions to combat urban sprawl (Portland.gov). This increases the need to build vertically, increasing population density. We did not find evidence that population density has a significant impact on the AQI. Therefore, imposing urban growth boundaries can be useful for addressing land area increases and lead to lower AQI levels.</p>
