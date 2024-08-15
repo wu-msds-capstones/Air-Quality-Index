@@ -6,7 +6,7 @@ Prophet is an open-source forecasting tool developed by Meta, designed for forec
 
 Key features of Prophet include seasonality detection and holiday incorporation, while providing easy use and understanding for users. We can use this software to get complex understanding from simple applications.
 
-To conduct this analysis, we prepare data into a two column table, date and AQI. Prophet uses the trends of past data to highlight similarities over days of the year, weeks, months, and seasons. From this, prophet is able to generate its predictions, cross validate, and give performance metrics such as mean absolute percentage error to quantify the accuracy of the results
+To conduct this analysis, we prepare data into a two column table, with columns date and AQI. Prophet uses the trends of past data to highlight similarities over days of the year, weeks, months, and seasons. From this, prophet is able to generate its predictions, cross validate, and give performance metrics such as mean absolute percentage error to quantify the accuracy of the results
 
 ## SARIMAX​​
 The most common method used in time series forecasting is known as the ARIMA model. We will use an extended version called SARIMAX (*Seasonal Auto Regressive Integrated Moving Averages with exogenous factor*)
@@ -17,7 +17,7 @@ The most common method used in time series forecasting is known as the ARIMA mod
 - *(MA) Moving Average*: Uses past forecast errors in the prediction.
 - *(X) eXogenous factors*: Incorporates external variables that may influence the forecast.
 
-The SARIMAX model is used when the data sets have seasonal cycles. In the dataset concerning the air quality/AQI there is a seasonal pattern. SARIMAX is a model that can be fitted to time series data in order to better understand or predict future points. SARIMAX is particularly useful for forecasting time series data that exhibits both trends and seasonality.
+The SARIMAX model is used when the data sets have seasonal cycles. In the dataset concerning the air quality/AQI there is a seasonal pattern. SARIMAX can be fitted to time series data in order to better understand or predict future points. SARIMAX is particularly useful for forecasting time series data that exhibits both trends and seasonality.
 There are three distinct integers (p,d,q) that are used to parametrize SARIMAX models. Because of that, SARIMAX models are denoted with the notation SARIMAX(p,d,q). Together these three parameters account for seasonality, trend, and noise in datasets:
 
 - *p* is the auto-regressive part of the model. It allows us to incorporate the effect of past values into our model.
@@ -27,7 +27,7 @@ There are three distinct integers (p,d,q) that are used to parametrize SARIMAX m
 We use a tuning technique called grid search method that attempts to compute the optimum values of the hyperparameters. We are trying to find the right p,d,q values that would be given as an input to the SARIMAX time series model.
 
 ## Akaike Information Criteria (AIC)
-The Akaike Information Criterion (AIC) is a measure used to compare different statistical models. It helps in model selection by balancing the goodness of fit and the complexity of the model. When comparing two models, the one with the lower AIC is generally "better".
+The Akaike Information Criterion (AIC) is a measurement used to compare different statistical models. It helps in model selection by balancing the goodness of fit and the complexity of the model. When comparing two models, the one with the lower AIC is generally "better".
 
 Here’s how to interpret the AIC value:
 
