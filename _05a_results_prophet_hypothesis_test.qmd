@@ -80,12 +80,11 @@ Prophet's plot component function allows us to see specific trends including the
 This allows us to see how AQI changes by day. In the top full time span graph, it shows the potential spread of data for the predicted period with the transparent blue area. We can also see that day of the week tends to have very little impact on the trend (it may look significant but it is only moving up and down less than 1.5 AQI between days). Finally, from the yearly graph we can see the consistent increase during the late summer to mid fall each year.
 
 ## Cross Validation
-
 How accurate are these predictions? A cross validation predicts over the period from the cutoff date up to specified date in the ds column date.
 
 Cross validating the predictions allows us to create many estimates from a starting date up to an end date within out timeframe. In this instance, the tool predicts using start dates every half a year. It will predict AQI for that date to every day up to a year after the start date, giving us 365 estimates per start date. We then compare all estimations seeing how accurate the prediction is for a number of days after the start date.
 
-The tool allows us to measure the difference in predicted y and actual y with a variety of different measurements. In figure 559955 below, we have selected mean absolute percent error, to show how if the error on average increased as the prediction got further from the starting point.
+The tool allows us to measure the difference in predicted y and actual y with a variety of different measurements. In figure 8 below, we have selected mean absolute percent error, to show how if the error on average increased as the prediction got further from the starting point.
 
 ![Figure 8: Prophet Error on Cross Validated Estimates](https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/prophet_cross_val_aqi.png?raw=true)
 

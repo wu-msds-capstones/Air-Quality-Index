@@ -182,47 +182,56 @@ We have to find the lowest AIC values which would have the best corresponding p,
 ## SARIMAX Model Results
 ```{python}
 #| label: mod-fit
-mod = sm.tsa.statespace.SARIMAX(df_aqi,order=(1, 1, 1),seasonal_order=(0,1, 1, 12),enforce_stationarity=False,enforce_invertibility=False)
+#mod = sm.tsa.statespace.SARIMAX(df_aqi,order=(1, 1, 1),seasonal_order=(0,1, 1, 12),enforce_stationarity=False,enforce_invertibility=False)
+mod = sm.tsa.statespace.SARIMAX(df_aqi,order=(1, 1, 1),seasonal_order=(0,1, 1, 12))
+
 results = mod.fit()
 print(results.summary().tables[0])
 print(results.summary().tables[1])
 #print(results.summary().tables[2])
 ```
 
-This summary presents a concise overview of the SARIMAX model’s performance and fit. The SARIMAX(1, 1, 1)x(0, 1, 1, 12) model integrates both non-seasonal and seasonal components, effectively capturing both immediate and periodic influences on the Air Quality Index (AQI). The model utilizes 96 observations, providing a robust dataset for accurate model fitting.
-Key metrics such as the log-likelihood, AIC, BIC, and HQIC are used to assess the model's effectiveness, with lower values typically indicating a better fit that balances complexity and accuracy. The summary also includes the date and time of model execution, the timeframe of the data, and the type of covariance used, which aids in understanding how the model accounts for uncertainties in parameter estimates.
+This summary presents a concise overview of the SARIMAX model’s performance and fit. 
+
+The SARIMAX(1, 1, 1)x(0, 1, 1, 12) model integrates both non-seasonal and seasonal components, effectively capturing both immediate and periodic influences on the Air Quality Index (AQI). The model utilizes 96 observations, providing a robust dataset for accurate model fitting.
+
+Key metrics such as the log-likelihood, AIC, BIC, and HQIC are used to assess the model's effectiveness, with lower values typically indicating a better fit that balances complexity and accuracy. 
+
+The summary also includes the date and time of model execution, the timeframe of the data, and the type of covariance used, which aids in understanding how the model accounts for uncertainties in parameter estimates.
 
 ### Autoregressive Term (ar.L1)
-Coefficient: 0.0483  Suggests a slight positive influence of the previous observation on the current value.
-Standard Error: 0.306 Indicates significant variability in the coefficient estimate.
-Z-Value: 0.158 Low value, indicating the coefficient is not statistically significant.
-P-Value: 0.875 Not significant (p-value > 0.05).
-Confidence Interval: [-0.551, 0.648]
-Includes zero, reinforcing the lack of significance.
+- Coefficient: 0.0483  Suggests a slight positive influence of the previous observation on the current value.
+- Standard Error: 0.306 Indicates significant variability in the coefficient estimate.
+- Z-Value: 0.158 Low value, indicating the coefficient is not statistically significant.
+- P-Value: 0.875 Not significant (p-value > 0.05).
+- Confidence Interval: [-0.551, 0.648]
+- Includes zero, reinforcing the lack of significance.
 
 ### Moving Average Term (ma.L1)
-Coefficient: -1.0000 Implies the model tries to correct nearly all errors from the previous period.
-Standard Error: 924.523 Extremely large, pointing to high uncertainty in the estimate.
-Z-Value: -0.001 Near zero, indicating no statistical significance.
-P-Value: 0.999  Not significant.
-Confidence Interval: [-1813.031, 1811.031] Very wide and includes zero, confirming lack of significance.
+- Coefficient: -1.0000 Implies the model tries to correct nearly all errors from the previous period.
+- Standard Error: 924.523 Extremely large, pointing to high uncertainty in the estimate.
+- Z-Value: -0.001 Near zero, indicating no statistical significance.
+- P-Value: 0.999  Not significant.
+- Confidence Interval: [-1813.031, 1811.031] Very wide and includes zero, confirming lack of significance.
 
 ### Seasonal Moving Average Term (ma.S.L12)
-Coefficient: -1.0000 Attempts to correct errors regarding data seasonality.
-Standard Error: 2355.498 Very large, indicating substantial uncertainty.
-Z-Value: -0.000 Near zero, suggesting no significance.
-P-Value: 1.000 Not significant.
-Confidence Interval: [-4617.692, 4615.692] Wide interval, includes zero, further indicating no significance.
+- Coefficient: -1.0000 Attempts to correct errors regarding data seasonality.
+- Standard Error: 2355.498 Very large, indicating substantial uncertainty.
+- Z-Value: -0.000 Near zero, suggesting no significance.
+- P-Value: 1.000 Not significant.
+- Confidence Interval: [-4617.692, 4615.692] Wide interval, includes zero, further indicating no significance.
 
 ### Variance of the Residuals (sigma2)
-Coefficient: 134.1503 Represents the variance of the residuals or errors.
-Standard Error: 335000 Extremely high, showing great uncertainty.
-Z-Value: 0.000 Indicates no statistical significance.
-P-Value: 1.000 Not significant.
-Confidence Interval: [-657000, 657000] Very wide, includes zero, highlighting lack of significance.
+- Coefficient: 134.1503 Represents the variance of the residuals or errors.
+- Standard Error: 335000 Extremely high, showing great uncertainty.
+- Z-Value: 0.000 Indicates no statistical significance.
+- P-Value: 1.000 Not significant.
+- Confidence Interval: [-657000, 657000] Very wide, includes zero, highlighting lack of significance.
 
-##Overall Summary
-None of the coefficients in the SARIMAX model are statistically significant, as indicated by the high p-values and z-values close to zero. This means that the parameters do not effectively predict the AQI data. The large standard errors and wide confidence intervals point to a high degree of uncertainty in the parameter estimates. This suggests the model may not be well-suited for capturing the dynamics of the AQI data, and re-evaluation of the model or data is recommended.
+### Overall Summary
+None of the coefficients in the SARIMAX model are statistically significant, as indicated by the high p-values and z-values close to zero. 
+This means that the parameters do not effectively predict the AQI data. The large standard errors and wide confidence intervals point to a high degree of uncertainty in the parameter estimates. 
+This suggests the model may not be well-suited for capturing the dynamics of the AQI data, and re-evaluation of the model or data is recommended.
 
 ## Fit SARIMAX model
 ```{python}
@@ -230,11 +239,17 @@ None of the coefficients in the SARIMAX model are statistically significant, as 
 aic_value = results.aic
 print(f"The AIC value is: {aic_value}")
 ```
-Explain what is the value AIC tells us, and how to interpret the plot. Look at the method
 
+When working with SARIMAX models, there are typically several plots you might analyze, such as:
+
+- *Time Series Plot of Residuals*: Shows the residuals over time. Ideally, residuals should appear as random noise without clear patterns.
+- *ACF and PACF Plots of Residuals*: Autocorrelation Function (ACF) and Partial Autocorrelation Function (PACF) plots help identify if the residuals of the model are uncorrelated. For a well-fitting model, residual autocorrelations should be small and within the significance bounds.
+- *Q-Q Plot*: This plot compares the distribution of residuals to a normal distribution. Points should ideally lie along the line of best fit.
+- *Forecast Plot*: Displays the fitted values versus the actual values and includes forecasted values. A good model will have fitted values close to the actual values with narrow confidence intervals
 ```{python}
-#results.plot_diagnostics(figsize=(10, 8))
+results.plot_diagnostics(figsize=(9,7))
 ```
+Figure 15: Diagnostic plots for standardized residuals of one endogenous variable
 
 Once the model is created, predicted values are generated using the .get_prediction() method, with datetime as input.
 ```{python}
@@ -271,6 +286,8 @@ from sklearn.metrics import mean_squared_error
 mse = np.sqrt(mean_squared_error(y_truth, y_forecasted))   
 print('The Mean Squared Error of our forecasts is {}'.format(round(mse, 2)))
 ```
+
+In the context of predicting the Air Quality Index (AQI), the Mean Squared Error (MSE) is indeed an indicator of the average squared difference between the predicted AQI values and the actual AQI values.
 
 ## Forecasting Future Values
 
@@ -333,11 +350,33 @@ This visual representation not only summarizes our extensive data analysis but a
 
 ```{python}
 #| label: plot-forecast
-ax = df_aqi.plot(label='Observed', figsize=(14, 7))
+
+# Set the seaborn theme
+sns.set_theme(style="whitegrid")
+
+ax = df_aqi.plot(label='Observed', figsize=(9, 7))
 pred_uc.predicted_mean.plot(ax=ax, label='Forecast')
 ax.fill_between(pred_ci.index,pred_ci.iloc[:, 0],pred_ci.iloc[:, 1], color='k', alpha=.25)
-ax.set_xlabel('Days')
-ax.set_ylabel('AQI index')
+
+# Add the vertical line for a specific year
+year_to_highlight = '2022-12-31'  # Example date to highlight
+ax.axvline(pd.to_datetime(year_to_highlight), color='red', linestyle='--', linewidth=2, label='Year Highlight')
+
+# Set labels and legend
+ax.set_xlabel('Year')
+ax.set_ylabel('AQI Index')
 plt.legend()
 plt.show()
 ```
+Figure 16: Portland AQI Forecast from 2023 to 2025
+
+Our conclusion is that the SARIMAX model did not predict well the forecast values of the air quality index (AQI). As mentioned in the plot diagnostics, the high p-value and z-score close to zero indicate that the model's hyperparameters may not be significantly contributing to the prediction accuracy.
+
+### Possible Reasons for Poor Performance
+Model Mis-specification: The chosen order of the SARIMAX model, including the autoregressive, differencing, and moving average components, may not be suitable for capturing the dynamics of the AQI data. This can lead to the model failing to capture trends and seasonal patterns accurately.
+
+- *Overfitting or Underfitting*: A high p-value for the model coefficients suggests that these parameters are not statistically significant. This could be a sign of overfitting, where the model is too complex and captures noise instead of the underlying pattern, or underfitting, where the model is too simple to capture the complexity of the data.
+
+- *Residual Diagnostics*: The residuals from the SARIMAX model may not be normally distributed or might exhibit autocorrelation, as seen in the plot diagnostics. This violation of assumptions indicates that the model is not capturing all the patterns in the data.
+
+- *External Influences*: The SARIMAX model may not account for all external factors influencing AQI, such as sudden changes in weather conditions, local events, or policy changes affecting pollution levels.
