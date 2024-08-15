@@ -1,4 +1,4 @@
-# Machine Learning SARIMAX
+# Machine Learning with SARIMAX
 A time series is a sequence of data points collected at regular intervals over a period of time. These intervals are typically uniform, such as hourly, daily, or quarterly measurements.  
 This orderly arrangement allows for the analysis of trends, patterns, and behaviors over time.  
 Common examples of time series data include stock market closing prices, household electricity consumption readings, and weather measurements. 
@@ -32,22 +32,20 @@ df_aqi.ffill(inplace=True)
 ```
 Any time series is composed of three things:
 
-- *Trend*: Trend tells you how things are overall changing  
-- *Seasonality*: Seasonality shows you how things change within a given period (e.g. year,month, week, day)  
-- *Residual*: The Error/residual/irregular activity are the anomalies which cannot be explained by the trend or the seasonal value
+- *Trend*: Trend tells you how things are changing overall 
+- *Seasonality*: Seasonality shows you how things change within a given period (e.g. year, month, week, day)  
+- *Residual*: The residuals are the differences in predicted and actual values
 
 ## Statsmodel
-Using the statsmodel package, we can map the seasonal pattern and trends using seasonal_decompose method. It requires as inputs a dataframe with two columns date data and the AQI.  
+Using the statsmodel package, we can map the seasonal pattern and trends using the seasonal_decompose method. It requires as input, a dataframe with two columns, date and AQI.  
 
 ## Components Of A Time Series
-Time series decomposition is a statistical technique that separates data into three key components: trend, seasonality, and residuals.  
-The trend shows the long-term direction, seasonality reveals recurring patterns, and residuals represent unexplained variations.  
-Visualizing these components individually provides insights that may not be evident in the raw data. This process helps analysts identify underlying patterns, recognize cyclical behaviors, and detect anomalies. 
-By understanding these elements separately, we can gain deeper insights into the factors driving the time series, leading to more accurate analysis and forecasting.  
+Time series decomposition is a statistical technique that separates data into three key components: trend, seasonality, and residuals. The trend shows the long-term direction, seasonality reveals recurring patterns, and residuals represent unexplained variations. Visualizing these components individually provides insights that may not be evident in the raw data. This process helps analysts identify underlying patterns, recognize cyclical behaviors, and detect anomalies. By understanding these elements separately, we can gain deeper insights into the factors driving the time series, leading to more accurate analysis and forecasting.  
 
 Decomposition is particularly useful when the complexity of a time series makes it challenging to discern important patterns from simple observation of the dataset.
 ```{python}
 #| label: seasonal-decompose
+#| fig-cap: "Figure 11: Seasonal, Trend, and Residual Decomposition of Portland AQI Time Series"
 import seaborn as sns
 import statsmodels.api as sm
 import matplotlib.pyplot as plt
@@ -109,43 +107,30 @@ for ax in fig.axes:
 # Show the plot
 plt.show()
 ```
-Figure 14: Seasonal, Trend, and Residual Decomposition of Portland AQI Time Series
 
-The uppermost graph, labeled *Observed*, presents the raw time series data as originally recorded. Its y-axis quantifies the daily air quality measurements, while the x-axis represents the passage of time.  
-This graph is a composite representation, effectively combining the three underlying components: trend, seasonality, and residuals.  
-A notable anomaly is evident in the data: a significant spike in air quality measurements occurring in September 2020. This outlier corresponds to the severe wildfires that ravaged Oregon during that period. The dramatic increase in air pollution levels during this time underscores the profound impact of extreme environmental events on air quality.
+The uppermost graph, labeled *Observed*, presents the raw time series data as originally recorded. Its y-axis quantifies the daily air quality measurements, while the x-axis represents the passage of time. This graph is a composite representation, effectively combining the three underlying components: trend, seasonality, and residuals. A notable anomaly is evident in the data: a significant spike in air quality measurements occurring in September 2020. This outlier corresponds to the severe wildfires that ravaged Oregon during that period. The dramatic increase in air pollution levels during this time underscores the profound impact of extreme environmental events on air quality.
 
-The *Seasonal* component graph illustrates the cyclical patterns in air quality that repeat annually.  This visualization reveals a distinctive yearly pattern in Air Quality Index (AQI) fluctuations.
-The cycle begins with relatively low AQI values, indicating better air quality. As the year progresses, the AQI rises to a peak, signifying a period of poorer air quality. This is followed by an improvement (decrease in AQI), another deterioration (increase), and a final improvement towards the year's end.
+The *Seasonal* component graph illustrates the cyclical patterns in air quality that repeat annually.  This visualization reveals a distinctive yearly pattern in Air Quality Index (AQI) fluctuations. The cycle begins with relatively low AQI values, indicating better air quality. As the year progresses, the AQI rises to a peak, signifying a period of poorer air quality. This is followed by an improvement (decrease in AQI), another deterioration (increase), and a final improvement towards the year's end.
 
-These recurring variations likely reflect the influence of seasonal factors such as changing weather patterns, temperature inversions, and seasonal human activities. For instance, winter months might see higher AQI due to increased heating emissions, while spring could bring lower AQI with more favorable dispersion conditions.  
-The graph includes a highlighted box that demarcates the seasonal period.  This visual element clearly illustrates the duration and boundaries of one complete seasonal cycle in the air quality data.
-Understanding these seasonal trends is crucial for accurately interpreting air quality data and making informed predictions.  
-It allows environmental agencies and policymakers to anticipate periods of potentially compromised air quality and plan interventions accordingly.
+These recurring variations likely reflect the influence of seasonal factors such as changing weather patterns, temperature inversions, and seasonal human activities. For instance, winter months might see higher AQI due to increased heating emissions, while spring could bring lower AQI with more favorable dispersion conditions. The graph includes a highlighted box that demarcates the seasonal period.  This visual element clearly illustrates the duration and boundaries of one complete seasonal cycle in the air quality data. Understanding these seasonal trends is crucial for accurately interpreting air quality data and making informed predictions. It allows environmental agencies and policymakers to anticipate periods of potentially compromised air quality and plan interventions accordingly.
 
 Lastly, the final row displays the *Residuals*, which represent the portion of the data not explained by the trend or the seasonal component. We can interpret the residuals as the difference between the sum of the Trend and Seasonal components and the Observed values at each point in time. 
 
-Essentially, the Residuals indicate the amount that needs to be added to the Trend and Seasonal components to align the result with the Observed values.
-Residuals are typically attributed to random errors, often referred to as noise. These residuals embody the unpredictable elements of the data that cannot be captured or forecasted by the model, as they are inherently random.
+Essentially, the Residuals indicate the amount that needs to be added to the Trend and Seasonal components to align the result with the Observed values. Residuals are typically attributed to random errors, often referred to as noise. These residuals embody the unpredictable elements of the data that cannot be captured or forecasted by the model, as they are inherently random.
 
 ## Finding the Best Forecasting Model with Grid Search
-For this project, we used an extended version of *ARIMA* model knows as *SARIMAX* model as we have explained in the methods section.
-We use a tuning technique called grid search method that attempts to compute the optimum values of hyperparameters. We are trying to find the right p,d,q values that would be given as an input to the SARIMAX time series model.
+For this project, we used an extended version of the *ARIMA* model knows as the *SARIMAX* model as explained in the methods section. We use a tuning technique called grid search that attempts to compute the optimum values of hyperparameters. We are trying to find the right p,d,q values that would be given as an input to the SARIMAX time series model.
 
 Here’s an easy-to-understand explanation of how this works:
 
 ### Step 1: Setting Up Our Hyperparameters
-We define p,d,q hyperparameters to take any value between 0 to 1 which help the model decide how much weight to give to past values, trends, and patterns.  
-We then create a list of all p,d,q possible combinations of these settings in a for loop.
+We define p,d,q hyperparameters to take any value between 0 to 1 which help the model decide how much weight to give to past values, trends, and patterns. We then create a list of all p,d,q possible combinations of these settings in a for loop.
 
 ### Step 2: Trying Out Different Combinations
 We go through each combination of settings to see how well each one works. For each main setting, we also try different seasonal settings to find the perfect combination.
 
 ### Step 3: Checking the Results
-For each set of p,d,q settings, we create a forecasting model and test it on our data. 
-We measure how well each model works using a score called the Akaike Information Criterion (AIC) as mentioned in the methods section. This score tells us how well the model predicts the data, with lower scores being better. 
-
-If something goes wrong with a particular set of hyperparameter settings, we catch the error and move on to the next set without stopping the whole process.
+For each set of p,d,q settings, we create a forecasting model and test it on our data. We measure how well each model works using the Akaike Information Criterion (AIC) as mentioned in the methods section. This score tells us how well the model predicts the data, with lower scores being better. If something goes wrong with a particular set of hyperparameter settings, we catch the error and move on to the next set without stopping the whole process.
 
 ```{python}
 #| label: grid-search
@@ -182,11 +167,12 @@ for param in pdq:
             continue
 ```
 
-We have found the lowest AIC values which would have the best corresponding p,d,q values to have the best forecast of AQI values.  
-
 ## SARIMAX Model Results
+The best model is as follows below in table 3.
+
 ```{python}
 #| label: mod-fit
+#| fig-cap: "Table 3: Best SARIMAX model parameters"
 #mod = sm.tsa.statespace.SARIMAX(df_aqi,order=(1, 1, 1),seasonal_order=(0,1, 1, 12),enforce_stationarity=False,enforce_invertibility=False)
 mod = sm.tsa.statespace.SARIMAX(df_aqi,order=(1, 1, 1),seasonal_order=(0,1, 1, 12))
 
@@ -252,9 +238,10 @@ Next, we extract the coefficient, standard errors, z-values, p-values, and 95% c
 - P-Value: 1.000 Not significant.
 - Confidence Interval: [-657000, 657000] Very wide, includes zero, highlighting lack of significance.
 
-## Fit SARIMAX model
+## Fitting the SARIMAX model
 ```{python}
 #| label: Extract-AIC-value-plot
+#| include: false
 aic_value = results.aic
 print(f"The AIC value is: {aic_value}")
 ```
@@ -270,7 +257,7 @@ When working with SARIMAX models, there are typically several plots you might an
 #| output: false
 results.plot_diagnostics(figsize=(9,7))
 ```
-![Figure 15: Diagnostic plots](https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/final-plot.png?raw=true)
+![Figure 12: Diagnostic plots](https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/final-plot.png?raw=true)
 
 Once the model is created, predicted values are generated using the .get_prediction() method, with datetime as input.
 ```{python}
@@ -348,8 +335,8 @@ forecast_df = pd.DataFrame({
 #print(forecast_df.head(30).to_markdown(index=False))
 ```
 
-## Visualizing Our Results
-The final and crucial step of our project is the creation of a comprehensive plot that encapsulates our complex analysis. This visualization serves as the key to understanding and interpreting our findings.
+## Visualizing the Results
+The final and most crucial step of our project is the creation of a comprehensive plot that encapsulates our complex analysis. This visualization serves as the key to understanding and interpreting our findings.
 
 ### Interpreting the Forecast Plot
 Our plot consists of several key elements:
@@ -371,6 +358,7 @@ This visual representation not only summarizes our extensive data analysis but a
 
 ```{python}
 #| label: plot-forecast
+#| fig-cap: "Figure 13: Portland AQI Plot Forecast from 2023 to 2025"
 # Set the seaborn theme
 sns.set_theme(style="whitegrid")
 
@@ -388,13 +376,9 @@ ax.set_ylabel('AQI Index')
 plt.legend()
 plt.show()
 ```
-Figure 16: Portland AQI Plot Forecast from 2023 to 2025
 
-### Overall Conclusion
-None of the coefficients in the SARIMAX model are statistically significant, as indicated by the high p-values and z-values close to zero. 
-This means that the parameters do not effectively predict the AQI data. The large standard errors and wide confidence intervals point to a high degree of uncertainty in the parameter estimates. 
-This suggests the model may not be well-suited for capturing the dynamics of the AQI data, and re-evaluation of the model or data is recommended.
-Our conclusion is that the SARIMAX model did not predict well the forecast values of the air quality index (AQI).
+### SARIMAX Conclusion
+None of the coefficients in the SARIMAX model are statistically significant, as indicated by the high p-values and z-values close to zero. This means that the parameters do not effectively predict the AQI data. The large standard errors and wide confidence intervals point to a high degree of uncertainty in the parameter estimates. This suggests the model may not be well-suited for capturing the dynamics of the AQI data, and re-evaluation of the model or data is recommended. Our conclusion is that the SARIMAX model did not predict the forecast values of the AQI well.
 
 ### Possible Reasons for Poor Performance
 Model Mis-specification: The chosen order of the SARIMAX model, including the autoregressive, differencing, and moving average components, may not be suitable for capturing the dynamics of the AQI data. This can lead to the model failing to capture trends and seasonal patterns accurately.
