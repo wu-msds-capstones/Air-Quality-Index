@@ -255,7 +255,7 @@ window.Quarto = {
   <li><a href="#additional-resources---machine-learning-metrics-table" id="toc-additional-resources---machine-learning-metrics-table" class="nav-link" data-scroll-target="#additional-resources---machine-learning-metrics-table">Additional Resources - Machine Learning Metrics Table</a></li>
   </ul></li>
   </ul>
-<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://www.airnow.gov"><i class="bi bi-link-45deg"></i>Airnow Open Data</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="SWEETVIZ_REPORT.html"><i class="bi bi-file-code"></i>Sweetviz Analysis Report</a></li><li><a href="your_report2.html"><i class="bi bi-file-code"></i>ydata Analysis Report</a></li></ul></div></nav>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://www.airnow.gov"><i class="bi bi-link-45deg"></i>Airnow Open Data</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="SWEETVIZ_REPORT.html"><i class="bi bi-file-code"></i>Sweetviz Analysis Report</a></li></ul></div></nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -587,8 +587,8 @@ window.Quarto = {
 <p>An initial Random Forest Model run with the selected features returns the following Cohen Kappa score and accuracy:</p>
 <div id="cks-accuracy" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-stdout">
-<pre><code>Cohen Kappa Score:  0.494855990098252
-Accuracy:  0.7457811649428416</code></pre>
+<pre><code>Cohen Kappa Score:  0.4540612461353385
+Accuracy:  0.7272727272727273</code></pre>
 </div>
 </div>
 <div class="quarto-figure quarto-figure-center">
@@ -651,7 +651,7 @@ Accuracy:  0.7457811649428416</code></pre>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
 <td>RF_model__max_depth</td>
-<td>9</td>
+<td>8</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
@@ -661,7 +661,7 @@ Accuracy:  0.7457811649428416</code></pre>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
 <td>RF_model__min_samples_leaf</td>
-<td>3</td>
+<td>4</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
@@ -671,17 +671,17 @@ Accuracy:  0.7457811649428416</code></pre>
 <tr class="even">
 <td data-quarto-table-cell-role="th">5</td>
 <td>RF_model__n_estimators</td>
-<td>112</td>
+<td>147</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">6</td>
 <td>aqi_transformer__categories__max_categories</td>
-<td>19</td>
+<td>5</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">7</td>
 <td>aqi_transformer__categories__min_frequency</td>
-<td>17</td>
+<td>8</td>
 </tr>
 </tbody>
 </table>
@@ -693,8 +693,8 @@ Accuracy:  0.7457811649428416</code></pre>
 <p>Using these hyperparameters, we reach an accuracy of over 70%.</p>
 <div id="predict-x_test-final" class="cell" data-execution_count="35">
 <div class="cell-output cell-output-stdout">
-<pre><code>Cohen Kappa Score:  0.45841885491690726
-Accuracy:  0.713663581927055</code></pre>
+<pre><code>Cohen Kappa Score:  0.46261234174643673
+Accuracy:  0.7158410451823626</code></pre>
 </div>
 </div>
 <div class="quarto-figure quarto-figure-center">
@@ -730,30 +730,30 @@ Accuracy:  0.713663581927055</code></pre>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">26-50</td>
-<td>0.784799</td>
+<td>0.785470</td>
 <td>0.869442</td>
-<td>0.824955</td>
+<td>0.825326</td>
 <td>1057.0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">51-75</td>
-<td>0.611888</td>
-<td>0.581395</td>
-<td>0.596252</td>
+<td>0.613240</td>
+<td>0.584718</td>
+<td>0.598639</td>
 <td>602.0</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">76-100</td>
-<td>0.357143</td>
-<td>0.185185</td>
-<td>0.243902</td>
+<td>0.387755</td>
+<td>0.175926</td>
+<td>0.242038</td>
 <td>108.0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">101-200</td>
-<td>0.578947</td>
-<td>0.366667</td>
-<td>0.448980</td>
+<td>0.568182</td>
+<td>0.416667</td>
+<td>0.480769</td>
 <td>60.0</td>
 </tr>
 <tr class="even">
@@ -775,7 +775,7 @@ Accuracy:  0.713663581927055</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="capstone_files/figure-html/feature-importance-output-1.png" id="feature-importance" width="663" height="505" class="figure-img"></p>
+<p><img src="capstone_files/figure-html/feature-importance-output-1.png" id="feature-importance" width="667" height="509" class="figure-img"></p>
 </figure>
 </div>
 </div>
