@@ -182,7 +182,12 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#prophet" id="toc-prophet" class="nav-link" data-scroll-target="#prophet">Prophet</a></li>
   <li><a href="#sarimax" id="toc-sarimax" class="nav-link" data-scroll-target="#sarimax">SARIMAX​​</a></li>
-  <li><a href="#akaike-information-criteria-aic" id="toc-akaike-information-criteria-aic" class="nav-link" data-scroll-target="#akaike-information-criteria-aic">Akaike Information Criteria (AIC)</a></li>
+  <li><a href="#akaike-information-criteria-aic" id="toc-akaike-information-criteria-aic" class="nav-link" data-scroll-target="#akaike-information-criteria-aic">Akaike Information Criteria (AIC)</a>
+  <ul class="collapse">
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation">Interpretation</a></li>
+  <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  </ul></li>
   <li><a href="#train-test-split" id="toc-train-test-split" class="nav-link" data-scroll-target="#train-test-split">Train-Test-Split</a></li>
   <li><a href="#hypothesis-testing" id="toc-hypothesis-testing" class="nav-link" data-scroll-target="#hypothesis-testing">Hypothesis Testing</a></li>
   <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning">Machine Learning</a></li>
@@ -207,21 +212,20 @@ window.Quarto = {
   <li><a href="#cross-validation" id="toc-cross-validation" class="nav-link" data-scroll-target="#cross-validation">Cross Validation</a></li>
   <li><a href="#portlands-transit-system" id="toc-portlands-transit-system" class="nav-link" data-scroll-target="#portlands-transit-system">Portland’s Transit System</a></li>
   </ul></li>
-  <li><a href="#results-machine-learning-scikit-learn" id="toc-results-machine-learning-scikit-learn" class="nav-link" data-scroll-target="#results-machine-learning-scikit-learn">Results Machine Learning Scikit-Learn</a></li>
+  <li><a href="#machine-learning-with-scikit-learn" id="toc-machine-learning-with-scikit-learn" class="nav-link" data-scroll-target="#machine-learning-with-scikit-learn">Machine Learning with Scikit-Learn</a></li>
   <li><a href="#machine-learning-sarimax" id="toc-machine-learning-sarimax" class="nav-link" data-scroll-target="#machine-learning-sarimax">Machine Learning SARIMAX</a>
   <ul class="collapse">
   <li><a href="#statsmodel" id="toc-statsmodel" class="nav-link" data-scroll-target="#statsmodel">Statsmodel</a></li>
   <li><a href="#components-of-a-time-series" id="toc-components-of-a-time-series" class="nav-link" data-scroll-target="#components-of-a-time-series">Components Of A Time Series</a></li>
   <li><a href="#finding-the-best-forecasting-model-with-grid-search" id="toc-finding-the-best-forecasting-model-with-grid-search" class="nav-link" data-scroll-target="#finding-the-best-forecasting-model-with-grid-search">Finding the Best Forecasting Model with Grid Search</a>
   <ul class="collapse">
-  <li><a href="#step-1-getting-everything-ready" id="toc-step-1-getting-everything-ready" class="nav-link" data-scroll-target="#step-1-getting-everything-ready">Step 1: Getting Everything Ready</a></li>
-  <li><a href="#step-2-setting-up-our-options" id="toc-step-2-setting-up-our-options" class="nav-link" data-scroll-target="#step-2-setting-up-our-options">Step 2: Setting Up Our Options</a></li>
-  <li><a href="#step-3-adding-seasonal-flavors" id="toc-step-3-adding-seasonal-flavors" class="nav-link" data-scroll-target="#step-3-adding-seasonal-flavors">Step 3: Adding Seasonal Flavors</a></li>
-  <li><a href="#step-4-trying-out-different-combinations" id="toc-step-4-trying-out-different-combinations" class="nav-link" data-scroll-target="#step-4-trying-out-different-combinations">Step 4: Trying Out Different Combinations</a></li>
-  <li><a href="#step-5-checking-the-results" id="toc-step-5-checking-the-results" class="nav-link" data-scroll-target="#step-5-checking-the-results">Step 5: Checking the Results</a></li>
+  <li><a href="#step-1-setting-up-our-hyperparameters" id="toc-step-1-setting-up-our-hyperparameters" class="nav-link" data-scroll-target="#step-1-setting-up-our-hyperparameters">Step 1: Setting Up Our Hyperparameters</a></li>
+  <li><a href="#step-2-trying-out-different-combinations" id="toc-step-2-trying-out-different-combinations" class="nav-link" data-scroll-target="#step-2-trying-out-different-combinations">Step 2: Trying Out Different Combinations</a></li>
+  <li><a href="#step-3-checking-the-results" id="toc-step-3-checking-the-results" class="nav-link" data-scroll-target="#step-3-checking-the-results">Step 3: Checking the Results</a></li>
   </ul></li>
   <li><a href="#sarimax-model-results" id="toc-sarimax-model-results" class="nav-link" data-scroll-target="#sarimax-model-results">SARIMAX Model Results</a>
   <ul class="collapse">
+  <li><a href="#interpretation-1" id="toc-interpretation-1" class="nav-link" data-scroll-target="#interpretation-1">Interpretation</a></li>
   <li><a href="#autoregressive-term-ar.l1" id="toc-autoregressive-term-ar.l1" class="nav-link" data-scroll-target="#autoregressive-term-ar.l1">Autoregressive Term (ar.L1)</a></li>
   <li><a href="#moving-average-term-ma.l1" id="toc-moving-average-term-ma.l1" class="nav-link" data-scroll-target="#moving-average-term-ma.l1">Moving Average Term (ma.L1)</a></li>
   <li><a href="#seasonal-moving-average-term-ma.s.l12" id="toc-seasonal-moving-average-term-ma.s.l12" class="nav-link" data-scroll-target="#seasonal-moving-average-term-ma.s.l12">Seasonal Moving Average Term (ma.S.L12)</a></li>
@@ -232,6 +236,8 @@ window.Quarto = {
   <li><a href="#visualizing-our-results" id="toc-visualizing-our-results" class="nav-link" data-scroll-target="#visualizing-our-results">Visualizing Our Results</a>
   <ul class="collapse">
   <li><a href="#interpreting-the-forecast-plot" id="toc-interpreting-the-forecast-plot" class="nav-link" data-scroll-target="#interpreting-the-forecast-plot">Interpreting the Forecast Plot</a></li>
+  <li><a href="#overall-conclusion" id="toc-overall-conclusion" class="nav-link" data-scroll-target="#overall-conclusion">Overall Conclusion</a></li>
+  <li><a href="#possible-reasons-for-poor-performance" id="toc-possible-reasons-for-poor-performance" class="nav-link" data-scroll-target="#possible-reasons-for-poor-performance">Possible Reasons for Poor Performance</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
@@ -264,7 +270,7 @@ window.Quarto = {
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>In their journal article published in The American Journal of Public Health, Jacobs, Burgess, and Abbott tell the story of the Donora Pennsylvania Smog crisis. On October 30, 1948, the Donora High School Football team played through a dense smog to complete the game with hundreds of fans in the audience, despite very poor visibility. The team, fueled by resilience, took pride in playing through poor conditions, a testament to the high spirit of the small town. Soon after, calls to the town’s medical offices began flooding in, complaining of difficulty breathing and respiratory issues. Donora, Pennsylvania, was a town of metalworks, built by the American Steel and Wire company and the Donora Zinc Works company, which made up major parts of the town’s economy. The heavy smog and pollution clouds that covered the sky had been viewed as a sign of prosperity, owing to the industrial might that powered their economy. Within just twelve hours, seventeen people would be dead, 1440 seriously affected, and 4470 with mild to moderate conditions—almost half the town’s working population (Jacobs, Burgess, Abbott).</p>
+<p>In their journal article published in <em>The American Journal of Public Health</em>, Jacobs, Burgess, and Abbott tell the story of the Donora Pennsylvania Smog crisis. On October 30, 1948, the Donora High School Football team played through a dense smog to complete the game with hundreds of fans in the audience, despite very poor visibility. The team, fueled by resilience, took pride in playing through poor conditions, a testament to the high spirit of the small town. Soon after, calls to the town’s medical offices began flooding in, complaining of difficulty breathing and respiratory issues. Donora, Pennsylvania, was a town of metalworks, built by the American Steel and Wire company and the Donora Zinc Works company, which made up major parts of the town’s economy. The heavy smog and pollution clouds that covered the sky had been viewed as a sign of prosperity, owing to the industrial might that powered their economy. Within just twelve hours, seventeen people would be dead, 1440 seriously affected, and 4470 with mild to moderate conditions—almost half the town’s working population (Jacobs, Burgess, Abbott).</p>
 <p>This event, known as the Donora Smog of 1948, prompted the country into taking a closer look at the negative impacts of air pollution. Widespread debate surrounding the event led to the first legislation aimed at regulating the air quality within the United States, ushering in a new era of tracking, combatting, and reversing the ill effects of poor air quality. The quality of air we breathe has direct impacts on our health. We must understand the factors that contribute to poor air quality and how we individually and collectively contribute to these changes. Until we can visualize the impact we have on our atmosphere, we will continue behavior that negatively impacts the air around us.</p>
 <p>In this project, we will focus on the key factors influencing air quality in Portland, Oregon. We aim to understand the complex interplay between various environmental and human-made factors that contribute to high air pollution levels. Initially, we were surprised to discover that Portland, the city we reside in, has some of the best air quality for a city of its size in the United States. This led us to narrow our focus to understanding the factors that contribute to these favorable outcomes in this city.</p>
 <p>Our project aims to develop and validate machine learning models to analyze the various factors influencing air quality. By focusing on Portland in comparison to other large US cities, we hope to find things Portland does that lead to the greater AQI outcomes. Our approach will consider a range of variables, including meteorological conditions, pollution sources, transit systems, park land, and livestock. Through this analysis, we aim to provide actionable insights and recommendations for sustaining and improving air quality. By examining both the contributors to clean air and the sources of pollution, we can understand the factors affecting air quality and develop comprehensive strategies for enhancement.</p>
@@ -273,12 +279,12 @@ window.Quarto = {
 <h1>Background</h1>
 <p>Federal regulation of air quality in the United States began in 1955 with the Air Pollution Control Act. This new piece of legislation provided funding for initial research into air quality and pollution in the US. Building off this and privately funded research, Congress passed the Clean Air Act of 1963, establishing the first federal regulation for controlling air pollution. This act established a new federal program within the US Public Health Service, dedicated to the monitoring and control of air quality. In 1967, Congress passed the Air Quality Act, which introduced more federal oversight and enforcement policies, allowing extensive monitoring of interstate air pollution. This all led to the passage of the 1970 Clean Air Act, aimed at restricting and regulating emissions, measuring and reducing pollutant particles, and addressing upcoming pollution threats (Environmental Protection Agency).</p>
 <p>Also established in 1970, the Environmental Protection Agency (EPA) implemented and monitored the requirements established by these rulings. The EPA’s authority extended beyond federal lands and roads to include all companies operating within the United States. Enforcement authority was expanded to allow upholding these established standards, and prevent companies from circumventing the law. Much of the improvement in the quality of air in the US over the past fifty years can be attributed to these regulations. In 1990, when deaths due to air quality were first measured, an estimated 135,000 Americans died. By 2010, that number had dropped to 71,000 (Zhang et al.). Despite the significant improvements led by the federal guidelines of the late 70s, nearly four in ten Americans still live in places where they are exposed to unhealthy air (American Lung Association).</p>
-<p>In 1999, the EPA developed the Air Quality Index (AQI), creating an easily understood measurement of air quality. The AQI measures air pollution levels on a scale from 0 to 500, divided into six categories. A score of 0 to 50 represents good air quality which poses little or no risk to those breathing it in, while a score above 300 signifies emergency conditions, an extremely high risk which impacts everyone. This measurement is mainly derived from five major pollutants: ozone, particulate matter (2.5μm and 10μm), carbon monoxide, nitrogen dioxide, and sulfur dioxide (Airnow.gov). Poor air quality has been linked to a variety of diseases including respiratory infections, stroke, heart disease, lung cancer, and chronic obstructive pulmonary disease, among others (World Health Organization). An estimated seven million premature deaths annually can be attributed to air pollution, which equates to a global mean loss of life expectancy of 2.9 years, making it the largest environmental risk factor for disease and premature death (Fuller, Landrigan, Balakrishnan, et. al.). Thus, it is important to understand factors that contribute to poor air quality, and outcomes that can be attributed to the state of the AQI.</p>
-<p>These harmful factors can originate from a variety of sources. Anything that releases a foreign substance into the air can lower the quality of the air. This includes smoking, vehicle exhaust, combustion processes for production and manufacturing, household cleaning products, appliances, central air and heating systems, agriculture pesticides, livestock, shipping and transportation, and much more. Individually, we can reduce our individual contributions by lowering our reliance on personal vehicles, watching our power usage, supporting companies that monitor and address their emissions, and more. However, there are many factors beyond our control. Larger pollutant sources, such as manufacturing and transportation, are often regulated to some extent but may still release significant amounts of pollutants into the atmosphere which we as individuals have no say over (Manisalidis, Stavropoulou, Stavropoulos, Bezirtzoglou). It is challenging to restrict and watch our personal contributions to the polluting of the environment without worrying about what others are doing. Measuring and analyzing the impact these pollutants have on air quality is a crucial step towards addressing these issues.</p>
+<p>In 1999, the EPA developed the Air Quality Index (AQI), creating an easily understood measurement of air quality. The AQI measures air pollution levels on a scale from 0 to 500, divided into six categories. A score of 0 to 50 represents good air quality which poses little or no risk to those breathing it in, while a score above 300 signifies emergency conditions, an extremely high risk which impacts everyone. This measurement is mainly derived from five major pollutants: ozone (O3), particulate matter (2.5μm and 10μm), carbon monoxide (CO), nitrogen dioxide (NO2), and sulfur dioxide (SO2) (Airnow.gov). Poor air quality has been linked to a variety of diseases including respiratory infections, stroke, heart disease, lung cancer, and chronic obstructive pulmonary disease, among others (World Health Organization). An estimated seven million premature deaths annually can be attributed to air pollution, which equates to a global mean loss of life expectancy of 2.9 years, making it the largest environmental risk factor for disease and premature death (Fuller, Landrigan, Balakrishnan, et al.). Thus, it is important to understand factors that contribute to poor air quality, and outcomes that can be attributed to the state of the AQI.</p>
+<p>These harmful factors can originate from a variety of sources. Anything that releases a foreign substance into the air can lower the AQI. This includes smoking, vehicle exhaust, combustion processes for production and manufacturing, household cleaning products, appliances, central air and heating systems, agriculture pesticides, livestock, shipping and transportation, and much more. Individually, we can reduce our individual contributions by lowering our reliance on personal vehicles, watching our power usage, supporting companies that monitor and address their emissions, and more. However, there are many factors beyond our control. Larger pollutant sources, such as manufacturing and transportation, are often regulated to some extent but may still release significant amounts of pollutants into the atmosphere which we as individuals have no say over (Manisalidis, Stavropoulou, Stavropoulos, Bezirtzoglou). It is challenging to restrict and watch our personal contributions to the polluting of the environment without worrying about what others are doing. Measuring and analyzing the impact these pollutants have on air quality is a crucial step towards addressing these issues.</p>
 <section id="data-ethics" class="level2">
 <h2 class="anchored" data-anchor-id="data-ethics">Data Ethics</h2>
 <p>The ethical implications of conducting this analysis should always be considered and addressed. Air quality has historically impacted lower income communities significantly more. Marginalized communities may be built near major pollution sources such as factories or highways. In Portland, for example, Interstate 5 completed construction in 1966. It was part of an Oregon State Highway Department (OSHD) development, a project run by the state as a part of the Federal Aid Highway Act. The highway was built on the existing Minnesota Avenue, cutting North Portland, the heart of Portland’s African American community in half. It was decided to avoid affecting the higher income downtown properties. In fact, the OSHD contracted work on the Minnesota Ave portion of the highway to private contractors, in an effort to avoid a political battle (Oregon Encyclopedia). Today, the neighborhoods surrounding the large highway have worse AQI outcomes than those further away, all other factors equal (Shandas and George). Any recommendations given by this analysis should properly consider the ramifications of those impacted.</p>
-<p>Another important ethical issue to be aware of is data transparency. Data can be used to push a specific narrative without faking or editing the specific data points. By leaving out important information, pushing correlated data as causation to push an agenda, or by purposely misconstruing what the data mean, one can create a narrative that can misinform or deceive readers. All analysis methodology must be openly discussed to ensure full understanding by audiences. This leads to credibility, reproducibility, and trust in the methods and conclusions of any piece of data analysis. All data is sourced from credible online sources that are open about their collection methods. Data privacy is addressed and no personalized information is given. Limitations are also addressed allowing readers to understand where any uncertainty may be.</p>
+<p>Another important ethical issue to be aware of is data transparency. Data can be used to push a specific narrative without faking or editing the specific data points. By leaving out important information, pushing correlated data as causation to push an agenda, or by purposely misconstruing what the data means, one can create a narrative that can misinform or deceive readers. All analysis methodology must be openly discussed to ensure full understanding by audiences. This leads to credibility, reproducibility, and trust in the methods and conclusions of any piece of data analysis. All data is sourced from credible online sources that are open about their collection methods. Data privacy is addressed and no personalized information is given. Limitations are also addressed allowing readers to understand where any uncertainty may be.</p>
 </section>
 </section>
 <section id="methods" class="level1">
@@ -288,7 +294,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="prophet">Prophet</h2>
 <p>Prophet is an open-source forecasting tool developed by Meta, designed for forecasting time series data. It is suited for datasets with strong seasonal, monthly, weekly, or daily patterns, and it handles missing data and outliers well. We utilized prophet to gain a quick understanding of our AQI patterns, seeking to understand basic trends before conducting a more thorough analysis.</p>
 <p>Key features of Prophet include seasonality detection and holiday incorporation, while providing easy use and understanding for users. We can use this software to get complex understanding from simple applications.</p>
-<p>To conduct this analysis, we prepare data into a two column table, date and AQI. Prophet uses the trends of past data to highlight similarities over days of the year, weeks, months, and seasons. From this, prophet is able to generate its predictions, cross validate, and give performance metrics such as mean absolute percentage error to quantify the accuracy of the results</p>
+<p>To conduct this analysis, we prepare data into a two column table, with columns date and AQI. Prophet uses the trends of past data to highlight similarities over days of the year, weeks, months, and seasons. From this, prophet is able to generate its predictions, cross validate, and give performance metrics such as mean absolute percentage error to quantify the accuracy of the results</p>
 </section>
 <section id="sarimax" class="level2">
 <h2 class="anchored" data-anchor-id="sarimax">SARIMAX​​</h2>
@@ -300,7 +306,7 @@ window.Quarto = {
 <li><em>(MA) Moving Average</em>: Uses past forecast errors in the prediction.</li>
 <li><em>(X) eXogenous factors</em>: Incorporates external variables that may influence the forecast.</li>
 </ul>
-<p>The SARIMAX model is used when the data sets have seasonal cycles. In the dataset concerning the air quality/AQI there is a seasonal pattern. SARIMAX is a model that can be fitted to time series data in order to better understand or predict future points. SARIMAX is particularly useful for forecasting time series data that exhibits both trends and seasonality. There are three distinct integers (p,d,q) that are used to parametrize SARIMAX models. Because of that, SARIMAX models are denoted with the notation SARIMAX(p,d,q). Together these three parameters account for seasonality, trend, and noise in datasets:</p>
+<p>The SARIMAX model is used when the data sets have seasonal cycles. In the dataset concerning the air quality/AQI there is a seasonal pattern. SARIMAX can be fitted to time series data in order to better understand or predict future points. SARIMAX is particularly useful for forecasting time series data that exhibits both trends and seasonality. There are three distinct integers (p,d,q) that are used to parametrize SARIMAX models. Because of that, SARIMAX models are denoted with the notation SARIMAX(p,d,q). Together these three parameters account for seasonality, trend, and noise in datasets:</p>
 <ul>
 <li><em>p</em> is the auto-regressive part of the model. It allows us to incorporate the effect of past values into our model.</li>
 <li><em>d</em> is the integrated part of the model. This includes terms in the model that incorporate the amount of differencing (the number of past time points to subtract from the current value) to apply the time series.</li>
@@ -310,13 +316,41 @@ window.Quarto = {
 </section>
 <section id="akaike-information-criteria-aic" class="level2">
 <h2 class="anchored" data-anchor-id="akaike-information-criteria-aic">Akaike Information Criteria (AIC)</h2>
-<p>The Akaike Information Criterion (AIC) is a measure used to compare different statistical models. It helps in model selection by balancing the goodness of fit and the complexity of the model. When comparing two models, the one with the lower AIC is generally “better”.</p>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; Updated upstream The Akaike Information Criterion (AIC) is a measurement used to compare different statistical models. It helps in model selection by balancing the goodness of fit and the complexity of the model. When comparing two models, the one with the lower AIC is generally “better”. ======= The Akaike Information Criterion (AIC) was formulated by the statistician Hirotsugu Akaike, is a measure used to compare different statistical models. It helps in model selection by balancing the goodness of fit and the complexity of the model. When comparing two models, the one with the lower AIC is generally “better”.</p>
+<p>The Akaike Information Criterion (AIC) is defined as:</p>
+<p><span class="math display">\[
+\text{AIC} = 2k - 2\ln(\hat{L})
+\]</span></p>
+<p>Where:</p>
+<ul>
+<li>( k ) is the number of parameters in the model.</li>
+<li>( ) is the maximum value of the likelihood function for the model.</li>
+<li>( () ) is the natural logarithm of the likelihood function.</li>
+</ul>
+<section id="interpretation" class="level3">
+<h3 class="anchored" data-anchor-id="interpretation">Interpretation</h3>
+<ul>
+<li><strong>Likelihood Function (())</strong>: Measures how well the model fits the data. A higher likelihood indicates a better fit.</li>
+<li><strong>Penalty Term ((2k))</strong>: Accounts for the number of parameters in the model, penalizing more complex models to avoid overfitting.</li>
+</ul>
+</section>
+<section id="usage" class="level3">
+<h3 class="anchored" data-anchor-id="usage">Usage</h3>
+<p>When comparing multiple models, the model with the lowest AIC value is generally preferred because it offers a better balance between goodness of fit and complexity.</p>
+</section>
+<section id="example" class="level3">
+<h3 class="anchored" data-anchor-id="example">Example</h3>
+<p>For a linear regression model, the likelihood function () is calculated based on the residual sum of squares (RSS). The formula can be expressed as:</p>
+<p><span class="math display">\[
+\text{AIC} = 2k + n \ln\left(\frac{\text{RSS}}{n}\right)
+\]</span> Where ( n ) is the number of observations. Here, RSS is the sum of the squared differences between the observed and predicted values, reflecting the model’s fit to the data. &gt;&gt;&gt;&gt;&gt;&gt;&gt; Stashed changes</p>
 <p>Here’s how to interpret the AIC value:</p>
 <ul>
 <li><em>AIC Value</em>: A lower AIC value indicates a better-fitting model. It means the model has a good balance between accuracy and complexity.</li>
 <li><em>Comparative Measure</em>: AIC is most useful when comparing multiple models. The model with the lowest AIC among a set of candidate models is generally preferred.</li>
 <li><em>Penalty for Complexity</em>: AIC includes a penalty for the number of parameters in the model. This discourages overfitting by penalizing models that use more parameters without a corresponding improvement in fit.</li>
 </ul>
+</section>
 </section>
 <section id="train-test-split" class="level2">
 <h2 class="anchored" data-anchor-id="train-test-split">Train-Test-Split</h2>
@@ -387,24 +421,24 @@ window.Quarto = {
 </section>
 <section id="pollution-source-data" class="level3">
 <h3 class="anchored" data-anchor-id="pollution-source-data">Pollution Source Data</h3>
-<p>Pollution data was again sourced from the EPA database, separated by criteria gasses (CO, NO2, O3, SO2), Toxins (lead), and particulate matter (PM2.5 and PM10). Criteria gas Carbon Monoxide (CO) is measured in parts per million, and is especially dangerous as it is both colorless and odorless. CO binds to hemoglobin in the blood, making the transportation of oxygen around the body more difficult. Nitrogen Dioxide (NO2) is dangerous to breathe in at high levels. It can cause swelling in the throat, burning, reduced oxygenation of body tissues, and fluid build up in the lungs. It is released in many common combustion reactions including in cars, coal plants, and cigarettes. It is measured in parts per billion. Ozone (O3) can harm our ability to breathe, especially in older people, children, and people with asthma. It is measured in parts per million. Sulfur Dioxide (SO2), measured in parts per billion, can irritate the eyes, mucous membranes, skin, and respiratory tract. Lead is a toxin which can increase the risk of high blood pressure, cardiovascular problems, and complications during pregnancy. While exposure has gone down significantly in the recent decades after use in gasoline, it still remains a dangerous toxin to breathe in. It is measured in micrograms per cubic meter. PM2.5 and PM10 are particulate matter, small inhalable particles with diameters of 2.5 microns or smaller, and 10 microns or smaller respectively. PM2.5 includes all sorts of common particles, metals, and organic compounds. PM10 includes dust, pollen, molds, and other larger (but still very small) particles. Due to the variability of particles included in the PM classification, there are a wide range of negative health impacts that come from breathing in these particles. PM2.5 and PM10 are measured in micrograms per cubic meter.</p>
+<p>Pollution data was again sourced from the EPA database, separated by criteria gasses (CO, NO2, O3, SO2), Toxins (lead), and particulate matter (PM2.5 and PM10). Criteria gas Carbon Monoxide (CO) is measured in parts per million, and is especially dangerous as it is both colorless and odorless. CO binds to hemoglobin in the blood, making the transportation of oxygen around the body more difficult. Nitrogen Dioxide (NO2) is dangerous to breathe in at high levels. It can cause swelling in the throat, burning, reduced oxygenation of body tissues, and fluid build up in the lungs. It is released in many common combustion reactions including in cars, coal plants, and cigarettes. It is measured in parts per billion. Ozone (O3) can harm our ability to breathe, especially in older people, children, and people with asthma. It is measured in parts per million. Sulfur Dioxide (SO2), measured in parts per billion, can irritate the eyes, mucous membranes, skin, and the respiratory tract. Lead is a toxin which can increase the risk of high blood pressure, cardiovascular problems, and complications during pregnancy. While exposure has gone down significantly in the recent decades after use in gasoline, it still remains a dangerous toxin to breathe in. It is measured in micrograms per cubic meter. PM2.5 and PM10 are particulate matter, small inhalable particles with diameters of 2.5 microns or smaller, and 10 microns or smaller respectively. PM2.5 includes all sorts of common particles, metals, and organic compounds. PM10 includes dust, pollen, molds, and other larger (but still very small) particles. Due to the variability of particles included in the PM classification, there are a wide range of negative health impacts that come from breathing in these particles. PM2.5 and PM10 are measured in micrograms per cubic meter.</p>
 <p>This data was given daily by city, separated into different files by year. They are sourced from thousands of individual sources, which measure various selections of these pollution sources. Because of the variety of different pollutants being measured, there was a significant amount of missing data, especially from small towns. Measurements were taken hourly, pre-compiled into a daily average and maximum. After stacking years in R, columns regarding date, location (state, city), pollutant observation average and maximum, and observation unit were brought into the database.</p>
 </section>
 <section id="public-transit-data" class="level3">
 <h3 class="anchored" data-anchor-id="public-transit-data">Public Transit Data</h3>
-<p>Information on motor buses taken from the National Transit Database, produced by the Federal Transit Administration. Includes information of bus systems and ridership by city, separated by year. Data is recorded yearly, encompassing annual totals for information such as number of buses, total revenue, passengers, and miles driven for the respective city transit systems. Information was given in yearly CSVs, separated by the city transit system. For cities with multiple systems, data was combined. Only motorbus data was compiled, which may not be reflective of cities with other large methods of public transportation, such as the New York subway system. Only public transit information was able to be collected. Accessible data on cars and trucks could not be found. This will be further discussed in the limitations section of the conclusion. After stacking years in R, columns regarding date, location (state, city), transport mode, number of buses, passenger trips in hours and miles, and bus operations in hours and miles were brought into the database.</p>
+<p>Information on motor buses was taken from the National Transit Database, produced by the Federal Transit Administration. It includes information of bus systems and ridership by city, separated by year. Data is recorded yearly, encompassing annual totals for information such as number of buses, total revenue, passengers, and miles driven for the respective city transit systems. Information was given in yearly CSVs, separated by the city transit system. For cities with multiple systems, data was combined. Only motorbus data was compiled, which may not be reflective of cities with other large methods of public transportation, such as the New York subway system. Only public transit information was able to be collected. Accessible data on cars and trucks could not be found. This will be further discussed in the limitations section of the conclusion. After stacking years in R, columns regarding date, location (state, city), transport mode, number of buses, passenger trips in hours and miles, and bus operations in hours and miles were brought into the database.</p>
 </section>
 <section id="land-area-data" class="level3">
 <h3 class="anchored" data-anchor-id="land-area-data">Land Area Data</h3>
-<p>City and county area data was collected from the 2020 U.S. Census, collected by the U.S. Census Bureau. It is measured in km<sup>2</sup>. City, county, state, city area, and county area columns brought into the database.</p>
+<p>City and county area data was collected from the 2020 U.S. Census, collected by the U.S. Census Bureau. It is measured in km<sup>2</sup>. City, county, state, city area, and county area columns were brought into the database.</p>
 </section>
 <section id="park-area-data" class="level3">
 <h3 class="anchored" data-anchor-id="park-area-data">Park Area Data</h3>
-<p>Park areas data is sourced from the Trust for Public Land’s 2024 annual City Park Survey. This information is collected via survey from a variety of park agencies including Individual Parks and Recreation agencies, the National Park Service, Bureau of Land Management, Regional Park authorities, Private Conservancy, Watershed Management Agencies, private park services, and more. Totals are compiled by the Trust for Public Land, and measured in acres. Acreage is initially given in integers. Only location (city, state) and park area columns are brought into the database.</p>
+<p>Park area data is sourced from the Trust for Public Land’s 2024 annual City Park Survey. This information is collected via survey from a variety of park agencies including individual parks and recreation agencies, the National Park Service, the Bureau of Land Management, regional park authorities, private conservancies, watershed management agencies, private park services, and more. Totals are compiled by the Trust for Public Land, and measured in acres. Only location (city, state) and park area columns are brought into the database.</p>
 </section>
 <section id="livestock-data" class="level3">
 <h3 class="anchored" data-anchor-id="livestock-data">Livestock Data</h3>
-<p>Information on livestock numbers collected on a county wide basis from the 2017 United States Census of Agriculture by the National Agricultural Statistics Service within the United States Department of Agriculture. Cattle include cows and bulls raised for meat consumption, cows for milk production, and calves. Hogs includes all pigs, adult and adolescent. Although there are colloquial differences for the animals called hogs and pigs, they refer to the same species, though ‘hogs’ generally refers to the larger members of the species. Sheep includes sheep raised for wool production and lambs. Numbers may have slight inaccuracies for areas with low numbers to prevent disclosing identifying information and are marked with a ‘D’. All of these data points will be replaced with zero. Location (county, state) and livestock varieties (cattle and calves, hogs, sheep and lambs) columns are collected and added to the database.</p>
+<p>Information on livestock numbers was collected on a county wide basis from the 2017 United States Census of Agriculture by the National Agricultural Statistics Service within the United States Department of Agriculture. Cattle include cows and bulls raised for meat consumption, cows for milk production, and calves. Hogs includes all pigs, adult and adolescent. Although there are colloquial differences for the animals called hogs and pigs, they refer to the same species, though ‘hogs’ generally refers to the larger members of the species. Sheep includes sheep raised for wool production and lambs. Numbers may have slight inaccuracies for areas with low numbers to prevent disclosing identifying information and are marked with a ‘D’. All of these data points will be replaced with zero. Location (county, state) and livestock varieties (cattle and calves, hogs, sheep and lambs) columns are collected and added to the database.</p>
 </section>
 <section id="population-data" class="level3">
 <h3 class="anchored" data-anchor-id="population-data">Population Data</h3>
@@ -444,23 +478,18 @@ window.Quarto = {
 <p>From the QQ plots and histograms, we can see both datasets are clearly not normally distributed. They have long tails to the right. However, since the tails have such low frequencies and the samples are very large, this likely will not impact the results.</p>
 <p>The partial violations of the assumptions in the t-test in our analysis suggest that the conclusions should be considered with a degree of caution.</p>
 <p><strong>Two-Sample t-Test Portland AQI vs Large Metro Areas AQI</strong></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/hypothesis_test_results_1_pdx_vs_lma.png?raw=true" class="img-fluid figure-img"></p>
-<figcaption>Figure 3: Two-Sample t-Test</figcaption>
-</figure>
-</div>
+<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/hypothesis_test_results_1_pdx_vs_lma.png?raw=true" class="img-fluid"></p>
 <p>Based on the low P-value of 6.862*10<sup>-4</sup>, we can safely reject the null hypothesis. We conclude that Portland’s AQI mean is not greater than or equal to the AQI of all large metropolitan areas. This agrees with our initial observations on the greater AQI outcomes of Portland, and specifies the significance of this statistically.</p>
 <section id="data-forecasting-with-prophet" class="level2">
 <h2 class="anchored" data-anchor-id="data-forecasting-with-prophet">Data Forecasting with Prophet</h2>
 <p>Prophet by Meta is used as time series prediction to estimate and map trends based on our data. We use this to see how AQI trends vary by day, month, and year. It is also able to give us a forecast for a given period after the end of our data which we can analyze and use to anticipate future AQI values.</p>
 <p>To use the package, data must be in the format of a two column graph, with the first column being the date data, and the second being the variable being mapped and predicted. In this case, this predicted variable is AQI.</p>
 <p>The package allows a future period to be generated, which can be specified and added to the end of the time data. It can then predict future AQI values for the new data period.</p>
-<p>The graph below (figure 4324), shows the supplied data with the future prediction over the future period. The actual values are shown with the black datapoints, and the blue line represents the prediction. The upper and lower bounds of the error are represented with the transparent blue area. Each year, the data spikes during the late summer to early fall. Even more significant is the large spike in September 2020. What caused it? How significant was it?</p>
+<p>The graph below (figure 3), shows the supplied data with the forecast over the future period. The actual values are shown with the black datapoints, and the blue line represents the prediction. The upper and lower bounds of the error are represented with the transparent blue area. Each year, the data spikes during the late summer to early fall. Even more significant, is the large spike in September 2020. What caused it? How significant was it?</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/prophet_pdx_trend_and_prediction.png?raw=true" class="img-fluid figure-img"></p>
-<figcaption>Figure 4: Prophet Prediction</figcaption>
+<figcaption>Figure 3: Prophet Trend and Prediction with 2020 Wildfire Season Highlight</figcaption>
 </figure>
 </div>
 </section>
@@ -468,8 +497,8 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="wildfires">2020 Wildfires</h2>
 <p>In September 2020, a wildfire ravaged the state of Oregon, as well as many other areas of the United States and Canada. The fires burned more than one million acres of land, destroying thousands of homes, and killing 11 people. 500,000 Oregonians were on evacuation alert, and 40,000 were actually forced to leave (Oregon Department of Emergency Management). Anyone around during that time will recall the orange skies, thick atmosphere, and strong smoke smell, but how unusual was this period actually?</p>
 <p>To understand, we will conduct a two sample t-test to see whether or not this month had greater than usual AQI.</p>
-<p><strong>Null Hypothesis</strong>: September 2020 AQI less than or equal to AQI of entire period in Portland</p>
-<p><strong>Alternate Hypothesis</strong>: September 2020 AQI greater AQI of entire period in Portland</p>
+<p><strong>Null Hypothesis</strong>: September 2020 AQI is less than or equal to AQI of entire period in Portland</p>
+<p><strong>Alternate Hypothesis</strong>: September 2020 AQI is greater AQI of entire period in Portland</p>
 <p><strong>Assumptions</strong>:</p>
 <ol type="1">
 <li><p>Simple Random Sample: Data is not a simple random sample. Since there are so few datapoints for the September 2020 population (30 datapoints), taking a 10% sample may not be suitable to accurately capture the variance of this month. Thus, it was decided to use the entire population as the sample. A 10% sample will be taken of the entire Portland data population.</p></li>
@@ -479,43 +508,38 @@ window.Quarto = {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/normal_distribution_2_wildfires.png?raw=true" class="img-fluid figure-img"></p>
-<figcaption>Figure 5: Wildfire Distribution</figcaption>
+<figcaption>Figure 4: Wildfire Distribution</figcaption>
 </figure>
 </div>
 <p>From the QQ plots and histograms, we can see both datasets are clearly not normally distributed. They have long tails to the right, and the September 2020 dataset is oddly shaped due to lack of data.</p>
 <p>The partial violations of the assumptions in the t test in our analysis suggest that the conclusions should be considered with a degree of caution.</p>
 <p><strong>Two-Sample t-Test September 2020 vs Full Period of Portland AQI</strong></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/hypothesis_test_results_2_wildfires.png?raw=true" class="img-fluid figure-img"></p>
-<figcaption>Figure 6: Two-Sample t-Test</figcaption>
-</figure>
-</div>
+<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/hypothesis_test_results_2_wildfires.png?raw=true" class="img-fluid"></p>
 <p>Based on the low p value of 1.85*10<sup>-3</sup>, we reject the null. We conclude that the September AQI in Portland is not less than or equal to the AQI for the entire period. The wildfire had a significant effect on the air quality, making it much more difficult to breathe. This aligns with the observation of the large spike during this period. We must do more to address and combat the wildfires that not only harm the air we breathe, but cause long lasting damage to the local environment.</p>
 </section>
 <section id="aqi-trends" class="level2">
 <h2 class="anchored" data-anchor-id="aqi-trends">AQI Trends</h2>
-<p>Prophet’s plot component function allows us to see specific trends including the total (entire eight years), weekly, and yearly trends in figure 21111.</p>
+<p>Prophet’s plot component function allows us to see specific trends including the total (entire eight years), weekly, and yearly trends in figure 5.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/prophet_components_plot_aqi.png?raw=true" class="img-fluid figure-img"></p>
-<figcaption>Figure 7: Prophet Component Trend Aggregations</figcaption>
+<figcaption>Figure 5: Prophet Component Trend Aggregations</figcaption>
 </figure>
 </div>
 <p>This allows us to see how AQI changes by day. In the top full time span graph, it shows the potential spread of data for the predicted period with the transparent blue area. We can also see that day of the week tends to have very little impact on the trend (it may look significant but it is only moving up and down less than 1.5 AQI between days). Finally, from the yearly graph we can see the consistent increase during the late summer to mid fall each year.</p>
 </section>
 <section id="cross-validation" class="level2">
 <h2 class="anchored" data-anchor-id="cross-validation">Cross Validation</h2>
-<p>How accurate are these predictions? A cross validation predicts over the period from the cutoff date up to specified date in the ds column date.</p>
-<p>Cross validating the predictions allows us to create many estimates from a starting date up to an end date within out timeframe. In this instance, the tool predicts using start dates every half a year. It will predict AQI for that date to every day up to a year after the start date, giving us 365 estimates per start date. We then compare all estimations seeing how accurate the prediction is for a number of days after the start date.</p>
-<p>The tool allows us to measure the difference in predicted y and actual y with a variety of different measurements. In figure 559955 below, we have selected mean absolute percent error, to show how if the error on average increased as the prediction got further from the starting point.</p>
+<p>How accurate are these predictions? A cross validation predicts over the period from the cutoff date up to specified date.</p>
+<p>Cross validating the predictions allows us to create many estimates from a starting date up to an end date within our timeframe. In this instance, the tool predicts using start dates every half a year. It will predict AQI for that date to every day up to a year after the start date, giving us 365 estimates per start date. We then compare all estimations, seeing how accurate the prediction is for a number of days after the start date.</p>
+<p>The tool allows us to measure the difference in predicted y and actual y with a variety of different measurements. In figure 6 below, we have selected mean absolute percent error, to show if the error on average increased as the prediction got further from the starting point.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/prophet_cross_val_aqi.png?raw=true" class="img-fluid figure-img"></p>
-<figcaption>Figure 8: Prophet Error on Cross Validated Estimates</figcaption>
+<figcaption>Figure 6: Prophet Error on Cross Validated Estimates</figcaption>
 </figure>
 </div>
-<p>The light grey datapoints represent the mean absolute percent error. A datapoint with a x value 200 and y value 1 means it was predicted for a period of 200 days after the cutoff date, and was 1% off the actual value. We can see that most predictions are under 1%, making this a pretty decent estimation. The fact that they do not increase over time allows us to have a certain degree of confidence in the prediction even a year out. The blue line shows the mean of these datapoints.</p>
+<p>The light grey datapoints represent the mean absolute percent error. A datapoint with a x value 200 and y value 1 means it was predicted for a period of 200 days after the cutoff date, and was 1% off the actual value. We can see that most predictions are under 1%, making this a pretty decent estimation. The fact that they do not increase over time allows us to have a certain degree of confidence in the prediction even a year out. The blue line shows the mean of these predictions.</p>
 </section>
 <section id="portlands-transit-system" class="level2">
 <h2 class="anchored" data-anchor-id="portlands-transit-system">Portland’s Transit System</h2>
@@ -533,26 +557,21 @@ window.Quarto = {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/normal_distribution_3_pdx_transit.png?raw=true" class="img-fluid figure-img"></p>
-<figcaption>Figure 9: Transit Distribution</figcaption>
+<figcaption>Figure 7: Transit Distribution</figcaption>
 </figure>
 </div>
-<p>From the QQ plots and histograms, we can see both datasets are clearly not normally distributed. The Portland data has so few datapoints that it is hard to tell if it has a normal distribution or not. The large city transit data seems normal with the exception of one datapoint.</p>
+<p>From the QQ plots and histograms, we can see both datasets are clearly not normally distributed. The Portland data has so few datapoints that it is hard to tell if it has a normal distribution or not. The large city transit data seems fairly normal, though it too does not have enough datapoints to visually approach a bell curve in the histogram.</p>
 <p>The partial violations of the assumptions in the t test in our analysis suggest that the conclusions should be considered with a degree of caution.</p>
 <p><strong>Two-Sample t-Test Portland Transit Ridership vs Large Metro Area Ridership</strong></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/hypothesis_test_results_3_transit.png?raw=true" class="img-fluid figure-img"></p>
-<figcaption>Figure 10: Two-Sample t-Test</figcaption>
-</figure>
-</div>
+<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/hypothesis_test_results_3_transit.png?raw=true" class="img-fluid"></p>
 <p>Based on the high p value of 0.2469, we fail to reject the null. We cannot conclude that Portland’s transit ridership is different from the average transit ridership of other large metro areas across the country. Transit ridership may have some impact on AQI but not enough to make a statistical difference by itself. Likely, this is a situation of correlated variables. Cities that invest more in public infrastructure are more likely to make a concerned effort into being environmentally conscious.</p>
-<p>It should also be noted that some cities have higher public transit numbers not reflected in the data. For example, in New York City, subway ridership is almost double that of its motor bus numbers. In this data only motor bus numbers were included which may contribute to the lack of evidence for transit numbers influence on AQI. We will explore which features have a greater effect on AQI in the upcoming Machine Learning section.</p>
+<p>It should also be noted that some cities have higher public transit numbers not reflected in the data. For example, in New York City, subway ridership is almost double that of its motor bus numbers. In this data, only motor bus numbers were included which may contribute to the lack of evidence for transit numbers influence on AQI. We will explore which features have a greater effect on AQI in the upcoming Machine Learning section.</p>
 </section>
 </section>
-<section id="results-machine-learning-scikit-learn" class="level1">
-<h1>Results Machine Learning Scikit-Learn</h1>
+<section id="machine-learning-with-scikit-learn" class="level1">
+<h1>Machine Learning with Scikit-Learn</h1>
 <p>Ultimately, we want to see which variables have the greatest impact on AQI. To do this we perform a machine learning analysis and create a prediction algorithm. As the AQI is defined by the four criteria gasses and particulate matter (PM10 and PM2.5), those should not be included in the algorithm. Thus we start with all the other variables.</p>
-<p>After data is cleaned, we are left with a total of eighteen cities across the country with a total metropolitan area population of greater than one million. To perform the ML prediction algorithm, AQI will be predicted. We will use existing AQI cateogories as classifiers. A feature selector is run on the set of all variables except for the six that define AQI (CO, NO2, O3, SO2, PM10, PM2.5). This chooses the best predictors of the dependent variable AQI.</p>
+<p>After data is cleaned, we are left with a total of eighteen cities across the country with a total metropolitan area population of greater than one million. To perform the ML prediction algorithm, AQI will be predicted. We will use existing AQI categories as classifiers. A feature selector is run on the set of all variables except for the six that define AQI (CO, NO2, O3, SO2, PM10, PM2.5). This chooses the best predictors of the dependent variable AQI.</p>
 <p>Features Selected in Initial Model:</p>
 <ul>
 <li>City</li>
@@ -568,8 +587,8 @@ window.Quarto = {
 <p>An initial Random Forest Model run with the selected features returns the following Cohen Kappa score and accuracy:</p>
 <div id="cks-accuracy" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-stdout">
-<pre><code>Cohen Kappa Score:  0.44492288879204367
-Accuracy:  0.7218290691344583</code></pre>
+<pre><code>Cohen Kappa Score:  0.494855990098252
+Accuracy:  0.7457811649428416</code></pre>
 </div>
 </div>
 <div class="quarto-figure quarto-figure-center">
@@ -632,37 +651,37 @@ Accuracy:  0.7218290691344583</code></pre>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
 <td>RF_model__max_depth</td>
-<td>10</td>
+<td>9</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
 <td>RF_model__max_features</td>
-<td>log2</td>
+<td>None</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
 <td>RF_model__min_samples_leaf</td>
-<td>7</td>
+<td>3</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
 <td>RF_model__min_samples_split</td>
-<td>5</td>
+<td>7</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">5</td>
 <td>RF_model__n_estimators</td>
-<td>177</td>
+<td>112</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">6</td>
 <td>aqi_transformer__categories__max_categories</td>
-<td>9</td>
+<td>19</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">7</td>
 <td>aqi_transformer__categories__min_frequency</td>
-<td>10</td>
+<td>17</td>
 </tr>
 </tbody>
 </table>
@@ -674,8 +693,8 @@ Accuracy:  0.7218290691344583</code></pre>
 <p>Using these hyperparameters, we reach an accuracy of over 70%.</p>
 <div id="predict-x_test-final" class="cell" data-execution_count="35">
 <div class="cell-output cell-output-stdout">
-<pre><code>Cohen Kappa Score:  0.457560636753082
-Accuracy:  0.7158410451823626</code></pre>
+<pre><code>Cohen Kappa Score:  0.45841885491690726
+Accuracy:  0.713663581927055</code></pre>
 </div>
 </div>
 <div class="quarto-figure quarto-figure-center">
@@ -711,30 +730,30 @@ Accuracy:  0.7158410451823626</code></pre>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">26-50</td>
-<td>0.778702</td>
-<td>0.885525</td>
-<td>0.828685</td>
+<td>0.784799</td>
+<td>0.869442</td>
+<td>0.824955</td>
 <td>1057.0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">51-75</td>
-<td>0.616514</td>
-<td>0.558140</td>
-<td>0.585876</td>
+<td>0.611888</td>
+<td>0.581395</td>
+<td>0.596252</td>
 <td>602.0</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">76-100</td>
-<td>0.396552</td>
-<td>0.212963</td>
-<td>0.277108</td>
+<td>0.357143</td>
+<td>0.185185</td>
+<td>0.243902</td>
 <td>108.0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">101-200</td>
-<td>0.625000</td>
-<td>0.333333</td>
-<td>0.434783</td>
+<td>0.578947</td>
+<td>0.366667</td>
+<td>0.448980</td>
 <td>60.0</td>
 </tr>
 <tr class="even">
@@ -765,7 +784,10 @@ Accuracy:  0.7158410451823626</code></pre>
 </section>
 <section id="machine-learning-sarimax" class="level1">
 <h1>Machine Learning SARIMAX</h1>
-<p>A time series is a sequence of data points collected at regular intervals over a period of time. These intervals are typically uniform, such as hourly, daily, or quarterly measurements. This orderly arrangement allows for the analysis of trends, patterns, and behaviors over time. Common examples of time series data include stock market closing prices, household electricity consumption readings, and weather measurements. In the context of our capstone project, we’re focusing on air quality index measurements as our time series data. This sequential record of air quality provides insights into pollution trends and can be used to forecast future air quality conditions.</p>
+<p>A time series is a sequence of data points collected at regular intervals over a period of time. These intervals are typically uniform, such as hourly, daily, or quarterly measurements.<br>
+This orderly arrangement allows for the analysis of trends, patterns, and behaviors over time.<br>
+Common examples of time series data include stock market closing prices, household electricity consumption readings, and weather measurements.</p>
+<p>In the context of our capstone project, we’re focusing on air quality index measurements as our time series data. This sequential record of air quality provides insights into pollution trends and can be used to forecast future air quality conditions.</p>
 <p>Any time series is composed of three things:</p>
 <ul>
 <li><em>Trend</em>: Trend tells you how things are overall changing<br>
@@ -776,12 +798,14 @@ Accuracy:  0.7158410451823626</code></pre>
 </ul>
 <section id="statsmodel" class="level2">
 <h2 class="anchored" data-anchor-id="statsmodel">Statsmodel</h2>
-<p>Using the statsmodel package, we can map the seasonal pattern and trends using seasonal_decompose method. It requires as inputs a dataframe with two columns date data and the AQI. This will help us to understand the seasonality and trend clearly and allowing us to make more sense of the data for the forecast. In a additive time series, the components add together to make the time series. If you have an increasing trend, you still see roughly the same size peaks and troughs throughout the time series.</p>
+<p>Using the statsmodel package, we can map the seasonal pattern and trends using seasonal_decompose method. It requires as inputs a dataframe with two columns date data and the AQI.</p>
 </section>
 <section id="components-of-a-time-series" class="level2">
 <h2 class="anchored" data-anchor-id="components-of-a-time-series">Components Of A Time Series</h2>
-<p>Time series decomposition is a statistical technique that separates data into three key components: trend, seasonality, and residuals. The trend shows the long-term direction, seasonality reveals recurring patterns, and residuals represent unexplained variations. Visualizing these components individually provides insights that may not be evident in the raw data. This process helps analysts identify underlying patterns, recognize cyclical behaviors, and detect anomalies.</p>
-<p>By understanding these elements separately, we can gain deeper insights into the factors driving the time series, leading to more accurate analysis and forecasting. Decomposition is particularly useful when the complexity of a time series makes it challenging to discern important patterns from simple observation of the dataset.</p>
+<p>Time series decomposition is a statistical technique that separates data into three key components: trend, seasonality, and residuals.<br>
+The trend shows the long-term direction, seasonality reveals recurring patterns, and residuals represent unexplained variations.<br>
+Visualizing these components individually provides insights that may not be evident in the raw data. This process helps analysts identify underlying patterns, recognize cyclical behaviors, and detect anomalies. By understanding these elements separately, we can gain deeper insights into the factors driving the time series, leading to more accurate analysis and forecasting.</p>
+<p>Decomposition is particularly useful when the complexity of a time series makes it challenging to discern important patterns from simple observation of the dataset.</p>
 <div id="cell-seasonal-decompose" class="cell" data-execution_count="42">
 <div class="cell-output cell-output-display">
 <div>
@@ -792,95 +816,163 @@ Accuracy:  0.7158410451823626</code></pre>
 </div>
 </div>
 <p>Figure 14: Seasonal, Trend, and Residual Decomposition of Portland AQI Time Series</p>
-<p>The uppermost graph, labeled <em>Observed</em>, presents the raw time series data as originally recorded. Its y-axis quantifies the daily air quality measurements, while the x-axis represents the passage of time. This graph is a composite representation, effectively combining the three underlying components: trend, seasonality, and residuals. A notable anomaly is evident in the data: a significant spike in air quality measurements occurring in September 2020. This outlier corresponds to the severe wildfires that ravaged Oregon during that period. The dramatic increase in air pollution levels during this time underscores the profound impact of extreme environmental events on air quality.</p>
-<p>The <em>Seasonal</em> component graph illustrates the cyclical patterns in air quality that repeat annually. This visualization reveals a distinctive yearly pattern in Air Quality Index (AQI) fluctuations. The cycle begins with relatively low AQI values, indicating better air quality. As the year progresses, the AQI rises to a peak, signifying a period of poorer air quality. This is followed by an improvement (decrease in AQI), another deterioration (increase), and a final improvement towards the year’s end. These recurring variations likely reflect the influence of seasonal factors such as changing weather patterns, temperature inversions, and seasonal human activities. For instance, winter months might see higher AQI due to increased heating emissions, while spring could bring lower AQI with more favorable dispersion conditions.</p>
-<p>The graph includes a highlighted box that demarcates the seasonal period. This visual element clearly illustrates the duration and boundaries of one complete seasonal cycle in the air quality data. Understanding these seasonal trends is crucial for accurately interpreting air quality data and making informed predictions. It allows environmental agencies and policymakers to anticipate periods of potentially compromised air quality and plan interventions accordingly.</p>
-<p>Lastly, the final row displays the <em>Residuals</em>, which represent the portion of the data not explained by the trend or the seasonal component. We can interpret the residuals as the difference between the sum of the Trend and Seasonal components and the Observed values at each point in time. Essentially, the Residuals indicate the amount that needs to be added to the Trend and Seasonal components to align the result with the Observed values. Residuals are typically attributed to random errors, often referred to as white noise, which we will explore further. These residuals embody the unpredictable elements of the data that cannot be captured or forecasted by the model, as they are inherently random.</p>
+<p>The uppermost graph, labeled <em>Observed</em>, presents the raw time series data as originally recorded. Its y-axis quantifies the daily air quality measurements, while the x-axis represents the passage of time.<br>
+This graph is a composite representation, effectively combining the three underlying components: trend, seasonality, and residuals.<br>
+A notable anomaly is evident in the data: a significant spike in air quality measurements occurring in September 2020. This outlier corresponds to the severe wildfires that ravaged Oregon during that period. The dramatic increase in air pollution levels during this time underscores the profound impact of extreme environmental events on air quality.</p>
+<p>The <em>Seasonal</em> component graph illustrates the cyclical patterns in air quality that repeat annually. This visualization reveals a distinctive yearly pattern in Air Quality Index (AQI) fluctuations. The cycle begins with relatively low AQI values, indicating better air quality. As the year progresses, the AQI rises to a peak, signifying a period of poorer air quality. This is followed by an improvement (decrease in AQI), another deterioration (increase), and a final improvement towards the year’s end.</p>
+<p>These recurring variations likely reflect the influence of seasonal factors such as changing weather patterns, temperature inversions, and seasonal human activities. For instance, winter months might see higher AQI due to increased heating emissions, while spring could bring lower AQI with more favorable dispersion conditions.<br>
+The graph includes a highlighted box that demarcates the seasonal period. This visual element clearly illustrates the duration and boundaries of one complete seasonal cycle in the air quality data. Understanding these seasonal trends is crucial for accurately interpreting air quality data and making informed predictions.<br>
+It allows environmental agencies and policymakers to anticipate periods of potentially compromised air quality and plan interventions accordingly.</p>
+<p>Lastly, the final row displays the <em>Residuals</em>, which represent the portion of the data not explained by the trend or the seasonal component. We can interpret the residuals as the difference between the sum of the Trend and Seasonal components and the Observed values at each point in time.</p>
+<p>Essentially, the Residuals indicate the amount that needs to be added to the Trend and Seasonal components to align the result with the Observed values. Residuals are typically attributed to random errors, often referred to as noise. These residuals embody the unpredictable elements of the data that cannot be captured or forecasted by the model, as they are inherently random.</p>
 </section>
 <section id="finding-the-best-forecasting-model-with-grid-search" class="level2">
 <h2 class="anchored" data-anchor-id="finding-the-best-forecasting-model-with-grid-search">Finding the Best Forecasting Model with Grid Search</h2>
-<p>For this project, we used an extended version of <em>ARIMA</em> model knows as <em>SARIMAX</em> model as we have explained in the methods section. We use a tuning technique called grid search method that attempts to compute the optimum values of hyperparameters. We are trying to find the right p,d,q values that would be given as an input to the SARIMAX time series model. This process helps us find the best settings for a forecasting model called SARIMAX by testing various options to find the best fit for our data. Here’s an easy-to-understand explanation of how this works:</p>
-<section id="step-1-getting-everything-ready" class="level3">
-<h3 class="anchored" data-anchor-id="step-1-getting-everything-ready">Step 1: Getting Everything Ready</h3>
-<p>We start by setting up all the tools we need for our analysis.</p>
+<p>For this project, we used an extended version of <em>ARIMA</em> model knows as <em>SARIMAX</em> model as we have explained in the methods section. We use a tuning technique called grid search method that attempts to compute the optimum values of hyperparameters. We are trying to find the right p,d,q values that would be given as an input to the SARIMAX time series model.</p>
+<p>Here’s an easy-to-understand explanation of how this works:</p>
+<section id="step-1-setting-up-our-hyperparameters" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-setting-up-our-hyperparameters">Step 1: Setting Up Our Hyperparameters</h3>
+<p>We define p,d,q hyperparameters to take any value between 0 to 1 which help the model decide how much weight to give to past values, trends, and patterns.<br>
+We then create a list of all p,d,q possible combinations of these settings in a for loop.</p>
 </section>
-<section id="step-2-setting-up-our-options" class="level3">
-<h3 class="anchored" data-anchor-id="step-2-setting-up-our-options">Step 2: Setting Up Our Options</h3>
-<p>We define different settings that the SARIMAX model can use to predict future values. These include the p, d, and q parameters, which help the model decide how much weight to give to past values, trends, and patterns. We then create a list of all possible combinations of these settings.</p>
-</section>
-<section id="step-3-adding-seasonal-flavors" class="level3">
-<h3 class="anchored" data-anchor-id="step-3-adding-seasonal-flavors">Step 3: Adding Seasonal Flavors</h3>
-<p>We know that some data has seasonal patterns, like sales going up during the holidays. We include options for these seasonal changes.</p>
-</section>
-<section id="step-4-trying-out-different-combinations" class="level3">
-<h3 class="anchored" data-anchor-id="step-4-trying-out-different-combinations">Step 4: Trying Out Different Combinations</h3>
+<section id="step-2-trying-out-different-combinations" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-trying-out-different-combinations">Step 2: Trying Out Different Combinations</h3>
 <p>We go through each combination of settings to see how well each one works. For each main setting, we also try different seasonal settings to find the perfect combination.</p>
 </section>
-<section id="step-5-checking-the-results" class="level3">
-<h3 class="anchored" data-anchor-id="step-5-checking-the-results">Step 5: Checking the Results</h3>
-<p>For each set of settings, we create a forecasting model and test it on our data. We measure how well each model works using a score called the Akaike Information Criterion (AIC). This score tells us how well the model predicts the data, with lower scores being better. If something goes wrong with a particular set of settings, we catch the error and move on to the next set without stopping the whole process.</p>
-<p>We have to find the lowest AIC values which would have the best corresponding p,d,q values to have the best forecast of AQI values.</p>
+<section id="step-3-checking-the-results" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-checking-the-results">Step 3: Checking the Results</h3>
+<p>For each set of p,d,q settings, we create a forecasting model and test it on our data. We measure how well each model works using a score called the Akaike Information Criterion (AIC) as mentioned in the methods section. This score tells us how well the model predicts the data, with lower scores being better.</p>
+<p>If something goes wrong with a particular set of hyperparameter settings, we catch the error and move on to the next set without stopping the whole process.</p>
+<p>We have found the lowest AIC values which would have the best corresponding p,d,q values to have the best forecast of AQI values.</p>
 </section>
 </section>
 <section id="sarimax-model-results" class="level2">
 <h2 class="anchored" data-anchor-id="sarimax-model-results">SARIMAX Model Results</h2>
-<div id="mod-fit" class="cell" data-execution_count="44">
-<div class="cell-output cell-output-stdout">
-<pre><code>                                     SARIMAX Results                                      
-==========================================================================================
-Dep. Variable:                                aqi   No. Observations:                   96
-Model:             SARIMAX(1, 1, 1)x(0, 1, 1, 12)   Log Likelihood                -276.765
-Date:                            Wed, 14 Aug 2024   AIC                            561.530
-Time:                                    17:04:02   BIC                            570.467
-Sample:                                01-31-2015   HQIC                           565.076
-                                     - 12-31-2022                                         
-Covariance Type:                              opg                                         
-==========================================================================================
-==============================================================================
-                 coef    std err          z      P&gt;|z|      [0.025      0.975]
-------------------------------------------------------------------------------
-ar.L1          0.0483      0.306      0.158      0.875      -0.551       0.648
-ma.L1         -1.0000    924.523     -0.001      0.999   -1813.031    1811.031
-ma.S.L12      -1.0000   2355.498     -0.000      1.000   -4617.692    4615.692
-sigma2       134.1503   3.35e+05      0.000      1.000   -6.57e+05    6.57e+05
-==============================================================================</code></pre>
-</div>
-</div>
-<p>This summary presents a concise overview of the SARIMAX model’s performance and fit. The SARIMAX(1, 1, 1)x(0, 1, 1, 12) model integrates both non-seasonal and seasonal components, effectively capturing both immediate and periodic influences on the Air Quality Index (AQI). The model utilizes 96 observations, providing a robust dataset for accurate model fitting. Key metrics such as the log-likelihood, AIC, BIC, and HQIC are used to assess the model’s effectiveness, with lower values typically indicating a better fit that balances complexity and accuracy. The summary also includes the date and time of model execution, the timeframe of the data, and the type of covariance used, which aids in understanding how the model accounts for uncertainties in parameter estimates.</p>
+<table class="table-striped table-hover caption-top table">
+<caption>SARIMAX Results</caption>
+<colgroup>
+<col style="width: 100%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>SARIMAX Results</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Dep. Variable:</strong> aqi</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Model:</strong> SARIMAX(1, 1, 1)x(0, 1, 1, 12)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Date:</strong> Thu, 15 Aug 2024</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Time:</strong> 12:09:16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Sample:</strong> 01-31-2015 - 12-31-2022</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>No.&nbsp;Observations:</strong> 96</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Log Likelihood:</strong> -330.316</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>AIC:</strong> 668.632</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>BIC:</strong> 678.307 (Bayesian Information Criterion)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>HQIC:</strong> 672.519 (Hannan-Quinn Information Criterion)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Covariance Type:</strong> opg (Outer Product of Gradients)</td>
+</tr>
+</tbody>
+</table>
+<section id="interpretation-1" class="level3">
+<h3 class="anchored" data-anchor-id="interpretation-1">Interpretation</h3>
+<p>This summary presents a concise overview of the SARIMAX model’s performance and fit.</p>
+<p>The SARIMAX(1, 1, 1)x(0, 1, 1, 12) model integrates both non-seasonal and seasonal components, effectively capturing both immediate and periodic influences on the Air Quality Index (AQI). The model utilizes 96 observations, providing a robust dataset for accurate model fitting.</p>
+<p>Key metrics such as the log-likelihood, AIC, BIC, and HQIC are used to assess the model’s effectiveness, with lower values typically indicating a better fit that balances complexity and accuracy.</p>
+<p>The summary also includes the date and time of model execution, the timeframe of the data, and the type of covariance used, which aids in understanding how the model accounts for uncertainties in parameter estimates.</p>
+<p>Next, we extract the coefficient, standard errors, z-values, p-values, and 95% confidence intervals for the SARIMAX model parameters. This information is crucial for evaluating the significance and reliability of each parameter estimate</p>
+</section>
 <section id="autoregressive-term-ar.l1" class="level3">
 <h3 class="anchored" data-anchor-id="autoregressive-term-ar.l1">Autoregressive Term (ar.L1)</h3>
-<p>Coefficient: 0.0483 Suggests a slight positive influence of the previous observation on the current value. Standard Error: 0.306 Indicates significant variability in the coefficient estimate. Z-Value: 0.158 Low value, indicating the coefficient is not statistically significant. P-Value: 0.875 Not significant (p-value &gt; 0.05). Confidence Interval: [-0.551, 0.648] Includes zero, reinforcing the lack of significance.</p>
+<ul>
+<li>Coefficient: 0.0483 Suggests a slight positive influence of the previous observation on the current value.</li>
+<li>Standard Error: 0.306 Indicates significant variability in the coefficient estimate.</li>
+<li>Z-Value: 0.158 Low value, indicating the coefficient is not statistically significant.</li>
+<li>P-Value: 0.875 Not significant (p-value &gt; 0.05).</li>
+<li>Confidence Interval: [-0.551, 0.648]</li>
+<li>Includes zero, reinforcing the lack of significance.</li>
+</ul>
 </section>
 <section id="moving-average-term-ma.l1" class="level3">
 <h3 class="anchored" data-anchor-id="moving-average-term-ma.l1">Moving Average Term (ma.L1)</h3>
-<p>Coefficient: -1.0000 Implies the model tries to correct nearly all errors from the previous period. Standard Error: 924.523 Extremely large, pointing to high uncertainty in the estimate. Z-Value: -0.001 Near zero, indicating no statistical significance. P-Value: 0.999 Not significant. Confidence Interval: [-1813.031, 1811.031] Very wide and includes zero, confirming lack of significance.</p>
+<ul>
+<li>Coefficient: -1.0000 Implies the model tries to correct nearly all errors from the previous period.</li>
+<li>Standard Error: 924.523 Extremely large, pointing to high uncertainty in the estimate.</li>
+<li>Z-Value: -0.001 Near zero, indicating no statistical significance.</li>
+<li>P-Value: 0.999 Not significant.</li>
+<li>Confidence Interval: [-1813.031, 1811.031] Very wide and includes zero, confirming lack of significance.</li>
+</ul>
 </section>
 <section id="seasonal-moving-average-term-ma.s.l12" class="level3">
 <h3 class="anchored" data-anchor-id="seasonal-moving-average-term-ma.s.l12">Seasonal Moving Average Term (ma.S.L12)</h3>
-<p>Coefficient: -1.0000 Attempts to correct errors regarding data seasonality. Standard Error: 2355.498 Very large, indicating substantial uncertainty. Z-Value: -0.000 Near zero, suggesting no significance. P-Value: 1.000 Not significant. Confidence Interval: [-4617.692, 4615.692] Wide interval, includes zero, further indicating no significance.</p>
+<ul>
+<li>Coefficient: -1.0000 Attempts to correct errors regarding data seasonality.</li>
+<li>Standard Error: 2355.498 Very large, indicating substantial uncertainty.</li>
+<li>Z-Value: -0.000 Near zero, suggesting no significance.</li>
+<li>P-Value: 1.000 Not significant.</li>
+<li>Confidence Interval: [-4617.692, 4615.692] Wide interval, includes zero, further indicating no significance.</li>
+</ul>
 </section>
 <section id="variance-of-the-residuals-sigma2" class="level3">
 <h3 class="anchored" data-anchor-id="variance-of-the-residuals-sigma2">Variance of the Residuals (sigma2)</h3>
-<p>Coefficient: 134.1503 Represents the variance of the residuals or errors. Standard Error: 335000 Extremely high, showing great uncertainty. Z-Value: 0.000 Indicates no statistical significance. P-Value: 1.000 Not significant. Confidence Interval: [-657000, 657000] Very wide, includes zero, highlighting lack of significance.</p>
-<p>##Overall Summary None of the coefficients in the SARIMAX model are statistically significant, as indicated by the high p-values and z-values close to zero. This means that the parameters do not effectively predict the AQI data. The large standard errors and wide confidence intervals point to a high degree of uncertainty in the parameter estimates. This suggests the model may not be well-suited for capturing the dynamics of the AQI data, and re-evaluation of the model or data is recommended.</p>
+<ul>
+<li>Coefficient: 134.1503 Represents the variance of the residuals or errors.</li>
+<li>Standard Error: 335000 Extremely high, showing great uncertainty.</li>
+<li>Z-Value: 0.000 Indicates no statistical significance.</li>
+<li>P-Value: 1.000 Not significant.</li>
+<li>Confidence Interval: [-657000, 657000] Very wide, includes zero, highlighting lack of significance.</li>
+</ul>
 </section>
 </section>
 <section id="fit-sarimax-model" class="level2">
 <h2 class="anchored" data-anchor-id="fit-sarimax-model">Fit SARIMAX model</h2>
 <div id="extract-aic-value-plot" class="cell" data-execution_count="45">
 <div class="cell-output cell-output-stdout">
-<pre><code>The AIC value is: 561.5301944999834</code></pre>
+<pre><code>The AIC value is: 668.6317406918595</code></pre>
 </div>
 </div>
-<p>Explain what is the value AIC tells us, and how to interpret the plot. Look at the method</p>
+<p>When working with SARIMAX models, there are typically several plots you might analyze, such as:</p>
+<ul>
+<li><em>Time Series Plot of Residuals</em>: Shows the residuals over time. Ideally, residuals should appear as random noise without clear patterns.</li>
+<li><em>ACF and PACF Plots of Residuals</em>: Autocorrelation Function (ACF) and Partial Autocorrelation Function (PACF) plots help identify if the residuals of the model are uncorrelated. For a well-fitting model, residual autocorrelations should be small and within the significance bounds.</li>
+<li><em>Q-Q Plot</em>: This plot compares the distribution of residuals to a normal distribution. Points should ideally lie along the line of best fit.</li>
+<li><em>Forecast Plot</em>: Displays the fitted values versus the actual values and includes forecasted values. A good model will have fitted values close to the actual values with narrow confidence intervals</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/final-plot.png?raw=true" class="img-fluid figure-img"></p>
+<figcaption>Figure 15: Diagnostic plots</figcaption>
+</figure>
+</div>
 <p>Once the model is created, predicted values are generated using the .get_prediction() method, with datetime as input.</p>
 <p>To facilitate comparison of true and predicted test values, we will create a separate DataFrame. Mean Error Estimation will be used for analysis.</p>
 <p>To evaluate model performance, we calculate the MSE.</p>
 <div id="calculate-mse" class="cell" data-execution_count="50">
 <div class="cell-output cell-output-stdout">
-<pre><code>The Mean Squared Error of our forecasts is 1.41</code></pre>
+<pre><code>The Mean Squared Error of our forecasts is 0.83</code></pre>
 </div>
 </div>
+<p>In the context of predicting the Air Quality Index (AQI), the Mean Squared Error (MSE) is indeed an indicator of the average squared difference between the predicted AQI values and the actual AQI values.</p>
 </section>
 <section id="forecasting-future-values" class="level2">
 <h2 class="anchored" data-anchor-id="forecasting-future-values">Forecasting Future Values</h2>
@@ -922,11 +1014,26 @@ sigma2       134.1503   3.35e+05      0.000      1.000   -6.57e+05    6.57e+05
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="capstone_files/figure-html/plot-forecast-output-1.png" id="plot-forecast" width="1118" height="583" class="figure-img"></p>
+<p><img src="capstone_files/figure-html/plot-forecast-output-1.png" id="plot-forecast" width="746" height="583" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
+<p>Figure 16: Portland AQI Plot Forecast from 2023 to 2025</p>
+</section>
+<section id="overall-conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="overall-conclusion">Overall Conclusion</h3>
+<p>None of the coefficients in the SARIMAX model are statistically significant, as indicated by the high p-values and z-values close to zero. This means that the parameters do not effectively predict the AQI data. The large standard errors and wide confidence intervals point to a high degree of uncertainty in the parameter estimates. This suggests the model may not be well-suited for capturing the dynamics of the AQI data, and re-evaluation of the model or data is recommended. Our conclusion is that the SARIMAX model did not predict well the forecast values of the air quality index (AQI).</p>
+</section>
+<section id="possible-reasons-for-poor-performance" class="level3">
+<h3 class="anchored" data-anchor-id="possible-reasons-for-poor-performance">Possible Reasons for Poor Performance</h3>
+<p>Model Mis-specification: The chosen order of the SARIMAX model, including the autoregressive, differencing, and moving average components, may not be suitable for capturing the dynamics of the AQI data. This can lead to the model failing to capture trends and seasonal patterns accurately.</p>
+<ul>
+<li><p><em>Overfitting or Underfitting</em>: A high p-value for the model coefficients suggests that these parameters are not statistically significant. This could be a sign of overfitting, where the model is too complex and captures noise instead of the underlying pattern, or underfitting, where the model is too simple to capture the complexity of the data.</p></li>
+<li><p><em>Residual Diagnostics</em>: The residuals from the SARIMAX model may not be normally distributed or might exhibit autocorrelation, as seen in the plot diagnostics. This violation of assumptions indicates that the model is not capturing all the patterns in the data.</p></li>
+<li><p><em>External Influences</em>: The SARIMAX model may not account for all external factors influencing AQI, such as sudden changes in weather conditions, wildfires, or policy changes affecting pollution levels.</p></li>
+<li><p><em>SARIMAX model</em>: The SARIMAX model is quite intricate and can be challenging to comprehend fully.</p></li>
+</ul>
 </section>
 </section>
 </section>
