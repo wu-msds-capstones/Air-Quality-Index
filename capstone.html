@@ -213,7 +213,7 @@ window.Quarto = {
   <li><a href="#portlands-transit-system" id="toc-portlands-transit-system" class="nav-link" data-scroll-target="#portlands-transit-system">Portland’s Transit System</a></li>
   </ul></li>
   <li><a href="#machine-learning-with-scikit-learn" id="toc-machine-learning-with-scikit-learn" class="nav-link" data-scroll-target="#machine-learning-with-scikit-learn">Machine Learning with Scikit-Learn</a></li>
-  <li><a href="#machine-learning-sarimax" id="toc-machine-learning-sarimax" class="nav-link" data-scroll-target="#machine-learning-sarimax">Machine Learning SARIMAX</a>
+  <li><a href="#machine-learning-with-sarimax" id="toc-machine-learning-with-sarimax" class="nav-link" data-scroll-target="#machine-learning-with-sarimax">Machine Learning with SARIMAX</a>
   <ul class="collapse">
   <li><a href="#statsmodel" id="toc-statsmodel" class="nav-link" data-scroll-target="#statsmodel">Statsmodel</a></li>
   <li><a href="#components-of-a-time-series" id="toc-components-of-a-time-series" class="nav-link" data-scroll-target="#components-of-a-time-series">Components Of A Time Series</a></li>
@@ -231,12 +231,12 @@ window.Quarto = {
   <li><a href="#seasonal-moving-average-term-ma.s.l12" id="toc-seasonal-moving-average-term-ma.s.l12" class="nav-link" data-scroll-target="#seasonal-moving-average-term-ma.s.l12">Seasonal Moving Average Term (ma.S.L12)</a></li>
   <li><a href="#variance-of-the-residuals-sigma2" id="toc-variance-of-the-residuals-sigma2" class="nav-link" data-scroll-target="#variance-of-the-residuals-sigma2">Variance of the Residuals (sigma2)</a></li>
   </ul></li>
-  <li><a href="#fit-sarimax-model" id="toc-fit-sarimax-model" class="nav-link" data-scroll-target="#fit-sarimax-model">Fit SARIMAX model</a></li>
+  <li><a href="#fitting-the-sarimax-model" id="toc-fitting-the-sarimax-model" class="nav-link" data-scroll-target="#fitting-the-sarimax-model">Fitting the SARIMAX model</a></li>
   <li><a href="#forecasting-future-values" id="toc-forecasting-future-values" class="nav-link" data-scroll-target="#forecasting-future-values">Forecasting Future Values</a></li>
-  <li><a href="#visualizing-our-results" id="toc-visualizing-our-results" class="nav-link" data-scroll-target="#visualizing-our-results">Visualizing Our Results</a>
+  <li><a href="#visualizing-the-results" id="toc-visualizing-the-results" class="nav-link" data-scroll-target="#visualizing-the-results">Visualizing the Results</a>
   <ul class="collapse">
   <li><a href="#interpreting-the-forecast-plot" id="toc-interpreting-the-forecast-plot" class="nav-link" data-scroll-target="#interpreting-the-forecast-plot">Interpreting the Forecast Plot</a></li>
-  <li><a href="#overall-conclusion" id="toc-overall-conclusion" class="nav-link" data-scroll-target="#overall-conclusion">Overall Conclusion</a></li>
+  <li><a href="#sarimax-conclusion" id="toc-sarimax-conclusion" class="nav-link" data-scroll-target="#sarimax-conclusion">SARIMAX Conclusion</a></li>
   <li><a href="#possible-reasons-for-poor-performance" id="toc-possible-reasons-for-poor-performance" class="nav-link" data-scroll-target="#possible-reasons-for-poor-performance">Possible Reasons for Poor Performance</a></li>
   </ul></li>
   </ul></li>
@@ -587,14 +587,14 @@ window.Quarto = {
 <p>An initial Random Forest Model run with the selected features returns the following Cohen Kappa score and accuracy:</p>
 <div id="cks-accuracy" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-stdout">
-<pre><code>Cohen Kappa Score:  0.46293135156036325
-Accuracy:  0.7299945563418617</code></pre>
+<pre><code>Cohen Kappa Score:  0.46725223812451755
+Accuracy:  0.7327163854109962</code></pre>
 </div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/confusion_matrix_1.png?raw=true" class="img-fluid figure-img"></p>
-<figcaption>Figure 11: Confusion Matrix For Bin Size 1</figcaption>
+<figcaption>Figure 8: Confusion Matrix For Original AQI Categories</figcaption>
 </figure>
 </div>
 <p>Looking only at Cohen Kappa score and accuracy, this seems like a good prediction model. However, the confusion matrix shows the data’s skew, centered around the 0-100 range. Therefore, more bins and bin size combinations are tested in order to provide a more meaningful prediction.</p>
@@ -651,7 +651,7 @@ Accuracy:  0.7299945563418617</code></pre>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
 <td>RF_model__max_depth</td>
-<td>8</td>
+<td>9</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
@@ -661,50 +661,50 @@ Accuracy:  0.7299945563418617</code></pre>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
 <td>RF_model__min_samples_leaf</td>
-<td>5</td>
+<td>9</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
 <td>RF_model__min_samples_split</td>
-<td>3</td>
+<td>8</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">5</td>
 <td>RF_model__n_estimators</td>
-<td>57</td>
+<td>75</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">6</td>
 <td>aqi_transformer__categories__max_categories</td>
-<td>4</td>
+<td>13</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">7</td>
 <td>aqi_transformer__categories__min_frequency</td>
-<td>4</td>
+<td>11</td>
 </tr>
 </tbody>
 </table>
 
 </div>
+<p>Table 1: Selected Hyperparameters following hyperparamenter optimization</p>
 </div>
 </div>
-<p>Table 2 below shows the selected hyperparameters having hyperparamenter optimization</p>
 <p>Using these hyperparameters, we reach an accuracy of over 70%.</p>
 <div id="predict-x_test-final" class="cell" data-execution_count="35">
 <div class="cell-output cell-output-stdout">
-<pre><code>Cohen Kappa Score:  0.459586066735721
-Accuracy:  0.7147523135547088</code></pre>
+<pre><code>Cohen Kappa Score:  0.46043412332921485
+Accuracy:  0.7152966793685357</code></pre>
 </div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/confusion_matrix_final.png?raw=true" class="img-fluid figure-img"></p>
-<figcaption>Figure 12: Final Model Confusion Matrix</figcaption>
+<figcaption>Figure 9: Final Model Confusion Matrix</figcaption>
 </figure>
 </div>
 <p>We can use this model for the prediction of AQI, exploring the features that predict it, and use that to generate conclusions for what variables or systems should be addressed.</p>
-<p>Below, the table 3 shows a classification report of the model. Support represents the amount of data points total in that bin. We can see that AQI groups with more data tend to be more accurate (higher f1-score). This makes sense as the model has more of this data to train on. To make the model more accurate, more data from AQI values outside this 26-200 range will need to be collected.</p>
+<p>Below, table 2 shows a classification report of the model. Support represents the amount of data points total in that bin. We can see that AQI groups with more data tend to be more accurate (higher f1-score). This makes sense as the model has more of this data to train on. To make the model more accurate, more data from AQI values outside this 26-200 range will need to be collected.</p>
 <div id="cell-classification-report" class="cell" data-execution_count="37">
 <div id="classification-report" class="cell-output cell-output-display">
 <div>
@@ -730,30 +730,30 @@ Accuracy:  0.7147523135547088</code></pre>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">26-50</td>
-<td>0.783531</td>
-<td>0.873226</td>
-<td>0.825951</td>
+<td>0.783966</td>
+<td>0.878903</td>
+<td>0.828724</td>
 <td>1057.0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">51-75</td>
-<td>0.612389</td>
-<td>0.574751</td>
-<td>0.592973</td>
+<td>0.619565</td>
+<td>0.568106</td>
+<td>0.592721</td>
 <td>602.0</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">76-100</td>
-<td>0.372549</td>
-<td>0.175926</td>
-<td>0.238994</td>
+<td>0.369231</td>
+<td>0.222222</td>
+<td>0.277457</td>
 <td>108.0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">101-200</td>
-<td>0.581395</td>
-<td>0.416667</td>
-<td>0.485437</td>
+<td>0.542857</td>
+<td>0.316667</td>
+<td>0.400000</td>
 <td>60.0</td>
 </tr>
 <tr class="even">
@@ -767,73 +767,65 @@ Accuracy:  0.7147523135547088</code></pre>
 </table>
 
 </div>
+<p>Table 2: Final Model Classification Report</p>
 </div>
 </div>
-<p>Table 3: Final Model Classification Report)</p>
-<p>We can also take a look at which features end up being most influential in the model. Below figure 13 shows Temperature and Humidity being by far the most influential variables in the model. However, temperature and humidity are not variables we can directly impact easily, and therefore, the four other variables are where we should put our efforts.</p>
+<p>We can also take a look at which features end up being most influential in the model. Below, figure 10 shows temperature and humidity being by far the most influential variables in the model. However, temperature and humidity are not variables we can directly impact easily, and therefore, the four other variables are where we should put our efforts.</p>
 <div id="cell-feature-importance" class="cell" data-execution_count="38">
 <div class="cell-output cell-output-display">
-<div>
+<div id="feature-importance" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="capstone_files/figure-html/feature-importance-output-1.png" id="feature-importance" width="663" height="505" class="figure-img"></p>
+<p><img src="capstone_files/figure-html/feature-importance-output-1.png" width="663" height="505" class="figure-img"></p>
+<figcaption>Figure 10: Feature Importance of Selected Variables in Final Model</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Figure 13: Feature Importance of Selected Variables in Final Model</p>
 </section>
-<section id="machine-learning-sarimax" class="level1">
-<h1>Machine Learning SARIMAX</h1>
+<section id="machine-learning-with-sarimax" class="level1">
+<h1>Machine Learning with SARIMAX</h1>
 <p>A time series is a sequence of data points collected at regular intervals over a period of time. These intervals are typically uniform, such as hourly, daily, or quarterly measurements.<br>
 This orderly arrangement allows for the analysis of trends, patterns, and behaviors over time.<br>
 Common examples of time series data include stock market closing prices, household electricity consumption readings, and weather measurements.</p>
 <p>In the context of our capstone project, we’re focusing on air quality index measurements as our time series data. This sequential record of air quality provides insights into pollution trends and can be used to forecast future air quality conditions.</p>
 <p>Any time series is composed of three things:</p>
 <ul>
-<li><em>Trend</em>: Trend tells you how things are overall changing<br>
+<li><em>Trend</em>: Trend tells you how things are changing overall</li>
+<li><em>Seasonality</em>: Seasonality shows you how things change within a given period (e.g.&nbsp;year, month, week, day)<br>
 </li>
-<li><em>Seasonality</em>: Seasonality shows you how things change within a given period (e.g.&nbsp;year,month, week, day)<br>
-</li>
-<li><em>Residual</em>: The Error/residual/irregular activity are the anomalies which cannot be explained by the trend or the seasonal value</li>
+<li><em>Residual</em>: The residuals are the differences in predicted and actual values</li>
 </ul>
 <section id="statsmodel" class="level2">
 <h2 class="anchored" data-anchor-id="statsmodel">Statsmodel</h2>
-<p>Using the statsmodel package, we can map the seasonal pattern and trends using seasonal_decompose method. It requires as inputs a dataframe with two columns date data and the AQI.</p>
+<p>Using the statsmodel package, we can map the seasonal pattern and trends using the seasonal_decompose method. It requires as input, a dataframe with two columns, date and AQI.</p>
 </section>
 <section id="components-of-a-time-series" class="level2">
 <h2 class="anchored" data-anchor-id="components-of-a-time-series">Components Of A Time Series</h2>
-<p>Time series decomposition is a statistical technique that separates data into three key components: trend, seasonality, and residuals.<br>
-The trend shows the long-term direction, seasonality reveals recurring patterns, and residuals represent unexplained variations.<br>
-Visualizing these components individually provides insights that may not be evident in the raw data. This process helps analysts identify underlying patterns, recognize cyclical behaviors, and detect anomalies. By understanding these elements separately, we can gain deeper insights into the factors driving the time series, leading to more accurate analysis and forecasting.</p>
+<p>Time series decomposition is a statistical technique that separates data into three key components: trend, seasonality, and residuals. The trend shows the long-term direction, seasonality reveals recurring patterns, and residuals represent unexplained variations. Visualizing these components individually provides insights that may not be evident in the raw data. This process helps analysts identify underlying patterns, recognize cyclical behaviors, and detect anomalies. By understanding these elements separately, we can gain deeper insights into the factors driving the time series, leading to more accurate analysis and forecasting.</p>
 <p>Decomposition is particularly useful when the complexity of a time series makes it challenging to discern important patterns from simple observation of the dataset.</p>
 <div id="cell-seasonal-decompose" class="cell" data-execution_count="42">
 <div class="cell-output cell-output-display">
-<div>
+<div id="seasonal-decompose" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="capstone_files/figure-html/seasonal-decompose-output-1.png" id="seasonal-decompose" width="760" height="614" class="figure-img"></p>
+<p><img src="capstone_files/figure-html/seasonal-decompose-output-1.png" width="760" height="614" class="figure-img"></p>
+<figcaption>Figure 11: Seasonal, Trend, and Residual Decomposition of Portland AQI Time Series</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Figure 14: Seasonal, Trend, and Residual Decomposition of Portland AQI Time Series</p>
-<p>The uppermost graph, labeled <em>Observed</em>, presents the raw time series data as originally recorded. Its y-axis quantifies the daily air quality measurements, while the x-axis represents the passage of time.<br>
-This graph is a composite representation, effectively combining the three underlying components: trend, seasonality, and residuals.<br>
-A notable anomaly is evident in the data: a significant spike in air quality measurements occurring in September 2020. This outlier corresponds to the severe wildfires that ravaged Oregon during that period. The dramatic increase in air pollution levels during this time underscores the profound impact of extreme environmental events on air quality.</p>
+<p>The uppermost graph, labeled <em>Observed</em>, presents the raw time series data as originally recorded. Its y-axis quantifies the daily air quality measurements, while the x-axis represents the passage of time. This graph is a composite representation, effectively combining the three underlying components: trend, seasonality, and residuals. A notable anomaly is evident in the data: a significant spike in air quality measurements occurring in September 2020. This outlier corresponds to the severe wildfires that ravaged Oregon during that period. The dramatic increase in air pollution levels during this time underscores the profound impact of extreme environmental events on air quality.</p>
 <p>The <em>Seasonal</em> component graph illustrates the cyclical patterns in air quality that repeat annually. This visualization reveals a distinctive yearly pattern in Air Quality Index (AQI) fluctuations. The cycle begins with relatively low AQI values, indicating better air quality. As the year progresses, the AQI rises to a peak, signifying a period of poorer air quality. This is followed by an improvement (decrease in AQI), another deterioration (increase), and a final improvement towards the year’s end.</p>
-<p>These recurring variations likely reflect the influence of seasonal factors such as changing weather patterns, temperature inversions, and seasonal human activities. For instance, winter months might see higher AQI due to increased heating emissions, while spring could bring lower AQI with more favorable dispersion conditions.<br>
-The graph includes a highlighted box that demarcates the seasonal period. This visual element clearly illustrates the duration and boundaries of one complete seasonal cycle in the air quality data. Understanding these seasonal trends is crucial for accurately interpreting air quality data and making informed predictions.<br>
-It allows environmental agencies and policymakers to anticipate periods of potentially compromised air quality and plan interventions accordingly.</p>
+<p>These recurring variations likely reflect the influence of seasonal factors such as changing weather patterns, temperature inversions, and seasonal human activities. For instance, winter months might see higher AQI due to increased heating emissions, while spring could bring lower AQI with more favorable dispersion conditions. The graph includes a highlighted box that demarcates the seasonal period. This visual element clearly illustrates the duration and boundaries of one complete seasonal cycle in the air quality data. Understanding these seasonal trends is crucial for accurately interpreting air quality data and making informed predictions. It allows environmental agencies and policymakers to anticipate periods of potentially compromised air quality and plan interventions accordingly.</p>
 <p>Lastly, the final row displays the <em>Residuals</em>, which represent the portion of the data not explained by the trend or the seasonal component. We can interpret the residuals as the difference between the sum of the Trend and Seasonal components and the Observed values at each point in time.</p>
 <p>Essentially, the Residuals indicate the amount that needs to be added to the Trend and Seasonal components to align the result with the Observed values. Residuals are typically attributed to random errors, often referred to as noise. These residuals embody the unpredictable elements of the data that cannot be captured or forecasted by the model, as they are inherently random.</p>
 </section>
 <section id="finding-the-best-forecasting-model-with-grid-search" class="level2">
 <h2 class="anchored" data-anchor-id="finding-the-best-forecasting-model-with-grid-search">Finding the Best Forecasting Model with Grid Search</h2>
-<p>For this project, we used an extended version of <em>ARIMA</em> model knows as <em>SARIMAX</em> model as we have explained in the methods section. We use a tuning technique called grid search method that attempts to compute the optimum values of hyperparameters. We are trying to find the right p,d,q values that would be given as an input to the SARIMAX time series model.</p>
+<p>For this project, we used an extended version of the <em>ARIMA</em> model knows as the <em>SARIMAX</em> model as explained in the methods section. We use a tuning technique called grid search that attempts to compute the optimum values of hyperparameters. We are trying to find the right p,d,q values that would be given as an input to the SARIMAX time series model.</p>
 <p>Here’s an easy-to-understand explanation of how this works:</p>
 <section id="step-1-setting-up-our-hyperparameters" class="level3">
 <h3 class="anchored" data-anchor-id="step-1-setting-up-our-hyperparameters">Step 1: Setting Up Our Hyperparameters</h3>
-<p>We define p,d,q hyperparameters to take any value between 0 to 1 which help the model decide how much weight to give to past values, trends, and patterns.<br>
-We then create a list of all p,d,q possible combinations of these settings in a for loop.</p>
+<p>We define p,d,q hyperparameters to take any value between 0 to 1 which help the model decide how much weight to give to past values, trends, and patterns. We then create a list of all p,d,q possible combinations of these settings in a for loop.</p>
 </section>
 <section id="step-2-trying-out-different-combinations" class="level3">
 <h3 class="anchored" data-anchor-id="step-2-trying-out-different-combinations">Step 2: Trying Out Different Combinations</h3>
@@ -841,13 +833,12 @@ We then create a list of all p,d,q possible combinations of these settings in a 
 </section>
 <section id="step-3-checking-the-results" class="level3">
 <h3 class="anchored" data-anchor-id="step-3-checking-the-results">Step 3: Checking the Results</h3>
-<p>For each set of p,d,q settings, we create a forecasting model and test it on our data. We measure how well each model works using a score called the Akaike Information Criterion (AIC) as mentioned in the methods section. This score tells us how well the model predicts the data, with lower scores being better.</p>
-<p>If something goes wrong with a particular set of hyperparameter settings, we catch the error and move on to the next set without stopping the whole process.</p>
-<p>We have found the lowest AIC values which would have the best corresponding p,d,q values to have the best forecast of AQI values.</p>
+<p>For each set of p,d,q settings, we create a forecasting model and test it on our data. We measure how well each model works using the Akaike Information Criterion (AIC) as mentioned in the methods section. This score tells us how well the model predicts the data, with lower scores being better. If something goes wrong with a particular set of hyperparameter settings, we catch the error and move on to the next set without stopping the whole process.</p>
 </section>
 </section>
 <section id="sarimax-model-results" class="level2">
 <h2 class="anchored" data-anchor-id="sarimax-model-results">SARIMAX Model Results</h2>
+<p>The best model is as follows below in table 3.</p>
 <table class="table-striped table-hover caption-top table">
 <caption>SARIMAX Results</caption>
 <colgroup>
@@ -944,13 +935,8 @@ We then create a list of all p,d,q possible combinations of these settings in a 
 </ul>
 </section>
 </section>
-<section id="fit-sarimax-model" class="level2">
-<h2 class="anchored" data-anchor-id="fit-sarimax-model">Fit SARIMAX model</h2>
-<div id="extract-aic-value-plot" class="cell" data-execution_count="45">
-<div class="cell-output cell-output-stdout">
-<pre><code>The AIC value is: 668.6317406918595</code></pre>
-</div>
-</div>
+<section id="fitting-the-sarimax-model" class="level2">
+<h2 class="anchored" data-anchor-id="fitting-the-sarimax-model">Fitting the SARIMAX model</h2>
 <p>When working with SARIMAX models, there are typically several plots you might analyze, such as:</p>
 <ul>
 <li><em>Time Series Plot of Residuals</em>: Shows the residuals over time. Ideally, residuals should appear as random noise without clear patterns.</li>
@@ -961,7 +947,7 @@ We then create a list of all p,d,q possible combinations of these settings in a 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/final-plot.png?raw=true" class="img-fluid figure-img"></p>
-<figcaption>Figure 15: Diagnostic plots</figcaption>
+<figcaption>Figure 12: Diagnostic plots</figcaption>
 </figure>
 </div>
 <p>Once the model is created, predicted values are generated using the .get_prediction() method, with datetime as input.</p>
@@ -985,9 +971,9 @@ We then create a list of all p,d,q possible combinations of these settings in a 
 </ol>
 <p>This step transforms our analytical work into actionable insights for air quality management.</p>
 </section>
-<section id="visualizing-our-results" class="level2">
-<h2 class="anchored" data-anchor-id="visualizing-our-results">Visualizing Our Results</h2>
-<p>The final and crucial step of our project is the creation of a comprehensive plot that encapsulates our complex analysis. This visualization serves as the key to understanding and interpreting our findings.</p>
+<section id="visualizing-the-results" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-the-results">Visualizing the Results</h2>
+<p>The final and most crucial step of our project is the creation of a comprehensive plot that encapsulates our complex analysis. This visualization serves as the key to understanding and interpreting our findings.</p>
 <section id="interpreting-the-forecast-plot" class="level3">
 <h3 class="anchored" data-anchor-id="interpreting-the-forecast-plot">Interpreting the Forecast Plot</h3>
 <p>Our plot consists of several key elements:</p>
@@ -1012,18 +998,18 @@ We then create a list of all p,d,q possible combinations of these settings in a 
 <p>This visual representation not only summarizes our extensive data analysis but also provides a powerful tool for understanding potential future air quality trends. It bridges the gap between complex statistical models and actionable insights, making our findings accessible and meaningful to a broader audience.</p>
 <div id="cell-plot-forecast" class="cell" data-execution_count="53">
 <div class="cell-output cell-output-display">
-<div>
+<div id="plot-forecast" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="capstone_files/figure-html/plot-forecast-output-1.png" id="plot-forecast" width="746" height="583" class="figure-img"></p>
+<p><img src="capstone_files/figure-html/plot-forecast-output-1.png" width="746" height="583" class="figure-img"></p>
+<figcaption>Figure 13: Portland AQI Plot Forecast from 2023 to 2025</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Figure 16: Portland AQI Plot Forecast from 2023 to 2025</p>
 </section>
-<section id="overall-conclusion" class="level3">
-<h3 class="anchored" data-anchor-id="overall-conclusion">Overall Conclusion</h3>
-<p>None of the coefficients in the SARIMAX model are statistically significant, as indicated by the high p-values and z-values close to zero. This means that the parameters do not effectively predict the AQI data. The large standard errors and wide confidence intervals point to a high degree of uncertainty in the parameter estimates. This suggests the model may not be well-suited for capturing the dynamics of the AQI data, and re-evaluation of the model or data is recommended. Our conclusion is that the SARIMAX model did not predict well the forecast values of the air quality index (AQI).</p>
+<section id="sarimax-conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="sarimax-conclusion">SARIMAX Conclusion</h3>
+<p>None of the coefficients in the SARIMAX model are statistically significant, as indicated by the high p-values and z-values close to zero. This means that the parameters do not effectively predict the AQI data. The large standard errors and wide confidence intervals point to a high degree of uncertainty in the parameter estimates. This suggests the model may not be well-suited for capturing the dynamics of the AQI data, and re-evaluation of the model or data is recommended. Our conclusion is that the SARIMAX model did not predict the forecast values of the AQI well.</p>
 </section>
 <section id="possible-reasons-for-poor-performance" class="level3">
 <h3 class="anchored" data-anchor-id="possible-reasons-for-poor-performance">Possible Reasons for Poor Performance</h3>
@@ -1039,30 +1025,39 @@ We then create a list of all p,d,q possible combinations of these settings in a 
 </section>
 <section id="conclusion" class="level1">
 <h1>Conclusion</h1>
-<p>After conducting our thorough research, we have landed on these specific recommendations. We found there are high seasonal trends where late summer/early fall tends to have the worst air quality. These numbers consistently show up each year, exasperated by the dry heat and lack of rainfall. As climate change raises temperatures and water sources dry up, wildfire season will continue to get worse over time. We must be aware of the nature of air quality and how it differs at different parts of the year. We should understand how the AQI works, and avoid being outside for too long when it reaches more dangerous levels.</p>
-<p>Air quality is significantly affected by various natural and unpredictable elements, including:</p>
-<ul>
-<li>Weather conditions</li>
-<li>Wind speed and direction</li>
-<li>Temperature fluctuations</li>
-<li>Humidity levels</li>
-<li>Atmospheric pressure</li>
-<li>Solar radiation intensity</li>
-</ul>
-<p>With multiple factors we have no control over, it is important to do what we can for those factors we can impact.</p>
-<p>We must focus on the variables that have the greatest impact on the AQI. These are city, temperature, humidity, CO, NO2, O3, PM10, and PM2.5. City, temperature, and humidity for the most part are out of our control. That leaves us with three criteria gasses and all particulate matter. The largest source of carbon monoxide, nitrogen dioxide, and ozone is the cars, trucks, and other vehicles we use daily (Environmental Protection Agency). We can lower our reliance on personal vehicles by utilizing public transportation, carpooling, walking, biking, increasing work from home to lower commutes when available, and overall be more considerate about if driving a car is necessary. We often drive unnecessarily, out of convenience or impatience.</p>
-<p>For many Americans, personal vehicles are required. Many urban and suburban areas lack proper public transportation, or existing public transportation systems are inadequate, unreliable, and infrequent. Many towns and cities in the United States were designed for cars instead of for people. Fixing this will require a substantial overhaul, necessitating millions or billions of dollars in spending. This is not to say that we shouldn’t bother—any investment that increases the public transportation system’s usage decreases the amount of cars on the road. A small change is the first step in addressing the personal vehicle issue.</p>
-<p>Industrial manufacturing processes and agriculture are significant polluters of the environment. We should invest in the research of more environmentally friendly manufacturing methods, working with materials that require less combustion, or are recyclable. Agricultural reduction starts with less of a reliance on red meat and the dairy industry, mainstays of the American diet. This will be a huge shift, taking combined efforts of the citizens, government, and food industry. As red meat and dairy consumption goes down, possibly due to the replacement with artificial or lab grown meat, less livestock will need to be kept, and less feeding crops will need to be grown (Congressional Budget Office). It will be a difficult transition but a necessary one.</p>
-<p>Wildfires not only increase the particle matter in the air, but burn forests, causing long term damage to the soil. Particulate matter in the air makes it more difficult to breathe, which is reflected by the increased AQI levels. Not all forest fires are started by man made sources, but many are. Therefore, when in the woods, one should always obey fire restrictions, especially in the middle of the summer when it’s most dry. If fires are allowed, they should always be watched and never left unattended. They must always be properly extinguished and all embers must be cool to the touch before leaving. Campsites should be properly cleaned, and all tools used correctly. One should also stay on marked trails, avoiding trampling vegetation which can increase the risk of wildfire spreading (Oregon Wildfire Response and Recovery).</p>
-<p>One of the largest limitations is Algorithm Dependence. This is the reliability of forecasts which are inherently tied to the chosen predictive algorithms. Different models may yield varying results, emphasizing the importance of algorithm selection and validation.</p>
-<p>We must also be wary of geographical considerations. Our data analysis couldn’t fully quantify the unique geographical features of Portland and the broader Willamette Valley region. In further analysis we should seek to understand:</p>
-<ul>
-<li>The protective influence of surrounding mountain ranges</li>
-<li>The impact on wind patterns and air circulation</li>
-<li>The potential effects of wildfires on air quality</li>
-</ul>
-<p>These geographical factors play a significant role in local air quality dynamics but were beyond the scope of our current data set. The impact of the geological features can be seen in the image below illustrates how the surrounding mountains create a basin effect, trapping pollutants and contributing to higher air pollution levels. The concentrated red and orange areas, particularly on right side of the Willamette Valley.Do the mountains in the image seem to create barriers to air flow, potentially trapping pollutants in certain areas? <img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/AirNow-Map.png?raw=true" class="img-fluid" alt="AirNow Interactive Map"></p>
-<p>By recognizing these limitations, we can better interpret and apply our forecasting results, while also identifying areas for future research and data collection to enhance prediction accuracy.</p>
+<p>After conducting our thorough research, we have landed on these specific recommendations.</p>
+<p>AQI is impacted by six explanatory features: - Temperature - Humidity - Park Land Area - Number of Cattle - City Area - Population</p>
+<p>Figure 14 shows how each of these features impacts AQI</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/aqi_features_scatterplots_final.png?raw=true" class="img-fluid figure-img"></p>
+<figcaption>Figure 14: AQI explained by influential features, Portland highlighted</figcaption>
+</figure>
+</div>
+<p>To improve AQI, a city should:</p>
+<pre><code> - Decrease temperatures
+ - Increase humidity
+ - Decrease park land area
+ - Decrease number of cattle
+ - Decrease city area
+ - Decrease population</code></pre>
+<p>We also found there are high seasonal trends that show up each year from the time series analysis models. AQI tends to be highest during late summer to early fall. We can attribute this increase to the increased temperatures and decreased humidity. As climate change raises temperatures and water sources dry up, the seasonal AQI increases will become more severe. We must be aware of the nature of air quality and how it changes at different parts of the year. We should understand how the AQI works, and avoid being outside for too long when it reaches more dangerous levels.</p>
+<p>We must focus on the variables that have the greatest impact on the AQI. Of these, we have little control over temperature and humidity, with the exception of fighting climate change. That leaves us with the city and park area, city population, and cattle numbers. City area and population are difficult to address. Population cannot be directly regulated; cities cannot put limits on the amount of people moving in. Population, however, is impacted by economics. As the cost of living in certain areas increases, more people will be priced out and forced to move away. This is not a recommendation to raise living costs. That comes with its own set of issues that are outside the scope of this project such as a decrease in the physical and mental health outcomes of the population (Broadbent et al.), which would ultimately be counter productive to the increase in air quality.</p>
+<p>Some cities, such as Portland, have boundary restrictions to combat urban sprawl (Portland.gov). This increases the need to build vertically, increasing population density. We did not find evidence that population density has a significant impact on the AQI. Therefore, imposing urban growth boundaries can be useful for addressing land area increases and lead to lower AQI levels.</p>
+<p>Next, cattle populations should be decreased. According to the EPA, 37% of annual methane emissions from human activities are a direct result of livestock. Cattle process food by fermentation within their stomachs. This process breaks food down and produces methane which is released into the atmosphere through flatulence or burps. A single cow can produce up to 264 pounds of methane gas per year. In total, the 1.5 billion cattle raised specifically for meat production emit at least 231 billion pounds of methane annually (EPA). This figure doesn’t include the millions of cattle raised for dairy production. Methane is a powerful short-lived greenhouse gas with a warming impact 86 times stronger than CO2 per unit of mass over a 20 year period. Methane is a precursor gas to Ozone, a criteria gas in the Air Quality Index. Additionally, methane traps heat, increasing the global temperature levels, which as shown earlier, has negative impacts on the AQI.</p>
+<p>Cattle reduction starts with less of a reliance on red meat and the dairy industry, mainstays of the American diet. This will be a huge shift, taking combined efforts of the citizens, government, and food industry. There will be significant pushback by the dairy and meat industries. Further investments should be made into lab grown meat research or developing suitable plant based alternatives. Many people are open to switching to traditional meat and dairy alternatives but existing offerings still have ways to go with regards to taste and texture. As red meat and dairy consumption goes down, less livestock will need to be kept, and less feeding crops will need to be grown (Congressional Budget Office). It will be a difficult transition but a necessary one.</p>
+<p>Finally, park land area was found to have a negative impact on AQI values. This surprised us as we had hypothesized that increased park land would increase the quality of air. This difference from expectations is likely due to the use of area as the variable measurement. Certain cities with poor AQI are significantly larger in size such as Phoenix and Los Angeles. Because of how large they are, the amount of park land will similarly be very large in raw square kilometers. Instead we should have measured park land as a percentage of city area. This would have allowed us to see the proportion of park land within the city limits, which may have had a different result on AQI.</p>
+<p>The 2020 wildfires had a significant impact on the air quality. Wildfires have progressively become more common overtime. They not only increase the particulate matter in the air, but burn forests, causing long term damage to the soil and loss of plant life. Particulate matter in the air makes it more difficult to breathe, which is reflected by the increased AQI levels. Not all forest fires are started by man made sources, but many are. Therefore, when in the woods, one should always obey fire restrictions, especially in the middle of the summer when it’s most dry. If fires are allowed, they should always be watched and never left unattended. They must always be properly extinguished with all embers cool to the touch before leaving. Campsites should be properly cleaned, and all tools used correctly. One should also stay on marked trails, avoiding trampling vegetation which can increase the risk of wildfire spreading (Oregon Wildfire Response and Recovery).</p>
+<p>Our other main focus was the reasons for Portland, Oregon’s positive AQI outcomes in comparison to the other large cities. Below, figure 15 shows the rankings of the top and bottom ten average AQI cities from our dataset specified by the six explanatory variables. Top ten highest AQI cities are labeled in red and top ten lowest AQI cities are shown in green. Additionally, Portland (ranked 4th best AQI) is noted with the cross hatch lines to compare its measurements with other cities.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/top_bottom_10_final.png?raw=true" class="img-fluid figure-img"></p>
+<figcaption>Figure 15: Top and Bottom ten average AQI cities explained by influential features ranked, Portland highlighted</figcaption>
+</figure>
+</div>
+<p>We have found that Portland has lower average temperatures and a higher average humidity. Portland’s large amount of rainfall likely contributes to the higher amounts of water vapor in the air. Additionally, Portland has a smaller city boundary, due to the urban growth boundary. Both Portland’s cattle and human population are relatively low. Finally, the amount of park area ranks towards the middle of large cities in the top and bottom ten. However, as stated earlier, this is a flawed measurement so results from it are inconclusive.</p>
+<p>Our main limitations arise from the lack of data. Importantly, data on the numbers of vehicles on the road could not be found for free which likely has an impact on the AQI. Though we collected public transit information, we didn’t find much of an impact, which may have been more pronounced had we paired it with vehicle information. We could have also taken city walkability and metro/subway numbers into account. Other sources of data that may impact AQI include road and highway location, geographical features, precipitation, industrial manufacturing, wildfire size and locations, agricultural practices, and more.</p>
+<p>Even within our collected dataset, there was significant amounts of missing data. Having a more complete dataset may have given us more accurate information and allowed us to run our models on more cities. By recognizing these limitations, we can better interpret and apply our results, while also identifying areas for future research. To expand our analysis in the future, we would look at finding more complete information, collecting data on other potentially influential factors described in the previous paragraph, and increasing the timespan of data collected.</p>
 <p>Ultimately, we have a responsibility to take care of our planet and combat climate change. The worse climate conditions get, the more wildfires will spread, and the worse the air quality will become. As time goes on, with worsening air conditions, more people will catch and even die from preventable conditions sparked by poor air quality. Water, pollution, food, and financial problems will get worse. One should look at what they can do to make a difference, support those who vouch to make larger changes, and encourage people they know to do the same. While the situation may seem dire, there is hope for progress through concerted and informed efforts.</p>
 </section>
 <section id="appendix" class="level1">
