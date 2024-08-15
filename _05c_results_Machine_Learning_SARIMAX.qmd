@@ -268,7 +268,7 @@ When working with SARIMAX models, there are typically several plots you might an
 ```{python}
 #| label: plot-diag
 #| output: false
-results.plot_diagnostics(figsize=(10,10))
+results.plot_diagnostics(figsize=(9,7))
 ```
 ![Figure 15: Diagnostic plots](https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/final-plot.png?raw=true)
 
@@ -283,7 +283,7 @@ pred_ci = pred.conf_int()
 #| label: plot-prediction
 #| output: false
 ax = df_aqi['2015-01-31 00:00:00':].plot(label='Observed') # plot the observed data 
-pred.predicted_mean.plot(ax=ax, label='One-step ahead Forecast', alpha=.7, figsize=(14, 7))
+pred.predicted_mean.plot(ax=ax, label='One-step ahead Forecast', alpha=.7, figsize=(9, 7))
 ax.fill_between(pred_ci.index,pred_ci.iloc[:, 0],pred_ci.iloc[:, 1], color='k', alpha=.2)
 ax.set_xlabel('Date')
 ax.set_ylabel('AQI index')

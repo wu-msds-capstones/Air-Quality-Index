@@ -51,9 +51,6 @@ format:
       - text: Sweetviz Analysis Report
         icon: file-code
         href: SWEETVIZ_REPORT.html
-      - text: ydata Analysis Report
-        icon: file-code
-        href: your_report2.html
     html-math-method: mathjax
     css: styles.css
 ---
