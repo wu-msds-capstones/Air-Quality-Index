@@ -47,10 +47,6 @@ format:
     other-links:
       - text: Airnow Open Data
         href: https://www.airnow.gov
-    code-links:
-      - text: Sweetviz Analysis Report
-        icon: file-code
-        href: SWEETVIZ_REPORT.html
     html-math-method: mathjax
     css: styles.css
 ---
