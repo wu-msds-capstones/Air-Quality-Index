@@ -1,1 +1,85 @@
 # Methods
+Python will be the primary programming language used to conduct this analysis. We will also use the R language in statistical applications. To perform our analysis, we will employ the NumPy and Pandas libraries for data manipulation, Matplotlib and Seaborn for visualization, and Time Series forecasting algorithms such as Prophet and SARIMAX. We will address data inconsistencies, missing values and ensure that data is in a tidy format. We may need to normalize or standardize data if necessary and create new features through aggregation to enhance the model’s performance.
+
+## Prophet
+Prophet is an open-source forecasting tool developed by Meta, designed for forecasting time series data. It is suited for datasets with strong seasonal, monthly, weekly, or daily patterns, and it handles missing data and outliers well. We utilized prophet to gain a quick understanding of our AQI patterns, seeking to understand basic trends before conducting a more thorough analysis.
+
+Key features of Prophet include seasonality detection and holiday incorporation, while providing easy use and understanding for users. We can use this software to get complex understanding from simple applications.
+
+To conduct this analysis, we prepare data into a two-column table, with columns date and AQI. Prophet uses the trends of past data to highlight similarities over days of the year, weeks, months, and seasons. From this, prophet is able to generate its predictions, cross validate, and give performance metrics such as mean absolute percentage error to quantify the accuracy of the results
+
+## SARIMAX​​
+The most common method used in time series forecasting is known as the ARIMA model. We will use an extended version called SARIMAX (*Seasonal Auto Regressive Integrated Moving Averages with exogenous factor*)
+
+- *(S) Seasonality*: Accounts for recurring patterns or cycles in the data.
+- *(AR) AutoRegressive*: Uses past values to predict future values.
+- *(I) Integrated*: Applies differencing to make the time series stationary.
+- *(MA) Moving Average*: Uses past forecast errors in the prediction.
+- *(X) eXogenous factors*: Incorporates external variables that may influence the forecast.
+
+The SARIMAX model is used when the data sets have seasonal cycles. In the dataset concerning the air quality/AQI there is a seasonal pattern. SARIMAX can be fitted to time series data in order to better understand or predict future points. SARIMAX is particularly useful for forecasting time series data that exhibits both trends and seasonality.
+There are three distinct integers (p,d,q) that are used to parametrize SARIMAX models. Because of that, SARIMAX models are denoted with the notation SARIMAX(p,d,q). Together these three parameters account for seasonality, trend, and noise in datasets:
+
+- *p* is the auto-regressive part of the model. It allows us to incorporate the effect of past values into our model.
+- *d* is the integrated part of the model. This includes terms in the model that incorporate the amount of differencing (the number of past time points to subtract from the current value) to apply the time series.
+- *q* is the moving average part of the model. This allows us to set the error of our model as a linear combination of the error values observed at previous time points in the past.  
+
+We use a tuning technique called grid search method that attempts to compute the optimum values of the hyperparameters. We are trying to find the right p,d,q values that would be given as an input to the SARIMAX time series model.
+
+## Akaike Information Criteria (AIC)
+The Akaike Information Criterion (AIC) is a measurement used to compare different statistical models. It helps in model selection by balancing the goodness of fit and the complexity of the model. When comparing two models, the one with the lower AIC is generally "better".
+
+Here’s how to interpret the AIC value:
+
+- *AIC Value*: A lower AIC value indicates a better-fitting model. It means the model has a good balance between accuracy and complexity.
+- *Comparative Measure*: AIC is most useful when comparing multiple models. The model with the lowest AIC among a set of candidate models is generally preferred.
+- *Penalty for Complexity*: AIC includes a penalty for the number of parameters in the model. This discourages overfitting by penalizing models that use more parameters without a corresponding improvement in fit.
+
+## Train-Test-Split
+Rigorous validation is paramount to establishing the model's reliability and practical application. To ensure the model's generalizability, we will employ a train-test split. This approach safeguards against overfitting by exposing the model to unseen data, allowing for a more accurate assessment of its predictive capabilities.
+
+By partitioning the dataset, we can:
+
+- *Evaluate performance*: Measure the model's accuracy on unseen data.
+- *Detect overfitting*: Identify discrepancies between training and testing performance.
+- *Assess generalization*: Determine the model's ability to handle new data.
+- *Quantify reliability*: Calculate confidence intervals for prediction accuracy.
+- *Iteratively improve*: Use insights to refine the model.
+
+This rigorous process underpins the credibility and utility of our research findings.
+To split the data, we follow the recommended 70:30 ratio, 70% of the data is the training data, and 30% of the data is the testing data.
+
+## Hypothesis Testing
+Hypothesis tests for significance are conducted to understand the significance of differences in datasets. Statistics are done in R using a variety of statistical methods and measurements:
+
+- *Null Hypothesis*: This serves as the baseline of a hypothesis test. It represents the idea that there is no effect, difference, or relationship between tested variables. Any observed differences are due to random chance. 
+- *Alternate Hypothesis*: On the other hand, the alternative hypothesis suggests a potential effect, difference, or relationship between tested variables exists. It reflects what is hoped to be found by the data.
+- *Independence*: The idea that data in one sample or population has no impact on the data in another sample or population.
+- *Normal Distribution*: A continuous probability distribution symmetric around the mean. It is characterized by mean and standard deviation.
+- *Normal QQ Plot*: A plot to measure the normality of a distribution. It compares the quantiles of a dataset against the quantiles of a theoretical normal distribution. Data is mapped along a y=x trendline. Deviations of the data from the trendline indicate non normality. An “S” shaped bend suggests data with heavy or light tails. A convex or concave bend suggests skewness in the distribution.
+- *Histogram*: Plot that displayed data frequencies of values within specified intervals known as bins. Histograms are used to visualize the shape and spread of a distribution.
+- *Welch Two Sample t-test*: This type of hypothesis test measures the statistical significance of the difference in mean of the two samples. Unlike the Student’s  two sample t-test, the Welch two-sample t-test is used in cases where the groups being compared have unequal variances. A Welch two sample t-test includes the following:
+	- *t-Statistic (t)*: Difference between sample means relative to variance of samples. Larger t-statistics indicate larger differences between means.
+	- *Degrees of Freedom (df)*: Amount of information available to estimate variance of sample means.
+	- *p-Value*: The probability of observing the sample data or something more extreme if the null hypothesis is true. A small p-value (< 0.05) suggests the observed difference is statistically significant.
+	- *95 Percent Confidence Interval*: Range in which the true difference in means is 95% likely to lie within.
+
+## Machine Learning
+Machine learning is done in scikit-learn, an open-source ML library built in Python. It is built on top of other common Python libraries such as NumPy, Pandas, and Matplotlib. The following tools are used:
+
+- *One Hot Encoder*: Transforms categorical data into a binary matrix. Each category is represented as a vector where one element is tagged with a 1 and all others are tagged as 0. This is done for certain machine learning algorithms that require all discrete data.
+- *Standard Scaler*: Used to normalize or standardize numerical data. Certain machine learning algorithms are affected by unscaled data and therefore require normalized data.
+- *Transformer*: Can be used to change multiple variables in one step in methods such as One Hot Encoder and Standard Scaler.
+- *Pipeline*: Allows multiple functions in a series of steps that can include transformers and models. Incorporates chaining to supply the output of one step as the input of the next step.
+- *Feature Selection*: Chooses a subset of most relevant features, with the ability to specify how many features.
+- *Hyperparameter Optimization*: Selects the best set of hyperparameters in a model. These hyperparameters are set before training and control various aspects of the training process and model behavior. The optimization method used is a Randomized search. This evaluates a fixed number of random combinations from a specified distribution. This is far more efficient than a Grid search which systematically checks every single combination of the specified hyperparameter distribution.
+- *Cohen Kappa Score*: A statistical measure used to assess agreement between two classifiers when they categorize items into classes. In ML specifically, the Cohen Kappa Score is used to evaluate the agreement between predicted and actual labels in classification algorithms. It is measured on a scale from -1 to 1, where 1 represents perfect agreement in classifiers, 0 represents agreement being no better or worse than random chance, and -1 represents perfect disagreement.
+- *Random Forest Model*: An ensemble model used in prediction tasks. It combines multiple decision trees and aggregates their predictions to improve performance and reduce overfitting.
+- *Confusion Matrix*: Measures and visualizes the accuracy of a classification model. It breaks down raw numbers of correctly and incorrectly classified values.
+- *Classification Report*: A detailed evaluation of the prediction model. Includes: 
+    - *Precision*: The ratio of correctly predicted positive observations to the total predicted positives
+    - *Recall*: The ratio of correctly predicted positive observations to all observations
+    - *F1 score*: Mean of precision and recall
+    - *Support*: Number of observations
+
+Reference Machine Learning Metrics Table in Appendix for additional information.
