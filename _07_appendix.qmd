@@ -80,7 +80,7 @@ from ydata_profiling import ProfileReport
 ```
 
 ### Exploratory Data Analysis
-We have new dataset metro_1mil.csv. This file was generated using a SQL statement that joins all relevant tables, filtering for metropolitan areas with populations less than or equal to 1 million. This approach limits our EDA to mid-sized metropolitan cities, such as Portland, Oregon.
+We have a new dataset metro_1mil.csv. This file was generated using a SQL statement that joins all relevant tables, filtering for metropolitan areas with populations less than or equal to 1 million. This approach limits our EDA to mid-sized metropolitan cities, such as Portland, Oregon.
 
 ```{python}
 #| label: read-data
@@ -194,7 +194,7 @@ We ensure our DataFrame is sorted or specify the sortby parameter, setting tsmod
 The ydata-profiling identifies time-dependent features using autocorrelation analysis.  
 For recognized time series features, the histograms are replaced with line plots and feature details include new autocorrelation and partial autocorrelation plots.
 
-To handle Multi-Entity Time Series Data, In our case, with category_id, each pollutants represents a distinct time series.
+To handle Multi-Entity Time Series Data, in our case, with category_id, each pollutants represents a distinct time series.
 For optimal analysis, we filter and profile each pollutant separately
 
 ```{python}
@@ -249,7 +249,7 @@ df_aqi = df_aqi.set_index('date')
 ```
 
 ### Time Series Visualization in Portland
-#### Carbon Monoxyde (CO), Wind and Air Quality Index (AQI)
+#### Carbon Monoxide (CO), Wind and Air Quality Index (AQI)
 CO pollutant refers to carbon monoxide, which is a colorless, odorless, and tasteless gas that can be harmful to human health and the environment. Here's some key information about CO as a pollutant:
 
 Primarily produced by incomplete combustion of carbon-containing fuels
@@ -321,7 +321,7 @@ g.fig.suptitle('Mean Wind Knots, CO PPM, and AQI Resampled by Year, Month, and D
 plt.show()
 ```
 
-#### Nitrogen Dioxide (NO2), Sulfur Dioxyde (SO2) and Ozone (O₃)
+#### Nitrogen Dioxide (NO2), Sulfur Dioxide (SO2) and Ozone (O₃)
 NO2 (nitrogen dioxide) is an important air pollutant.
 - Reddish-brown gas with a pungent odor
 - Part of a group of pollutants known as nitrogen oxides (NOx)

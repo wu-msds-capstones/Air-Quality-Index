@@ -1,5 +1,5 @@
 # Machine Learning with Scikit-Learn
-Ultimately, we want to see which variables have the greatest impact on AQI. To do this we perform a machine learning analysis and create a prediction algorithm. As the AQI is defined by the four criteria gasses and particulate matter (PM10 and PM2.5), those should not be included in the algorithm. Thus we start with all the other variables.
+Ultimately, we want to see which variables have the greatest impact on AQI. To do this we perform a machine learning analysis and create a prediction algorithm. As the AQI is defined by the four criteria gasses and particulate matter (PM10 and PM2.5), those should not be included in the algorithm. Thus, we start with all the other variables.
 
 ```{python}
 #| echo: false
@@ -427,7 +427,7 @@ for model, label in zip([model1, model2, model3, model4], ['Tree', 'Random Fores
 display(pd.DataFrame(results))
 ```
 
-In pre testing, it was found that a Random Forest Model performed the best on this dataset. Therefore, this model type is used in all models.
+In pretesting, it was found that a Random Forest Model performed the best on this dataset. Therefore, this model type is used in all models.
 
 ```{python}
 #| include: false
@@ -462,7 +462,7 @@ ConfusionMatrixDisplay(
         ).plot(xticks_rotation='vertical')
 ```
 
-![Figure 8: Confusion Matrix For Original AQI Categories](https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/confusion_matrix_1.png?raw=true)
+![Figure 8: Confusion Matrix for Original AQI Categories](https://github.com/wu-msds-capstones/Air-Quality-Index/blob/main/images/confusion_matrix_1.png?raw=true)
 
 Looking only at Cohen Kappa score and accuracy, this seems like a good prediction model. However, the confusion matrix shows the data's skew, centered around the 0-100 range. Therefore, more bins and bin size combinations are tested in order to provide a more meaningful prediction.
 
@@ -722,7 +722,7 @@ Table 1 below shows the selected hyperparameters.
 ```{python}
 #| echo: false
 #| label: randsearch-get-params
-#| fig-cap: "Table 1: Selected Hyperparameters following hyperparamenter optimization"
+#| fig-cap: "Table 1: Selected Hyperparameters following hyperparameter optimization"
 random_search.best_params_
 #random_search.best_estimator_.get_params()
 params_df = pd.DataFrame(list(random_search.best_params_.items()), columns=['Parameter', 'Value'])
@@ -758,7 +758,7 @@ ConfusionMatrixDisplay(
 
 We can use this model for the prediction of AQI, exploring the features that predict it, and use that to generate conclusions for what variables or systems should be addressed.
 
-Below, table 2 shows a classification report of the model. Support represents the amount of data points total in that bin. We can see that AQI groups with more data tend to be more accurate (higher f1-score). This makes sense as the model has more of this data to train on. To make the model more accurate, more data from AQI values outside this 26-200 range will need to be collected.
+Below, table 2 shows a classification report of the model. Support represents the total number of data points in that bin. We can see that AQI groups with more data tend to be more accurate (higher f1-score). This makes sense as the model has more of this data to train on. To make the model more accurate, more data from AQI values outside this 26-200 range will need to be collected.
 
 ```{python}
 #| echo: false

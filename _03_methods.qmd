@@ -1,12 +1,12 @@
 # Methods
-Python will be the primary programming language used to conduct this analysis. We will also use R language in statistical applications. To perform our analysis, we will employ the NumPy and Pandas libraries for data manipulation, Matplotlib and Seaborn for visualization, and Time Series forecasting algorithms such as Prophet and SARIMAX. We will address data inconsistencies, missing values and ensure that data is in a tidy format. We may need to normalize or standardize data if necessary and create new features through aggregation to enhance the model’s performance.
+Python will be the primary programming language used to conduct this analysis. We will also use the R language in statistical applications. To perform our analysis, we will employ the NumPy and Pandas libraries for data manipulation, Matplotlib and Seaborn for visualization, and Time Series forecasting algorithms such as Prophet and SARIMAX. We will address data inconsistencies, missing values and ensure that data is in a tidy format. We may need to normalize or standardize data if necessary and create new features through aggregation to enhance the model’s performance.
 
 ## Prophet
 Prophet is an open-source forecasting tool developed by Meta, designed for forecasting time series data. It is suited for datasets with strong seasonal, monthly, weekly, or daily patterns, and it handles missing data and outliers well. We utilized prophet to gain a quick understanding of our AQI patterns, seeking to understand basic trends before conducting a more thorough analysis.
 
 Key features of Prophet include seasonality detection and holiday incorporation, while providing easy use and understanding for users. We can use this software to get complex understanding from simple applications.
 
-To conduct this analysis, we prepare data into a two column table, with columns date and AQI. Prophet uses the trends of past data to highlight similarities over days of the year, weeks, months, and seasons. From this, prophet is able to generate its predictions, cross validate, and give performance metrics such as mean absolute percentage error to quantify the accuracy of the results
+To conduct this analysis, we prepare data into a two-column table, with columns date and AQI. Prophet uses the trends of past data to highlight similarities over days of the year, weeks, months, and seasons. From this, prophet is able to generate its predictions, cross validate, and give performance metrics such as mean absolute percentage error to quantify the accuracy of the results
 
 ## SARIMAX​​
 The most common method used in time series forecasting is known as the ARIMA model. We will use an extended version called SARIMAX (*Seasonal Auto Regressive Integrated Moving Averages with exogenous factor*)
@@ -65,7 +65,7 @@ Hypothesis tests for significance are conducted to understand the significance o
 	- *95 Percent Confidence Interval*: Range in which the true difference in means is 95% likely to lie within.
 
 ## Machine Learning
-Machine learning is done in scikit-learn, an open source ML library built in Python. It is built on top of other common Python libraries such as NumPy, Pandas, and Matplotlib. The following tools are used:
+Machine learning is done in scikit-learn, an open-source ML library built in Python. It is built on top of other common Python libraries such as NumPy, Pandas, and Matplotlib. The following tools are used:
 
 - *One Hot Encoder*: Transforms categorical data into a binary matrix. Each category is represented as a vector where one element is tagged with a 1 and all others are tagged as 0. This is done for certain machine learning algorithms that require all discrete data.
 - *Standard Scaler*: Used to normalize or standardize numerical data. Certain machine learning algorithms are affected by unscaled data and therefore require normalized data.
@@ -73,7 +73,7 @@ Machine learning is done in scikit-learn, an open source ML library built in Pyt
 - *Pipeline*: Allows multiple functions in a series of steps that can include transformers and models. Incorporates chaining to supply the output of one step as the input of the next step.
 - *Feature Selection*: Chooses a subset of most relevant features, with the ability to specify how many features.
 - *Hyperparameter Optimization*: Selects the best set of hyperparameters in a model. These hyperparameters are set before training and control various aspects of the training process and model behavior. The optimization method used is a Randomized search. This evaluates a fixed number of random combinations from a specified distribution. This is far more efficient than a Grid search which systematically checks every single combination of the specified hyperparameter distribution.
-- *Cohen Kappa Score*: A statistical measure used to assess agreement between two classifiers when they categorize items into classes. In ML specifically, the Cohen Kappa Score is used to evaluate agreement between predicted and actual labels in classification algorithms. It is measured on a scale from -1 to 1, where 1 represents perfect agreement in classifiers, 0 represents agreement being no better or worse than random chance, and -1 represents perfect disagreement.
+- *Cohen Kappa Score*: A statistical measure used to assess agreement between two classifiers when they categorize items into classes. In ML specifically, the Cohen Kappa Score is used to evaluate the agreement between predicted and actual labels in classification algorithms. It is measured on a scale from -1 to 1, where 1 represents perfect agreement in classifiers, 0 represents agreement being no better or worse than random chance, and -1 represents perfect disagreement.
 - *Random Forest Model*: An ensemble model used in prediction tasks. It combines multiple decision trees and aggregates their predictions to improve performance and reduce overfitting.
 - *Confusion Matrix*: Measures and visualizes the accuracy of a classification model. It breaks down raw numbers of correctly and incorrectly classified values.
 - *Classification Report*: A detailed evaluation of the prediction model. Includes: 
